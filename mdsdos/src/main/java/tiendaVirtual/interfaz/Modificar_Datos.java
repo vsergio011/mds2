@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Modificar_Datos extends Modificar_general {
 	private Object _borrarCuentaB;

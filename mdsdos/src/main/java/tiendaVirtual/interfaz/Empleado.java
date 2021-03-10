@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Empleado {
 	private Object _nombreL;

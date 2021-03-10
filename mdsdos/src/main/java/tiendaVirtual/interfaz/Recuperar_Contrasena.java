@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Recuperar_Contrasena {
 	private Object _tituloL;

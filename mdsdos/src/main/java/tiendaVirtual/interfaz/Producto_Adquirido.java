@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Producto_Adquirido extends Producto_Pedido {
 	private Object _comentarB;

@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Login_Cibernauta {
 	private Object _nombreUsuarioL;

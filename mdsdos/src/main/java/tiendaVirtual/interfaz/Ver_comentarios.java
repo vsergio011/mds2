@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Ver_comentarios {
 	private Object _titutloL;

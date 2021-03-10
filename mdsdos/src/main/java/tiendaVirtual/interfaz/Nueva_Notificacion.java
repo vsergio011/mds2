@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Nueva_Notificacion {
-	private event _enviar_Notificacion;
+	// private event _enviar_Notificacion;
 	private Object _tituloL;
 	private Object _asuntoL;
 	private Object _asuntoTF;

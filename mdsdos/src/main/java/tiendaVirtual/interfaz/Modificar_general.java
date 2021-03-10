@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Modificar_general {
-	private event _cambiar_Imagen_de_Perfil;
+	// private event _cambiar_Imagen_de_Perfil;
 	private Object _imagen;
 	private Object _aceptarB;
 	private Object _cancelarB;

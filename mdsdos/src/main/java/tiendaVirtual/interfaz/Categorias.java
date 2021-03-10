@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Categorias extends Listado_de_Productos {
 	public Cabecera_Pagina _cabecera;

@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Elemento_Pedido__Encargado_;
+// import interfaz.Elemento_Pedido__Encargado_;
 
 public class Listado_de_Compras__Encargado_ extends Listado_de_Compras {
 	public Encargado _encargado;

@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Modificar_Producto extends Alta_Producto {
-	private event _borrar_Producto;
+	//private event _borrar_Producto;
 	private Object _idProductoL;
 	public Detalle_Producto_Admin _detalle;
 

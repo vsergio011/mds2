@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Producto_Admin;
+// import interfaz.Producto_Admin;
 
 public class Lista_Ofertas extends Ofertas_Populares {
 	public Administrador _administrador;

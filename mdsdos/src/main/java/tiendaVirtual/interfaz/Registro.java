@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Registro {
 	private Object _datospersonalesL;
@@ -28,7 +28,7 @@ public class Registro {
 	public Login_Cibernauta _login;
 	public Carrito_no_Registrado _carrito;
 
-	public void Validar_contraseña() {
+	public void Validar_contrasena() {
 		throw new UnsupportedOperationException();
 	}
 }

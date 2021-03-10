@@ -1,8 +1,8 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Busqueda_de_Pedido;
-import interfaz.Elemento_Pedido;
+// import interfaz.Busqueda_de_Pedido;
+// import interfaz.Elemento_Pedido;
 
 public class Listado_de_Compras {
 	private Object _buscarTF;

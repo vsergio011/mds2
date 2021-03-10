@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Producto_Adquirido;
+// import interfaz.Producto_Adquirido;
 
 public class Productos_Adquiridos {
 	public Compra _compra;

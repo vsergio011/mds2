@@ -1,8 +1,8 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Producto_Ciber;
-import interfaz.Cabecera_Ofertas;
+// import interfaz.Producto_Ciber;
+// import interfaz.Cabecera_Ofertas;
 
 public class Ofertas_Populares {
 	private Object _tituloL;

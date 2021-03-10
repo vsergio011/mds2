@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Poner_nueva_contrasena {
 	private Object _tituloL;

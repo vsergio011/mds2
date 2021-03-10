@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Compra {
-	private event _cancelar_Pedido;
+	// private event _cancelar_Pedido;
 	public Compras _compras;
 	public Datos_Compra _datosCompra;
 	public Productos_Adquiridos _productosAdquiridos;

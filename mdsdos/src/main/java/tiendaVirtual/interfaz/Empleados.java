@@ -1,9 +1,9 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Titulo_Empleados;
-import interfaz.Buscar_Empleados;
-import interfaz.Empleado;
+// import interfaz.Titulo_Empleados;
+// import interfaz.Buscar_Empleados;
+// import interfaz.Empleado;
 
 public class Empleados {
 	private Object _titutloL;

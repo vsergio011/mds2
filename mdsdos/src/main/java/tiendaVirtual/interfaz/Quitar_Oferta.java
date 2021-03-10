@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Quitar_Oferta {
 	private Object _tituloL;

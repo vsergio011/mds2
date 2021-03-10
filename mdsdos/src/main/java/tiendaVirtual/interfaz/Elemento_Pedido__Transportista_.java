@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Elemento_Pedido__Transportista_ extends Elemento_Pedido {
 	private Object _logo;

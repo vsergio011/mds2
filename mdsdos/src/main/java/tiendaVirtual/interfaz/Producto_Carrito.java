@@ -1,8 +1,8 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Producto_Carrito extends Producto_Pedido {
-	private event _quitar_de_Lista;
-	private event _cantidad;
+	// private event _quitar_de_Lista;
+	// private event _cantidad;
 	public Carrito_de_la_compra _productos;
 
 	public void Quitar_de_Lista() {

@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Ver_Comentarios_Ciber extends Ver_comentarios {
 	private Object _addCarritoB;
 	public Detalle_Producto_Ciber _detalleProducto;
-	public Añadir_a_Carrito _añadirACarrito;
+	// public Aï¿½adir_a_Carrito _aï¿½adirACarrito;
 }

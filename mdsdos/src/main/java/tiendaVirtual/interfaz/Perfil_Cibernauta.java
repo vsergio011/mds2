@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Perfil_Cibernauta extends Perfil {
-	private event _borrar_cuenta;
+	// private event _borrar_cuenta;
 	private Object _comprasB;
 	private Object _contactoB;
 	private Object _borrarCuentaB;

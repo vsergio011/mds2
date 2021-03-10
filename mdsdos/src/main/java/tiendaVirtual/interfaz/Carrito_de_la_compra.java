@@ -1,8 +1,8 @@
 package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Cabecera_Carrito;
-import interfaz.Producto_Carrito;
+//import interfaz.Cabecera_Carrito;
+//import interfaz.Producto_Carrito;
 
 public class Carrito_de_la_compra {
 	private Object _tituloL;

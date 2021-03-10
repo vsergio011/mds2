@@ -1,8 +1,8 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Notificacion;
-import interfaz.Titulo_Mensajes;
+// import interfaz.Notificacion;
+// import interfaz.Titulo_Mensajes;
 
 public class Notificaciones {
 	private Object _tituloL;

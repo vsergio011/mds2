@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Carrito_no_Registrado extends Carrito {
 	private Object _registrarseB;

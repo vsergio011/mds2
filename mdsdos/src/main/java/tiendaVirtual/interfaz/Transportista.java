@@ -1,8 +1,8 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
-import basededatos.iTransportista;
+// import basededatos.iTransportista;
 
 public class Transportista {
-	public iTransportista _iTransportista;
+	// public iTransportista _iTransportista;
 	public Listado_de_Compras__Transportista_ _compras;
 }

@@ -1,9 +1,9 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
-import basededatos.iCibernauta;
+// import basededatos.iCibernauta;
 
 public class Cibernauta {
-	public iCibernauta _iCibernauta;
+	// public iCibernauta _iCibernauta;
 	public Productos_mas_vendidos _productosMasVendidos;
 	public Ofertas_Populares _ofertasPopulares;
 }

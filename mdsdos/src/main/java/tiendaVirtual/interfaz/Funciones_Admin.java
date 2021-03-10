@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Funciones_Admin {
 	private Object _tituloL;

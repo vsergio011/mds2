@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 import java.util.Vector;
-import interfaz.Lista_de_Productos;
+// import interfaz.Lista_de_Productos;
 
 public class Productos_mas_vendidos {
 	public Cibernauta _cibernauta;

@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Detalle_Producto {
 	private Object _titutloL;

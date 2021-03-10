@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Producto_Admin extends Producto {
 	private Object _addOfertaB;

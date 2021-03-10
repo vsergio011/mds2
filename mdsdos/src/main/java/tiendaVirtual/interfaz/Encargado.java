@@ -1,10 +1,10 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
-import basededatos.iEncargado;
+// import basededatos.iEncargado;
 
 public class Encargado {
-	public iEncargado _iEncargado;
+	// public iEncargado _iEncargado;
 	public Cabecera_Encargado _cabecera;
-	public Selección_de_Compras _selecciónDeCompras;
+	public Seleccion_de_Compras _seleccionDeCompras;
 	public Listado_de_Compras__Encargado_ _listadoCompras;
 }

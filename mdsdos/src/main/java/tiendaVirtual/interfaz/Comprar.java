@@ -1,7 +1,7 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Comprar {
-	private event _realizar_Compra;
+	// private event _realizar_Compra;
 	private Object _resumenL;
 	private Object _totalProductosL;
 	private Object _precioL;

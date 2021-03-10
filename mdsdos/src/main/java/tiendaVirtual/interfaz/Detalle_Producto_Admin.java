@@ -1,4 +1,4 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
 public class Detalle_Producto_Admin extends Detalle_Producto {
 	private Object _modificarB;

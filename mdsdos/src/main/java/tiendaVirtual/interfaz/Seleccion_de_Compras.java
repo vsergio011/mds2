@@ -1,6 +1,6 @@
-package interfaz;
+package tiendaVirtual.interfaz;
 
-public class Selección_de_Compras {
+public class Seleccion_de_Compras {
 	public Encargado _encargado;
 	public Nuevos _nuevos;
 	public Enviados _enviados;
