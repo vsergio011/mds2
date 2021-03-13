@@ -12,13 +12,14 @@ class VistaAgregaroferta extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width:100%;
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
  <vaadin-vertical-layout theme="spacing" style="width: 40%; height: 40%; align-items: center; align-self: center; margin-top: 10%; border:solid; padding-top: var(--lumo-space-xl); padding: var(--lumo-space-xl); padding-left: 10%;">
   <vaadin-vertical-layout theme="spacing" style="align-self: flex-start; align-items: flex-start;">
    <label style="font-weight: bold;">Añadir producto a oferta</label>
-   <label>ID:1233423213</label>
+   <label>ID:243534454434</label>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="flex-grow: 0; align-self: flex-start;">
    <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: space-between;">
@@ -35,10 +36,10 @@ class VistaAgregaroferta extends PolymerElement {
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center; height: 100%; justify-content: space-between; align-items: center;">
     <vaadin-button>
-     Cancelar
+      Cancelar 
     </vaadin-button>
     <vaadin-button>
-     Aceptar
+      Aceptar 
     </vaadin-button>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
