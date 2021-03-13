@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Cabecera_Pagina {
+import vistas.VistaCabecerapagina;
+
+public class Cabecera_Pagina extends VistaCabecerapagina {
 	private Object _logo;
 	private Object _ofertasL;
 	private Object _ofertasB;
@@ -9,4 +11,8 @@ public class Cabecera_Pagina {
 	public Buscar _buscar;
 	public Categorias _categorias;
 	public Ofertas _ofertas;
+	
+	public Cabecera_Pagina() {
+		
+	}
 }

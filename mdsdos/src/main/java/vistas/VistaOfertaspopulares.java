@@ -16,7 +16,10 @@ import com.vaadin.flow.component.polymertemplate.Id;
 @Tag("vista-ofertaspopulares")
 @JsModule("./src/vista-ofertaspopulares.js")
 public class VistaOfertaspopulares extends PolymerTemplate<VistaOfertaspopulares.VistaOfertaspopularesModel> {
-
+	
+	@Id("vaadinHorizontalLayout")
+    private Element vaadinHorizontalLayout;
+	 
     /**
      * Creates a new VistaOfertaspopulares.
      */
@@ -30,4 +33,12 @@ public class VistaOfertaspopulares extends PolymerTemplate<VistaOfertaspopulares
     public interface VistaOfertaspopularesModel extends TemplateModel {
         // Add setters and getters for template properties here.
     }
+    
+    public Element getVaadinHorizontalLayout() {
+		return vaadinHorizontalLayout;
+	}
+
+	public void setVaadinHorizontalLayout(Element vaadinVerticalLayout) {
+		this.vaadinHorizontalLayout = vaadinHorizontalLayout;
+	}
 }

@@ -10,7 +10,8 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
-import vistas.VistaAgregaroferta;
+import tiendaVirtual.interfaz.Cabecera_Pagina;
+import tiendaVirtual.interfaz.Cibernauta;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -42,9 +43,9 @@ public class MainView extends VerticalLayout {
      *
      * @param service The message service. Automatically injected Spring managed bean.
      */
-    public MainView(@Autowired GreetService service) {
+    public MainView() {
 
-    	VistaAgregaroferta vao = new VistaAgregaroferta();
+    	Cibernauta vao = new Cibernauta();
     	add(vao);
     	
     }

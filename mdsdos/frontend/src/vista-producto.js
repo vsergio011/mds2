@@ -1,8 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
-class VistaOfertaspopulares extends PolymerElement {
+class VistaProducto extends PolymerElement {
 
     static get template() {
         return html`
@@ -10,18 +9,18 @@ class VistaOfertaspopulares extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
-        			width: 100%
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-m);">
- <label style="align-self: center;">Ofertas</label>
- <vaadin-horizontal-layout id='vaadinHorizontalLayout' theme="spacing" style="width: 100%; height: 100%;"></vaadin-horizontal-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%;">
+ <vaadin-vertical-layout theme="spacing" style="border:solid">
+  <img src="https://freepngimg.com/thumb/coke/8-2-coca-cola-png-picture.png">
+ </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
     }
 
     static get is() {
-        return 'vista-ofertaspopulares';
+        return 'vista-producto';
     }
 
     static get properties() {
@@ -31,4 +30,4 @@ class VistaOfertaspopulares extends PolymerElement {
     }
 }
 
-customElements.define(VistaOfertaspopulares.is, VistaOfertaspopulares);
+customElements.define(VistaProducto.is, VistaProducto);
