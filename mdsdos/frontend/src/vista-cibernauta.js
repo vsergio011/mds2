@@ -1,5 +1,4 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import './vista-cabecerapagina.js';
 
 class VistaCibernauta extends PolymerElement {
 
@@ -12,7 +11,7 @@ class VistaCibernauta extends PolymerElement {
         			width : 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;" id="vaadinVerticalLayout"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="justify-content: center; height: 100%; width: 100%; flex-direction: column;" id="vaadinVerticalLayout"></vaadin-vertical-layout>
 `;
         
     }

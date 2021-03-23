@@ -1,6 +1,14 @@
 package tiendaVirtual.interfaz;
 
-public class Recuperar_Contrasena {
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
+import vistas.VistaCambiocontrasenapaso1;
+import vistas.VistaRecuperarcontrasena;
+
+public class Recuperar_Contrasena extends VistaCambiocontrasenapaso1 {
 	private Object _tituloL;
 	private Object _instruccionesL;
 	private Object _correoTF;
@@ -10,5 +18,19 @@ public class Recuperar_Contrasena {
 
 	public void Enviar_Link() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Recuperar_Contrasena() {
+		VerticalLayout layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		
+		_nuevaContrasena = new Poner_nueva_contrasena();
+		
+		this.getSendBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_nuevaContrasena);
+			}
+		});
 	}
 }

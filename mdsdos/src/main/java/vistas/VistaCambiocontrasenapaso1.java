@@ -4,6 +4,9 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-cambiocontrasenapaso1 template.
@@ -15,7 +18,28 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-cambiocontrasenapaso1.js")
 public class VistaCambiocontrasenapaso1 extends PolymerTemplate<VistaCambiocontrasenapaso1.VistaCambiocontrasenapaso1Model> {
 
-    /**
+    @Id("sendBtn")
+	private Button sendBtn;
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	@Id("vaadinVerticalLayout")
+	private Element vaadinVerticalLayout;
+
+	public Button getSendBtn() {
+		return sendBtn;
+	}
+
+	public void setSendBtn(Button sendBtn) {
+		this.sendBtn = sendBtn;
+	}
+
+	/**
      * Creates a new VistaCambiocontrasenapaso1.
      */
     public VistaCambiocontrasenapaso1() {

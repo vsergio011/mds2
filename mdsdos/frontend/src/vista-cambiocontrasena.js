@@ -12,19 +12,20 @@ class VistaCambiocontrasena extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;" id="vaadinVerticalLayout">
  <vaadin-vertical-layout theme="spacing" style="width: 40%; height: 40%; align-self: center; justify-content: center; padding: var(--lumo-space-l);">
   <label style="font-weight: bold; align-self: center; margin: var(--lumo-space-s);">Cambio de contraseña</label>
-  <vaadin-password-field label="Nueva contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value></vaadin-password-field>
-  <vaadin-password-field label="Repetir contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value></vaadin-password-field>
+  <vaadin-password-field label="Nueva contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value id="inputNewPassword"></vaadin-password-field>
+  <vaadin-password-field label="Repetir contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value id="inputRepeatNewPassword"></vaadin-password-field>
   <vaadin-horizontal-layout theme="" style="width: 80%; align-self: center; justify-content: space-between;">
-   <vaadin-button>
-    Continuar 
+   <vaadin-button id="continueBtn">
+     Continuar 
    </vaadin-button>
-   <vaadin-button>
-    Cancelar
+   <vaadin-button id="cancelBtn">
+     Cancelar 
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>

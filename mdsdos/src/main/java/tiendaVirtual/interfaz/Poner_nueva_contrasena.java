@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Poner_nueva_contrasena {
+import vistas.VistaCambiocontrasena;
+
+public class Poner_nueva_contrasena extends VistaCambiocontrasena {
 	private Object _tituloL;
 	private Object _passwordTF;
 	private Object _repetirPasswordTF;
@@ -12,5 +14,10 @@ public class Poner_nueva_contrasena {
 
 	public void Validar_contrasena() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Poner_nueva_contrasena() {
+		// TODO: ¿Ésta vista es la correcta al inicio de recuperar contraseña? ¿A donde lleva?
+		// TODO: Investigar el botón cancelar como hacerle la funcionalidad y a donde debería redirigir.
 	}
 }

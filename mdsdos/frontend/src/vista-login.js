@@ -13,22 +13,23 @@ class VistaLogin extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center; padding: var(--lumo-space-xl);">
- <vaadin-vertical-layout theme="spacing" style="width: 60%; height: 60%; align-self: center; flex-direction: column; justify-content: center; border:solid; align-items: center; flex-grow: 1; flex-shrink: 0;">
+<vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout">
+ <vaadin-vertical-layout style="width: 100%; height: 100%; align-self: center; flex-direction: column; justify-content: center; align-items: center;" id="vaadinVerticalLayout1">
   <vaadin-text-field label="Nombre de usuario" placeholder="Placeholder"></vaadin-text-field>
   <vaadin-password-field label="Contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value></vaadin-password-field>
   <vaadin-horizontal-layout theme="spacing">
-   <vaadin-button>
-    Registrarse
+   <vaadin-button id="registerBtn">
+     Registrarse 
    </vaadin-button>
-   <vaadin-button>
-    Entrar 
+   <vaadin-button id="loginBtn">
+     Entrar 
    </vaadin-button>
   </vaadin-horizontal-layout>
-  <vaadin-button>
-   Recuperar contraseña
+  <vaadin-button id="resetPasswordBtn">
+    Recuperar contraseña 
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

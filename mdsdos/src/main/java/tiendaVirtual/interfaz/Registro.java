@@ -1,6 +1,15 @@
 package tiendaVirtual.interfaz;
 
-public class Registro {
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
+import vistas.VistaRegistro;
+
+public class Registro extends VistaRegistro {
 	private Object _datospersonalesL;
 	private Object _nombreUsuarioL;
 	private Object _nombreUsuarioTF;
@@ -30,5 +39,20 @@ public class Registro {
 
 	public void Validar_contrasena() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Registro() {
+		HorizontalLayout layout = this.getVaadinHorizontalLayout();
+		
+		_carrito = new Carrito_no_Registrado();
+		
+		this.getCancelBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				// TODO: Investigar como se hace el back a la vista anterior o el main.
+				// TODO: ¿Cómo le damos funcionalidad al botón login de la cabecera?
+			}
+		});
 	}
 }

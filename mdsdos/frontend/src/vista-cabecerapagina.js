@@ -18,7 +18,7 @@ class VistaCabecerapagina extends PolymerElement {
         			width: 100%
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 10%; padding: var(--lumo-space-m); justify-content: flex-start;" theme="spacing">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 10%; padding: var(--lumo-space-m); justify-content: flex-start;" theme="spacing" id="vaadinHorizontalLayout">
  <img src="https://image.freepik.com/free-vector/online-shopping-logo-design-template_130382-9.jpg" style="width: 70px; height: 70px; flex-grow: 0; flex-shrink: 0; align-self: center;">
  <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%;">
   <vaadin-select value="Item one">
@@ -36,17 +36,17 @@ class VistaCabecerapagina extends PolymerElement {
     </vaadin-list-box>
    </template>
   </vaadin-select>
-  <vaadin-button>
+  <vaadin-button id="vaadinButton">
     Button 
   </vaadin-button>
-  <vaadin-text-field placeholder="Search" style="width: 45%;">
+  <vaadin-text-field placeholder="Search" style="width: 45%;" id="inputSearch">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
   </vaadin-text-field>
-  <vaadin-button>
-   Login 
+  <vaadin-button id="btnLogin">
+    Login 
   </vaadin-button>
-  <vaadin-button>
-   Carrito
+  <vaadin-button id="btnCarrito">
+    Carrito 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-horizontal-layout>

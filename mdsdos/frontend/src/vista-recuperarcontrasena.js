@@ -11,6 +11,7 @@ class VistaRecuperarcontrasena extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
@@ -18,9 +19,9 @@ class VistaRecuperarcontrasena extends PolymerElement {
   <label style="font-weight: bold; align-self: flex-start;">Recuperacion de contraseña </label>
   <label style="align-self: flex-start; font-size: 13px; flex-grow: 0; width: 85%;">Introduzca su direccion de correo electronico para proceder a la recuperacion de su contraseña </label>
   <vaadin-horizontal-layout theme="" style="width: 100%;">
-   <label style="width: 60%; align-self: center;">Direccion de correo </label>
-   <vaadin-button>
-    Continuar 
+   <input type="text" id="emailInput">
+   <vaadin-button id="continueBtn">
+     Continuar 
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>

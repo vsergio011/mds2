@@ -1,5 +1,9 @@
 package tiendaVirtual.interfaz;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+
 import vistas.VistaCabecerapagina;
 
 public class Cabecera_Pagina extends VistaCabecerapagina {
