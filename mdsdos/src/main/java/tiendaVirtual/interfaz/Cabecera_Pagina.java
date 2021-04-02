@@ -17,6 +17,6 @@ public class Cabecera_Pagina extends VistaCabecerapagina {
 	public Ofertas _ofertas;
 	
 	public Cabecera_Pagina() {
-		
+	
 	}
 }

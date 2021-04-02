@@ -4,6 +4,10 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-producto template.
@@ -15,7 +19,30 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-producto.js")
 public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoModel> {
 
-    /**
+    public Button getMoreInfoBtn() {
+		return moreInfoBtn;
+	}
+
+	public Label getProductLbl() {
+		return productLbl;
+	}
+
+	public Image getImgProducto() {
+		return imgProducto;
+	}
+
+	public void setImgProducto(Image imgProducto) {
+		this.imgProducto = imgProducto;
+	}
+
+	@Id("imgProducto")
+	private Image imgProducto;
+	@Id("moreInfoBtn")
+	private Button moreInfoBtn;
+	@Id("productLbl")
+	private Label productLbl;
+
+	/**
      * Creates a new VistaProducto.
      */
     public VistaProducto() {

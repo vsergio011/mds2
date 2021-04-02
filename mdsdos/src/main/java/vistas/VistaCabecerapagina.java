@@ -8,6 +8,9 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.combobox.ComboBox;
 
 /**
  * A Designer generated component for the vista-cabecerapagina template.
@@ -21,12 +24,33 @@ public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.Vis
 
     @Id("btnLogin")
 	private Button btnLogin;
-	@Id("inputSearch")
+
+	public ComboBox<String> getCategoriesCombo() {
+		return categoriesCombo;
+	}
+
+	public void setCategoriesCombo(ComboBox<String> categoriesCombo) {
+		this.categoriesCombo = categoriesCombo;
+	}
+
+	public Button getOfferBtn() {
+		return offerBtn;
+	}
+
+	public void setOfferBtn(Button offerBtn) {
+		this.offerBtn = offerBtn;
+	}
+
+	@Id("searchInput")
 	private TextField inputSearch;
 	@Id("btnCarrito")
 	private Button btnCarrito;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("offerBtn")
+	private Button offerBtn;
+	@Id("categoriesCombo")
+	private ComboBox<String> categoriesCombo;
 	public Button getBtnLogin() {
 		return btnLogin;
 	}

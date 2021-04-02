@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Carrito {
+import vistas.VistaCarrito;
+
+public class Carrito extends VistaCarrito {
 	private Object _precioL;
 	public Carrito_de_la_compra _productos;
 

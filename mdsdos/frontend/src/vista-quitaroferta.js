@@ -4,7 +4,7 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-date-picker/src/vaadin-date-picker.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
-class VistaAgregaroferta extends PolymerElement {
+class VistaQuitaroferta extends PolymerElement {
 
     static get template() {
         return html`
@@ -49,7 +49,7 @@ class VistaAgregaroferta extends PolymerElement {
     }
 
     static get is() {
-        return 'vista-agregaroferta';
+        return 'vista-quitaroferta';
     }
 
     static get properties() {
@@ -59,4 +59,4 @@ class VistaAgregaroferta extends PolymerElement {
     }
 }
 
-customElements.define(VistaAgregaroferta.is, VistaAgregaroferta);
+customElements.define(VistaQuitaroferta.is, VistaQuitaroferta);

@@ -1,7 +1,6 @@
 package tiendaVirtual.interfaz;
 
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -15,6 +14,14 @@ public class Cabecera_Cibernauta extends Cabecera_Pagina {
 	public Login_Cibernauta _login;
 
 	public Cabecera_Cibernauta() {
-		// TODO: ¿Debería ir aquí la funcionalidad del botón login?
+		_login = new Login_Cibernauta();
+		_carrito = new Carrito_no_Registrado();
+		
+		// TODO: Sustituir los valores por los de la BD.
+		this.getCategoriesCombo().setItems("foo", "bar", "baz");
+	}
+	
+	private void closeView() {
+		this.setVisible(false);
 	}
 }

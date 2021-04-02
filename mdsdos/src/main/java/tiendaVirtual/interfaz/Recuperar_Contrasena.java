@@ -21,16 +21,6 @@ public class Recuperar_Contrasena extends VistaCambiocontrasenapaso1 {
 	}
 	
 	public Recuperar_Contrasena() {
-		VerticalLayout layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		
 		_nuevaContrasena = new Poner_nueva_contrasena();
-		
-		this.getSendBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				layout.removeAll();
-				layout.add(_nuevaContrasena);
-			}
-		});
 	}
 }

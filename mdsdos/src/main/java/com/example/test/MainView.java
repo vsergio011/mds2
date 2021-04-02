@@ -12,6 +12,7 @@ import com.vaadin.flow.server.PWA;
 
 import tiendaVirtual.interfaz.Cabecera_Pagina;
 import tiendaVirtual.interfaz.Cibernauta;
+import tiendaVirtual.interfaz.Cibernauta_no_Registrado;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -45,9 +46,10 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
 
-    	Cibernauta vao = new Cibernauta();
+    	Cibernauta_no_Registrado vao = new Cibernauta_no_Registrado();
     	add(vao);
     	
+    	// TODO: Controlar aqui el login.
     }
 
 }

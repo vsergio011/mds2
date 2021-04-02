@@ -17,7 +17,6 @@ public class Poner_nueva_contrasena extends VistaCambiocontrasena {
 	}
 	
 	public Poner_nueva_contrasena() {
-		// TODO: ¿Ésta vista es la correcta al inicio de recuperar contraseña? ¿A donde lleva?
-		// TODO: Investigar el botón cancelar como hacerle la funcionalidad y a donde debería redirigir.
+		
 	}
 }

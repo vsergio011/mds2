@@ -30,6 +30,46 @@ public class VistaCambiocontrasena extends PolymerTemplate<VistaCambiocontrasena
 	@Id("inputRepeatNewPassword")
 	private PasswordField inputRepeatNewPassword;
 
+	public Button getContinueBtn() {
+		return continueBtn;
+	}
+
+	public void setContinueBtn(Button continueBtn) {
+		this.continueBtn = continueBtn;
+	}
+
+	public Button getCancelBtn() {
+		return cancelBtn;
+	}
+
+	public void setCancelBtn(Button cancelBtn) {
+		this.cancelBtn = cancelBtn;
+	}
+
+	public Element getVaadinVerticalLayout() {
+		return vaadinVerticalLayout;
+	}
+
+	public void setVaadinVerticalLayout(Element vaadinVerticalLayout) {
+		this.vaadinVerticalLayout = vaadinVerticalLayout;
+	}
+
+	public PasswordField getInputNewPassword() {
+		return inputNewPassword;
+	}
+
+	public void setInputNewPassword(PasswordField inputNewPassword) {
+		this.inputNewPassword = inputNewPassword;
+	}
+
+	public PasswordField getInputRepeatNewPassword() {
+		return inputRepeatNewPassword;
+	}
+
+	public void setInputRepeatNewPassword(PasswordField inputRepeatNewPassword) {
+		this.inputRepeatNewPassword = inputRepeatNewPassword;
+	}
+
 	/**
      * Creates a new VistaCambiocontrasena.
      */

@@ -41,18 +41,7 @@ public class Registro extends VistaRegistro {
 		throw new UnsupportedOperationException();
 	}
 	
-	public Registro() {
-		HorizontalLayout layout = this.getVaadinHorizontalLayout();
-		
+	public Registro() {		
 		_carrito = new Carrito_no_Registrado();
-		
-		this.getCancelBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				layout.removeAll();
-				// TODO: Investigar como se hace el back a la vista anterior o el main.
-				// TODO: ¿Cómo le damos funcionalidad al botón login de la cabecera?
-			}
-		});
 	}
 }
