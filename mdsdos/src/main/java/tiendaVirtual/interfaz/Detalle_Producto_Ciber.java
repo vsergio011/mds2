@@ -5,4 +5,8 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 	public Producto_Ciber _producto;
 	public Anadir_a_Carrito _anadirACarrito;
 	public Ver_Comentarios_Ciber _verComentarios;
+	
+	public Detalle_Producto_Ciber() {
+		_verComentarios = new Ver_Comentarios_Ciber();
+	}
 }

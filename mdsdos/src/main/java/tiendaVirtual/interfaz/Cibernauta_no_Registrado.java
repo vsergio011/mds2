@@ -4,6 +4,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 // import basededatos.iCibernauta_no_Registrado;
@@ -23,10 +24,63 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		layout.add(_ofertasPopulares);
 		layout.add(_productosMasVendidos);
 		
+		// TODO: Que pasa si añadimos productos al carrito siendo usuario no registrado???
+		// TODO: Como guardamos esos productos en la BD??????
+		
+		/**************************************************************************/
+		/********* Datos y botones de la vista productos mas vendidos *************/
+		/**************************************************************************/
+		for (Lista_de_Productos ldp: _productosMasVendidos._listaProductos)
+		{
+			VerticalLayout vl = _productosMasVendidos.getVaadinVerticalLayout().as(VerticalLayout.class);
+			vl.add(ldp);
+			for (Producto_Ciber pc: ldp._producto)
+			{
+				pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(pc._detalleProducto);
+						
+						pc._detalleProducto.getDeleteBtn().setVisible(false);
+						pc._detalleProducto.getAddOfferBtn().setVisible(false);
+						pc._detalleProducto.getUpdateBtn().setVisible(false);
+						
+						// TODO: Falta el boton de añadir a carrito.
+						
+						pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								
+								// TODO: Hacer mejor lo de los comentarios.
+								layout.add(pc._detalleProducto._verComentarios);
+								
+								// TODO: Funcionalidad de añadir a carrito.
+								
+								pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+									@Override
+									public void onComponentEvent(ClickEvent<Button> event) {
+										layout.removeAll();
+										layout.add(_cabecera);
+										layout.add(pc._detalleProducto);
+									}
+								});
+							}
+						});
+					}
+				});
+				
+				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
+				hl.add(pc);
+			}
+		}
+		
 		/**************************************************************************/
 		/************************ Botones de la cabecera **************************/
 		/**************************************************************************/
-		
 		_cabecera.getBtnLogin().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -47,7 +101,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		/**************************************************************************/
 		/********************* Botones de la vista de login ***********************/
 		/**************************************************************************/
-		
 		_cabecera._login.getResetPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {

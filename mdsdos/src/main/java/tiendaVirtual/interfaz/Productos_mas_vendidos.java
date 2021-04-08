@@ -13,9 +13,11 @@ public class Productos_mas_vendidos extends VistaProductosmasvendidos{
 	public Vector<Lista_de_Productos> _listaProductos = new Vector<Lista_de_Productos>();
 	
 	public Productos_mas_vendidos() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		// VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		for(int i = 0 ; i<3; i++) {
+		// TODO: Creo que esto hay que hacerlo de otra forma.
+		// TODO: Rellenar con datos de verdad.
+		/* for(int i = 0 ; i<3; i++) {
 			Lista_de_Productos ldp = new Lista_de_Productos();
 			ldp.getLabel().setText("Category "+(i+1));
 			vl.add(ldp);
@@ -25,6 +27,12 @@ public class Productos_mas_vendidos extends VistaProductosmasvendidos{
 				Producto p= new Producto();
 				hl.add(p);
 			}
+		}*/
+		
+		for(int i = 0 ; i<3; i++) {
+			Lista_de_Productos ldp = new Lista_de_Productos();
+			ldp.getLabel().setText("Category "+(i+1));
+			_listaProductos.add(ldp);
 		}
 	}
 }

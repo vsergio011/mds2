@@ -7,4 +7,8 @@ public class Producto_Ciber extends Producto {
 	public Listado_de_Productos _listadoProductos;
 	public Anadir_a_Carrito _anadirACarrito;
 	public Detalle_Producto_Ciber _detalleProducto;
+	
+	public Producto_Ciber() {
+		_detalleProducto = new Detalle_Producto_Ciber();
+	}
 }

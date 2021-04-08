@@ -1,5 +1,7 @@
 package com.example.test;
 
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -12,6 +14,7 @@ import com.vaadin.flow.server.PWA;
 
 import tiendaVirtual.interfaz.Cabecera_Pagina;
 import tiendaVirtual.interfaz.Cibernauta;
+import tiendaVirtual.interfaz.Cibernauta_Registrado;
 import tiendaVirtual.interfaz.Cibernauta_no_Registrado;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +48,33 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-
-    	Cibernauta_no_Registrado vao = new Cibernauta_no_Registrado();
-    	add(vao);
+    	Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
+    	Cibernauta_Registrado cr = new Cibernauta_Registrado();
+    	
+    	add(cnr);
+    	
+    	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				String user = "";
+				user = cnr._cabecera._login.getUsernameLbl().getValue();
+				
+				System.out.println("USER : " + user);
+				switch(user) {
+				case "admin":
+					break;
+				case "cibernauta":
+					break;
+				case "transportista":
+					break;
+				case "encargado":
+					break;
+				default:
+					System.out.println("NO DEBERIA ENTRAR AQUI.");
+				}
+			}
+		});
+    	
     	
     	// TODO: Controlar aqui el login.
     }

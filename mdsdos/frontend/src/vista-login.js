@@ -18,8 +18,8 @@ class VistaLogin extends PolymerElement {
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;" id="vaadinVerticalLayout">
  <vaadin-vertical-layout style="width: 100%; height: 100%; align-self: center; flex-direction: column; justify-content: center; align-items: center;" id="vaadinVerticalLayout1">
-  <vaadin-text-field label="Nombre de usuario" placeholder="Placeholder"></vaadin-text-field>
-  <vaadin-password-field label="Contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value></vaadin-password-field>
+  <vaadin-text-field label="Nombre de usuario" placeholder="Placeholder" id="usernameLbl"></vaadin-text-field>
+  <vaadin-password-field label="Contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value id="passwordLbl"></vaadin-password-field>
   <vaadin-horizontal-layout theme="spacing">
    <vaadin-button id="registerBtn">
      Registrarse 

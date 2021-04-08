@@ -7,6 +7,8 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.textfield.PasswordField;
 
 /**
  * A Designer generated component for the vista-login template.
@@ -28,6 +30,10 @@ public class VistaLogin extends PolymerTemplate<VistaLogin.VistaLoginModel> {
 	private Element vaadinVerticalLayout1;
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
+	@Id("usernameLbl")
+	private TextField usernameLbl;
+	@Id("passwordLbl")
+	private PasswordField passwordLbl;
 
 	public Button getResetPasswordBtn() {
 		return resetPasswordBtn;
@@ -39,6 +45,18 @@ public class VistaLogin extends PolymerTemplate<VistaLogin.VistaLoginModel> {
 
 	public Button getLoginBtn() {
 		return loginBtn;
+	}
+
+	public Element getVaadinVerticalLayout1() {
+		return vaadinVerticalLayout1;
+	}
+
+	public TextField getUsernameLbl() {
+		return usernameLbl;
+	}
+
+	public PasswordField getPasswordLbl() {
+		return passwordLbl;
 	}
 
 	public void setLoginBtn(Button loginBtn) {
