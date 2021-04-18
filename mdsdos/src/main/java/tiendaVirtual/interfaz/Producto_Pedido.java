@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Producto_Pedido {
+import vistas.VistaProductopedido;
+
+public class Producto_Pedido extends VistaProductopedido {
 	private Object _imagen;
 	private Object _nombreL;
 	private Object _descripcionL;

@@ -59,6 +59,12 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 								layout.add(pc._detalleProducto._verComentarios);
 								
 								// TODO: Funcionalidad de añadir a carrito.
+								pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+									@Override
+									public void onComponentEvent(ClickEvent<Button> event) {
+										
+									}
+								});
 								
 								pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 									@Override
@@ -68,6 +74,15 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 										layout.add(pc._detalleProducto);
 									}
 								});
+							}
+						});
+						
+						// Añadir a carrito.
+						pc._detalleProducto.getAnadirACarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								System.out.println("ENTRO ");
+								_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
 							}
 						});
 					}
@@ -95,6 +110,15 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._carrito);
+			}
+		});
+		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_ofertasPopulares);
+				layout.add(_productosMasVendidos);
 			}
 		});
 		
@@ -187,9 +211,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				layout.add(_cabecera._login._registro);
-				
-				// TODO: La vista de carrito falta añadirle la lista de productos.
+				layout.add(_cabecera._login);
 			}
 		});
 	}

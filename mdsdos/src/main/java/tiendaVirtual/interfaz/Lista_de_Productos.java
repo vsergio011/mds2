@@ -15,7 +15,7 @@ public class Lista_de_Productos extends VistaListadeproductos{
 	
 	public Lista_de_Productos()
 	{
-		// TODO: Rellenar con datos de verdad.
+		// TODO: Rellenar con datos de verdad y generar el ID.
 		for(int j = 0; j<3; j++) {
 			Producto_Ciber p= new Producto_Ciber();
 			_producto.add(p);

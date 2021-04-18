@@ -41,7 +41,5 @@ public class Registro extends VistaRegistro {
 		throw new UnsupportedOperationException();
 	}
 	
-	public Registro() {		
-		_carrito = new Carrito_no_Registrado();
-	}
+	public Registro() {}
 }

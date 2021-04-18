@@ -6,6 +6,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-carrito template.
@@ -17,15 +18,24 @@ import com.vaadin.flow.component.polymertemplate.Id;
 @JsModule("./src/vista-carrito.js")
 public class VistaCarrito extends PolymerTemplate<VistaCarrito.VistaCarritoModel> {
 
-    @Id("registerBtn")
+    public Element getProductosLayout() {
+		return productosLayout;
+	}
+
+	public Button getComprarBtn() {
+		return comprarBtn;
+	}
+
+	@Id("productosLayout")
+	private Element productosLayout;
+	@Id("comprarBtn")
+	private Button comprarBtn;
+	@Id("registerBtn")
 	private Button registerBtn;
+
 
 	public Button getRegisterBtn() {
 		return registerBtn;
-	}
-
-	public void setRegisterBtn(Button registerBtn) {
-		this.registerBtn = registerBtn;
 	}
 
 	/**

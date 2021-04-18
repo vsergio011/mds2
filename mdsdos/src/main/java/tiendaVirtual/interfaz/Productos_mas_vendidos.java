@@ -8,7 +8,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import vistas.VistaProductosmasvendidos;
 // import interfaz.Lista_de_Productos;
 
-public class Productos_mas_vendidos extends VistaProductosmasvendidos{
+public class Productos_mas_vendidos extends VistaProductosmasvendidos {
 	public Cibernauta _cibernauta;
 	public Vector<Lista_de_Productos> _listaProductos = new Vector<Lista_de_Productos>();
 	

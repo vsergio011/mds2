@@ -9,4 +9,15 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 	public Detalle_Producto_Ciber() {
 		_verComentarios = new Ver_Comentarios_Ciber();
 	}
+	
+	public Producto_Carrito GetProductocarrito() {
+		Producto_Carrito pc = new Producto_Carrito();
+		
+		pc.getImgProducto().setSrc(this.getImg().getSrc());
+		pc.getDescripProducLbl().setText(this.getDescriptionLabel().getText());
+		
+		// TODO: Añadir los valores que faltan.
+		
+		return pc;
+	}
 }

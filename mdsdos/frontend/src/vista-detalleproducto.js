@@ -42,6 +42,9 @@ class VistaDetalleproducto extends PolymerElement {
     <vaadin-button style="width: 50%;" id="viewComentsBtn">
       Ver comentarios 
     </vaadin-button>
+    <vaadin-button id="anadirACarritoBtn">
+     añadir a carrito
+    </vaadin-button>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
     <label style="width: 50%; align-self: flex-start;" id="priceLAbel">{Precio} €</label>

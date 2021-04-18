@@ -28,6 +28,10 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 		return img;
 	}
 
+	public Button getAnadirACarritoBtn() {
+		return anadirACarritoBtn;
+	}
+
 	public Label getDescriptionLabel() {
 		return descriptionLabel;
 	}
@@ -74,6 +78,8 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 	private Button deleteBtn;
 	@Id("addOfferBtn")
 	private Button addOfferBtn;
+	@Id("anadirACarritoBtn")
+	private Button anadirACarritoBtn;
 
 	/**
      * Creates a new VistaDetalleproducto.

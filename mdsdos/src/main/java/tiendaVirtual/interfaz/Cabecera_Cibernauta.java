@@ -20,8 +20,4 @@ public class Cabecera_Cibernauta extends Cabecera_Pagina {
 		// TODO: Sustituir los valores por los de la BD.
 		this.getCategoriesCombo().setItems("foo", "bar", "baz");
 	}
-	
-	private void closeView() {
-		this.setVisible(false);
-	}
 }
