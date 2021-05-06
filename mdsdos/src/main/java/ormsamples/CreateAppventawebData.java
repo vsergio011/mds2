@@ -1,71 +1,129 @@
 /**
- * Licensee: University of Almeria
+ * Licensee: antonioofdzj(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
 
+import java.util.List;
+
 import org.orm.*;
+
+import appventawebbd.AppventawebPersistentManager;
+import appventawebbd.Categoria;
+import appventawebbd.CategoriaDAO;
 public class CreateAppventawebData {
 	public void createTestData() throws PersistentException {
-		PersistentTransaction t = Diagrama_BD.AppventawebPersistentManager.instance().getSession().beginTransaction();
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Diagrama_BD.Usuario diagrama_BDUsuario = Diagrama_BD.Usuario.createUsuario();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : mensajesRecibidos, mensajesEnviados, operativo
-			diagrama_BDUsuario.save();
-			Diagrama_BD.Pedido diagrama_BDPedido = Diagrama_BD.Pedido.createPedido();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : items, total, cibernauta
-			diagrama_BDPedido.save();
-			Diagrama_BD.Comentario diagrama_BDComentario = Diagrama_BD.Comentario.createComentario();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : valoracion, producto, cibernauta
-			diagrama_BDComentario.save();
-			Diagrama_BD.Producto diagrama_BDProducto = Diagrama_BD.Producto.createProducto();
+			
+			Categoria cat = CategoriaDAO.createCategoria();
+			 // The following properties must be initialized before saving :
+            // productos
+			cat.setNombre("LOL");
+			CategoriaDAO.save(cat);
+
+           /* Cibernauta ciber = CibernautaDAO.createCibernauta();
+            ciber.setNombre("PEPITO");
+            CibernautaDAO.save(ciber);
+
+            Producto p = ProductoDAO.createProducto();
+            p.setDescripcion("FooDescription");
+            
+            Comentario c = new Comentario();
+            c.setTexto("FOOOA");
+            c.setValoracion(4);
+            c.setCibernauta(ciber);
+            ComentarioDAO.save(c);
+            
+            p.comentarios.add(c);
+            p.setValoracionMedia(5);
+            p.setPrecio(23.0);
+            p.setCategoria(cat);
+            ProductoDAO.save(p);*/
+            
+            t.commit();
+            
+	        /* // TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : valoracion, producto, cibernauta
+			diagramabd.ComentarioDAO.save(diagramaBDComentario);
+			diagramabd.Producto diagramaBDProducto = diagramabd.ProductoDAO.createProducto();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : fotosProducto, items, ofertas, comentarios, valoracionMedia, precio, categoria
-			diagrama_BDProducto.save();
-			Diagrama_BD.Categoria diagrama_BDCategoria = Diagrama_BD.Categoria.createCategoria();
+			diagramabd.ProductoDAO.save(diagramaBDProducto);
+			diagramabd.Categoria diagramaBDCategoria = diagramabd.CategoriaDAO.createCategoria();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : productos
-			diagrama_BDCategoria.save();
-			Diagrama_BD.Mensaje diagrama_BDMensaje = Diagrama_BD.Mensaje.createMensaje();
+			diagramabd.CategoriaDAO.save(diagramaBDCategoria);*/
+	            
+			/*diagramabd.Usuario diagramaBDUsuario = diagramabd.UsuarioDAO.createUsuario();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : mensajesRecibidos, mensajesEnviados, operativo
+			diagramabd.UsuarioDAO.save(diagramaBDUsuario);
+			diagramabd.Pedido diagramaBDPedido = diagramabd.PedidoDAO.createPedido();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : items, total, cibernauta
+			diagramabd.PedidoDAO.save(diagramaBDPedido);
+			diagramabd.Comentario diagramaBDComentario = diagramabd.ComentarioDAO.createComentario();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : valoracion, producto, cibernauta
+			diagramabd.ComentarioDAO.save(diagramaBDComentario);
+			diagramabd.Producto diagramaBDProducto = diagramabd.ProductoDAO.createProducto();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : fotosProducto, items, ofertas, comentarios, valoracionMedia, precio, categoria
+			diagramabd.ProductoDAO.save(diagramaBDProducto);
+			diagramabd.Categoria diagramaBDCategoria = diagramabd.CategoriaDAO.createCategoria();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : productos
+			diagramabd.CategoriaDAO.save(diagramaBDCategoria);
+			diagramabd.Mensaje diagramaBDMensaje = diagramabd.MensajeDAO.createMensaje();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : remitente, destinatario
-			diagrama_BDMensaje.save();
-			Diagrama_BD.Pendiente diagrama_BDPendiente = Diagrama_BD.Pendiente.createPendiente();
+			diagramabd.MensajeDAO.save(diagramaBDMensaje);
+			diagramabd.Pendiente diagramaBDPendiente = diagramabd.PendienteDAO.createPendiente();
 			// Initialize the properties of the persistent object here
-			diagrama_BDPendiente.save();
-			Diagrama_BD.Enviado diagrama_BDEnviado = Diagrama_BD.Enviado.createEnviado();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : transportista
-			diagrama_BDEnviado.save();
-			Diagrama_BD.Entregado diagrama_BDEntregado = Diagrama_BD.Entregado.createEntregado();
+			diagramabd.PendienteDAO.save(diagramaBDPendiente);
+			diagramabd.Enviado diagramaBDEnviado = diagramabd.EnviadoDAO.createEnviado();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : transportistaEnvio
+			diagramabd.EnviadoDAO.save(diagramaBDEnviado);
+			diagramabd.Entregado diagramaBDEntregado = diagramabd.EntregadoDAO.createEntregado();
 			// Initialize the properties of the persistent object here
-			diagrama_BDEntregado.save();
-			Diagrama_BD.Oferta diagrama_BDOferta = Diagrama_BD.Oferta.createOferta();
+			diagramabd.EntregadoDAO.save(diagramaBDEntregado);
+			diagramabd.Oferta diagramaBDOferta = diagramabd.OfertaDAO.createOferta();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : precio, producto
-			diagrama_BDOferta.save();
-			Diagrama_BD.Cibernauta diagrama_BDCibernauta = Diagrama_BD.Cibernauta.createCibernauta();
+			diagramabd.OfertaDAO.save(diagramaBDOferta);
+			diagramabd.Cibernauta diagramaBDCibernauta = diagramabd.CibernautaDAO.createCibernauta();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : comentario, pedidos
-			diagrama_BDCibernauta.save();
-			Diagrama_BD.Empleado diagrama_BDEmpleado = Diagrama_BD.Empleado.createEmpleado();
+			diagramabd.CibernautaDAO.save(diagramaBDCibernauta);
+			diagramabd.Empleado diagramaBDEmpleado = diagramabd.EmpleadoDAO.createEmpleado();
 			// Initialize the properties of the persistent object here
-			diagrama_BDEmpleado.save();
-			Diagrama_BD.Administrador diagrama_BDAdministrador = Diagrama_BD.Administrador.createAdministrador();
+			diagramabd.EmpleadoDAO.save(diagramaBDEmpleado);
+			diagramabd.Administrador diagramaBDAdministrador = diagramabd.AdministradorDAO.createAdministrador();
 			// Initialize the properties of the persistent object here
-			diagrama_BDAdministrador.save();
-			Diagrama_BD.Encargado diagrama_BDEncargado = Diagrama_BD.Encargado.createEncargado();
+			diagramabd.AdministradorDAO.save(diagramaBDAdministrador);
+			diagramabd.Encargado diagramaBDEncargado = diagramabd.EncargadoDAO.createEncargado();
 			// Initialize the properties of the persistent object here
-			diagrama_BDEncargado.save();
-			Diagrama_BD.Transportista diagrama_BDTransportista = Diagrama_BD.Transportista.createTransportista();
+			diagramabd.EncargadoDAO.save(diagramaBDEncargado);
+			diagramabd.Transportista diagramaBDTransportista = diagramabd.TransportistaDAO.createTransportista();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : enviados
-			diagrama_BDTransportista.save();
-			Diagrama_BD.Item diagrama_BDItem = Diagrama_BD.Item.createItem();
+			diagramabd.TransportistaDAO.save(diagramaBDTransportista);
+			diagramabd.Item diagramaBDItem = diagramabd.ItemDAO.createItem();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : cantidad, idPedido, idProducto, producto, pedido
-			diagrama_BDItem.save();
-			Diagrama_BD.Foto diagrama_BDFoto = Diagrama_BD.Foto.createFoto();
+			diagramabd.ItemDAO.save(diagramaBDItem);
+			diagramabd.Foto diagramaBDFoto = diagramabd.FotoDAO.createFoto();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : productoFoto
-			diagrama_BDFoto.save();
-			t.commit();
+			diagramabd.FotoDAO.save(diagramaBDFoto);
+			t.commit();*/
 		}
 		catch (Exception e) {
 			t.rollback();
 		}
 		
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		List<Categoria> categorias = null;
+		try {
+			categorias = CategoriaDAO.queryCategoria(null, null);
+		} catch (Exception e) {
+			t2.rollback();
+		}
+
+		System.out.println("OLE TU: " + categorias.size());
+		for (Categoria c1 :categorias) {
+			System.out.println(c1.getNombre());
+		}
+		
+		t2.commit();
 	}
 	
 	public static void main(String[] args) {
@@ -75,7 +133,7 @@ public class CreateAppventawebData {
 				createAppventawebData.createTestData();
 			}
 			finally {
-				Diagrama_BD.AppventawebPersistentManager.instance().disposePersistentManager();
+				appventawebbd.AppventawebPersistentManager.instance().disposePersistentManager();
 			}
 		}
 		catch (Exception e) {
