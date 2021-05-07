@@ -1,4 +1,4 @@
-package com.example.test;
+package principal;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -12,11 +12,14 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
-import tiendaVirtual.interfaz.Cabecera_Pagina;
-import tiendaVirtual.interfaz.Cibernauta;
+import appventawebbd.*;
 import tiendaVirtual.interfaz.Cibernauta_Registrado;
 import tiendaVirtual.interfaz.Cibernauta_no_Registrado;
 
+import java.util.List;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -74,8 +77,6 @@ public class MainView extends VerticalLayout {
 				}
 			}
 		});
-    	
-    	
     	// TODO: Controlar aqui el login.
     }
 
