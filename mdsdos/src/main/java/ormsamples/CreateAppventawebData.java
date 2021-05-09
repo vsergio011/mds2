@@ -8,21 +8,50 @@ import java.util.List;
 
 import org.orm.*;
 
-import appventawebbd.AppventawebPersistentManager;
-import appventawebbd.Categoria;
-import appventawebbd.CategoriaDAO;
+import appventawebbd.*;
 public class CreateAppventawebData {
 	public void createTestData() throws PersistentException {
-		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		String images[] = new String[] { 
+		  "http://www.entreperiodistas.com/wp-content/uploads/2018/05/como-hacer-fotografia-de-producto-1.jpg", 
+		  "https://www.dzoom.org.es/wp-content/uploads/2013/08/foto-de-producto-retoque-comparativa-734x551.jpg", 
+		  "https://www.blogdelfotografo.com/wp-content/uploads/2020/12/producto_fondo_negro.jpg", 
+		  "https://mott.pe/noticias/wp-content/uploads/2018/05/fotografia-de-producto-vs-fotografia-publicitaria-1.png", 
+		  "https://static-cse.canva.com/blob/205214/05-Secretos-fotos-de-producto.jpg",
+		  "https://rockcontent.com/es/wp-content/uploads/sites/3/2019/02/o-que-e-produto-no-mix-de-marketing.png",
+		  "https://static-cse.canva.com/blob/205233/15-Secretos-fotos-de-producto-1.jpg"
+		};
+		// PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		try {
 			
-			Categoria cat = CategoriaDAO.createCategoria();
-			 // The following properties must be initialized before saving :
-            // productos
-			cat.setNombre("LOL");
-			CategoriaDAO.save(cat);
-
-           /* Cibernauta ciber = CibernautaDAO.createCibernauta();
+			Cibernauta ciber = CibernautaDAO.createCibernauta();
+            ciber.setNombre("PEPITO");
+            CibernautaDAO.save(ciber);
+			for (int i = 0; i<=4; i++) {
+				Categoria cat = CategoriaDAO.createCategoria();
+				cat.setNombre("Category"+i);
+				CategoriaDAO.save(cat);
+				
+				for (int j = 0; j<=4; j++) {
+					Producto p = ProductoDAO.createProducto();
+					p.setDescripcion("producto "+j);
+					p.setValoracionMedia(j);
+		            p.setPrecio(20+j);
+		            p.setCategoria(cat);
+		            p.setFotos(images[j]);
+		            System.out.println(images[j]);
+		            ProductoDAO.save(p);
+		            
+		            if (j>2) {
+		            	Oferta offer = OfertaDAO.createOferta();
+		            	offer.setFechaFin("FooFechaFin");
+		            	offer.setPrecio(p.getPrecio());
+		            	offer.setProducto(p);
+		            	OfertaDAO.save(offer);
+		            }
+				}
+			}
+			
+            /* Cibernauta ciber = CibernautaDAO.createCibernauta();
             ciber.setNombre("PEPITO");
             CibernautaDAO.save(ciber);
 
@@ -41,7 +70,7 @@ public class CreateAppventawebData {
             p.setCategoria(cat);
             ProductoDAO.save(p);*/
             
-            t.commit();
+            // t.commit();
             
 	        /* // TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : valoracion, producto, cibernauta
 			diagramabd.ComentarioDAO.save(diagramaBDComentario);
@@ -106,7 +135,8 @@ public class CreateAppventawebData {
 			t.commit();*/
 		}
 		catch (Exception e) {
-			t.rollback();
+			System.out.println("EXCEPTION : " + e.getMessage());
+			// t.rollback();
 		}
 		
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();

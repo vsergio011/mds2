@@ -26,14 +26,8 @@ public class BD_Categoria {
 		} catch (Exception e) {
 			t2.rollback();
 		}
-
-		System.out.println("OLE TU: " + categorias.size());
-		for (Categoria c1 :categorias) {
-			System.out.println(c1.getNombre());
-		}
 		
 		return categorias;
-
 	}
 
 	public void addCategoria(Categoria aCategoria) {

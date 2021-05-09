@@ -2,6 +2,8 @@ package tiendaVirtual.interfaz;
 
 import java.util.Vector;
 
+import appventawebbd.*;
+import basededatos.*;
 import vistas.VistaListadeproductos;
 // import interfaz.Cabecera_Lista_Productos;
 // import interfaz.Producto_Ciber;
@@ -15,10 +17,16 @@ public class Lista_de_Productos extends VistaListadeproductos{
 	
 	public Lista_de_Productos()
 	{
-		// TODO: Rellenar con datos de verdad y generar el ID.
-		for(int j = 0; j<3; j++) {
-			Producto_Ciber p= new Producto_Ciber();
-			_producto.add(p);
+		// TODO: Rellenar este constructor con todos los productos?
+		
+	}
+	
+	public Lista_de_Productos(Categoria cat) {
+		for(appventawebbd.Producto p: cat.productos.toArray()) {
+			Producto_Ciber pc = new Producto_Ciber();
+			// TODO: Cambiar el tamaño de las fotos.
+			pc.getImgProducto().setSrc(p.getFotos());
+			_producto.add(pc);
 		}
 	}
 }

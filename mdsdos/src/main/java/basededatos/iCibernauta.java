@@ -16,11 +16,11 @@ public interface iCibernauta {
 
 	public Comentario[] listComentarios(int aIdProducto);
 
-	public Oferta[] getOfertasPopulares();
+	public List<Oferta> getOfertasPopulares();
 
-	public Producto[] getProductosMasVendidos();
+	public List<Producto> getProductosMasVendidos();
 
-	public Producto[] listProductos();
+	public List<Producto> listProductos();
 
 	public Producto getProducto(int aIdProducto);
 

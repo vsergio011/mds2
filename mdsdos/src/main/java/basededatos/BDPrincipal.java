@@ -29,12 +29,12 @@ import appventawebbd.Transportista;
 
 public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista, iEncargado, iCibernauta_Registrado, iCibernauta_no_Registrado {
 	public BD_Categoria _bd_cat = new BD_Categoria();
-	public BD_Producto _bd_prod;
+	public BD_Producto _bd_prod = new BD_Producto();
 	public BD_Pendiente _bd_pend;
 	public BD_Administrador _bd_admin;
 	public BD_Comentario _bd_com;
 	public BD__Mensaje _bd__mens;
-	public BD_Oferta _bd_oferta;
+	public BD_Oferta _bd_oferta = new BD_Oferta();
 	public BD_Cibernauta _bd_ciber;
 	public BD_Encargado _bd_enca;
 	public BD_Transportista _bd_trans;
@@ -61,16 +61,34 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public Oferta[] getOfertasPopulares() {
-		throw new UnsupportedOperationException();
+	public List<Oferta> getOfertasPopulares() {
+		try {
+			return _bd_oferta.listOfertas();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public Producto[] getProductosMasVendidos() {
-		throw new UnsupportedOperationException();
+	public List<Producto> getProductosMasVendidos() {
+		try {
+			return _bd_prod.listProductos();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public Producto[] listProductos() {
-		throw new UnsupportedOperationException();
+	public List<Producto> listProductos() {
+		try {
+			return _bd_prod.listProductos();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public Producto getProducto(int aIdProducto) {
