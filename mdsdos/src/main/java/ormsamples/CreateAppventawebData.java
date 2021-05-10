@@ -22,10 +22,18 @@ public class CreateAppventawebData {
 		};
 		// PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		try {
-			
 			Cibernauta ciber = CibernautaDAO.createCibernauta();
             ciber.setNombre("PEPITO");
+            ciber.setPassword("1234");
+            ciber.setApellidos("VERA FERNANDEZ");
+            ciber.setOperativo(true);
+            ciber.setCorreoElectronico("foo@example.com");
+            ciber.setUsuario("user");
+            ciber.setFoto("https://img1.freepng.es/20180319/row/kisspng-computer-icons-google-account-user-profile-iconfin-png-icons-download-profile-5ab0301d8907a6.3404305715214960935613.jpg");
+            ciber.setDireccionCompleta("calle falsa 123");
+            ciber.setFormaPago("TARJETA");
             CibernautaDAO.save(ciber);
+            
 			for (int i = 0; i<=4; i++) {
 				Categoria cat = CategoriaDAO.createCategoria();
 				cat.setNombre("Category"+i);

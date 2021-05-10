@@ -45,12 +45,18 @@ public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.Vis
 	private TextField inputSearch;
 	@Id("btnCarrito")
 	private Button btnCarrito;
+	public Button getPerfilBtn() {
+		return perfilBtn;
+	}
+
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
 	@Id("offerBtn")
 	private Button offerBtn;
 	@Id("categoriesCombo")
 	private ComboBox<String> categoriesCombo;
+	@Id("perfilBtn")
+	private Button perfilBtn;
 	public Button getBtnLogin() {
 		return btnLogin;
 	}

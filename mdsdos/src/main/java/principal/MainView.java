@@ -52,8 +52,6 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
-    	Cibernauta_Registrado cr = new Cibernauta_Registrado();
-    	
     	add(cnr);
     	
     	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -67,6 +65,10 @@ public class MainView extends VerticalLayout {
 				case "admin":
 					break;
 				case "cibernauta":
+					removeAll();
+					Cibernauta_Registrado cr = new Cibernauta_Registrado();
+					add(cr);
+					
 					break;
 				case "transportista":
 					break;

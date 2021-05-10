@@ -158,9 +158,14 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		_cabecera._login._registro.getCreateAccountBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._login);
+				if (_cabecera._login._registro.Validar_contrasena()) {
+					_cabecera._login._registro.CrearUsuario();
+					
+					layout.removeAll();
+					layout.add(_cabecera);
+					layout.add(_cabecera._login);
+				}
+				
 				
 				// TODO: Descomentar cuando teng funcionalidad el método.
 				// _cabecera._login._registro.Validar_contrasena();

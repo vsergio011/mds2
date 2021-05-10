@@ -15,4 +15,7 @@ public class Cibernauta extends VistaCibernauta{
 	public Ofertas_Populares _ofertasPopulares;
 	public Cabecera_Pagina cabecera;	
 	
+	public Cibernauta() {
+		
+	}
 }

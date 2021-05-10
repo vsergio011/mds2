@@ -35,7 +35,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	public BD_Comentario _bd_com;
 	public BD__Mensaje _bd__mens;
 	public BD_Oferta _bd_oferta = new BD_Oferta();
-	public BD_Cibernauta _bd_ciber;
+	public BD_Cibernauta _bd_ciber = new BD_Cibernauta();
 	public BD_Encargado _bd_enca;
 	public BD_Transportista _bd_trans;
 	public BD_Enviado _bd_env;
@@ -239,8 +239,30 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public void Registrar(String aNombre, String aPassword) {
-		throw new UnsupportedOperationException();
+	public Cibernauta Registrar(
+			String aNombre,
+			String apellidos,
+			String email,
+			String foto,
+			String direccion,
+			String formaPago,
+			String usuario, 
+			String aPassword) {
+		try {
+			return _bd_ciber.Registrar(
+					aNombre,
+					apellidos,
+					email,
+					foto,
+					direccion,
+					formaPago,
+					usuario, 
+					aPassword);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public boolean existeUsuario(String aEmail) {
