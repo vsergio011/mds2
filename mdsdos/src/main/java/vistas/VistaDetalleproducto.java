@@ -32,6 +32,10 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 		return anadirACarritoBtn;
 	}
 
+	public TextArea getVaadinTextArea() {
+		return vaadinTextArea;
+	}
+
 	public Label getDescriptionLabel() {
 		return descriptionLabel;
 	}
@@ -80,6 +84,8 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 	private Button addOfferBtn;
 	@Id("anadirACarritoBtn")
 	private Button anadirACarritoBtn;
+	@Id("vaadinTextArea")
+	private TextArea vaadinTextArea;
 
 	/**
      * Creates a new VistaDetalleproducto.

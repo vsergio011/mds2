@@ -10,6 +10,18 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 		_verComentarios = new Ver_Comentarios_Ciber();
 	}
 	
+	public Detalle_Producto_Ciber(appventawebbd.Producto p) {
+		_verComentarios = new Ver_Comentarios_Ciber(p);
+		
+		this.getImg().setSrc(p.getFotos());
+		this.getRateLabel().setText(String.format("Valoración media: %f/5", p.getValoracionMedia()));
+		this.getDescriptionLabel().setText(p.getDescripcion());
+		this.getPriceLAbel().setText(String.format("%f €", p.getPrecio()));
+		
+		// TODO: Caracteristicas?
+		// this.getVaadinTextArea().setValue();
+	}
+	
 	public Producto_Carrito GetProductocarrito() {
 		Producto_Carrito pc = new Producto_Carrito();
 		

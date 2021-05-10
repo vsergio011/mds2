@@ -16,8 +16,5 @@ public class Cabecera_Cibernauta extends Cabecera_Pagina {
 	public Cabecera_Cibernauta() {
 		_login = new Login_Cibernauta();
 		_carrito = new Carrito_no_Registrado();
-		
-		// TODO: Sustituir los valores por los de la BD.
-		this.getCategoriesCombo().setItems("foo", "bar", "baz");
 	}
 }

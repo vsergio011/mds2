@@ -23,9 +23,11 @@ public class Lista_de_Productos extends VistaListadeproductos{
 	
 	public Lista_de_Productos(Categoria cat) {
 		for(appventawebbd.Producto p: cat.productos.toArray()) {
-			Producto_Ciber pc = new Producto_Ciber();
-			// TODO: Cambiar el tamaño de las fotos.
+			Producto_Ciber pc = new Producto_Ciber(p);
+			pc.getImgProducto().setHeight("150px");
+			pc.getImgProducto().setWidth("150px");
 			pc.getImgProducto().setSrc(p.getFotos());
+			
 			_producto.add(pc);
 		}
 	}
