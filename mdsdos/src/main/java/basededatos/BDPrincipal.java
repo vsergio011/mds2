@@ -188,7 +188,13 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public appventawebbd.Cibernauta getCibernauta(int aId) {
-		throw new UnsupportedOperationException();
+		try {
+			return _bd_ciber.getCibernauta(aId);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void borrarCuenta(int aIdCiber) {

@@ -66,7 +66,8 @@ public class MainView extends VerticalLayout {
 					break;
 				case "cibernauta":
 					removeAll();
-					Cibernauta_Registrado cr = new Cibernauta_Registrado();
+					// TODO: Pensar si pasar el cibernauta directamente o solo el ID.
+					Cibernauta_Registrado cr = new Cibernauta_Registrado(2);
 					add(cr);
 					
 					break;

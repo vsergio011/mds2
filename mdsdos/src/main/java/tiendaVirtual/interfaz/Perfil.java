@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Perfil {
+import vistas.VistaPerfil;
+
+public class Perfil extends VistaPerfil{
 	private Object _imagen;
 	private Object _cambiarPasswordB;
 	private Object _modificarDatosB;

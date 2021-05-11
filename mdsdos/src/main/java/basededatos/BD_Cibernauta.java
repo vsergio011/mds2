@@ -85,8 +85,35 @@ public class BD_Cibernauta {
 		throw new UnsupportedOperationException();
 	}
 
-	public Cibernauta getCibernauta(int aId) {
-		throw new UnsupportedOperationException();
+	/*
+	 * public Cliente Cargar_Informacion_Cliente(int Cita) throws PersistentException {
+		Cliente cl = null;
+		PersistentTransaction t = GestiondeCitasPersistentManager.instance().getSession().beginTransaction();
+		try {
+
+			Cita c = CitaDAO.getCitaByORMID(Cita);
+			cl = ClienteDAO.getClienteByORMID(c.getCliente().getID());
+
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+
+		return cl;
+
+	}
+	*/
+	public Cibernauta getCibernauta(int aId) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Cibernauta ciber = null;
+		try {
+			ciber = CibernautaDAO.getCibernautaByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return ciber;
 	}
 
 	public void borrarCuenta(int aIdCiber) {

@@ -15,35 +15,46 @@ class VistaPerfil extends PolymerElement {
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; padding: var(--lumo-space-xl);">
  <vaadin-vertical-layout theme="spacing" style="width: 60%; align-items: center;">
-  <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" style="align-self: center; width: 40%; height: 40;">
+  <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" style="align-self: center; width: 40%; height: 40;" id="img">
   <vaadin-vertical-layout theme="spacing" style="align-items: center;">
-   <vaadin-button>
-    Cambiar imagen de perfil
+   <vaadin-button id="cambiarImgBtn">
+     Cambiar imagen de perfil 
    </vaadin-button>
-   <vaadin-button style="width: 100%;">
-    Cambiar contraseña
+   <vaadin-button style="width: 100%;" id="aceptarCambiosBtn">
+     Aceptar cambios 
    </vaadin-button>
-   <vaadin-button style="width: 100%;">
-    Modificar datos
+   <vaadin-button style="width: 100%;" id="cambiarPasswordBtn">
+     Cambiar contraseña 
    </vaadin-button>
-   <vaadin-button style="width: 100%;">
-    Compras realizadas
+   <vaadin-button style="width: 100%;" id="ModificarDatosBtn">
+     Modificar datos 
    </vaadin-button>
-   <vaadin-button style="width: 100%;">
-    Contacto 
+   <vaadin-button style="width: 100%;" id="comprasRealizadasBtn">
+     Compras realizadas 
    </vaadin-button>
-   <vaadin-button style="width: 100%;">
-    Borrar cuenta 
+   <vaadin-button style="width: 100%;" id="contactoBtn">
+     Contacto 
    </vaadin-button>
-   <vaadin-button style="width: 100%;">
-    Desconectar
+   <vaadin-button style="width: 100%;" id="borrarCuentaBtn">
+     Borrar cuenta 
+   </vaadin-button>
+   <vaadin-button style="width: 100%;" id="desconectarBtn">
+     Desconectar 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%;">
-  <label style="font-size: 30px; font-weight: bold;">Nombre y apellidos del usuario</label>
-  <label>Correo Electrónico: usuario@correo.com</label>
-  <label>Direccion Postal:</label>
+ <vaadin-vertical-layout theme="spacing-l" style="width: 100%;" id="perfilLayout">
+  <label style="font-size: 30px; font-weight: bold; padding: var(--lumo-space-m);" id="nombreApellidosLbl">Nombre y apellidos del usuario</label>
+  <label id="emailLbl" style="padding: var(--lumo-space-m);">Correo Electrónico: usuario@correo.com</label>
+  <label id="direccionLbl" style="padding: var(--lumo-space-l);">Direccion Postal:</label>
+ </vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing" style="width: 100%;" id="modificarDatosPerfilLayout">
+  <vaadin-text-field label="Nombre" placeholder="Placeholder" id="nombreInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
+  <vaadin-text-field label="Apellidos" placeholder="Placeholder" id="apellidosInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
+  <vaadin-text-field label="Email" placeholder="Placeholder" id="emailInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
+  <vaadin-text-field label="Nombre de usuario" placeholder="Placeholder" id="usuarioInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
+  <vaadin-text-field label="Direcci�n completa" placeholder="Placeholder" id="direccionInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
+  <vaadin-text-field label="Datos de pago" placeholder="Placeholder" id="datosPagoInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;

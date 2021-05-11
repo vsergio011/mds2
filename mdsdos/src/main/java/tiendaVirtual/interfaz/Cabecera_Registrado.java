@@ -9,7 +9,9 @@ public class Cabecera_Registrado extends Cabecera_Pagina {
 	public Perfil_Cibernauta _perfil;
 	public Carrito_Registrado _carrito;
 	
-	public Cabecera_Registrado() {
+	public Cabecera_Registrado(int idCiber) {
+		_perfil = new Perfil_Cibernauta(idCiber);
+		
 		this.getBtnLogin().setVisible(false);
 	}
 }
