@@ -33,9 +33,12 @@ class VistaCabecerapagina extends PolymerElement {
     Carrito 
   </vaadin-button>
   <vaadin-button id="perfilBtn">
-   Perfil
+    Perfil 
   </vaadin-button>
  </vaadin-horizontal-layout>
+ <vaadin-button id="adminBtn">
+  Admin
+ </vaadin-button>
 </vaadin-horizontal-layout>
 `;
     }

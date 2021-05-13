@@ -51,10 +51,12 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-    	Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
-    	add(cnr);
+    	//Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
+    	//add(cnr);
+    	tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
+		add(admin);
     	
-    	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+    	/*cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				String user = "";
@@ -63,6 +65,9 @@ public class MainView extends VerticalLayout {
 				System.out.println("USER : " + user);
 				switch(user) {
 				case "admin":
+					removeAll();
+					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
+					add(admin);
 					break;
 				case "cibernauta":
 					removeAll();
@@ -79,8 +84,7 @@ public class MainView extends VerticalLayout {
 					System.out.println("NO DEBERIA ENTRAR AQUI.");
 				}
 			}
-		});
-    	// TODO: Controlar aqui el login.
+		});*/
     }
 
 }

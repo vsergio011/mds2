@@ -4,6 +4,10 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.UnorderedList;
 
 /**
  * A Designer generated component for the vista-listadoempleados template.
@@ -15,7 +19,20 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-listadoempleados.js")
 public class VistaListadoempleados extends PolymerTemplate<VistaListadoempleados.VistaListadoempleadosModel> {
 
-    /**
+	@Id("empleadosLayout")
+	private Element empleadosLayout;
+	public Element getEmpleadosLayout() {
+		return empleadosLayout;
+	}
+
+	public Button getVerEmpleadoBtn() {
+		return verEmpleadoBtn;
+	}
+
+	@Id("verEmpleadoBtn")
+	private Button verEmpleadoBtn;
+
+	/**
      * Creates a new VistaListadoempleados.
      */
     public VistaListadoempleados() {

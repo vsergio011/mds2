@@ -4,6 +4,8 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.html.Input;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-altacategoria template.
@@ -15,7 +17,14 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-altacategoria.js")
 public class VistaAltacategoria extends PolymerTemplate<VistaAltacategoria.VistaAltacategoriaModel> {
 
-    /**
+    @Id("categoriaNameLbl")
+	private Input categoriaNameLbl;
+
+	public Input getCategoriaNameLbl() {
+		return categoriaNameLbl;
+	}
+
+	/**
      * Creates a new VistaAltacategoria.
      */
     public VistaAltacategoria() {

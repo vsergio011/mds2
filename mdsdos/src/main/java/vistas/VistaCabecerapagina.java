@@ -57,6 +57,8 @@ public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.Vis
 	private ComboBox<String> categoriesCombo;
 	@Id("perfilBtn")
 	private Button perfilBtn;
+	@Id("adminBtn")
+	private Button adminBtn;
 	public Button getBtnLogin() {
 		return btnLogin;
 	}
@@ -83,6 +85,10 @@ public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.Vis
 
 	public void setBtnCarrito(Button btnCarrito) {
 		this.btnCarrito = btnCarrito;
+	}
+
+	public Button getAdminBtn() {
+		return adminBtn;
 	}
 
 	public void setBtnLogin(Button btnLogin) {

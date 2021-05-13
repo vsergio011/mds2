@@ -1,6 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaListadoempleados extends PolymerElement {
 
@@ -10,6 +10,7 @@ class VistaListadoempleados extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-l);">
@@ -19,7 +20,10 @@ class VistaListadoempleados extends PolymerElement {
   <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
  </vaadin-text-field>
  <vaadin-vertical-layout theme="spacing" style="align-self: center; height: 10%;"></vaadin-vertical-layout>
- <vaadin-text-area label="Resultados" placeholder="Add detailed explanation" style="height: 100%; width: 50%; align-self: center;" readonly></vaadin-text-area>
+ <vaadin-button id="verEmpleadoBtn" style="align-self: center;">
+  Ver
+ </vaadin-button>
+ <vaadin-vertical-layout id="empleadosLayout" style="align-self: center; width: 60%; height: 100%;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
     }
