@@ -59,6 +59,32 @@ public class CreateAppventawebData {
 				}
 			}
 			
+			Administrador admin = AdministradorDAO.createAdministrador();
+			admin.setNombre("Morenito");
+			admin.setPassword("65");
+			admin.setApellidos("FOO BAR BAZ");
+			admin.setOperativo(true);
+			admin.setCorreoElectronico("foo@example.com");
+			admin.setUsuario("admin");
+			admin.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
+			admin.setDireccionCompleta("calle falsa 123");
+			admin.setFormaPago("TARJETA");
+			AdministradorDAO.save(admin);
+			
+			Encargado encar = EncargadoDAO.createEncargado();
+			encar.setNombre("Encargadito");
+			encar.setPassword("65");
+			encar.setApellidos("BAZ BAR FOO");
+			encar.setOperativo(true);
+			encar.setCorreoElectronico("foo@example.com");
+			encar.setUsuario("encar");
+			encar.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
+			encar.setDireccionCompleta("calle falsa 123");
+			encar.setFormaPago("TARJETA");
+			EncargadoDAO.save(encar);
+			
+			
+			
             /* Cibernauta ciber = CibernautaDAO.createCibernauta();
             ciber.setNombre("PEPITO");
             CibernautaDAO.save(ciber);

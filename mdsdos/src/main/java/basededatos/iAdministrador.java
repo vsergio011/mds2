@@ -9,13 +9,16 @@ import appventawebbd.Pendiente;
 import appventawebbd.Entregado;
 import appventawebbd.Enviado;
 import appventawebbd.Oferta;
+
+import java.util.List;
+
 import appventawebbd.Categoria;
 
 public interface iAdministrador {
 
 	public int altaProducto(Producto aProducto);
 
-	public Empleado[] listempleados();
+	public List<Empleado> listempleados();
 
 	public void modificarEmpleado(Encargado aEmpleado);
 

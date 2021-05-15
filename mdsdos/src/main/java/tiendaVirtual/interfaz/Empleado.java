@@ -15,4 +15,8 @@ public class Empleado extends VistaEmpleado {
 	public Empleado(String displayName) {
 		this.getNombreEmpleadoLbl().setText(displayName);
 	}
+	
+	public String toString() {
+		return this.getNombreEmpleadoLbl().getText();
+	}
 }

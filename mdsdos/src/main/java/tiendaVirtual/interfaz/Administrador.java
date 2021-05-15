@@ -61,9 +61,14 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera._funcionesAdmin._modificarEmpleado._empleados);
 			}
 		});
+		_cabecera._funcionesAdmin._modificarEmpleado._empleados.getVerEmpleadoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				appventawebbd.Empleado selected = _cabecera._funcionesAdmin._modificarEmpleado._empleados.GetSelectedEmpleado();
+				System.out.println("EMPLEADO: " + selected.getNombre() + " " + selected.getApellidos() );
+			}
+		});
 		
-		// Botones dentro del listado de empleados.
-		
-		
+		// Botones dentro del listado de empleados.	
 	}
 }

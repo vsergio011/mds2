@@ -31,7 +31,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	public BD_Categoria _bd_cat = new BD_Categoria();
 	public BD_Producto _bd_prod = new BD_Producto();
 	public BD_Pendiente _bd_pend;
-	public BD_Administrador _bd_admin;
+	public BD_Administrador _bd_admin = new BD_Administrador();
 	public BD_Comentario _bd_com;
 	public BD__Mensaje _bd__mens;
 	public BD_Oferta _bd_oferta = new BD_Oferta();
@@ -103,8 +103,14 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public Empleado[] listempleados() {
-		throw new UnsupportedOperationException();
+	public List<Empleado> listempleados() {
+		try {
+			return _bd_admin.listEmpleados();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void modificarEmpleado(appventawebbd.Encargado aEmpleado) {
