@@ -1,7 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaPerfil extends PolymerElement {
 
@@ -47,14 +47,6 @@ class VistaPerfil extends PolymerElement {
   <label style="font-size: 30px; font-weight: bold; padding: var(--lumo-space-m);" id="nombreApellidosLbl">Nombre y apellidos del usuario</label>
   <label id="emailLbl" style="padding: var(--lumo-space-m);">Correo Electrónico: usuario@correo.com</label>
   <label id="direccionLbl" style="padding: var(--lumo-space-l);">Direccion Postal:</label>
- </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%;" id="modificarDatosPerfilLayout">
-  <vaadin-text-field label="Nombre" placeholder="Placeholder" id="nombreInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
-  <vaadin-text-field label="Apellidos" placeholder="Placeholder" id="apellidosInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
-  <vaadin-text-field label="Email" placeholder="Placeholder" id="emailInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
-  <vaadin-text-field label="Nombre de usuario" placeholder="Placeholder" id="usuarioInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
-  <vaadin-text-field label="Direcci�n completa" placeholder="Placeholder" id="direccionInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
-  <vaadin-text-field label="Datos de pago" placeholder="Placeholder" id="datosPagoInput" style="padding: var(--lumo-space-l);"></vaadin-text-field>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;
