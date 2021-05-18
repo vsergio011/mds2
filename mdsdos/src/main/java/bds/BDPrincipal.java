@@ -23,7 +23,7 @@ import Diagrama_BD.Transportista;
 import interfaz.Cibernauta_no_Registrado;*/
 
 public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista, iEncargado, iCibernauta_Registrado, iCibernauta_no_Registrado {
-	public BD_Categoria _bd_cat;
+	public BD_Categoria _bd_cat = new BD_Categoria();
 	public BD_Producto _bd_prod;
 	public BD_Pendiente _bd_pend;
 	public BD_Administrador _bd_admin;
@@ -43,7 +43,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public Categoria[] listCategorias() {
-		throw new UnsupportedOperationException();
+		return _bd_cat.listCategorias();
 	}
 
 	public Comentario[] listComentarios(int aIdProducto) {

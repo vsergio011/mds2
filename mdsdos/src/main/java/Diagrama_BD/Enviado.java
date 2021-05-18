@@ -388,7 +388,7 @@ public class Enviado extends Diagrama_BD.Pedido implements Serializable {
 	@Column(name="Fecha", nullable=true)	
 	//private date fecha;
 	
-	@ManyToOne(targetEntity=Diagrama_BD.Transportista.class, fetch=FetchType.LAZY)	
+	//@ManyToOne(targetEntity=Diagrama_BD.Transportista.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="TransportistaUsuarioId", referencedColumnName="UsuarioId", nullable=false) }, foreignKey=@ForeignKey(name="FKEnviado826798"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	

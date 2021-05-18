@@ -5,11 +5,13 @@
 package ormsamples;
 
 import org.orm.*;
+
+import Diagrama_BD.Comentario;
 public class CreateAppventawebData {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = Diagrama_BD.AppventawebPersistentManager.instance().getSession().beginTransaction();
 		try {
-			Diagrama_BD.Usuario diagrama_BDUsuario = Diagrama_BD.Usuario.createUsuario();
+			/*Diagrama_BD.Usuario diagrama_BDUsuario = Diagrama_BD.Usuario.createUsuario();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : mensajesRecibidos, mensajesEnviados, operativo
 			diagrama_BDUsuario.save();
 			Diagrama_BD.Pedido diagrama_BDPedido = Diagrama_BD.Pedido.createPedido();
@@ -59,7 +61,34 @@ public class CreateAppventawebData {
 			diagrama_BDItem.save();
 			Diagrama_BD.Foto diagrama_BDFoto = Diagrama_BD.Foto.createFoto();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : productoFoto
-			diagrama_BDFoto.save();
+			diagrama_BDFoto.save();*/
+			
+			
+			Diagrama_BD.Categoria diagrama_BDCategoria = Diagrama_BD.Categoria.createCategoria();
+			// The following properties must be initialized before saving :
+			// productos
+			diagrama_BDCategoria.setNombre("LOL");
+			diagrama_BDCategoria.save();
+			
+			Diagrama_BD.Cibernauta diagrama_BDCibernauta = Diagrama_BD.Cibernauta.createCibernauta();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : 
+			// comentario, pedidos
+			diagrama_BDCibernauta.save();
+			
+			Diagrama_BD.Producto diagrama_BDProducto = Diagrama_BD.Producto.createProducto();
+			// The following properties must be initialized before saving : 
+			// fotosProducto, items, ofertas, comentarios, valoracionMedia, 
+			// precio, categoria
+			diagrama_BDProducto.setDescripcion("FooDescription");
+			Comentario c = new Comentario();
+			c.setTexto("FOOOA");
+			c.setValoracion(4);
+			c.setCibernauta(diagrama_BDCibernauta);
+			diagrama_BDProducto.comentarios.add(c);
+			diagrama_BDProducto.setValoracionMedia(5);
+			diagrama_BDProducto.setPrecio(23.0);
+			diagrama_BDProducto.setCategoria(diagrama_BDCategoria);
+			diagrama_BDProducto.save();
 			t.commit();
 		}
 		catch (Exception e) {
