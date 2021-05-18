@@ -9,4 +9,13 @@ public class Cabecera_Administrador extends Cabecera_Pagina {
 	public Funciones_Admin _funcionesAdmin;
 	public Perfil _perfil;
 	public Producto_Admin _producto;
+	
+	public Cabecera_Administrador() {
+		_funcionesAdmin = new Funciones_Admin();
+		_perfil = new Perfil();
+		
+		this.getAdminBtn().setVisible(true);
+		this.getBtnCarrito().setVisible(false);
+		this.getPerfilBtn().setVisible(true);
+	}
 }

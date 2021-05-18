@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Alta_Categoria {
+import vistas.VistaAltacategoria;
+
+public class Alta_Categoria extends VistaAltacategoria{
 	private Object _tituloL;
 	private Object _nombreTF;
 	private Object _cancelarB;

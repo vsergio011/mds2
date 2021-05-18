@@ -7,6 +7,8 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.Input;
 
 /**
  * A Designer generated component for the vista-cambiocontrasenapaso1 template.
@@ -30,6 +32,24 @@ public class VistaCambiocontrasenapaso1 extends PolymerTemplate<VistaCambiocontr
 
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
+	@Id("descripcionLabel")
+	private Label descripcionLabel;
+	@Id("titleLbl")
+	private Label titleLbl;
+	public Label getDescripcionLabel() {
+		return descripcionLabel;
+	}
+
+	public Label getTitleLbl() {
+		return titleLbl;
+	}
+
+	public Input getInput() {
+		return input;
+	}
+
+	@Id("input")
+	private Input input;
 
 	public Button getSendBtn() {
 		return sendBtn;

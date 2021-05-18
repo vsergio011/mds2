@@ -24,9 +24,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		layout.add(_ofertasPopulares);
 		layout.add(_productosMasVendidos);
 		
-		// TODO: Que pasa si añadimos productos al carrito siendo usuario no registrado???
-		// TODO: Como guardamos esos productos en la BD??????
-		
 		/**************************************************************************/
 		/********* Datos y botones de la vista productos mas vendidos *************/
 		/**************************************************************************/
@@ -41,6 +38,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 					public void onComponentEvent(ClickEvent<Button> event) {
 						layout.removeAll();
 						layout.add(_cabecera);
+						
 						layout.add(pc._detalleProducto);
 						
 						pc._detalleProducto.getDeleteBtn().setVisible(false);
@@ -160,9 +158,14 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		_cabecera._login._registro.getCreateAccountBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._login);
+				if (_cabecera._login._registro.Validar_contrasena()) {
+					_cabecera._login._registro.CrearUsuario();
+					
+					layout.removeAll();
+					layout.add(_cabecera);
+					layout.add(_cabecera._login);
+				}
+				
 				
 				// TODO: Descomentar cuando teng funcionalidad el método.
 				// _cabecera._login._registro.Validar_contrasena();

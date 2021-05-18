@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Perfil {
+import vistas.VistaPerfil;
+
+public class Perfil extends VistaPerfil{
 	private Object _imagen;
 	private Object _cambiarPasswordB;
 	private Object _modificarDatosB;
@@ -13,6 +15,9 @@ public class Perfil {
 	public Cambiar_Contrasena _cambiarContrasena;
 	public Modificar_Datos _modificar;
 
+	public Perfil() {
+	}
+	
 	public void Cambiar_Imagen_de_Perfil() {
 		throw new UnsupportedOperationException();
 	}

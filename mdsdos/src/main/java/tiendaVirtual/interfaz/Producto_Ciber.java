@@ -11,4 +11,8 @@ public class Producto_Ciber extends Producto {
 	public Producto_Ciber() {
 		_detalleProducto = new Detalle_Producto_Ciber();
 	}
+	
+	public Producto_Ciber(appventawebbd.Producto p) {
+		_detalleProducto = new Detalle_Producto_Ciber(p);
+	}
 }

@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Alta_Producto {
+import vistas.VistaAltaproducto;
+
+public class Alta_Producto extends VistaAltaproducto{
 /*	private event _agregar_Imagen;
 	private event _cambiar_Imagen;
 	private event _borrar_Imagen;*/

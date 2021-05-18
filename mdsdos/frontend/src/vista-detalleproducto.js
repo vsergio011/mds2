@@ -43,7 +43,7 @@ class VistaDetalleproducto extends PolymerElement {
       Ver comentarios 
     </vaadin-button>
     <vaadin-button id="anadirACarritoBtn">
-     añadir a carrito
+      añadir a carrito 
     </vaadin-button>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">

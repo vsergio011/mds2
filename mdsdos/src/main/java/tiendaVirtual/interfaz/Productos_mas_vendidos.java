@@ -1,37 +1,31 @@
 package tiendaVirtual.interfaz;
 
+import java.util.List;
 import java.util.Vector;
 
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import org.orm.*;
 
+
+import appventawebbd.AppventawebPersistentManager;
+import appventawebbd.Categoria;
+import appventawebbd.CategoriaDAO;
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta;
 import vistas.VistaProductosmasvendidos;
-// import interfaz.Lista_de_Productos;
 
 public class Productos_mas_vendidos extends VistaProductosmasvendidos {
 	public Cibernauta _cibernauta;
 	public Vector<Lista_de_Productos> _listaProductos = new Vector<Lista_de_Productos>();
 	
 	public Productos_mas_vendidos() {
-		// VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		
-		// TODO: Creo que esto hay que hacerlo de otra forma.
-		// TODO: Rellenar con datos de verdad.
-		/* for(int i = 0 ; i<3; i++) {
-			Lista_de_Productos ldp = new Lista_de_Productos();
-			ldp.getLabel().setText("Category "+(i+1));
-			vl.add(ldp);
-			
-			HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
-			for(int j = 0; j<3; j++) {
-				Producto p= new Producto();
-				hl.add(p);
-			}
-		}*/
-		
-		for(int i = 0 ; i<3; i++) {
-			Lista_de_Productos ldp = new Lista_de_Productos();
-			ldp.getLabel().setText("Category "+(i+1));
+		fillCategorias();
+	}
+	
+	private void fillCategorias() {
+		iCibernauta ciber = new BDPrincipal();
+		for(Categoria cat : ciber.listCategorias()) {
+			Lista_de_Productos ldp = new Lista_de_Productos(cat);
+			ldp.getLabel().setText(cat.getNombre());
 			_listaProductos.add(ldp);
 		}
 	}

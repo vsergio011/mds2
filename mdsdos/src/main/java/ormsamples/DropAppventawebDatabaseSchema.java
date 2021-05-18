@@ -1,5 +1,5 @@
 /**
- * Licensee: University of Almeria
+ * Licensee: antonioofdzj(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -11,8 +11,8 @@ public class DropAppventawebDatabaseSchema {
 			System.out.println("Are you sure to drop table(s)? (Y/N)");
 			java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
 			if (reader.readLine().trim().toUpperCase().equals("Y")) {
-				ORMDatabaseInitiator.dropSchema(Diagrama_BD.AppventawebPersistentManager.instance());
-				Diagrama_BD.AppventawebPersistentManager.instance().disposePersistentManager();
+				ORMDatabaseInitiator.dropSchema(appventawebbd.AppventawebPersistentManager.instance());
+				appventawebbd.AppventawebPersistentManager.instance().disposePersistentManager();
 			}
 			
 		}

@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Funciones_Admin {
+import vistas.VistaFuncionesadmin;
+
+public class Funciones_Admin extends VistaFuncionesadmin{
 	private Object _tituloL;
 	private Object _altaCategoriaB;
 	private Object _altaProductoB;
@@ -12,4 +14,10 @@ public class Funciones_Admin {
 	public Alta_Categoria _altaCategoria;
 	public Alta_Producto _altaProducto;
 	public Modificar_Empleado _modificarEmpleado;
+	
+	public Funciones_Admin() {
+		_altaCategoria = new Alta_Categoria();
+		_altaProducto = new Alta_Producto();
+		_modificarEmpleado = new Modificar_Empleado();
+	}
 }

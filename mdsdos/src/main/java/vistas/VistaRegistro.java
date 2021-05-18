@@ -7,6 +7,9 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.textfield.PasswordField;
+import com.vaadin.flow.component.html.Image;
 
 /**
  * A Designer generated component for the vista-registro template.
@@ -26,6 +29,20 @@ public class VistaRegistro extends PolymerTemplate<VistaRegistro.VistaRegistroMo
 	private Button cancelBtn;
 	@Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("userLbl")
+	private TextField userLbl;
+	@Id("nombreLbl")
+	private TextField nombreLbl;
+	@Id("apellidosLbl")
+	private TextField apellidosLbl;
+	@Id("emailLbl")
+	private TextField emailLbl;
+	@Id("password")
+	private PasswordField password;
+	@Id("direccionLbl")
+	private TextField direccionLbl;
+	@Id("img")
+	private Image img;
 
 	/**
      * Creates a new VistaRegistro.
@@ -36,6 +53,34 @@ public class VistaRegistro extends PolymerTemplate<VistaRegistro.VistaRegistroMo
 
     public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
+	}
+
+	public TextField getUserLbl() {
+		return userLbl;
+	}
+
+	public TextField getNombreLbl() {
+		return nombreLbl;
+	}
+
+	public TextField getApellidosLbl() {
+		return apellidosLbl;
+	}
+
+	public TextField getEmailLbl() {
+		return emailLbl;
+	}
+
+	public PasswordField getPassword() {
+		return password;
+	}
+
+	public TextField getDireccionLbl() {
+		return direccionLbl;
+	}
+
+	public Image getImg() {
+		return img;
 	}
 
 	public void setVaadinHorizontalLayout(HorizontalLayout vaadinHorizontalLayout) {
