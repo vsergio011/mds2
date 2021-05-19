@@ -48,23 +48,8 @@ public class VistaPerfil extends PolymerTemplate<VistaPerfil.VistaPerfilModel> {
 	public Element getPerfilLayout() {
 		return perfilLayout;
 	}
-
 	@Id("direccionLbl")
 	private Label direccionLbl;
-	@Id("modificarDatosPerfilLayout")
-	private Element modificarDatosPerfilLayout;
-	@Id("nombreInput")
-	private TextField nombreInput;
-	@Id("apellidosInput")
-	private TextField apellidosInput;
-	@Id("emailInput")
-	private TextField emailInput;
-	@Id("usuarioInput")
-	private TextField usuarioInput;
-	@Id("direccionInput")
-	private TextField direccionInput;
-	@Id("datosPagoInput")
-	private TextField datosPagoInput;
 	@Id("perfilLayout")
 	private Element perfilLayout;
 	@Id("aceptarCambiosBtn")
@@ -76,34 +61,6 @@ public class VistaPerfil extends PolymerTemplate<VistaPerfil.VistaPerfilModel> {
     public VistaPerfil() {
         // You can initialise any data required for the connected UI components here.
     }
-
-    public Element getModificarDatosPerfilLayout() {
-		return modificarDatosPerfilLayout;
-	}
-
-	public TextField getNombreInput() {
-		return nombreInput;
-	}
-
-	public TextField getApellidosInput() {
-		return apellidosInput;
-	}
-
-	public TextField getEmailInput() {
-		return emailInput;
-	}
-
-	public TextField getUsuarioInput() {
-		return usuarioInput;
-	}
-
-	public TextField getDireccionInput() {
-		return direccionInput;
-	}
-
-	public TextField getDatosPagoInput() {
-		return datosPagoInput;
-	}
 
 	public Image getImg() {
 		return img;
