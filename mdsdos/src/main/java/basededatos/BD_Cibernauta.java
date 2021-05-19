@@ -2,6 +2,7 @@ package basededatos;
 
 import basededatos.BDPrincipal;
 
+import java.util.List;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -11,6 +12,7 @@ import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Cibernauta;
 import appventawebbd.CibernautaDAO;
 import appventawebbd.Usuario;
+import appventawebbd.UsuarioDAO;
 
 public class BD_Cibernauta {
 	public BDPrincipal _bd_prin_ciber;
@@ -35,8 +37,31 @@ public class BD_Cibernauta {
 	}
 	*/
 
-	public Cibernauta Login(String aUsuario, String aPassword) {
-		throw new UnsupportedOperationException();
+	public Cibernauta Login(String aUsuario, String aPassword) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Cibernauta ciber = null;
+		List<Cibernauta> result = null;
+		try {
+			result = CibernautaDAO.queryCibernauta("Cibernauta.Usuario='" + aUsuario + "'", null);
+			if (result.size() == 0) {
+				System.out.println("USUARIO NO ENCONTRADO");
+				return null;
+			}
+			
+			ciber = result.get(0);
+			if (!ciber.getPassword().equals(aPassword)) {
+				System.out.println("Password INVALIDA");
+				return null;
+			}
+			
+	        t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		System.out.println("USUARIO ENCONTRADO CON EXITO");
+		return ciber;      
 	}
 
 	public Cibernauta Registrar(

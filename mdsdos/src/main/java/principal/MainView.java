@@ -13,6 +13,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
 import appventawebbd.*;
+import basededatos.BDPrincipal;
 import tiendaVirtual.interfaz.Cibernauta_Registrado;
 import tiendaVirtual.interfaz.Cibernauta_no_Registrado;
 
@@ -51,10 +52,11 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-    	//Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
-    	//add(cnr);
-    	tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
-		add(admin);
+    	Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
+    	add(cnr);
+    	
+    	/*tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
+		add(admin);*/
 		
 		/*Cibernauta_Registrado cr = new Cibernauta_Registrado(1);
 		add(cr);*/
@@ -62,32 +64,38 @@ public class MainView extends VerticalLayout {
     	/*cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				String user = "";
-				user = cnr._cabecera._login.getUsernameLbl().getValue();
+				BDPrincipal bd = new BDPrincipal();
+				String user = cnr._cabecera._login.getUsernameLbl().getValue();
+				String password = cnr._cabecera._login.getPasswordLbl().getValue();
 				
-				System.out.println("USER : " + user);
-				switch(user) {
+				Cibernauta ci = bd.getUsuarioLogin(user, password);
+				if (ci != null) {
+					Cibernauta_Registrado cr = new Cibernauta_Registrado(ci.getId());
+					add(cr);
+				}
+				
+			}
+		});*/
+    	
+    	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				BDPrincipal bd = new BDPrincipal();
+				String user = cnr._cabecera._login.getUsernameLbl().getValue();
+				String password = cnr._cabecera._login.getPasswordLbl().getValue();
+				
+				switch (user) {
+				case "cibernauta":
+					Cibernauta_Registrado cr = new Cibernauta_Registrado(1);
+					add(cr);
+					break;
 				case "admin":
-					removeAll();
 					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
 					add(admin);
 					break;
-				case "cibernauta":
-					removeAll();
-					// TODO: Pensar si pasar el cibernauta directamente o solo el ID.
-					Cibernauta_Registrado cr = new Cibernauta_Registrado(2);
-					add(cr);
-					
-					break;
-				case "transportista":
-					break;
-				case "encargado":
-					break;
-				default:
-					System.out.println("NO DEBERIA ENTRAR AQUI.");
-				}
+				}				
 			}
-		});*/
+		});
     }
 
 }
