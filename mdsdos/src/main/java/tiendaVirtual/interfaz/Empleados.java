@@ -30,7 +30,7 @@ public class Empleados extends VistaListadoempleados{
 	public Vector<Titulo_Empleados> _list_Titulo_Empleados = new Vector<Titulo_Empleados>();
 	public Vector<Buscar_Empleados> _list_Buscar_Empleados = new Vector<Buscar_Empleados>();
 	public Vector<Empleado> _empleado = new Vector<Empleado>();
-		
+	
 	private appventawebbd.Empleado selected = null;
 	public Empleados() {
 		verButtonVisible();
@@ -68,11 +68,5 @@ public class Empleados extends VistaListadoempleados{
 	
 	public appventawebbd.Empleado GetSelectedEmpleado() {
 		return this.selected;
-	}
-	
-	public void clearView() {
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		vl.removeAll();
-		
 	}
 }

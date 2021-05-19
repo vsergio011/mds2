@@ -55,9 +55,6 @@ public class MainView extends VerticalLayout {
     	//add(cnr);
     	tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
 		add(admin);
-		
-		/*Cibernauta_Registrado cr = new Cibernauta_Registrado(1);
-		add(cr);*/
     	
     	/*cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override

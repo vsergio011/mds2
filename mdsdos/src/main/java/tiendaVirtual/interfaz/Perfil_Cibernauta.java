@@ -1,7 +1,5 @@
 package tiendaVirtual.interfaz;
 
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta_Registrado;
 
@@ -24,7 +22,6 @@ public class Perfil_Cibernauta extends Perfil {
 		iCibernauta_Registrado bd = new BDPrincipal();
 		
 		appventawebbd.Cibernauta ciber = bd.getCibernauta(idCiber);
-		_modificar = new Modificar_Datos(ciber);
 		fillCibernautaData(ciber);
 	}
 	
@@ -36,25 +33,25 @@ public class Perfil_Cibernauta extends Perfil {
 		this.getNombreApellidosLbl().setText(ciber.getNombre() + " " + ciber.getApellidos());
 		this.getDireccionLbl().setText("Dirección: " + ciber.getDireccionCompleta());
 		this.getEmailLbl().setText("Email: "+ ciber.getCorreoElectronico());
+		
+		// Vista modificar datos
+		this.getNombreInput().setValue(ciber.getNombre());
+		this.getApellidosInput().setValue(ciber.getApellidos());
+		this.getDatosPagoInput().setValue(ciber.getFormaPago());
+		this.getDireccionInput().setValue(ciber.getDireccionCompleta());
+		this.getEmailInput().setValue(ciber.getCorreoElectronico());
+		this.getUsuarioInput().setValue(ciber.getUsuario());
 	}
 	
 	public void hideModificarDatos() {
-		this.getNombreApellidosLbl().setVisible(true);
-		this.getDireccionLbl().setVisible(true);
-		this.getEmailLbl().setVisible(true);
+		this.getModificarDatosPerfilLayout().setVisible(false);
+		this.getPerfilLayout().setVisible(true);
 		this.getAceptarCambiosBtn().setVisible(false);
-		
-		VerticalLayout vl = this.getPerfilLayout().as(VerticalLayout.class);
-		vl.remove(this._modificar);		
 	}
 	
-	public void showModificarDatos() {		
-		this.getNombreApellidosLbl().setVisible(false);
-		this.getDireccionLbl().setVisible(false);
-		this.getEmailLbl().setVisible(false);
+	public void showModificarDatos() {
+		this.getModificarDatosPerfilLayout().setVisible(true);
+		this.getPerfilLayout().setVisible(false);
 		this.getAceptarCambiosBtn().setVisible(true);
-		
-		VerticalLayout vl = this.getPerfilLayout().as(VerticalLayout.class);
-		vl.add(this._modificar);
 	}
 }

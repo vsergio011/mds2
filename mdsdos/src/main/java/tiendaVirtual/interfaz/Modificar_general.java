@@ -1,8 +1,6 @@
 package tiendaVirtual.interfaz;
 
-import vistas.VistaModificardatos;
-
-public class Modificar_general extends VistaModificardatos{
+public class Modificar_general {
 	// private event _cambiar_Imagen_de_Perfil;
 	private Object _imagen;
 	private Object _aceptarB;
@@ -19,17 +17,6 @@ public class Modificar_general extends VistaModificardatos{
 	private Object _nombreUsuarioTF;
 	private Object _datosPagoL;
 	private Object _datosPagoTF;
-	
-	public Modificar_general() {}
-	
-	public void fillData(appventawebbd.Usuario ciber) {
-		this.getNomreInput().setValue(ciber.getNombre());
-		this.getApellidosInput().setValue(ciber.getApellidos());
-		this.getDatosPagoInput().setValue(ciber.getFormaPago());
-		this.getDireccionInput().setValue(ciber.getDireccionCompleta());
-		this.getEmailInput().setValue(ciber.getCorreoElectronico());
-		this.getNombreUsuarioInput().setValue(ciber.getUsuario());
-	}
 
 	public void Cambiar_Imagen_de_Perfil() {
 		throw new UnsupportedOperationException();

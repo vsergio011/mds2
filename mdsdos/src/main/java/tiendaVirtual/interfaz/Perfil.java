@@ -15,9 +15,6 @@ public class Perfil extends VistaPerfil{
 	public Cambiar_Contrasena _cambiarContrasena;
 	public Modificar_Datos _modificar;
 
-	public Perfil() {
-	}
-	
 	public void Cambiar_Imagen_de_Perfil() {
 		throw new UnsupportedOperationException();
 	}
