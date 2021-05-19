@@ -29,11 +29,7 @@ import appventawebbd.Transportista;
 
 public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista, iEncargado, iCibernauta_Registrado, iCibernauta_no_Registrado {
 	public BD_Categoria _bd_cat = new BD_Categoria();
-<<<<<<< HEAD:mdsdos/src/main/java/bds/BDPrincipal.java
-	public BD_Producto _bd_prod;
-=======
 	public BD_Producto _bd_prod = new BD_Producto();
->>>>>>> 5fb90ba799d9eb89af5d59a016856f805feda354:mdsdos/src/main/java/basededatos/BDPrincipal.java
 	public BD_Pendiente _bd_pend;
 	public BD_Administrador _bd_admin = new BD_Administrador();
 	public BD_Comentario _bd_com;
@@ -51,10 +47,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-<<<<<<< HEAD:mdsdos/src/main/java/bds/BDPrincipal.java
-	public Categoria[] listCategorias() {
-		return _bd_cat.listCategorias();
-=======
 	public List<Categoria> listCategorias() {
 		try {
 			return _bd_cat.listCategorias();
@@ -63,7 +55,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			e.printStackTrace();
 		}
 		return null;
->>>>>>> 5fb90ba799d9eb89af5d59a016856f805feda354:mdsdos/src/main/java/basededatos/BDPrincipal.java
 	}
 
 	public Comentario[] listComentarios(int aIdProducto) {

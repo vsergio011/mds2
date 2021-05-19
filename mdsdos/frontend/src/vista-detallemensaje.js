@@ -1,7 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaDetallemensaje extends PolymerElement {
 
@@ -15,15 +15,15 @@ class VistaDetallemensaje extends PolymerElement {
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
  <label>Asunto mensaje</label>
- <vaadin-vertical-layout theme="spacing" style="width: 100%;border:solid">
+ <div style="border:solid; width: 80%; align-self: center; height: 80%;">
   <label>01/03/2021|remitente </label>
-  <vaadin-vertical-layout theme="spacing" style="width: 80%; align-self: center; border:solid; margin: var(--lumo-space-xl);">
-   <label>texto del mensaje</label>
-  </vaadin-vertical-layout>
- </vaadin-vertical-layout>
+  <div style="border:solid; width: 80%; height: 50%;">
+   Cuerpo del mensaje
+  </div>
+ </div>
  <vaadin-horizontal-layout theme="spacing" style="width: 80%; justify-content: flex-end;">
   <vaadin-button>
-    Responder mensaje 
+   Responder mensaje
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
