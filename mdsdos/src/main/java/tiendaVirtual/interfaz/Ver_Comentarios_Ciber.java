@@ -16,9 +16,9 @@ public class Ver_Comentarios_Ciber extends Ver_comentarios {
 		
 		// TODO: Deberíamos hacer un bucle.
 		for (appventawebbd.Comentario comen : p.comentarios.toArray()) {
-			this.getValoracionUsuarioLbl().setText(comen.getCibernauta().getNombre());
+			/*this.getValoracionUsuarioLbl().setText(comen.getCibernauta().getNombre());
 			this.getValoracionSpecLbl().setText(String.format("Valoración: %f/5", comen.getValoracion()));
-			this.getVaadinTextArea().setValue(comen.getTexto());
+			this.getVaadinTextArea().setValue(comen.getTexto());*/
 		}
 	}
 }

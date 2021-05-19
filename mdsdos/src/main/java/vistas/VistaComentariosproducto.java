@@ -8,6 +8,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.textfield.TextArea;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-comentariosproducto template.
@@ -19,48 +20,36 @@ import com.vaadin.flow.component.textfield.TextArea;
 @JsModule("./src/vista-comentariosproducto.js")
 public class VistaComentariosproducto extends PolymerTemplate<VistaComentariosproducto.VistaComentariosproductoModel> {
 
-    @Id("backProductBtn")
+	@Id("valoracionLbl")
+	private Label valoracionLbl;
+	@Id("titleLbl")
+	private Label titleLbl;
+	@Id("addCarritoBtn")
+	private Button addCarritoBtn;
+	@Id("backProductBtn")
 	private Button backProductBtn;
-	public Button getBackProductBtn() {
-		return backProductBtn;
-	}
+	@Id("listaComentarios")
+	private Element listaComentarios;
 
-	public Button getAddCarritoBtn() {
-		return addCarritoBtn;
+	public Label getValoracionLbl() {
+		return valoracionLbl;
 	}
 
 	public Label getTitleLbl() {
 		return titleLbl;
 	}
 
-	public Label getValoracionLbl() {
-		return valoracionLbl;
+	public Button getAddCarritoBtn() {
+		return addCarritoBtn;
 	}
 
-	public Label getValoracionUsuarioLbl() {
-		return valoracionUsuarioLbl;
+	public Button getBackProductBtn() {
+		return backProductBtn;
 	}
 
-	public Label getValoracionSpecLbl() {
-		return valoracionSpecLbl;
+	public Element getListaComentarios() {
+		return listaComentarios;
 	}
-
-	public TextArea getVaadinTextArea() {
-		return vaadinTextArea;
-	}
-
-	@Id("addCarritoBtn")
-	private Button addCarritoBtn;
-	@Id("titleLbl")
-	private Label titleLbl;
-	@Id("valoracionLbl")
-	private Label valoracionLbl;
-	@Id("valoracionUsuarioLbl")
-	private Label valoracionUsuarioLbl;
-	@Id("valoracionSpecLbl")
-	private Label valoracionSpecLbl;
-	@Id("vaadinTextArea")
-	private TextArea vaadinTextArea;
 
 	/**
      * Creates a new VistaComentariosproducto.

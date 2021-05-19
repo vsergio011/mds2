@@ -1,8 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaComentariosproducto extends PolymerElement {
 
@@ -30,17 +29,7 @@ class VistaComentariosproducto extends PolymerElement {
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout style="height: 100%; width: 100%; flex-wrap: wrap;">
-  <vaadin-horizontal-layout style="height: 50%; width: 45%; margin: var(--lumo-space-m); padding: var(--lumo-space-m);">
-   <vaadin-vertical-layout style="width: 50%; padding: var(--lumo-space-m);">
-    <label style="align-self: stretch; " id="valoracionUsuarioLbl">Valoración 1, Usuario</label>
-    <label style="align-self: stretch; " id="valoracionSpecLbl">Valoración 5/5 </label>
-   </vaadin-vertical-layout>
-   <vaadin-text-area style="align-self: stretch; width: 50%;" id="vaadinTextArea">
-     asdasdsadasdsad 
-   </vaadin-text-area>
-  </vaadin-horizontal-layout>
- </vaadin-horizontal-layout>
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;" id="listaComentarios"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
     }
