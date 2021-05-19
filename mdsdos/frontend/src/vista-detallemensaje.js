@@ -15,15 +15,15 @@ class VistaDetallemensaje extends PolymerElement {
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
  <label>Asunto mensaje</label>
- <div style="border:solid; width: 80%; align-self: center; height: 80%;">
-  <label>01/03/2021|remitente </label>
-  <div style="border:solid; width: 80%; height: 50%;">
-   Cuerpo del mensaje
-  </div>
- </div>
+ <vaadin-vertical-layout theme="spacing" style="width: 100%;border:solid">
+  <label id="remitentelvl">01/03/2021|remitente </label>
+  <vaadin-vertical-layout theme="spacing" style="width: 80%; align-self: center; border:solid; margin: var(--lumo-space-xl);" id="textLbl">
+   <label>texto del mensaje</label>
+  </vaadin-vertical-layout>
+ </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 80%; justify-content: flex-end;">
-  <vaadin-button>
-   Responder mensaje
+  <vaadin-button id="responderMensajeBtn">
+    Responder mensaje 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
