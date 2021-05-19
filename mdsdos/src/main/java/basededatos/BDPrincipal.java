@@ -30,18 +30,18 @@ import appventawebbd.Transportista;
 public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista, iEncargado, iCibernauta_Registrado, iCibernauta_no_Registrado {
 	public BD_Categoria _bd_cat = new BD_Categoria();
 	public BD_Producto _bd_prod = new BD_Producto();
-	public BD_Pendiente _bd_pend;
+	public BD_Pendiente _bd_pend = new BD_Pendiente();
 	public BD_Administrador _bd_admin = new BD_Administrador();
-	public BD_Comentario _bd_com;
-	public BD__Mensaje _bd__mens;
+	public BD_Comentario _bd_com = new BD_Comentario();
+	public BD__Mensaje _bd__mens = new BD__Mensaje();
 	public BD_Oferta _bd_oferta = new BD_Oferta();
 	public BD_Cibernauta _bd_ciber = new BD_Cibernauta();
-	public BD_Encargado _bd_enca;
-	public BD_Transportista _bd_trans;
-	public BD_Enviado _bd_env;
-	public BD_Entregado _bd_entr;
-	public BD_Fotos _bd_fotos;
-	public BD_Items _bd_items;
+	public BD_Encargado _bd_enca = new BD_Encargado();
+	public BD_Transportista _bd_trans = new BD_Transportista();
+	public BD_Enviado _bd_env = new BD_Enviado();
+	public BD_Entregado _bd_entr = new BD_Entregado();
+	public BD_Fotos _bd_fotos = new BD_Fotos();
+	public BD_Items _bd_items = new BD_Items();
 
 	public void cambiar_contrasena(String aEmail, String aNewContrasen) {
 		throw new UnsupportedOperationException();
