@@ -379,6 +379,23 @@ public class EnviadoDAO {
 			e.printStackTrace();
 			throw new PersistentException(e);
 		}
+<<<<<<< HEAD:mdsdos/src/main/java/Diagrama_BD/Enviado.java
+		
+	};
+	
+	@Column(name="Fecha", nullable=true)	
+	//private date fecha;
+	
+	//@ManyToOne(targetEntity=Diagrama_BD.Transportista.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="TransportistaUsuarioId", referencedColumnName="UsuarioId", nullable=false) }, foreignKey=@ForeignKey(name="FKEnviado826798"))	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private Diagrama_BD.Transportista transportista;
+	
+	/*public void setFecha(date value) {
+		this.fecha = value;
+=======
+>>>>>>> 5fb90ba799d9eb89af5d59a016856f805feda354:mdsdos/src/main/java/appventawebbd/EnviadoDAO.java
 	}
 	
 	public static boolean evict(appventawebbd.Enviado enviado) throws PersistentException {

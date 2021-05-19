@@ -8,7 +8,11 @@ import java.util.List;
 
 import org.orm.*;
 
+<<<<<<< HEAD
+import Diagrama_BD.Comentario;
+=======
 import appventawebbd.*;
+>>>>>>> 5fb90ba799d9eb89af5d59a016856f805feda354
 public class CreateAppventawebData {
 	public void createTestData() throws PersistentException {
 		String images[] = new String[] { 
@@ -22,6 +26,9 @@ public class CreateAppventawebData {
 		};
 		// PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		try {
+<<<<<<< HEAD
+			/*Diagrama_BD.Usuario diagrama_BDUsuario = Diagrama_BD.Usuario.createUsuario();
+=======
 			Cibernauta ciber = CibernautaDAO.createCibernauta();
             ciber.setNombre("PEPITO");
             ciber.setPassword("1234");
@@ -116,6 +123,7 @@ public class CreateAppventawebData {
 			diagramabd.CategoriaDAO.save(diagramaBDCategoria);*/
 	            
 			/*diagramabd.Usuario diagramaBDUsuario = diagramabd.UsuarioDAO.createUsuario();
+>>>>>>> 5fb90ba799d9eb89af5d59a016856f805feda354
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : mensajesRecibidos, mensajesEnviados, operativo
 			diagramabd.UsuarioDAO.save(diagramaBDUsuario);
 			diagramabd.Pedido diagramaBDPedido = diagramabd.PedidoDAO.createPedido();
@@ -165,8 +173,40 @@ public class CreateAppventawebData {
 			diagramabd.ItemDAO.save(diagramaBDItem);
 			diagramabd.Foto diagramaBDFoto = diagramabd.FotoDAO.createFoto();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : productoFoto
+<<<<<<< HEAD
+			diagrama_BDFoto.save();*/
+			
+			
+			Diagrama_BD.Categoria diagrama_BDCategoria = Diagrama_BD.Categoria.createCategoria();
+			// The following properties must be initialized before saving :
+			// productos
+			diagrama_BDCategoria.setNombre("LOL");
+			diagrama_BDCategoria.save();
+			
+			Diagrama_BD.Cibernauta diagrama_BDCibernauta = Diagrama_BD.Cibernauta.createCibernauta();
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : 
+			// comentario, pedidos
+			diagrama_BDCibernauta.save();
+			
+			Diagrama_BD.Producto diagrama_BDProducto = Diagrama_BD.Producto.createProducto();
+			// The following properties must be initialized before saving : 
+			// fotosProducto, items, ofertas, comentarios, valoracionMedia, 
+			// precio, categoria
+			diagrama_BDProducto.setDescripcion("FooDescription");
+			Comentario c = new Comentario();
+			c.setTexto("FOOOA");
+			c.setValoracion(4);
+			c.setCibernauta(diagrama_BDCibernauta);
+			diagrama_BDProducto.comentarios.add(c);
+			diagrama_BDProducto.setValoracionMedia(5);
+			diagrama_BDProducto.setPrecio(23.0);
+			diagrama_BDProducto.setCategoria(diagrama_BDCategoria);
+			diagrama_BDProducto.save();
+			t.commit();
+=======
 			diagramabd.FotoDAO.save(diagramaBDFoto);
 			t.commit();*/
+>>>>>>> 5fb90ba799d9eb89af5d59a016856f805feda354
 		}
 		catch (Exception e) {
 			System.out.println("EXCEPTION : " + e.getMessage());
