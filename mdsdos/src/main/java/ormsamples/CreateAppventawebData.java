@@ -49,6 +49,14 @@ public class CreateAppventawebData {
 		            System.out.println(images[j]);
 		            ProductoDAO.save(p);
 		            
+		            for (int k = 0; k < 4; k++) {
+		            	Comentario comen = ComentarioDAO.createComentario();
+		            	comen.setProducto(p);
+		            	comen.setCibernauta(ciber);
+		            	comen.setTexto("ME VALE VERGA");
+		            	comen.setValoracion(5);
+		            }            
+		            
 		            if (j>2) {
 		            	Oferta offer = OfertaDAO.createOferta();
 		            	offer.setFechaFin("FooFechaFin");

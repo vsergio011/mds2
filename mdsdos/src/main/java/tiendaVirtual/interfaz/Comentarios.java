@@ -6,4 +6,8 @@ import java.util.Vector;
 public class Comentarios {
 	public Ver_comentarios _verComentarios;
 	public Vector<Comentario> _comentario = new Vector<Comentario>();
+	
+	public Comentarios() {
+		
+	}
 }

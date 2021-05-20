@@ -10,6 +10,7 @@ class VistaComentario extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; border:solid; padding: var(--lumo-space-m);">
