@@ -9,6 +9,10 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import appventawebbd.AppventawebPersistentManager;
+import appventawebbd.Categoria;
+import appventawebbd.CategoriaDAO;
+import appventawebbd.Foto;
+import appventawebbd.FotoDAO;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
 import appventawebbd.Producto;
@@ -18,20 +22,63 @@ public class BD_Producto {
 	public BDPrincipal _bd_prin_prod;
 	public Vector<Producto> _contiene_productos = new Vector<Producto>();
 
-	public int altaProducto(Producto aProducto) {
-		throw new UnsupportedOperationException();
+	public Producto altaProducto(Producto aProducto) throws PersistentException {
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Producto pro = null;
+		try {
+			pro = ProductoDAO.createProducto();
+			
+			pro.setCategoria(aProducto.getCategoria());
+			pro.setDescripcion(aProducto.getDescripcion());
+			pro.setDetalles(aProducto.getDetalles());
+			pro.setFotos(aProducto.getFotos());
+			pro.setNombre(aProducto.getFotos());
+			pro.setPrecio(aProducto.getPrecio());
+			pro.setValoracionMedia(aProducto.getValoracionMedia());
+			
+			ProductoDAO.save(pro);
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
+		return pro;
 	}
 
-	public void modificarProducto(Producto aProducto) {
-		throw new UnsupportedOperationException();
+	public Producto modificarProducto(Producto aProducto) throws PersistentException {
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			ProductoDAO.save(aProducto);
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
+		return aProducto;
 	}
 
-	public void borrarProducto(int aProducto) {
-		throw new UnsupportedOperationException();
+	public void borrarProducto(Producto aProducto) throws PersistentException {
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			ProductoDAO.delete(aProducto);
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
 	}
 
-	public Producto getProducto(int aId) {
-		throw new UnsupportedOperationException();
+	public Producto getProducto(int aId) throws PersistentException {
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Producto pro = null;
+		try {
+			pro = ProductoDAO.getProductoByORMID(aId);
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
+		return pro;
 	}
 
 	public List<Producto> getProductosMasVendidos() throws PersistentException {
@@ -63,8 +110,22 @@ public class BD_Producto {
 		return productos;
 	}
 
-	public void anadirFoto(int aIdProducto, String aImage) {
-		throw new UnsupportedOperationException();
+	public void anadirFoto(int aIdProducto, String aImage) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Producto pro = this.getProducto(aIdProducto);
+			Foto f = FotoDAO.createFoto();
+			f.setRuta(aImage);
+			FotoDAO.save(f);
+			
+			pro.fotosProducto.add(f);
+			ProductoDAO.save(pro);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
 	public Producto[] getProductos(int[] aIdItems) {

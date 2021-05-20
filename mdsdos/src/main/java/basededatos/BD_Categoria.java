@@ -30,7 +30,18 @@ public class BD_Categoria {
 		return categorias;
 	}
 
-	public void addCategoria(Categoria aCategoria) {
-		throw new UnsupportedOperationException();
+	public Categoria addCategoria(Categoria aCategoria) throws PersistentException {
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Categoria cat= null;
+		try {
+			cat = CategoriaDAO.createCategoria();
+			cat.setNombre(aCategoria.getNombre());
+			CategoriaDAO.save(cat);
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
+		return cat;
 	}
 }

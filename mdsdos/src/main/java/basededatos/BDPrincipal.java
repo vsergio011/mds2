@@ -125,12 +125,23 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificarProducto(Producto aProducto) {
-		throw new UnsupportedOperationException();
+	public appventawebbd.Producto modificarProducto(Producto aProducto) {
+		try {
+			return _bd_prod.modificarProducto(aProducto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public void borrarProducto(int aProducto) {
-		throw new UnsupportedOperationException();
+	public void borrarProducto(appventawebbd.Producto aProducto) {
+		try {
+			_bd_prod.borrarProducto(aProducto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Empleado[] listEmpleados() {
@@ -165,12 +176,23 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public void addCategoria(Categoria aCategoria) {
-		throw new UnsupportedOperationException();
+	public appventawebbd.Categoria addCategoria(Categoria aCategoria) {
+		try {
+			return _bd_cat.addCategoria(aCategoria);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void anadirFoto(int aIdProducto, String aImage) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_prod.anadirFoto(aIdProducto, aImage);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void RealizarCompra(Producto[] aProductos, int aIdUsuario) {
@@ -318,4 +340,5 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	public Cibernauta get_Cibernauta_no_Registrado() {
 		throw new UnsupportedOperationException();
 	}
+
 }
