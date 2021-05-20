@@ -29,6 +29,12 @@ public class VistaListadoempleados extends PolymerTemplate<VistaListadoempleados
 
 	@Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
+	public TextField getVaadinTextField() {
+		return vaadinTextField;
+	}
+
+	@Id("vaadinTextField")
+	private TextField vaadinTextField;
 
 	public Element getVaadinVerticalLayout() {
 		return vaadinVerticalLayout;

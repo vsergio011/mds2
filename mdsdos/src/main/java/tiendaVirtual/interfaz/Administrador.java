@@ -71,9 +71,7 @@ public class Administrador extends VistaCibernauta {
 				
 				layout.removeAll();
 				layout.add(_cabecera);
-				layout.add(_perfilEmpleado);
-				
-				
+				layout.add(_perfilEmpleado);				
 			}
 		});
 		

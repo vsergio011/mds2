@@ -80,7 +80,7 @@ public class MainView extends VerticalLayout {
     	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				removeAll();
+				removeAll();	
 				BDPrincipal bd = new BDPrincipal();
 				String user = cnr._cabecera._login.getUsernameLbl().getValue();
 				String password = cnr._cabecera._login.getPasswordLbl().getValue();

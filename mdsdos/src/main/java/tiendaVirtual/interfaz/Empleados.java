@@ -54,6 +54,14 @@ public class Empleados extends VistaListadoempleados{
 			}
 	    });
 		
+		// TODO: Filtrar.
+		this.getVaadinTextField().addValueChangeListener(new ValueChangeListener() {
+			@Override
+			public void valueChanged(ValueChangeEvent event) {
+				System.out.println("CAMBIO   " + event.getValue().toString());
+			}
+	    });
+		
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		lb.setHeight("100%");
 		lb.setWidth("100%");
