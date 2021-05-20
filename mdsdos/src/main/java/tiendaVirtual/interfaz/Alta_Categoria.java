@@ -1,5 +1,8 @@
 package tiendaVirtual.interfaz;
 
+import appventawebbd.Categoria;
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaAltacategoria;
 
 public class Alta_Categoria extends VistaAltacategoria{
@@ -8,4 +11,12 @@ public class Alta_Categoria extends VistaAltacategoria{
 	private Object _cancelarB;
 	private Object _aceptarB;
 	public Funciones_Admin _funcionesAdmin;
+	
+	public void SaveCategoria() {
+		Categoria cat = new Categoria();
+		cat.setNombre(this.getCategoriaNameLbl().getValue());
+		
+		iAdministrador admin = new BDPrincipal();
+		admin.addCategoria(cat);
+	}
 }

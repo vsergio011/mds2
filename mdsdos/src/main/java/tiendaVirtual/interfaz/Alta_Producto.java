@@ -1,5 +1,7 @@
 package tiendaVirtual.interfaz;
 
+import basededatos.BDPrincipal;
+import basededatos.iAdministrador;
 import vistas.VistaAltaproducto;
 
 public class Alta_Producto extends VistaAltaproducto{
@@ -31,5 +33,22 @@ public class Alta_Producto extends VistaAltaproducto{
 
 	public void Borrar_Imagen() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public void SaveProducto() {
+		appventawebbd.Producto pro = new appventawebbd.Producto();
+		// TODO: Asignar bien la categoria
+		// pro.setCategoria(this.getProductoCategorias().getValue());
+		
+		pro.setDescripcion(this.getDescripcionInput().getValue());
+		pro.setFotos(this.getImg().getSrc());
+		pro.setNombre(this.getInputTitulo().getValue());
+		pro.setPrecio(Integer.parseInt(this.getProductoPrecio().getValue()));
+		
+		// TODO: DETALLES?
+		//pro.setDetalles(this.getD);
+		
+		iAdministrador admin = new BDPrincipal();
+		admin.altaProducto(pro);		
 	}
 }

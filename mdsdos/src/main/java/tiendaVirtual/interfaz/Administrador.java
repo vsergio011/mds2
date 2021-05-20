@@ -43,6 +43,8 @@ public class Administrador extends VistaCibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._funcionesAdmin._altaCategoria);
+				
+				_cabecera._funcionesAdmin._altaCategoria.SaveCategoria();
 			}
 		});
 		_cabecera._funcionesAdmin.getAddProductoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
