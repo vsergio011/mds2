@@ -15,6 +15,7 @@ public class Cabecera_Cibernauta extends Cabecera_Pagina {
 
 	public Cabecera_Cibernauta() {
 		this.getPerfilBtn().setVisible(false);
+		this.getAdminBtn().setVisible(false);
 		
 		_login = new Login_Cibernauta();
 		_carrito = new Carrito_no_Registrado();
