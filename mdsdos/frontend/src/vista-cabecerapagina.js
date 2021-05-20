@@ -21,7 +21,10 @@ class VistaCabecerapagina extends PolymerElement {
  <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%;">
   <vaadin-combo-box id="categoriesCombo" allow-custom-value></vaadin-combo-box>
   <vaadin-button id="offerBtn">
-    Categorias 
+   Categorias
+  </vaadin-button>
+  <vaadin-button id="limpiarBtn">
+   Limpiar
   </vaadin-button>
   <vaadin-text-field placeholder="Search" style="width: 45%;" id="searchInput">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
@@ -37,7 +40,7 @@ class VistaCabecerapagina extends PolymerElement {
   </vaadin-button>
  </vaadin-horizontal-layout>
  <vaadin-button id="adminBtn">
-  Admin
+   Admin 
  </vaadin-button>
 </vaadin-horizontal-layout>
 `;

@@ -12,9 +12,10 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 public class Cibernauta_no_Registrado extends Cibernauta {
 	// public iCibernauta_no_Registrado _iCibernauta_no_Registrado;
 	public Cabecera_Cibernauta _cabecera;
+	VerticalLayout layout;
 	
 	public Cibernauta_no_Registrado() {
-		VerticalLayout layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		_ofertasPopulares = new Ofertas_Populares();
 		_productosMasVendidos = new Productos_mas_vendidos();
@@ -27,69 +28,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		/**************************************************************************/
 		/********* Datos y botones de la vista productos mas vendidos *************/
 		/**************************************************************************/
-		for (Lista_de_Productos ldp: _productosMasVendidos._listaProductos)
-		{
-			VerticalLayout vl = _productosMasVendidos.getVaadinVerticalLayout().as(VerticalLayout.class);
-			vl.add(ldp);
-			for (Producto_Ciber pc: ldp._producto)
-			{
-				pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						
-						layout.add(pc._detalleProducto);
-						
-						pc._detalleProducto.getDeleteBtn().setVisible(false);
-						pc._detalleProducto.getAddOfferBtn().setVisible(false);
-						pc._detalleProducto.getUpdateBtn().setVisible(false);
-						
-						// TODO: Falta el boton de añadir a carrito.
-						
-						pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-							@Override
-							public void onComponentEvent(ClickEvent<Button> event) {
-								layout.removeAll();
-								layout.add(_cabecera);
-								
-								// TODO: Hacer mejor lo de los comentarios.
-								layout.add(pc._detalleProducto._verComentarios);
-								
-								// TODO: Funcionalidad de añadir a carrito.
-								pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										
-									}
-								});
-								
-								pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										layout.removeAll();
-										layout.add(_cabecera);
-										layout.add(pc._detalleProducto);
-									}
-								});
-							}
-						});
-						
-						// Añadir a carrito.
-						pc._detalleProducto.getAnadirACarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-							@Override
-							public void onComponentEvent(ClickEvent<Button> event) {
-								System.out.println("ENTRO ");
-								_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
-							}
-						});
-					}
-				});
-				
-				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
-				hl.add(pc);
-			}
-		}
+		fillCategories();
 		
 		/**************************************************************************/
 		/************************ Botones de la cabecera **************************/
@@ -114,9 +53,25 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
+				
+				appventawebbd.Categoria c = _cabecera.GetSelectedCategory();
+				_productosMasVendidos = new Productos_mas_vendidos(c);
 				layout.add(_cabecera);
 				layout.add(_ofertasPopulares);
 				layout.add(_productosMasVendidos);
+				fillCategories();
+			}
+		});
+		
+		_cabecera.getLimpiarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				_productosMasVendidos = new Productos_mas_vendidos();
+				layout.add(_cabecera);
+				layout.add(_ofertasPopulares);
+				layout.add(_productosMasVendidos);
+				fillCategories();
 			}
 		});
 		
@@ -217,5 +172,72 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 				layout.add(_cabecera._login);
 			}
 		});
+	}
+	
+	private void fillCategories() {	
+		for (Lista_de_Productos ldp : _productosMasVendidos._listaProductos)
+		{
+			System.out.println("KISTA PASANDO ");
+			VerticalLayout vl = _productosMasVendidos.getVaadinVerticalLayout().as(VerticalLayout.class);
+			vl.add(ldp);
+			for (Producto_Ciber pc: ldp._producto)
+			{
+				pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						
+						layout.add(pc._detalleProducto);
+						
+						pc._detalleProducto.getDeleteBtn().setVisible(false);
+						pc._detalleProducto.getAddOfferBtn().setVisible(false);
+						pc._detalleProducto.getUpdateBtn().setVisible(false);
+						
+						// TODO: Falta el boton de añadir a carrito.
+						
+						pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								
+								// TODO: Hacer mejor lo de los comentarios.
+								layout.add(pc._detalleProducto._verComentarios);
+								
+								// TODO: Funcionalidad de añadir a carrito.
+								pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+									@Override
+									public void onComponentEvent(ClickEvent<Button> event) {
+										
+									}
+								});
+								
+								pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+									@Override
+									public void onComponentEvent(ClickEvent<Button> event) {
+										layout.removeAll();
+										layout.add(_cabecera);
+										layout.add(pc._detalleProducto);
+									}
+								});
+							}
+						});
+						
+						// Añadir a carrito.
+						pc._detalleProducto.getAnadirACarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								System.out.println("ENTRO ");
+								_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
+							}
+						});
+					}
+				});
+				
+				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
+				hl.add(pc);
+			}
+		}
 	}
 }

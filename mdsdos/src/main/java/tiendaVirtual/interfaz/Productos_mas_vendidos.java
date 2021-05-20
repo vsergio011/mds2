@@ -18,12 +18,21 @@ public class Productos_mas_vendidos extends VistaProductosmasvendidos {
 	public Vector<Lista_de_Productos> _listaProductos = new Vector<Lista_de_Productos>();
 	
 	public Productos_mas_vendidos() {
-		fillCategorias();
+		fillCategorias(-1);
 	}
 	
-	private void fillCategorias() {
+	public Productos_mas_vendidos(appventawebbd.Categoria cat) {
+		fillCategorias(cat.getId());
+	}
+	
+	private void fillCategorias(int id) {
+		_listaProductos = new Vector<Lista_de_Productos>();
 		iCibernauta ciber = new BDPrincipal();
 		for(Categoria cat : ciber.listCategorias()) {
+			if (id != -1 && cat.getId() != id) {
+				System.out.println("SAME ID : " + id);
+				continue;
+			}
 			Lista_de_Productos ldp = new Lista_de_Productos(cat);
 			ldp.getLabel().setText(cat.getNombre());
 			_listaProductos.add(ldp);

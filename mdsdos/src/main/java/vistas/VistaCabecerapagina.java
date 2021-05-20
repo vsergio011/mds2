@@ -45,6 +45,10 @@ public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.Vis
 	private TextField inputSearch;
 	@Id("btnCarrito")
 	private Button btnCarrito;
+	public Button getLimpiarBtn() {
+		return limpiarBtn;
+	}
+
 	public Button getPerfilBtn() {
 		return perfilBtn;
 	}
@@ -59,6 +63,8 @@ public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.Vis
 	private Button perfilBtn;
 	@Id("adminBtn")
 	private Button adminBtn;
+	@Id("limpiarBtn")
+	private Button limpiarBtn;
 	public Button getBtnLogin() {
 		return btnLogin;
 	}

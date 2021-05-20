@@ -21,13 +21,24 @@ public class Cabecera_Pagina extends VistaCabecerapagina {
 	public Categorias _categorias;
 	public Ofertas _ofertas;
 	
+	private appventawebbd.Categoria selected = null;
 	public Cabecera_Pagina() {
 		iCibernauta ciber = new BDPrincipal();
 		
+		List<appventawebbd.Categoria> categorias = ciber.listCategorias();
 		List<String> cats = new ArrayList<String>();
-		for (appventawebbd.Categoria cat : ciber.listCategorias()) {
+		for (appventawebbd.Categoria cat : categorias) {
 			cats.add(cat.getNombre());
 		}
 		this.getCategoriesCombo().setItems(cats);
+		
+		this.getCategoriesCombo().addValueChangeListener(event -> {
+			int index = cats.indexOf(event.getValue());
+			selected = categorias.get(index);
+		});
+	}
+	
+	public appventawebbd.Categoria GetSelectedCategory() {
+		return selected;
 	}
 }
