@@ -66,7 +66,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 				fillCategories();
 			}
 		});
-		
 		_cabecera.getLimpiarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {

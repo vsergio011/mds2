@@ -11,9 +11,10 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 public class Cibernauta_Registrado extends Cibernauta {
 	// public iCibernauta_Registrado _iCibernauta_Registrado;
 	public Cabecera_Registrado _cabecera;
+	VerticalLayout layout;
 	
 	public Cibernauta_Registrado(int idCiber) {
-		VerticalLayout layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		_ofertasPopulares = new Ofertas_Populares();
 		_productosMasVendidos = new Productos_mas_vendidos();
@@ -88,10 +89,42 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera._perfil);
 			}
 		});
+		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				
+				appventawebbd.Categoria c = _cabecera.GetSelectedCategory();
+				if (c != null) {
+					_productosMasVendidos = new Productos_mas_vendidos(c);
+				}else {
+					_productosMasVendidos = new Productos_mas_vendidos();
+				}
+				layout.add(_cabecera);
+				layout.add(_ofertasPopulares);
+				layout.add(_productosMasVendidos);
+				fillCategories();
+			}
+		});
+		_cabecera.getLimpiarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				_productosMasVendidos = new Productos_mas_vendidos();
+				layout.add(_cabecera);
+				layout.add(_ofertasPopulares);
+				layout.add(_productosMasVendidos);
+				fillCategories();
+			}
+		});
 		
 		/**************************************************************************/
 		/********* Datos y botones de la vista productos mas vendidos *************/
 		/**************************************************************************/
+		fillCategories();
+	}
+	
+	private void fillCategories() {
 		for (Lista_de_Productos ldp: _productosMasVendidos._listaProductos)
 		{
 			VerticalLayout vl = _productosMasVendidos.getVaadinVerticalLayout().as(VerticalLayout.class);
