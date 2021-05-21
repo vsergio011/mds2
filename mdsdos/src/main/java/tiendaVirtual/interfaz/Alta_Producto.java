@@ -1,7 +1,11 @@
 package tiendaVirtual.interfaz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
+import basededatos.iCibernauta;
 import vistas.VistaAltaproducto;
 
 public class Alta_Producto extends VistaAltaproducto{
@@ -22,6 +26,23 @@ public class Alta_Producto extends VistaAltaproducto{
 	private Object _imagen;
 	private java.util.Vector<Object> _miniaturas;
 	public Funciones_Admin _funcionesAdmin;
+	
+	appventawebbd.Categoria selected = null;
+	public Alta_Producto() {
+		iCibernauta ciber = new BDPrincipal();
+		
+		List<appventawebbd.Categoria> categorias = ciber.listCategorias();
+		List<String> cats = new ArrayList<String>();
+		for (appventawebbd.Categoria cat : categorias) {
+			cats.add(cat.getNombre());
+		}
+		this.getProductoCategorias().setItems(cats);
+		
+		this.getProductoCategorias().addValueChangeListener(event -> {
+			int index = cats.indexOf(event.getValue());
+			selected = categorias.get(index);
+		});
+	}
 
 	public void Agregar_Imagen() {
 		throw new UnsupportedOperationException();
@@ -37,16 +58,13 @@ public class Alta_Producto extends VistaAltaproducto{
 	
 	public void SaveProducto() {
 		appventawebbd.Producto pro = new appventawebbd.Producto();
-		// TODO: Asignar bien la categoria
-		// pro.setCategoria(this.getProductoCategorias().getValue());
+		pro.setCategoria(this.selected);
 		
 		pro.setDescripcion(this.getDescripcionInput().getValue());
-		pro.setFotos(this.getImg().getSrc());
 		pro.setNombre(this.getInputTitulo().getValue());
 		pro.setPrecio(Integer.parseInt(this.getProductoPrecio().getValue()));
-		
-		// TODO: DETALLES?
-		//pro.setDetalles(this.getD);
+		pro.setDetalles(this.getVaadinTextArea().getValue());
+		pro.setFotos(this.getImg().getSrc());
 		
 		iAdministrador admin = new BDPrincipal();
 		admin.altaProducto(pro);		

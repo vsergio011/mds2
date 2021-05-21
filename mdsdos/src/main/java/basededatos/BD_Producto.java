@@ -32,8 +32,15 @@ public class BD_Producto {
 			pro.setCategoria(aProducto.getCategoria());
 			pro.setDescripcion(aProducto.getDescripcion());
 			pro.setDetalles(aProducto.getDetalles());
-			pro.setFotos(aProducto.getFotos());
-			pro.setNombre(aProducto.getFotos());
+			
+			String foto = "https://www.mundofino.com/site/assets/files/1729/no_foto.600x600nw.jpg";
+			String incomingFoto = aProducto.getFotos();
+			if (!incomingFoto.isEmpty()) {
+				foto = incomingFoto;
+			}
+			pro.setFotos(foto);
+			
+			pro.setNombre(aProducto.getNombre());
 			pro.setPrecio(aProducto.getPrecio());
 			pro.setValoracionMedia(aProducto.getValoracionMedia());
 			

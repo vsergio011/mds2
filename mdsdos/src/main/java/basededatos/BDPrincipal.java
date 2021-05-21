@@ -99,8 +99,14 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public int altaProducto(Producto aProducto) {
-		throw new UnsupportedOperationException();
+	public appventawebbd.Producto altaProducto(Producto aProducto) {
+		try {
+			return _bd_prod.altaProducto(aProducto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public List<Empleado> listempleados() {

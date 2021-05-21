@@ -17,9 +17,7 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 		this.getRateLabel().setText(String.format("Valoración media: %f/5", p.getValoracionMedia()));
 		this.getDescriptionLabel().setText(p.getDescripcion());
 		this.getPriceLAbel().setText(String.format("%f €", p.getPrecio()));
-		
-		// TODO: Caracteristicas?
-		// this.getVaadinTextArea().setValue();
+		this.getVaadinTextArea().setValue(p.getDetalles() == null ? "" : p.getDetalles());
 	}
 	
 	public Producto_Carrito GetProductocarrito() {

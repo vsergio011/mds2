@@ -55,7 +55,11 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 				layout.removeAll();
 				
 				appventawebbd.Categoria c = _cabecera.GetSelectedCategory();
-				_productosMasVendidos = new Productos_mas_vendidos(c);
+				if (c != null) {
+					_productosMasVendidos = new Productos_mas_vendidos(c);
+				}else {
+					_productosMasVendidos = new Productos_mas_vendidos();
+				}
 				layout.add(_cabecera);
 				layout.add(_ofertasPopulares);
 				layout.add(_productosMasVendidos);
@@ -193,8 +197,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 						pc._detalleProducto.getDeleteBtn().setVisible(false);
 						pc._detalleProducto.getAddOfferBtn().setVisible(false);
 						pc._detalleProducto.getUpdateBtn().setVisible(false);
-						
-						// TODO: Falta el boton de añadir a carrito.
 						
 						pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override

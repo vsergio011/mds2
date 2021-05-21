@@ -14,7 +14,7 @@ public class CreateAppventawebData {
 		String images[] = new String[] { 
 		  "http://www.entreperiodistas.com/wp-content/uploads/2018/05/como-hacer-fotografia-de-producto-1.jpg", 
 		  "https://www.dzoom.org.es/wp-content/uploads/2013/08/foto-de-producto-retoque-comparativa-734x551.jpg", 
-		  "https://www.blogdelfotografo.com/wp-content/uploads/2020/12/producto_fondo_negro.jpg", 
+		  "https://www.mundofino.com/site/assets/files/1729/no_foto.600x600nw.jpg", 
 		  "https://mott.pe/noticias/wp-content/uploads/2018/05/fotografia-de-producto-vs-fotografia-publicitaria-1.png", 
 		  "https://static-cse.canva.com/blob/205214/05-Secretos-fotos-de-producto.jpg",
 		  "https://rockcontent.com/es/wp-content/uploads/sites/3/2019/02/o-que-e-produto-no-mix-de-marketing.png",
@@ -41,6 +41,8 @@ public class CreateAppventawebData {
 				
 				for (int j = 0; j<=4; j++) {
 					Producto p = ProductoDAO.createProducto();
+					p.setNombre("Producto " + j);
+					p.setDetalles("DEtalles del producto " + j);
 					p.setDescripcion("producto "+j);
 					p.setValoracionMedia(j);
 		            p.setPrecio(20+j);

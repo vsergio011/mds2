@@ -35,6 +35,15 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera._funcionesAdmin);
 			}
 		});
+		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_ofertas);
+				layout.add(_listaPmV);
+			}
+		});
 		
 		// Botones dentro de la vista de admin.
 		_cabecera._funcionesAdmin.getAddCategoriaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -53,6 +62,24 @@ public class Administrador extends VistaCibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._funcionesAdmin._altaProducto);
+			}
+		});
+		_cabecera._funcionesAdmin._altaProducto.getAddBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._funcionesAdmin);
+				
+				_cabecera._funcionesAdmin._altaProducto.SaveProducto();
+			}
+		});
+		_cabecera._funcionesAdmin._altaProducto.getCancelBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._funcionesAdmin);
 			}
 		});
 		_cabecera._funcionesAdmin.getModificarEmpleadoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
