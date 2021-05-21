@@ -180,7 +180,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 	private void fillCategories() {	
 		for (Lista_de_Productos ldp : _productosMasVendidos._listaProductos)
 		{
-			System.out.println("KISTA PASANDO ");
 			VerticalLayout vl = _productosMasVendidos.getVaadinVerticalLayout().as(VerticalLayout.class);
 			vl.add(ldp);
 			for (Producto_Ciber pc: ldp._producto)
@@ -229,7 +228,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 						pc._detalleProducto.getAnadirACarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
-								System.out.println("ENTRO ");
 								_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
 							}
 						});

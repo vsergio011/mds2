@@ -95,7 +95,6 @@ public class Administrador extends VistaCibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				appventawebbd.Empleado selected = _cabecera._funcionesAdmin._modificarEmpleado._empleados.GetSelectedEmpleado();
 				_cabecera._funcionesAdmin._modificarEmpleado._empleados.clearView();
-				System.out.println("EMPLEADO: " + selected.getNombre() + " " + selected.getApellidos() );
 				Perfil_empleado _perfilEmpleado = new Perfil_empleado(selected);
 				
 				layout.removeAll();
