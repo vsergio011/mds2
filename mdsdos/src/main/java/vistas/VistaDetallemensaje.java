@@ -27,6 +27,8 @@ public class VistaDetallemensaje extends PolymerTemplate<VistaDetallemensaje.Vis
 	private Label remitentelvl;
 	@Id("mensajeLbl")
 	private Label mensajeLbl;
+	@Id("enviarBtn")
+	private Button enviarBtn;
 
 	public Label getMensajeLbl() {
 		return mensajeLbl;

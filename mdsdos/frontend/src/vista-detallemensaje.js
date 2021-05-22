@@ -23,8 +23,11 @@ class VistaDetallemensaje extends PolymerElement {
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 80%; justify-content: flex-end;">
+  <vaadin-button id="enviarBtn">
+   Enviar
+  </vaadin-button>
   <vaadin-button id="responderMensajeBtn">
-    Responder mensaje 
+   Responder 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

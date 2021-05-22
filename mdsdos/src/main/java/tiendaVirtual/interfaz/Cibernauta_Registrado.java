@@ -104,7 +104,6 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				appventawebbd.Mensaje msg = _cabecera._perfil._mensajeria.GetSelected();
-				System.out.println("MSNAEJ NUILL? " + msg);
 				_cabecera._perfil._mensajeria._nueva_Notificacion.fillNotificacion(msg);
 				layout.add(_cabecera._perfil._mensajeria._nueva_Notificacion);
 			}

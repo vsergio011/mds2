@@ -17,15 +17,21 @@ class VistaNuevomensaje extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
- <label>Creación de un nuevo mensaje</label>
+ <label id="titleLbl">Creación de un nuevo mensaje</label>
  <vaadin-vertical-layout theme="spacing" style="width: 80%; align-self: center; align-items: center; border:solid; margin-top: 5%;">
-  <vaadin-text-field label="Asunto" placeholder="Placeholder" style="width: 90%;"></vaadin-text-field>
-  <vaadin-text-field label="Destinatario" placeholder="Placeholder" style="width: 90%;"></vaadin-text-field>
-  <vaadin-text-area label="Mensaje" placeholder="Add detailed explanation" style="width: 90%;"></vaadin-text-area>
+  <vaadin-text-field label="Asunto" placeholder="Placeholder" style="width: 90%;" id="asuntoInput"></vaadin-text-field>
+  <vaadin-text-field label="Remitente" placeholder="Placeholder" id="remitenteInput" style="width: 90%;">
+   Remitente
+  </vaadin-text-field>
+  <vaadin-text-field label="Destinatario" placeholder="Placeholder" style="width: 90%;" id="destinatarioInput"></vaadin-text-field>
+  <vaadin-text-area label="Mensaje" placeholder="Add detailed explanation" style="width: 90%;" id="mensajeInput"></vaadin-text-area>
  </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 80%; justify-content: flex-end;">
-  <vaadin-button>
-   Enviar mensaje
+  <vaadin-button id="responderBtn">
+    Responder 
+  </vaadin-button>
+  <vaadin-button id="enviarBtn">
+    Enviar 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
