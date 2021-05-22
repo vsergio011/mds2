@@ -20,11 +20,11 @@ public class Perfil_Cibernauta extends Perfil {
 	
 	public Perfil_Cibernauta(int idCiber) {
 		_cambiarContrasena = new Cambiar_Contrasena();
-		
 		iCibernauta_Registrado bd = new BDPrincipal();
-		
 		appventawebbd.Cibernauta ciber = bd.getCibernauta(idCiber);
+		_mensajeria = new Mensajeria(ciber);
 		_modificar = new Modificar_Datos(ciber);
+		
 		fillCibernautaData(ciber);
 	}
 	

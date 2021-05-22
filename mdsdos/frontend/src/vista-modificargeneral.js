@@ -23,9 +23,6 @@ class VistaModificargeneral extends PolymerElement {
    <vaadin-button style="width: 100%;" id="cambiarPasswordBtn">
      Cambiar contraseña 
    </vaadin-button>
-   <vaadin-button style="width: 100%;" id="modificarDatosBtn">
-     Modificar datos 
-   </vaadin-button>
    <vaadin-button style="width: 100%;" id="comprasBtn">
      Compras realizadas 
    </vaadin-button>

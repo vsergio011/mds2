@@ -50,8 +50,6 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 	private Button contactoBTn;
 	@Id("comprasBtn")
 	private Button comprasBtn;
-	@Id("modificarDatosBtn")
-	private Button modificarDatosBtn;
 	@Id("cambiarPasswordBtn")
 	private Button cambiarPasswordBtn;
 	@Id("cambiarImagenBtn")
@@ -103,10 +101,6 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 
 	public Button getComprasBtn() {
 		return comprasBtn;
-	}
-
-	public Button getModificarDatosBtn() {
-		return modificarDatosBtn;
 	}
 
 	public Button getCambiarPasswordBtn() {

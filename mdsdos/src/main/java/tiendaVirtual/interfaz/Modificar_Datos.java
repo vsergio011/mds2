@@ -15,5 +15,13 @@ public class Modificar_Datos extends Modificar_general {
 			return;
 		}
 		this.fillData(ciber);		
-	}	
+	}
+	
+	public void showLess() {
+		this.getBorrarCuentaBtn().setVisible(false);
+		this.getDesconectarBtn().setVisible(false);
+		this.getComprasBtn().setVisible(false);
+		this.getContactoBTn().setVisible(false);
+		this.getCambiarPasswordBtn().setVisible(false);
+	}
 }

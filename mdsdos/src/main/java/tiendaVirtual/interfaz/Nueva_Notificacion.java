@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Nueva_Notificacion {
+import vistas.VistaDetallemensaje;
+
+public class Nueva_Notificacion extends VistaDetallemensaje {
 	// private event _enviar_Notificacion;
 	private Object _tituloL;
 	private Object _asuntoL;
@@ -14,5 +16,17 @@ public class Nueva_Notificacion {
 
 	public void Enviar_Notificacion() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Nueva_Notificacion() {
+		
+	}
+	
+	public void fillNotificacion(appventawebbd.Mensaje msg) {
+		if (msg == null) {
+			return;
+		}
+		this.getMensajeLbl().setText(msg.getCuerpo());
+		this.getRemitentelvl().setText(msg.getRemitente().getNombre());
 	}
 }

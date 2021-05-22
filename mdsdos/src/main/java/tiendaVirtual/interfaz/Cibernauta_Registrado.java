@@ -49,6 +49,14 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera._perfil._cambiarContrasena._nuevaContrasena);
 			}
 		});
+		_cabecera._perfil.getContactoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._mensajeria);
+			}
+		});
 		_cabecera._perfil._cambiarContrasena._nuevaContrasena.getContinueBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -76,6 +84,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
+				_cabecera._perfil._modificar.showLess();
 				layout.add(_cabecera._perfil._modificar);
 			}
 		});
@@ -87,6 +96,17 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera._perfil);
 				
 				// TODO: llamar para actualizar los datos del usuario.
+			}
+		});
+		_cabecera._perfil._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				appventawebbd.Mensaje msg = _cabecera._perfil._mensajeria.GetSelected();
+				System.out.println("MSNAEJ NUILL? " + msg);
+				_cabecera._perfil._mensajeria._nueva_Notificacion.fillNotificacion(msg);
+				layout.add(_cabecera._perfil._mensajeria._nueva_Notificacion);
 			}
 		});
 		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

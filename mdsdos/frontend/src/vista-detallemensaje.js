@@ -11,6 +11,7 @@ class VistaDetallemensaje extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
@@ -18,7 +19,7 @@ class VistaDetallemensaje extends PolymerElement {
  <vaadin-vertical-layout theme="spacing" style="width: 100%;border:solid">
   <label id="remitentelvl">01/03/2021|remitente </label>
   <vaadin-vertical-layout theme="spacing" style="width: 80%; align-self: center; border:solid; margin: var(--lumo-space-xl);" id="textLbl">
-   <label>texto del mensaje</label>
+   <label id="mensajeLbl">texto del mensaje</label>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 80%; justify-content: flex-end;">

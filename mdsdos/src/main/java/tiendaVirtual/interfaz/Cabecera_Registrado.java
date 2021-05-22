@@ -13,5 +13,6 @@ public class Cabecera_Registrado extends Cabecera_Pagina {
 		_perfil = new Perfil_Cibernauta(idCiber);
 		
 		this.getBtnLogin().setVisible(false);
+		this.getAdminBtn().setVisible(false);
 	}
 }

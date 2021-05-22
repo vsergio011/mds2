@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Notificacion {
+import vistas.VistaNotificacion;
+
+public class Notificacion extends VistaNotificacion {
 	private Object _asuntoL;
 	private Object _fechaL;
 	private Object _remitenteL;
@@ -8,4 +10,16 @@ public class Notificacion {
 	private Object _responderB;
 	public Notificaciones _notificaciones;
 	public Responder _responder;
+	
+	private appventawebbd.Mensaje msg = null;
+	public appventawebbd.Mensaje getMensaje() {
+		return msg;
+	}
+	
+	public Notificacion(appventawebbd.Mensaje msg) {
+		this.msg = msg;
+		
+		this.getAsuntoLbl().setText(msg.getAsunto());
+		this.getMsgLbl().setText(msg.getCuerpo());
+	}	
 }

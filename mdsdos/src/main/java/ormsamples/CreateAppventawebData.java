@@ -93,7 +93,22 @@ public class CreateAppventawebData {
 			encar.setFormaPago("TARJETA");
 			EncargadoDAO.save(encar);
 			
-			
+			for (int i = 0; i < 5; i++) {
+            	appventawebbd.Mensaje msg= MensajeDAO.createMensaje();
+            	msg.setAsunto("Asunto msg " + i);
+            	msg.setCuerpo("cuerpo " + i);
+            	msg.setRemitente(admin);
+            	msg.setDestinatario(ciber);
+            	MensajeDAO.save(msg);
+            }
+			for (int i = 0; i < 3; i++) {
+            	appventawebbd.Mensaje msg= MensajeDAO.createMensaje();
+            	msg.setAsunto("Asunto msg " + i);
+            	msg.setCuerpo("cuerpo " + i);
+            	msg.setRemitente(ciber);
+            	msg.setDestinatario(admin);
+            	MensajeDAO.save(msg);
+            }
 			
             /* Cibernauta ciber = CibernautaDAO.createCibernauta();
             ciber.setNombre("PEPITO");

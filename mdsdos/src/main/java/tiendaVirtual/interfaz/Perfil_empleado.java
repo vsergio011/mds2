@@ -11,7 +11,7 @@ public class Perfil_empleado extends Modificar_general {
 	
 	public Perfil_empleado() {}
 	
-	public Perfil_empleado(appventawebbd.Usuario ciber) {
+	public Perfil_empleado(appventawebbd.Usuario ciber) {		
 		if (ciber == null) {
 			return;
 		}
