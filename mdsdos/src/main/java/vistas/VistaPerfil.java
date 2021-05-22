@@ -37,9 +37,6 @@ public class VistaPerfil extends PolymerTemplate<VistaPerfil.VistaPerfilModel> {
 	private Button borrarCuentaBtn;
 	@Id("desconectarBtn")
 	private Button desconectarBtn;
-	public Button getAceptarCambiosBtn() {
-		return aceptarCambiosBtn;
-	}
 
 	@Id("nombreApellidosLbl")
 	private Label nombreApellidosLbl;
@@ -52,8 +49,6 @@ public class VistaPerfil extends PolymerTemplate<VistaPerfil.VistaPerfilModel> {
 	private Label direccionLbl;
 	@Id("perfilLayout")
 	private Element perfilLayout;
-	@Id("aceptarCambiosBtn")
-	private Button aceptarCambiosBtn;
 
 	/**
      * Creates a new VistaPerfil.

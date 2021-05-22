@@ -1,7 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaPerfil extends PolymerElement {
 
@@ -19,9 +19,6 @@ class VistaPerfil extends PolymerElement {
   <vaadin-vertical-layout theme="spacing" style="align-items: center;">
    <vaadin-button id="cambiarImgBtn">
      Cambiar imagen de perfil 
-   </vaadin-button>
-   <vaadin-button style="width: 100%;" id="aceptarCambiosBtn">
-     Aceptar cambios 
    </vaadin-button>
    <vaadin-button style="width: 100%;" id="cambiarPasswordBtn">
      Cambiar contraseña 

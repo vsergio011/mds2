@@ -8,6 +8,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-modificargeneral template.
@@ -21,8 +22,16 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 
     @Id("lbNombreUsuario")
 	private TextField lbNombreUsuario;
+	public Element getContainerLayout() {
+		return containerLayout;
+	}
+
 	@Id("lbApellidos")
 	private TextField lbApellidos;
+	public Button getAceptarCambiosBtn() {
+		return aceptarCambiosBtn;
+	}
+
 	@Id("lbNombre")
 	private TextField lbNombre;
 	@Id("lbEmail")
@@ -47,6 +56,10 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 	private Button cambiarPasswordBtn;
 	@Id("cambiarImagenBtn")
 	private Button cambiarImagenBtn;
+	@Id("containerLayout")
+	private Element containerLayout;
+	@Id("aceptarCambiosBtn")
+	private Button aceptarCambiosBtn;
 
 	public TextField getLbNombreUsuario() {
 		return lbNombreUsuario;

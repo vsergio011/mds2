@@ -9,9 +9,7 @@ public class Perfil_empleado extends Modificar_general {
 	public Empleado _empleado;
 	public Poner_nueva_contrasena _nuevaContrasena;
 	
-	public Perfil_empleado() {
-		
-	}
+	public Perfil_empleado() {}
 	
 	public Perfil_empleado(appventawebbd.Usuario ciber) {
 		if (ciber == null) {

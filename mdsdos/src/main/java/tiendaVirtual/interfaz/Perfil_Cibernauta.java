@@ -37,24 +37,4 @@ public class Perfil_Cibernauta extends Perfil {
 		this.getDireccionLbl().setText("Dirección: " + ciber.getDireccionCompleta());
 		this.getEmailLbl().setText("Email: "+ ciber.getCorreoElectronico());
 	}
-	
-	public void hideModificarDatos() {
-		this.getNombreApellidosLbl().setVisible(true);
-		this.getDireccionLbl().setVisible(true);
-		this.getEmailLbl().setVisible(true);
-		this.getAceptarCambiosBtn().setVisible(false);
-		
-		VerticalLayout vl = this.getPerfilLayout().as(VerticalLayout.class);
-		vl.remove(this._modificar);		
-	}
-	
-	public void showModificarDatos() {		
-		this.getNombreApellidosLbl().setVisible(false);
-		this.getDireccionLbl().setVisible(false);
-		this.getEmailLbl().setVisible(false);
-		this.getAceptarCambiosBtn().setVisible(true);
-		
-		VerticalLayout vl = this.getPerfilLayout().as(VerticalLayout.class);
-		vl.add(this._modificar);
-	}
 }

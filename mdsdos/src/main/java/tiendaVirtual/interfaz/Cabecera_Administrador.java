@@ -17,5 +17,6 @@ public class Cabecera_Administrador extends Cabecera_Pagina {
 		this.getAdminBtn().setVisible(true);
 		this.getBtnCarrito().setVisible(false);
 		this.getPerfilBtn().setVisible(true);
+		this.getBtnLogin().setVisible(false);
 	}
 }

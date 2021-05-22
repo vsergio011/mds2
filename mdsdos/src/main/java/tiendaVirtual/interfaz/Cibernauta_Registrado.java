@@ -30,7 +30,6 @@ public class Cibernauta_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				_cabecera._perfil.hideModificarDatos();
 				layout.add(_cabecera._perfil);
 			}
 		});		
@@ -55,7 +54,6 @@ public class Cibernauta_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				_cabecera._perfil.hideModificarDatos();
 				layout.add(_cabecera._perfil);
 			}
 		});
@@ -64,7 +62,6 @@ public class Cibernauta_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				_cabecera._perfil.hideModificarDatos();
 				layout.add(_cabecera._perfil);
 			}
 		});
@@ -77,16 +74,19 @@ public class Cibernauta_Registrado extends Cibernauta {
 		_cabecera._perfil.getModificarDatosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				_cabecera._perfil.showModificarDatos();
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._modificar);
 			}
 		});
-		_cabecera._perfil.getAceptarCambiosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		_cabecera._perfil._modificar.getAceptarCambiosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				_cabecera._perfil.hideModificarDatos();
 				layout.add(_cabecera._perfil);
+				
+				// TODO: llamar para actualizar los datos del usuario.
 			}
 		});
 		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

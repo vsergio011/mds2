@@ -1,6 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaModificargeneral extends PolymerElement {
 
@@ -37,9 +38,12 @@ class VistaModificargeneral extends PolymerElement {
    <vaadin-button style="width: 100%;" id="desconectarBtn">
      Desconectar 
    </vaadin-button>
+   <vaadin-button id="aceptarCambiosBtn">
+    Aceptar Cambios
+   </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; padding: var(--lumo-space-xl);">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; padding: var(--lumo-space-xl);" id="containerLayout">
   <vaadin-text-field label="Nombre de usuario" placeholder="Placeholder" id="lbNombreUsuario" style="width: 90%;"></vaadin-text-field>
   <vaadin-text-field label="Nombre" placeholder="Placeholder" style="width: 90%;" id="lbNombre"></vaadin-text-field>
   <vaadin-text-field label="Apellidos" placeholder="Placeholder" style="width: 90%;" id="lbApellidos"></vaadin-text-field>

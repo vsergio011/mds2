@@ -1,8 +1,9 @@
 package tiendaVirtual.interfaz;
 
 import vistas.VistaModificardatos;
+import vistas.VistaModificargeneral;
 
-public class Modificar_general extends VistaModificardatos{
+public class Modificar_general extends VistaModificargeneral {
 	// private event _cambiar_Imagen_de_Perfil;
 	private Object _imagen;
 	private Object _aceptarB;
@@ -20,15 +21,18 @@ public class Modificar_general extends VistaModificardatos{
 	private Object _datosPagoL;
 	private Object _datosPagoTF;
 	
-	public Modificar_general() {}
+	public Modificar_general() {
+		System.out.println("YEAHHHHHHHHHHHHH");
+	}
 	
 	public void fillData(appventawebbd.Usuario ciber) {
-		this.getNomreInput().setValue(ciber.getNombre());
-		this.getApellidosInput().setValue(ciber.getApellidos());
-		this.getDatosPagoInput().setValue(ciber.getFormaPago());
-		this.getDireccionInput().setValue(ciber.getDireccionCompleta());
-		this.getEmailInput().setValue(ciber.getCorreoElectronico());
-		this.getNombreUsuarioInput().setValue(ciber.getUsuario());
+		this.getLbNombre().setValue(ciber.getNombre());
+		this.getLbApellidos().setValue(ciber.getApellidos());
+		this.getLbDatosDePago().setValue(ciber.getFormaPago());
+		this.getLbDireccion().setValue(ciber.getDireccionCompleta());
+		this.getLbEmail().setValue(ciber.getCorreoElectronico());
+		this.getLbNombreUsuario().setValue(ciber.getUsuario());
+		this.getImg().setSrc(ciber.getFoto());
 	}
 
 	public void Cambiar_Imagen_de_Perfil() {
