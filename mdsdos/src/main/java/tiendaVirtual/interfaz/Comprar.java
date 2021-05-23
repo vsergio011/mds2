@@ -20,4 +20,8 @@ public class Comprar {
 	public void Realizar_Compra() {
 		throw new UnsupportedOperationException();
 	}
+	
+	public Comprar() {
+		_cambiarDatosCompra = new Cambiar_datos_Compra();
+	}
 }

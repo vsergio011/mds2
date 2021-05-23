@@ -32,6 +32,14 @@ public class VistaProductopedido extends PolymerTemplate<VistaProductopedido.Vis
 	private Button deleteBtn;
 	@Id("cantidadCombo")
 	private ComboBox<String> cantidadCombo;
+	public Label getValoracionLbl() {
+		return valoracionLbl;
+	}
+
+	public Label getUnidadesLbl() {
+		return unidadesLbl;
+	}
+
 	public Label getDato1Lbl() {
 		return dato1Lbl;
 	}
@@ -116,6 +124,10 @@ public class VistaProductopedido extends PolymerTemplate<VistaProductopedido.Vis
 	private Label descripProducLbl;
 	@Id("imgProducto")
 	private Image imgProducto;
+	@Id("valoracionLbl")
+	private Label valoracionLbl;
+	@Id("unidadesLbl")
+	private Label unidadesLbl;
 	/**
      * Creates a new VistaProductopedido.
      */

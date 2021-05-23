@@ -11,6 +11,7 @@ public class Cabecera_Registrado extends Cabecera_Pagina {
 	
 	public Cabecera_Registrado(appventawebbd.Cibernauta ciber) {
 		_perfil = new Perfil_Cibernauta(ciber);
+		_carrito = new Carrito_Registrado(ciber);
 		
 		this.getBtnLogin().setVisible(false);
 		this.getAdminBtn().setVisible(false);
