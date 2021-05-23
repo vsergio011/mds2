@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 
 import com.vaadin.flow.component.ClickEvent;
@@ -14,7 +15,9 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.FileData;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
 
 import appventawebbd.Categoria;
 import appventawebbd.Producto;
@@ -41,10 +44,10 @@ public class Alta_Producto extends VistaAltaproducto{
 	private Object _imagen;
 	private java.util.Vector<Object> _miniaturas;
 	public Funciones_Admin _funcionesAdmin;
-	
+	List <String> imagenesUrl;
 	iAdministrador ciberAdm;
 	Upload upload ;
-	MemoryBuffer memoryBuffer;
+	MultiFileMemoryBuffer multiFileMemoryBuffer;
 	File tmpFile;
 	
 	appventawebbd.Categoria selected = null;
@@ -63,12 +66,22 @@ public class Alta_Producto extends VistaAltaproducto{
 			int index = cats.indexOf(event.getValue());
 			selected = categorias.get(index);
 		});
-		memoryBuffer = new MemoryBuffer();
-		upload = new Upload(memoryBuffer);
+		multiFileMemoryBuffer = new MultiFileMemoryBuffer();
+		Upload upload = new Upload(multiFileMemoryBuffer);
 		upload.addFinishedListener(e -> {
-		    InputStream inputStream = memoryBuffer.getInputStream();
-		    // read the contents of the buffered memory
-		    // from inputStream
+			
+			for(String a : multiFileMemoryBuffer.getFiles()) {
+				System.out.println(a);
+				InputStream inputStream = multiFileMemoryBuffer.getInputStream(a);
+				// read the contents of the buffered memory
+				// from inputStream
+			}
+			
+			
+		   
+		    
+		    
+		    
 		});
 		this.gethorizontalLYUpImg().add(upload);
 		
@@ -85,32 +98,41 @@ public class Alta_Producto extends VistaAltaproducto{
 	}
 
 	public void Agregar_Imagen() {
-		System.out.println(memoryBuffer.getFileName());
-		System.out.println(memoryBuffer.getFileData());
+		imagenesUrl = new ArrayList<String>();
+		this.getvlImages().removeAll();
+		 
+		for(String a : multiFileMemoryBuffer.getFiles()) {
+			FileData fd = multiFileMemoryBuffer.getFileData(a);
+			InputStream is = multiFileMemoryBuffer.getInputStream(fd.getFileName());
+			
+			try {
+	            
+	            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+a);
+	            byte[] buffer = new byte[1024];
+	            int bytesRead;
+	            //read from is to buffer
+	            while((bytesRead = is.read(buffer)) !=-1){
+	                os.write(buffer, 0, bytesRead);
+	            }
+	            is.close();
+	            //flush OutputStream to write any buffered data to file
+	            os.flush();
+	            os.close();
+	            this.getImg().setMaxWidth("300px");
+	            
+	            imagenesUrl.add("img/"+a);
+	            this.getImg().setSrc("img/"+a);
+	            Image image = new Image("img/"+a, "DummyImage");
+	            image.setWidth("50px");
+	            this.getvlImages().add(image);
+	            
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }	
+		}
+		multiFileMemoryBuffer.getFiles().clear();
 		
-		try {
-            InputStream is = memoryBuffer.getInputStream();
-            
-            OutputStream os = new FileOutputStream("./src/main/webapp/img"+memoryBuffer.getFileName());
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            //read from is to buffer
-            while((bytesRead = is.read(buffer)) !=-1){
-                os.write(buffer, 0, bytesRead);
-            }
-            is.close();
-            //flush OutputStream to write any buffered data to file
-            os.flush();
-            os.close();
-            this.getImg().setMaxWidth("300px");
-            this.getImg().setSrc("img/"+memoryBuffer.getFileName());
-            
-    		
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-		
+	
 	}
 
 	public void Cambiar_Imagen() {

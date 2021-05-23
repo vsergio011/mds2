@@ -24,11 +24,11 @@ class VistaAltaproducto extends PolymerElement {
     <label style="font-weight: bold; align-self: stretch; " id="titleLbl">Alta producto</label>
     <vaadin-horizontal-layout theme="spacing">
      <label>Título </label>
-     <input type="text" id="inputTitulo">url 
+     <input type="text" id="inputTitulo">
     </vaadin-horizontal-layout>
    </vaadin-vertical-layout>
-   <vaadin-horizontal-layout style="flex-shrink: 0; width: 100%;">
-    <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-xs);"></vaadin-vertical-layout>
+   <vaadin-horizontal-layout style="flex-shrink: 0; width: 100%; align-self: flex-start;">
+    <vaadin-vertical-layout theme="spacing" id="vlImages"></vaadin-vertical-layout>
     <img style="border: solid; height: 70%; width: 95%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">

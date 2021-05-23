@@ -6,6 +6,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.html.Input;
@@ -79,7 +80,12 @@ public class VistaAltaproducto extends PolymerTemplate<VistaAltaproducto.VistaAl
 	public HorizontalLayout gethorizontalLYUpImg() {
 		return horizontalLYUpImg;
 	}
+	public VerticalLayout getvlImages() {
+		return vlImages;
+	}
 	
+	@Id("vlImages")
+	private VerticalLayout vlImages;
 	@Id("horizontalLYUpImg")
 	private HorizontalLayout horizontalLYUpImg;
 	@Id("vaadinTextArea")
