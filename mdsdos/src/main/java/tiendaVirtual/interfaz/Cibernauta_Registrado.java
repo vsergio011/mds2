@@ -108,6 +108,25 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera._perfil._mensajeria._nueva_Notificacion);
 			}
 		});
+		_cabecera._perfil._mensajeria.getNuevoMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				_cabecera._perfil._mensajeria._nueva_Notificacion.clearAll();
+				layout.add(_cabecera._perfil._mensajeria._nueva_Notificacion);
+			}
+		});
+		_cabecera._perfil._mensajeria._nueva_Notificacion.getEnviarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._mensajeria);
+				
+				_cabecera._perfil._mensajeria._nueva_Notificacion.Enviar_Notificacion(null);
+			}
+		});
 		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {

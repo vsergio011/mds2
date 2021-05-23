@@ -24,6 +24,9 @@ public class Mensajeria extends VistaMensajeria {
 	
 	private boolean enviados = false;
 	public Mensajeria(appventawebbd.Cibernauta ciber) {
+		this.getResponderBtn().setVisible(false);
+		this.getNombreBtn().setText("Mensajes de " + ciber.getNombre());
+		
 		_nueva_Notificacion = new Nueva_Notificacion();
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		_recibidos = new Lista_Recibidos(ciber);

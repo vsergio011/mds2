@@ -24,6 +24,8 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 	}
 	
 	public Nueva_Notificacion() {
+		clearAll();
+		
 		this.getEnviarBtn().setVisible(true);
 		this.getResponderBtn().setVisible(false);
 	}
@@ -55,6 +57,16 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 		this.getDestinatarioInput().setValue(msg.getRemitente().getCorreoElectronico());
 		this.getAsuntoInput().setValue("Respuesta - " + msg.getAsunto());
 		this.getRemitenteInput().setValue(msg.getDestinatario().getCorreoElectronico());
+		this.getTitleLbl().setText("Enviar mensaje");
+	}
+	
+	public void clearAll() {
+		this.getEnviarBtn().setVisible(true);
+		this.getResponderBtn().setVisible(false);
+		this.getMensajeInput().setValue("");
+		this.getDestinatarioInput().setValue("");
+		this.getAsuntoInput().setValue("");
+		this.getRemitenteInput().setValue("");
 		this.getTitleLbl().setText("Enviar mensaje");
 	}
 }
