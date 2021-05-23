@@ -5,6 +5,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.html.Input;
@@ -74,7 +75,13 @@ public class VistaAltaproducto extends PolymerTemplate<VistaAltaproducto.VistaAl
 	public ComboBox<String> getProductoCategorias() {
 		return productoCategorias;
 	}
-
+	
+	public HorizontalLayout gethorizontalLYUpImg() {
+		return horizontalLYUpImg;
+	}
+	
+	@Id("horizontalLYUpImg")
+	private HorizontalLayout horizontalLYUpImg;
 	@Id("vaadinTextArea")
 	private TextArea vaadinTextArea;
 	@Id("inputTitulo")

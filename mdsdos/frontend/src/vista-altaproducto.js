@@ -1,10 +1,10 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
 import '@vaadin/vaadin-combo-box/src/vaadin-combo-box.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaAltaproducto extends PolymerElement {
 
@@ -24,10 +24,13 @@ class VistaAltaproducto extends PolymerElement {
     <label style="font-weight: bold; align-self: stretch; " id="titleLbl">Alta producto</label>
     <vaadin-horizontal-layout theme="spacing">
      <label>Título </label>
-     <input type="text" id="inputTitulo">
+     <input type="text" id="inputTitulo">url 
     </vaadin-horizontal-layout>
    </vaadin-vertical-layout>
-   <img style="border: solid; height: 70%; width: 95%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+   <vaadin-horizontal-layout style="flex-shrink: 0; width: 100%;">
+    <vaadin-vertical-layout theme="spacing" style="margin: var(--lumo-space-xs);"></vaadin-vertical-layout>
+    <img style="border: solid; height: 70%; width: 95%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+   </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">
     <vaadin-button id="deleteImgBtn">
       Borrar imagen 
@@ -39,6 +42,7 @@ class VistaAltaproducto extends PolymerElement {
       Agregar Imagen 
     </vaadin-button>
    </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout theme="spacing" style="align-self: center;" id="horizontalLYUpImg"></vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 0; flex-shrink: 1;">
@@ -62,6 +66,7 @@ class VistaAltaproducto extends PolymerElement {
      <div slot="prefix">
        $ 
      </div>
+     <label>Label</label>
     </vaadin-text-field>
     <vaadin-button style="width: 50%;" id="addBtn">
       añadir producto 
