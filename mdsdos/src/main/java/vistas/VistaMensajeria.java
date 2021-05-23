@@ -36,6 +36,12 @@ public class VistaMensajeria extends PolymerTemplate<VistaMensajeria.VistaMensaj
 	private Button responderBtn;
 	@Id("verMensajeBtn")
 	private Button verMensajeBtn;
+	@Id("reloadBtn")
+	private Button reloadBtn;
+
+	public Button getReloadBtn() {
+		return reloadBtn;
+	}
 
 	public Button getVerMensajeBtn() {
 		return verMensajeBtn;

@@ -3,9 +3,11 @@ package basededatos;
 import java.util.List;
 
 import appventawebbd.Categoria;
+import appventawebbd.Cibernauta;
 import appventawebbd.Comentario;
 import appventawebbd.Oferta;
 import appventawebbd.Producto;
+import appventawebbd.Usuario;
 import appventawebbd.Foto;
 
 public interface iCibernauta {
@@ -25,4 +27,8 @@ public interface iCibernauta {
 	public Producto getProducto(int aIdProducto);
 
 	public Foto[] getFotosProducto(int aIdProducto);
+	
+	public Usuario getUsuarioEmail(String email);
+	
+	public void nuevaNotificacion(Usuario remitente, Usuario destinatario, String asunto, String cuerpo);
 }

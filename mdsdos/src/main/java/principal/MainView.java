@@ -87,7 +87,7 @@ public class MainView extends VerticalLayout {
 				
 				switch (user) {
 				case "cibernauta":
-					Cibernauta_Registrado cr = new Cibernauta_Registrado(1);
+					Cibernauta_Registrado cr = new Cibernauta_Registrado((Cibernauta) bd.getUsuarioEmail("foo1@example.com"));
 					add(cr);
 					break;
 				case "admin":

@@ -4,6 +4,8 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta;
 import vistas.VistaDetallemensaje;
 import vistas.VistaNuevomensaje;
 
@@ -19,13 +21,20 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 	private Object _enviarB;
 	public Mensajeria _mensajeria;
 
-	public void Enviar_Notificacion(appventawebbd.Cibernauta ciber) {
-		throw new UnsupportedOperationException();
+	private appventawebbd.Cibernauta ciber = null;
+	public void Enviar_Notificacion() {
+		iCibernauta c = new BDPrincipal();
+		appventawebbd.Usuario destinatario = c.getUsuarioEmail(this.getDestinatarioInput().getValue());
+		c.nuevaNotificacion(ciber, destinatario, this.getAsuntoInput().getValue(), this.getMensajeInput().getValue());
 	}
 	
-	public Nueva_Notificacion() {
+	public Nueva_Notificacion(appventawebbd.Cibernauta ciber) {
 		clearAll();
-		
+		this.getRemitenteInput().setEnabled(false);
+		this.getDestinatarioInput().setEnabled(true);
+		this.getAsuntoInput().setEnabled(true);
+		this.getRemitenteInput().setValue(ciber.getCorreoElectronico());
+		this.ciber = ciber;
 		this.getEnviarBtn().setVisible(true);
 		this.getResponderBtn().setVisible(false);
 	}
@@ -58,6 +67,8 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 		this.getAsuntoInput().setValue("Respuesta - " + msg.getAsunto());
 		this.getRemitenteInput().setValue(msg.getDestinatario().getCorreoElectronico());
 		this.getTitleLbl().setText("Enviar mensaje");
+		this.getDestinatarioInput().setEnabled(false);
+		this.getAsuntoInput().setEnabled(false);
 	}
 	
 	public void clearAll() {

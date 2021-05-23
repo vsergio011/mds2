@@ -153,8 +153,18 @@ public class BD_Cibernauta {
 		throw new UnsupportedOperationException();
 	}
 
-	public Cibernauta getUsuarioLogin(String aUser, String aPassword) {
-		throw new UnsupportedOperationException();
+	public Usuario getUsuarioEmail(String email) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Usuario u = null;
+		try {
+			System.out.println("CORREO : " + email);
+			u = UsuarioDAO.loadUsuarioByQuery("CorreoElectronico='"+email+"'", null);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return u;
 	}
 
 	public void registro(Usuario aUser) {

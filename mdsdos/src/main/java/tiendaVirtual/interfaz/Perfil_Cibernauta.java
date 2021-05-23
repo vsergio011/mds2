@@ -18,10 +18,8 @@ public class Perfil_Cibernauta extends Perfil {
 		throw new UnsupportedOperationException();
 	}
 	
-	public Perfil_Cibernauta(int idCiber) {
+	public Perfil_Cibernauta(appventawebbd.Cibernauta ciber) {
 		_cambiarContrasena = new Cambiar_Contrasena();
-		iCibernauta_Registrado bd = new BDPrincipal();
-		appventawebbd.Cibernauta ciber = bd.getCibernauta(idCiber);
 		_mensajeria = new Mensajeria(ciber);
 		_modificar = new Modificar_Datos(ciber);
 		

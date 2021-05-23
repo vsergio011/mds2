@@ -27,11 +27,9 @@ public class Mensajeria extends VistaMensajeria {
 		this.getResponderBtn().setVisible(false);
 		this.getNombreBtn().setText("Mensajes de " + ciber.getNombre());
 		
-		_nueva_Notificacion = new Nueva_Notificacion();
+		_nueva_Notificacion = new Nueva_Notificacion(ciber);
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
-		_recibidos = new Lista_Recibidos(ciber);
-		_enviados = new Lista_Enviados(ciber);
-		showRecibidos();
+		load(ciber);
 		
 		this.getEnviadosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
@@ -45,6 +43,24 @@ public class Mensajeria extends VistaMensajeria {
 				showRecibidos();
 			}
 		});
+		this.getReloadBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				load(ciber);
+			}
+		});
+	}
+	
+	private void load(appventawebbd.Cibernauta ciber) {
+		_recibidos = new Lista_Recibidos(ciber);
+		_enviados = new Lista_Enviados(ciber);
+		
+		if (enviados) {
+			showEnviados();
+		}else {
+			showRecibidos();
+		}
+		
 	}
 	
 	public appventawebbd.Mensaje GetSelected() {

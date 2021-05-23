@@ -2,6 +2,7 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@polymer/iron-icon/iron-icon.js';
 
 class VistaMensajeria extends PolymerElement {
 
@@ -18,6 +19,9 @@ class VistaMensajeria extends PolymerElement {
  <label id="nombreBtn">Mensajes de nombre del empleado</label>
  <vaadin-vertical-layout theme="spacing" style="width: 80%; margin-top: 2%;">
   <label style="border:solid" id="tituloLbl">Mensajes recibidos</label>
+  <vaadin-button theme="icon" aria-label="Add new" id="reloadBtn">
+   <iron-icon icon="lumo:reload"></iron-icon>
+  </vaadin-button>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout id="vaadinVerticalLayout" style="width: 100%;"></vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 80%; margin-top: 2%;">
@@ -29,7 +33,7 @@ class VistaMensajeria extends PolymerElement {
      Enviados 
    </vaadin-button>
    <vaadin-button id="verMensajeBtn">
-    Ver mensaje
+     Ver mensaje 
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 100%;">

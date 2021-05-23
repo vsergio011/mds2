@@ -347,4 +347,22 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
+	public Usuario getUsuarioEmail(String email) {
+		try {
+			return _bd_ciber.getUsuarioEmail(email);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void nuevaNotificacion(Usuario remitente, Usuario destinatario, String asunto, String cuerpo) {
+		try {
+			_bd__mens.nuevaNotificacion(remitente, destinatario, asunto, cuerpo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

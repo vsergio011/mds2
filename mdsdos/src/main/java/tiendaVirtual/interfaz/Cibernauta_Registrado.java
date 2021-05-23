@@ -13,12 +13,12 @@ public class Cibernauta_Registrado extends Cibernauta {
 	public Cabecera_Registrado _cabecera;
 	VerticalLayout layout;
 	
-	public Cibernauta_Registrado(int idCiber) {
+	public Cibernauta_Registrado(appventawebbd.Cibernauta ciber) {
 		layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		_ofertasPopulares = new Ofertas_Populares();
 		_productosMasVendidos = new Productos_mas_vendidos();
-		_cabecera = new Cabecera_Registrado(idCiber);
+		_cabecera = new Cabecera_Registrado(ciber);
 		
 		layout.add(_cabecera);
 		layout.add(_ofertasPopulares);
@@ -124,7 +124,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil._mensajeria);
 				
-				_cabecera._perfil._mensajeria._nueva_Notificacion.Enviar_Notificacion(null);
+				_cabecera._perfil._mensajeria._nueva_Notificacion.Enviar_Notificacion();
 			}
 		});
 		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
