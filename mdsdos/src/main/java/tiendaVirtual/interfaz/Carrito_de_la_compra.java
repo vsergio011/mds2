@@ -33,4 +33,12 @@ public class Carrito_de_la_compra {
 			this._producto.remove(pro);
 		}
 	}
+	
+	public List<appventawebbd.Item> GetItems() {
+		List<appventawebbd.Item> items = new ArrayList<appventawebbd.Item>();
+		for (Producto_Carrito p : _producto) {
+			items.add(p.GetItem());
+		}
+		return items;
+	}
 }

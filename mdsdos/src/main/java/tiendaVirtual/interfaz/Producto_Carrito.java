@@ -5,6 +5,8 @@ public class Producto_Carrito extends Producto_Pedido {
 	// private event _cantidad;
 	public Carrito_de_la_compra _productos;
 
+	appventawebbd.Item item = null;
+	
 	public void Quitar_de_Lista() {
 		throw new UnsupportedOperationException();
 	}
@@ -14,6 +16,12 @@ public class Producto_Carrito extends Producto_Pedido {
 	}
 	
 	public Producto_Carrito(appventawebbd.Producto p) {
+		item = new appventawebbd.Item();
+		item.setProducto(p);
+		
+		// TODO: CAmbiar esto dinamicamente
+		item.setCantidad(1);
+		
 		this.getComEntarBtn().setVisible(false);
 		// this.getCantidadCombo().setValue("1");
 		this.getDescripProducLbl().setText(p.getDescripcion());
@@ -25,5 +33,9 @@ public class Producto_Carrito extends Producto_Pedido {
 		
 		// TODO: Ajustar dependiendo de la cantidad que haya seleccionado.
 		this.getPrecioEurosLbl().setText("");
+	}
+	
+	public appventawebbd.Item GetItem() {
+		return item;
 	}
 }
