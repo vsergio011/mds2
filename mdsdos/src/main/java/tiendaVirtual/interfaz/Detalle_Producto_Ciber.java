@@ -6,11 +6,10 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 	public Anadir_a_Carrito _anadirACarrito;
 	public Ver_Comentarios_Ciber _verComentarios;
 	
-	public Detalle_Producto_Ciber() {
-		_verComentarios = new Ver_Comentarios_Ciber();
-	}
+	private appventawebbd.Producto producto = null;
 	
 	public Detalle_Producto_Ciber(appventawebbd.Producto p) {
+		this.producto = p;
 		_verComentarios = new Ver_Comentarios_Ciber(p);
 		
 		this.getImg().setSrc(p.getFotos());
@@ -20,14 +19,7 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 		this.getVaadinTextArea().setValue(p.getDetalles() == null ? "" : p.getDetalles());
 	}
 	
-	public Producto_Carrito GetProductocarrito() {
-		Producto_Carrito pc = new Producto_Carrito();
-		
-		pc.getImgProducto().setSrc(this.getImg().getSrc());
-		pc.getDescripProducLbl().setText(this.getDescriptionLabel().getText());
-		
-		// TODO: Añadir los valores que faltan.
-		
-		return pc;
+	public Producto_Carrito GetProductocarrito() {		
+		return new Producto_Carrito(producto);
 	}
 }

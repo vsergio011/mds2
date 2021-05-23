@@ -32,7 +32,26 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil);
 			}
-		});		
+		});
+		_cabecera.getBtnCarrito().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._carrito);
+			}
+		});
+		_cabecera._carrito.getComprarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				// layout.add(_cabecera._carrito);
+				
+				
+				_cabecera._carrito._comprar.Realizar_Compra(_cabecera._carrito.GetItems());
+			}
+		});
 		_cabecera._perfil.getCambiarPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
