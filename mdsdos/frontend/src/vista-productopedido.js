@@ -15,7 +15,7 @@ class VistaProductopedido extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 50%;">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; border:solid;">
  <img id="imgProducto" style="height: 80%; align-self: center; flex-grow: 0; flex-shrink: 1; width: 20%;" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
  <vaadin-vertical-layout theme="spacing" style="width: 30%; align-self: center;">
   <label id="nombreProductoLbl">Nombre del producto </label>
@@ -27,10 +27,10 @@ class VistaProductopedido extends PolymerElement {
   <label id="precioUnidadLbl" style="width: 100%;">Precio por unidad: total</label>
   <label id="unidadesLbl">Unidades: 2 </label>
   <vaadin-button id="com,entarBtn">
-   Comentar 
+    Comentar 
   </vaadin-button>
   <vaadin-button id="deleteBtn">
-   Eliminar 
+    Eliminar 
   </vaadin-button>
   <vaadin-combo-box id="cantidadCombo"></vaadin-combo-box>
  </vaadin-vertical-layout>
