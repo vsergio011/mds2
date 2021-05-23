@@ -7,5 +7,6 @@ public class Carrito_no_Registrado extends Carrito {
 	
 	public Carrito_no_Registrado() {
 		this.getComprarBtn().setVisible(false);
+		this.getPriceLbl().setVisible(false);
 	}
 }

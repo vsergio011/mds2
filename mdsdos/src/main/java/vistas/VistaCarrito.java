@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.html.Label;
 
 /**
  * A Designer generated component for the vista-carrito template.
@@ -32,7 +33,13 @@ public class VistaCarrito extends PolymerTemplate<VistaCarrito.VistaCarritoModel
 	private Button comprarBtn;
 	@Id("registerBtn")
 	private Button registerBtn;
+	@Id("priceLbl")
+	private Label priceLbl;
 
+
+	public Label getPriceLbl() {
+		return priceLbl;
+	}
 
 	public Button getRegisterBtn() {
 		return registerBtn;
