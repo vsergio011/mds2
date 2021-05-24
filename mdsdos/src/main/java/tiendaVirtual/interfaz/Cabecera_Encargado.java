@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Cabecera_Encargado {
+import vistas.VistaEncargadocabecera;
+
+public class Cabecera_Encargado  extends VistaEncargadocabecera{
 	private Object _mensajesL;
 	private Object _mensajesB;
 	private Object _cerrarSesionL;

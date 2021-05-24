@@ -2,8 +2,12 @@ package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.textfield.TextField;
 
 /**
  * A Designer generated component for the vista-transportistaloginpaso2 template.
@@ -15,6 +19,22 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-transportistaloginpaso2.js")
 public class VistaTransportistaloginpaso2 extends PolymerTemplate<VistaTransportistaloginpaso2.VistaTransportistaloginpaso2Model> {
 
+	@Id("InputPassword")
+	private TextField InputPassword;
+	
+	@Id("btnSiguiente")
+	private Button btnSiguiente;
+	
+	
+	public TextField getInputPassword() {
+		return InputPassword;
+	}
+	
+	public Button getbtnSiguiente() {
+		return btnSiguiente;
+	}
+	
+	
     /**
      * Creates a new VistaTransportistaloginpaso2.
      */
