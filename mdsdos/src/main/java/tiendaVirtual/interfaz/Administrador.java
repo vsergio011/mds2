@@ -6,6 +6,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaCibernauta;
+import vistas.VistaPerfil;
 
 //import basededatos.iAdministrador;
 
@@ -15,7 +16,7 @@ public class Administrador extends VistaCibernauta {
 	public Lista_de_PmV _listaPmV;
 	public Cabecera_Administrador _cabecera;
 	
-	public Administrador() {
+	public Administrador(appventawebbd.Cibernauta ciber) {
 		VerticalLayout layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		_ofertas = new Lista_Ofertas();
@@ -42,6 +43,15 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera);
 				layout.add(_ofertas);
 				layout.add(_listaPmV);
+			}
+		});
+		
+		_cabecera.getPerfilBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(new Perfil(ciber));
 			}
 		});
 		

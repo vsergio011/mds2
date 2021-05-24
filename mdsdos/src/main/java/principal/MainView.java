@@ -91,7 +91,7 @@ public class MainView extends VerticalLayout {
 					add(cr);
 					break;
 				case "admin":
-					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
+					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador((Cibernauta) bd.getUsuarioEmail("foo@example.com"));
 					add(admin);
 					break;
 				case "encargado":

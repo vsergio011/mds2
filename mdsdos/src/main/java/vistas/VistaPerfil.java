@@ -8,6 +8,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.textfield.TextField;
 
@@ -42,13 +43,13 @@ public class VistaPerfil extends PolymerTemplate<VistaPerfil.VistaPerfilModel> {
 	private Label nombreApellidosLbl;
 	@Id("emailLbl")
 	private Label emailLbl;
-	public Element getPerfilLayout() {
+	public VerticalLayout getPerfilLayout() {
 		return perfilLayout;
 	}
 	@Id("direccionLbl")
 	private Label direccionLbl;
 	@Id("perfilLayout")
-	private Element perfilLayout;
+	private VerticalLayout perfilLayout;
 
 	/**
      * Creates a new VistaPerfil.

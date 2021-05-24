@@ -1,5 +1,7 @@
 package tiendaVirtual.interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaPerfil;
 
 public class Perfil extends VistaPerfil{
@@ -14,8 +16,16 @@ public class Perfil extends VistaPerfil{
 	public Cabecera_Administrador _cabecera;
 	public Cambiar_Contrasena _cambiarContrasena;
 	public Modificar_Datos _modificar;
-
 	public Perfil() {
+		
+	}
+	public Perfil(appventawebbd.Cibernauta ciber) {
+		VerticalLayout layoutPerfil = this.getPerfilLayout();
+		Modificar_general mg = new Modificar_general();
+		mg.fillData(ciber);
+		layoutPerfil.removeAll();
+		layoutPerfil.add(mg);
+		
 	}
 	
 	public void Cambiar_Imagen_de_Perfil() {
