@@ -11,35 +11,36 @@ class VistaProcesodecompra extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
  <label>Resumen de la compra</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 30%;">
-  <label style="width: 100%;">Total Productos</label>
-  <label id="nProductos" style="border:solid;border-width: 1px; flex-grow: 0;">Label</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+  <label style="width: 70%;">Total Productos</label>
+  <label id="nProductos" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 30%;">
-  <label style="width: 100%;">Precio</label>
-  <label id="Precio" style="border:solid;border-width: 1px; flex-grow: 0;">Label</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+  <label style="width: 70%;">Precio</label>
+  <label id="Precio" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 30%;">
-  <label style="width: 100%;">Precio gastis de envio</label>
-  <label id="PrecioGastosEnvio" style="border:solid;border-width: 1px; flex-grow: 0;">Label</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+  <label style="width: 70%;">Precio gastos de envio</label>
+  <label id="PrecioGastosEnvio" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 30%;">
-  <label style="width: 100%;">Total</label>
-  <label id="total" style="border:solid;border-width: 1px; flex-grow: 0;">Label</label>
+ <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+  <label style="width: 70%;">Total</label>
+  <label id="total" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>
  <vaadin-button theme="primary" id="btnCambiarDatosCompra" style="align-self: center;">
-  Cambiar datos de compra
+   Cambiar datos de compra 
  </vaadin-button>
  <vaadin-horizontal-layout theme="spacing">
   <vaadin-button theme="primary" id="btnCancelar">
-   Cancelar
+    Cancelar 
   </vaadin-button>
   <vaadin-button theme="primary" id="btnRealizarCompra">
-   Realizar Compra
+    Realizar Compra 
   </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

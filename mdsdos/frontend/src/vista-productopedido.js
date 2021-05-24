@@ -15,28 +15,28 @@ class VistaProductopedido extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; border:solid;">
- <img id="imgProducto" style="height: 80%; align-self: center; flex-grow: 0; flex-shrink: 1; width: 20%;" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
- <vaadin-vertical-layout theme="spacing" style="width: 30%; align-self: center;">
-  <label id="nombreProductoLbl">Nombre del producto </label>
-  <label id="descripProducLbl">Descripción breve del producto </label>
-  <label id="dato1Lbl">- DAto 1 </label>
-  <label id="dato2Lbl">- DAto 2 </label>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; border:solid;" theme="spacing">
+ <img id="imgProducto" style="align-self: center; flex-grow: 0; flex-shrink: 1; width: 25%; margin: var(--lumo-space-l);" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+ <vaadin-vertical-layout style="width: 25%; height: 100%; align-self: center; justify-content: center;">
+  <label id="nombreProductoLbl" style="width: 100%;">Nombre del producto </label>
+  <label id="descripProducLbl" style="width: 100%;">Descripción breve del producto </label>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 25%;">
+ <vaadin-vertical-layout style="width: 25%; height: 100%; justify-content: center;">
   <label id="precioUnidadLbl" style="width: 100%;">Precio por unidad: total</label>
-  <label id="unidadesLbl">Unidades: 2 </label>
-  <vaadin-button id="com,entarBtn">
+  <label id="unidadesLbl" style="width: 100%;">Unidades: 2 </label>
+  <vaadin-button id="com,entarBtn" style="width: 100%;">
     Comentar 
   </vaadin-button>
-  <vaadin-button id="deleteBtn">
+  <vaadin-button id="deleteBtn" style="width: 100%;">
     Eliminar 
   </vaadin-button>
-  <vaadin-combo-box id="cantidadCombo"></vaadin-combo-box>
+  <vaadin-combo-box id="vaadinComboBox" style="width: 100%;">
+   1
+  </vaadin-combo-box>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 25%;">
-  <label id="precioEurosLbl">Precio en euros </label>
-  <label id="valoracionLbl">Valorado 5/5 </label>
+ <vaadin-vertical-layout style="width: 25%; justify-content: center;">
+  <label id="precioEurosLbl" style="width: 100%;">Precio en euros </label>
+  <label id="valoracionLbl" style="width: 100%;">Valorado 5/5 </label>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;

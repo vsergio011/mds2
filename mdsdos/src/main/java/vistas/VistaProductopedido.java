@@ -9,6 +9,7 @@ import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.select.Select;
 
 /**
  * A Designer generated component for the vista-productopedido template.
@@ -20,18 +21,17 @@ import com.vaadin.flow.component.html.Image;
 @JsModule("./src/vista-productopedido.js")
 public class VistaProductopedido extends PolymerTemplate<VistaProductopedido.VistaProductopedidoModel> {
 
-    @Id("dato1Lbl")
-	private Label dato1Lbl;
-	@Id("dato2Lbl")
-	private Label dato2Lbl;
 	@Id("precioUnidadLbl")
 	private Label precioUnidadLbl;
 	@Id("com,entarBtn")
 	private Button comEntarBtn;
 	@Id("deleteBtn")
 	private Button deleteBtn;
-	@Id("cantidadCombo")
-	private ComboBox<String> cantidadCombo;
+
+	public ComboBox<String> getVaadinComboBox() {
+		return vaadinComboBox;
+	}
+
 	public Label getValoracionLbl() {
 		return valoracionLbl;
 	}
@@ -40,28 +40,12 @@ public class VistaProductopedido extends PolymerTemplate<VistaProductopedido.Vis
 		return unidadesLbl;
 	}
 
-	public Label getDato1Lbl() {
-		return dato1Lbl;
-	}
-
-	public Label getDato2Lbl() {
-		return dato2Lbl;
-	}
-
 	public Label getPrecioUnidadLbl() {
 		return precioUnidadLbl;
 	}
 
-	public void setDato1Lbl(Label dato1Lbl) {
-		this.dato1Lbl = dato1Lbl;
-	}
-
 	public Image getImgProducto() {
 		return imgProducto;
-	}
-
-	public void setDato2Lbl(Label dato2Lbl) {
-		this.dato2Lbl = dato2Lbl;
 	}
 
 	public void setPrecioUnidadLbl(Label precioUnidadLbl) {
@@ -74,10 +58,6 @@ public class VistaProductopedido extends PolymerTemplate<VistaProductopedido.Vis
 
 	public void setDeleteBtn(Button deleteBtn) {
 		this.deleteBtn = deleteBtn;
-	}
-
-	public void setCantidadCombo(ComboBox<String> cantidadCombo) {
-		this.cantidadCombo = cantidadCombo;
 	}
 
 	public void setPrecioEurosLbl(Label precioEurosLbl) {
@@ -98,10 +78,6 @@ public class VistaProductopedido extends PolymerTemplate<VistaProductopedido.Vis
 
 	public Button getDeleteBtn() {
 		return deleteBtn;
-	}
-
-	public ComboBox<String> getCantidadCombo() {
-		return cantidadCombo;
 	}
 
 	public Label getPrecioEurosLbl() {
@@ -128,6 +104,8 @@ public class VistaProductopedido extends PolymerTemplate<VistaProductopedido.Vis
 	private Label valoracionLbl;
 	@Id("unidadesLbl")
 	private Label unidadesLbl;
+	@Id("vaadinComboBox")
+	private ComboBox<String> vaadinComboBox;
 	/**
      * Creates a new VistaProductopedido.
      */

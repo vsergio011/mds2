@@ -1,5 +1,7 @@
 package tiendaVirtual.interfaz;
 
+import java.text.DecimalFormat;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -12,7 +14,11 @@ public class Carrito extends VistaCarrito {
 	public Carrito_de_la_compra _productos;
 
 	public void Actualizar_total() {
-		throw new UnsupportedOperationException();
+		double precio = 0;		
+		for (appventawebbd.Item item : _productos.GetItems()) {
+			precio += item.getProducto().getPrecio() * item.getCantidad();
+		}
+		this.getPriceLbl().setText(new DecimalFormat("#.##").format(precio) + " €");
 	}
 	
 	public Carrito(Producto_Carrito...productos) {
@@ -43,8 +49,10 @@ public class Carrito extends VistaCarrito {
 		VerticalLayout vl = this.getProductosLayout().as(VerticalLayout.class);
 		vl.removeAll();
 		
+		this.getComprarBtn().setVisible(this._productos._producto.size() != 0);
 		for (Producto_Carrito pc : this._productos._producto) {
 			vl.add(pc);
 		}
+		Actualizar_total();
 	}
 }

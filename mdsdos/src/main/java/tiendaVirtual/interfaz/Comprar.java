@@ -1,8 +1,11 @@
 package tiendaVirtual.interfaz;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
-public class Comprar {
+import vistas.VistaProcesodecompra;
+
+public class Comprar extends VistaProcesodecompra {
 	// private event _realizar_Compra;
 	private Object _resumenL;
 	private Object _totalProductosL;
@@ -20,12 +23,20 @@ public class Comprar {
 	public Cambiar_datos_Compra _cambiarDatosCompra;
 
 	public void Realizar_Compra(List<appventawebbd.Item> items) {
+		this.getnProductos().setText("" + items.size());
+		
+		double precio = 0;		
 		for (appventawebbd.Item item : items) {
-			System.out.println("ITEM : " + item.getProducto().getNombre());
+			precio += item.getProducto().getPrecio() * item.getCantidad();
 		}
+		this.getPrecio().setText(new DecimalFormat("#.##").format(precio) + " €");
+		
+		double gastosEnvios = precio * 0.2;
+		this.getPrecioGastosEnvio().setText(new DecimalFormat("#.##").format(gastosEnvios) + " €");
+		this.getTotal().setText(new DecimalFormat("#.##").format(precio + gastosEnvios) + " €");		
 	}
 	
-	public Comprar() {
-		_cambiarDatosCompra = new Cambiar_datos_Compra();
+	public Comprar(appventawebbd.Cibernauta ciber) {
+		_cambiarDatosCompra = new Cambiar_datos_Compra(ciber);
 	}
 }

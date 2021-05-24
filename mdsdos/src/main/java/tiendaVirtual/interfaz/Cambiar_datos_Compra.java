@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Cambiar_datos_Compra {
+import vistas.VistaCambiodatoscompra;
+
+public class Cambiar_datos_Compra extends VistaCambiodatoscompra{
 	//private event _actualizar_Datos;
 	private Object _direccionCompletaTF;
 	private Object _direccionCompletaL;
@@ -11,5 +13,9 @@ public class Cambiar_datos_Compra {
 
 	public void Actualizar_Datos() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Cambiar_datos_Compra(appventawebbd.Cibernauta ciber) {
+		
 	}
 }

@@ -4,6 +4,9 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-cambiodatoscompra template.
@@ -15,7 +18,16 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-cambiodatoscompra.js")
 public class VistaCambiodatoscompra extends PolymerTemplate<VistaCambiodatoscompra.VistaCambiodatoscompraModel> {
 
-    /**
+    @Id("datosPagoInput")
+	private TextField datosPagoInput;
+	@Id("direccionInput")
+	private TextField direccionInput;
+	@Id("aceptarBtn")
+	private Button aceptarBtn;
+	@Id("cancelarBtn")
+	private Button cancelarBtn;
+
+	/**
      * Creates a new VistaCambiodatoscompra.
      */
     public VistaCambiodatoscompra() {

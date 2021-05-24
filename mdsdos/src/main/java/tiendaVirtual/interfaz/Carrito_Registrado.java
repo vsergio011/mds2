@@ -9,7 +9,7 @@ public class Carrito_Registrado extends Carrito {
 	public Comprar _comprar;
 	
 	public Carrito_Registrado(appventawebbd.Cibernauta ciber) {
-		_comprar = new Comprar();
+		_comprar = new Comprar(ciber);
 		
 		this.getRegisterBtn().setVisible(false);
 	}
