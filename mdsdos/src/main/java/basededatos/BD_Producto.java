@@ -94,7 +94,7 @@ public class BD_Producto {
 		
 		List<Producto> productos = null;
 		try {
-			productos = ProductoDAO.queryProducto(null, null);
+			productos = ProductoDAO.queryProducto(null, "Nombre");
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -108,7 +108,7 @@ public class BD_Producto {
 		
 		List<Producto> productos = null;
 		try {
-			productos = ProductoDAO.queryProducto(null, null);
+			productos = ProductoDAO.queryProducto(null, "Nombre");
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

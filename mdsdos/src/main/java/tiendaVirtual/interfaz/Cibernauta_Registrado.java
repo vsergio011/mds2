@@ -67,7 +67,9 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_ofertasPopulares);
 				layout.add(_productosMasVendidos);
 				
-				_cabecera._carrito._comprar.Realizar_Compra();
+				_cabecera._carrito._comprar.Realizar_Compra(_cabecera._carrito.GetItems(), ciber);
+				_cabecera._carrito.ClearCarrito();
+				_cabecera._perfil._compras.UpdateCompras(ciber);
 			}
 		});
 		_cabecera._carrito._comprar.getBtnCancelar().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -214,7 +216,8 @@ public class Cibernauta_Registrado extends Cibernauta {
 							layout.add(_cabecera);
 							layout.add( _cabecera._perfil._compras);
 							
-							// TODO: Borrar de la lista la compra y de la BD.
+							c.Cancelar_Pedido();
+							_cabecera._perfil._compras.UpdateCompras(ciber);
 						}
 					});
 					for(Producto_Adquirido pp : c._productosAdquiridos._productoAdquirido) {

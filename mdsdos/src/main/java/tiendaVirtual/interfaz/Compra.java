@@ -1,5 +1,7 @@
 package tiendaVirtual.interfaz;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta_Registrado;
 import vistas.VistaCompra;
 
 public class Compra extends VistaCompra {
@@ -11,7 +13,12 @@ public class Compra extends VistaCompra {
 	private appventawebbd.Pedido pedido = null;
 
 	public void Cancelar_Pedido() {
-		throw new UnsupportedOperationException();
+		iCibernauta_Registrado cibernauta = new BDPrincipal();
+		
+		appventawebbd.Pendiente pendiente = cibernauta.getPedidoPendiente(this.pedido.getId());
+		if (pendiente != null) {
+			cibernauta.cancelarCompra(pendiente);
+		}
 	}
 
 	public void Comprobar_envio() {
@@ -24,7 +31,6 @@ public class Compra extends VistaCompra {
 		
 		this.getFechaPedidoLbl().setText(pedido.getFechaPedido());
 		this.getIdLBL().setText("ID: " + pedido.getId());
-		// this.getEstadoLbl().setText();
 		this.getPrecioLbl().setText(pedido.getTotal() + " €");
 	}
 	
