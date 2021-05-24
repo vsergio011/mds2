@@ -4,6 +4,8 @@
  */
 package ormsamples;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.orm.*;
@@ -27,20 +29,55 @@ public class CreateAppventawebData {
             ciber.setPassword("1234");
             ciber.setApellidos("VERA FERNANDEZ");
             ciber.setOperativo(true);
-            ciber.setCorreoElectronico("foo@example.com");
+            ciber.setCorreoElectronico("foo1@example.com");
             ciber.setUsuario("user");
             ciber.setFoto("https://img1.freepng.es/20180319/row/kisspng-computer-icons-google-account-user-profile-iconfin-png-icons-download-profile-5ab0301d8907a6.3404305715214960935613.jpg");
             ciber.setDireccionCompleta("calle falsa 123");
             ciber.setFormaPago("TARJETA");
             CibernautaDAO.save(ciber);
             
-            Pedido pedido = PedidoDAO.createPedido();
+            Transportista transportista = TransportistaDAO.createTransportista();
+            transportista.setNombre("Transportistilla");
+            transportista.setPassword("65");
+            transportista.setApellidos("BAZ BAR FOO");
+            transportista.setOperativo(true);
+            transportista.setCorreoElectronico("foo4@example.com");
+            transportista.setUsuario("transpor");
+            transportista.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
+            transportista.setDireccionCompleta("calle falsa 123");
+            transportista.setFormaPago("TARJETA");
+            TransportistaDAO.save(transportista);
+            
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = new Date(System.currentTimeMillis());
+            
+            Pendiente pedido = PendienteDAO.createPendiente();
             pedido.setCibernauta(ciber);
             pedido.setDireccion(ciber.getDireccionCompleta());
-            pedido.setFechaPedido("12/12/2020");
+            pedido.setFechaPedido(formatter.format(date));
+            pedido.setFecha(formatter.format(date));
             pedido.setFormaPago(ciber.getFormaPago());
             pedido.setTotal(150.5);
-            PedidoDAO.save(pedido);
+            PendienteDAO.save(pedido);
+            
+            Enviado enviado = EnviadoDAO.createEnviado();
+            enviado.setCibernauta(ciber);
+            enviado.setDireccion(ciber.getDireccionCompleta());
+            enviado.setFechaPedido(formatter.format(date));
+            enviado.setFecha(formatter.format(date));
+            enviado.setFormaPago(ciber.getFormaPago());
+            enviado.setTotal(150.5);
+            enviado.setTransportistaEnvio(transportista);
+            EnviadoDAO.save(enviado);
+            
+            Entregado entregado = EntregadoDAO.createEntregado();
+            entregado.setCibernauta(ciber);
+            entregado.setDireccion(ciber.getDireccionCompleta());
+            entregado.setFechaPedido(formatter.format(date));
+            entregado.setFecha(formatter.format(date));
+            entregado.setFormaPago(ciber.getFormaPago());
+            entregado.setTotal(150.5);
+            EntregadoDAO.save(entregado);
             
 			for (int i = 0; i<=4; i++) {
 				Categoria cat = CategoriaDAO.createCategoria();
@@ -69,8 +106,14 @@ public class CreateAppventawebData {
 		            
 		            Item item = ItemDAO.createItem();
 		            item.setCantidad(2);
-		            item.setPedido(pedido);
-		            item.setProducto(p);
+		            item.setProducto(p);		           
+		            if (j == 0) {
+		            	item.setPedido(pedido);
+		            }else if (j <2) {
+		            	item.setPedido(enviado);
+		            } else {
+		            	item.setPedido(entregado);
+		            }
 		            ItemDAO.save(item);
 		            
 		            if (j>2) {
@@ -88,7 +131,7 @@ public class CreateAppventawebData {
 			admin.setPassword("65");
 			admin.setApellidos("FOO BAR BAZ");
 			admin.setOperativo(true);
-			admin.setCorreoElectronico("foo@example.com");
+			admin.setCorreoElectronico("foo2@example.com");
 			admin.setUsuario("admin");
 			admin.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
 			admin.setDireccionCompleta("calle falsa 123");
@@ -100,7 +143,7 @@ public class CreateAppventawebData {
 			encar.setPassword("65");
 			encar.setApellidos("BAZ BAR FOO");
 			encar.setOperativo(true);
-			encar.setCorreoElectronico("foo@example.com");
+			encar.setCorreoElectronico("foo3@example.com");
 			encar.setUsuario("encar");
 			encar.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
 			encar.setDireccionCompleta("calle falsa 123");

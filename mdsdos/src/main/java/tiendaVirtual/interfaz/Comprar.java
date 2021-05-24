@@ -3,6 +3,9 @@ package tiendaVirtual.interfaz;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta;
+import basededatos.iCibernauta_Registrado;
 import vistas.VistaProcesodecompra;
 
 public class Comprar extends VistaProcesodecompra {
@@ -22,8 +25,10 @@ public class Comprar extends VistaProcesodecompra {
 	public Carrito_Registrado _carrito;
 	public Cambiar_datos_Compra _cambiarDatosCompra;
 
-	public void Realizar_Compra() {
-		// TODO: Realizar compra en la BD.
+	public void Realizar_Compra(List<appventawebbd.Item> items, appventawebbd.Cibernauta ciber) {
+		iCibernauta_Registrado c = new BDPrincipal();
+		System.out.println("REALIZR COMPRA : " + items.size());
+		c.RealizaCompra(items, ciber);		
 	}
 	
 	public void ShowDatosCompra(List<appventawebbd.Item> items) {

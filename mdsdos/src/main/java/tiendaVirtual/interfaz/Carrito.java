@@ -49,6 +49,11 @@ public class Carrito extends VistaCarrito {
 		}
 	}
 	
+	public void ClearCarrito() {
+		this._productos._producto.clear();
+		this.updateProducts();
+	} 
+	
 	private void DeleteProductoCarrito(Producto_Carrito...productos) {
 		this._productos.RemoveProductoCarrito(productos);
 		updateProducts();

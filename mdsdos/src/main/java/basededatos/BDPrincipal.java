@@ -162,16 +162,34 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public Pendiente[] listadoComprasPendientes(int aIdCiber) {
-		throw new UnsupportedOperationException();
+	public List<Pendiente> listadoComprasPendientes(int aIdCiber) {
+		try {
+			return _bd_pend.listadoComprasPendientes(aIdCiber);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public Entregado[] listadoComprasEntregadas(int aIdCiber) {
-		throw new UnsupportedOperationException();
+	public List<Entregado> listadoComprasEntregadas(int aIdCiber) {
+		try {
+			return _bd_entr.listadoComprasEntregadas(aIdCiber);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public Enviado[] listadoComprasEnviadas(int aIdCiber) {
-		throw new UnsupportedOperationException();
+	public List<appventawebbd.Enviado> listadoComprasEnviadas(int aIdCiber) {
+		try {
+			return _bd_env.listadoComprasEnviadas(aIdCiber);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void anadirAOferta(int aIdProducto, Oferta aOferta) {
@@ -199,10 +217,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public void RealizarCompra(Producto[] aProductos, int aIdUsuario) {
-		throw new UnsupportedOperationException();
 	}
 
 	public Mensaje detalleMensaje(int aId) {
@@ -244,7 +258,13 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public boolean isPedidoEnviado(int aId) {
-		throw new UnsupportedOperationException();
+		try {
+			return _bd_env.isPedidoEnviado(aId);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	public void cambioDatosCompra(String aDireccion, String aFormapago, int aIdPedido) {
@@ -252,15 +272,33 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public Pendiente getPedidoPendiente(int aId) {
-		throw new UnsupportedOperationException();
+		try {
+			return _bd_pend.getPedidoPendiente(aId);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public Enviado getPedidoEnviado(int aId) {
-		throw new UnsupportedOperationException();
+		try {
+			return _bd_env.getPedidoEnviado(aId);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public void getPedidoEntregado(int aId) {
-		throw new UnsupportedOperationException();
+	public Entregado getPedidoEntregado(int aId) {
+		try {
+			return _bd_entr.getPedidoEntregado(aId);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public Item[] getItemsPedido(int aIdPedido) {
@@ -271,8 +309,13 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public void cancelarCompra(int aIdCiber, int aIdCompra) {
-		throw new UnsupportedOperationException();
+	public void cancelarCompra(Pendiente pedido) {
+		try {
+			_bd_pend.cancelarCompra(pedido);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public boolean Login(String aUsuario, String aPassword) {
@@ -360,6 +403,34 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	public void nuevaNotificacion(Usuario remitente, Usuario destinatario, String asunto, String cuerpo) {
 		try {
 			_bd__mens.nuevaNotificacion(remitente, destinatario, asunto, cuerpo);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber) {
+		try {
+			return _bd_pend.RealizaCompra(aItems, aCiber);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void AddPedidoEnviado(Pedido pedido, Transportista transportista) {
+		try {
+			_bd_env.AddPedidoEnviado(pedido, transportista);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void AddPedidoEntregado(Pedido pedido) {
+		try {
+			_bd_entr.AddPedidoEntregado(pedido);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

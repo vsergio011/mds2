@@ -18,25 +18,6 @@ public class BD_Cibernauta {
 	public BDPrincipal _bd_prin_ciber;
 	public Vector<Cibernauta> _contiene_cibernautas = new Vector<Cibernauta>();
 
-	/*
-	 * public Cliente Cargar_Informacion_Cliente(int Cita) throws PersistentException {
-		Cliente cl = null;
-		PersistentTransaction t = GestiondeCitasPersistentManager.instance().getSession().beginTransaction();
-		try {
-
-			Cita c = CitaDAO.getCitaByORMID(Cita);
-			cl = ClienteDAO.getClienteByORMID(c.getCliente().getID());
-
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		}
-
-		return cl;
-
-	}
-	*/
-
 	public Cibernauta Login(String aUsuario, String aPassword) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
@@ -60,7 +41,6 @@ public class BD_Cibernauta {
 			t.rollback();
 		}
 		
-		System.out.println("USUARIO ENCONTRADO CON EXITO");
 		return ciber;      
 	}
 
@@ -110,24 +90,6 @@ public class BD_Cibernauta {
 		throw new UnsupportedOperationException();
 	}
 
-	/*
-	 * public Cliente Cargar_Informacion_Cliente(int Cita) throws PersistentException {
-		Cliente cl = null;
-		PersistentTransaction t = GestiondeCitasPersistentManager.instance().getSession().beginTransaction();
-		try {
-
-			Cita c = CitaDAO.getCitaByORMID(Cita);
-			cl = ClienteDAO.getClienteByORMID(c.getCliente().getID());
-
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		}
-
-		return cl;
-
-	}
-	*/
 	public Cibernauta getCibernauta(int aId) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
