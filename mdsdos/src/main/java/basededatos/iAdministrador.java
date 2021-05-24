@@ -38,11 +38,11 @@ public interface iAdministrador {
 
 	public Producto getProducto(int aId);
 
-	public Pendiente[] listadoComprasPendientes(int aIdCiber);
+	public List<Pendiente> listadoComprasPendientes(int aIdCiber);
 
-	public Entregado[] listadoComprasEntregadas(int aIdCiber);
+	public List<Entregado> listadoComprasEntregadas(int aIdCiber);
 
-	public Enviado[] listadoComprasEnviadas(int aIdCiber);
+	public List<Enviado> listadoComprasEnviadas(int aIdCiber);
 
 	public void anadirAOferta(int aIdProducto, Oferta aOferta);
 
