@@ -11,7 +11,7 @@ class VistaEmpleado extends PolymerElement {
                     height: 100%;
                 }
             </style>
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="mainViewEmp">
  <label id="nombreEmpleadoLbl" style="width: 100%;">Nombre empleado</label>
 </vaadin-vertical-layout>
 `;

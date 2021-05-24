@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Perfil_empleado extends Modificar_general {
+import vistas.VistaEmpleado;
+
+public class Perfil_empleado extends VistaEmpleado {
 	// private event _transferir_administrador;
 	private Object _dniL;
 	private Object _dniTF;
@@ -11,11 +13,14 @@ public class Perfil_empleado extends Modificar_general {
 	
 	public Perfil_empleado() {}
 	
-	public Perfil_empleado(appventawebbd.Usuario ciber) {		
+	public Perfil_empleado(appventawebbd.Usuario ciber) {
+		this.getMainViewEmp();
 		if (ciber == null) {
 			return;
 		}
-		this.fillData(ciber);
+		Modificar_Datos _modificarDatos = new Modificar_Datos(ciber);
+		this.getMainViewEmp().add(_modificarDatos);
+		//this.fillData(ciber);
 	}
 
 	public void Transferir_administrador() {

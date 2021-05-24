@@ -1,6 +1,8 @@
 package tiendaVirtual.interfaz;
 
-public class Modificar_Datos extends Modificar_general {
+import vistas.VistaModificargeneral;
+
+public class Modificar_Datos extends VistaModificargeneral {
 	private Object _borrarCuentaB;
 	private Object _contactoB;
 	private Object _comprasB;
@@ -14,7 +16,13 @@ public class Modificar_Datos extends Modificar_general {
 		if (ciber == null) {
 			return;
 		}
-		this.fillData(ciber);		
+		//this.fillData(ciber);	
+		this.getLbNombreUsuario().setValue(ciber.getUsuario());
+		this.getImg().setSrc(ciber.getFoto());
+		Modificar_general _Modificar_general = new Modificar_general();
+		_Modificar_general.fillData(ciber);
+		this.getContainerLayout().removeAll();
+		this.getContainerLayout().add(_Modificar_general);
 	}
 	
 	public void showLess() {
@@ -23,5 +31,6 @@ public class Modificar_Datos extends Modificar_general {
 		this.getComprasBtn().setVisible(false);
 		this.getContactoBTn().setVisible(false);
 		this.getCambiarPasswordBtn().setVisible(false);
+		
 	}
 }

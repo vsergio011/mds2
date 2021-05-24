@@ -5,6 +5,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
@@ -19,9 +20,17 @@ public class VistaEmpleado extends PolymerTemplate<VistaEmpleado.VistaEmpleadoMo
 
     @Id("nombreEmpleadoLbl")
 	private Label nombreEmpleadoLbl;
+    
+    @Id("mainViewEmp")
+	private VerticalLayout mainViewEmp;
+    
 
 	public Label getNombreEmpleadoLbl() {
 		return nombreEmpleadoLbl;
+	}
+	
+	public VerticalLayout getMainViewEmp() {
+		return mainViewEmp;
 	}
 
 	/**

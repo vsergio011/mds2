@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
 
@@ -22,7 +23,7 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 
     @Id("lbNombreUsuario")
 	private TextField lbNombreUsuario;
-	public Element getContainerLayout() {
+	public VerticalLayout getContainerLayout() {
 		return containerLayout;
 	}
 
@@ -55,10 +56,10 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 	@Id("cambiarImagenBtn")
 	private Button cambiarImagenBtn;
 	@Id("containerLayout")
-	private Element containerLayout;
+	private VerticalLayout containerLayout;
 	@Id("aceptarCambiosBtn")
 	private Button aceptarCambiosBtn;
-
+	
 	public TextField getLbNombreUsuario() {
 		return lbNombreUsuario;
 	}
