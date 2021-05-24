@@ -9,11 +9,12 @@ class VistaListacomprasanteriores extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%;
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <label style="width: 100%; font-weight: bold; margin: var(--lumo-space-m); padding: var(--lumo-space-s);">Lista de compras anteriores</label>
- <vaadin-vertical-layout id="lPedidos" style="align-self: center; width: 80; padding: var(--lumo-space-m);"></vaadin-vertical-layout>
+ <vaadin-vertical-layout id="lPedidos" style="align-self: center; width: 100%; padding: var(--lumo-space-m);"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
     }

@@ -22,10 +22,14 @@ public class Comprar extends VistaProcesodecompra {
 	public Carrito_Registrado _carrito;
 	public Cambiar_datos_Compra _cambiarDatosCompra;
 
-	public void Realizar_Compra(List<appventawebbd.Item> items) {
+	public void Realizar_Compra() {
+		// TODO: Realizar compra en la BD.
+	}
+	
+	public void ShowDatosCompra(List<appventawebbd.Item> items) {
 		this.getnProductos().setText("" + items.size());
 		
-		double precio = 0;		
+		double precio = 0;
 		for (appventawebbd.Item item : items) {
 			precio += item.getProducto().getPrecio() * item.getCantidad();
 		}
@@ -33,7 +37,7 @@ public class Comprar extends VistaProcesodecompra {
 		
 		double gastosEnvios = precio * 0.2;
 		this.getPrecioGastosEnvio().setText(new DecimalFormat("#.##").format(gastosEnvios) + " €");
-		this.getTotal().setText(new DecimalFormat("#.##").format(precio + gastosEnvios) + " €");		
+		this.getTotal().setText(new DecimalFormat("#.##").format(precio + gastosEnvios) + " €");	
 	}
 	
 	public Comprar(appventawebbd.Cibernauta ciber) {

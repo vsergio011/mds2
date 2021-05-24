@@ -22,6 +22,7 @@ public class Perfil_Cibernauta extends Perfil {
 		_cambiarContrasena = new Cambiar_Contrasena();
 		_mensajeria = new Mensajeria(ciber);
 		_modificar = new Modificar_Datos(ciber);
+		_compras = new Compras(ciber);
 		
 		fillCibernautaData(ciber);
 	}

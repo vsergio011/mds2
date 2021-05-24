@@ -34,6 +34,14 @@ public class CreateAppventawebData {
             ciber.setFormaPago("TARJETA");
             CibernautaDAO.save(ciber);
             
+            Pedido pedido = PedidoDAO.createPedido();
+            pedido.setCibernauta(ciber);
+            pedido.setDireccion(ciber.getDireccionCompleta());
+            pedido.setFechaPedido("12/12/2020");
+            pedido.setFormaPago(ciber.getFormaPago());
+            pedido.setTotal(150.5);
+            PedidoDAO.save(pedido);
+            
 			for (int i = 0; i<=4; i++) {
 				Categoria cat = CategoriaDAO.createCategoria();
 				cat.setNombre("Category"+i);
@@ -57,7 +65,13 @@ public class CreateAppventawebData {
 		            	comen.setCibernauta(ciber);
 		            	comen.setTexto("ME VALE VERGA");
 		            	comen.setValoracion(5);
-		            }            
+		            }
+		            
+		            Item item = ItemDAO.createItem();
+		            item.setCantidad(2);
+		            item.setPedido(pedido);
+		            item.setProducto(p);
+		            ItemDAO.save(item);
 		            
 		            if (j>2) {
 		            	Oferta offer = OfertaDAO.createOferta();

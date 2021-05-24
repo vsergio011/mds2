@@ -1,8 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 
 class VistaCambiodatoscompra extends PolymerElement {
 
@@ -16,12 +16,12 @@ class VistaCambiodatoscompra extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
- <vaadin-vertical-layout theme="spacing" style="width: 40%; height: 40%; align-self: center; padding: var(--lumo-space-l); justify-content: center;">
+ <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 40%; align-self: center; padding: var(--lumo-space-l); justify-content: center;">
   <label style="font-weight: bold; align-self: center; margin: var(--lumo-space-s);">Cambios datos de compra</label>
-  <vaadin-horizontal-layout style="width: 100%; justify-content: space-between;">
-   <vaadin-text-field label="Direccion completa" placeholder="Placeholder" id="direccionInput"></vaadin-text-field>
-   <vaadin-text-field label="DAtos de pago" placeholder="Placeholder" id="datosPagoInput"></vaadin-text-field>
-  </vaadin-horizontal-layout>
+  <vaadin-vertical-layout style="width: 100%; justify-content: center; align-self: center;">
+   <vaadin-text-field label="Direccion completa" placeholder="Placeholder" id="direccionInput" style="width: 100%;"></vaadin-text-field>
+   <vaadin-text-field label="DAtos de pago" placeholder="Placeholder" id="datosPagoInput" style="width: 100%;"></vaadin-text-field>
+  </vaadin-vertical-layout>
   <vaadin-horizontal-layout style="width: 100%; justify-content: space-between;">
    <vaadin-button id="aceptarBtn">
      Aceptar 

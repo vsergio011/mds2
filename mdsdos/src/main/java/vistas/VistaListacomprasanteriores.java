@@ -4,6 +4,8 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.polymertemplate.Id;
 
 /**
  * A Designer generated component for the vista-listacomprasanteriores template.
@@ -15,7 +17,14 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-listacomprasanteriores.js")
 public class VistaListacomprasanteriores extends PolymerTemplate<VistaListacomprasanteriores.VistaListacomprasanterioresModel> {
 
-    /**
+    @Id("lPedidos")
+	private Element lPedidos;
+
+	public Element getlPedidos() {
+		return lPedidos;
+	}
+
+	/**
      * Creates a new VistaListacomprasanteriores.
      */
     public VistaListacomprasanteriores() {

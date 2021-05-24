@@ -10,4 +10,22 @@ public class Producto_Adquirido extends Producto_Pedido {
 	public void Comprobar_comentario() {
 		throw new UnsupportedOperationException();
 	}
+	
+	public Producto_Adquirido(appventawebbd.Item item) {
+		this.getVaadinComboBox().setVisible(false);
+		this.getDeleteBtn().setVisible(false);
+		this.getComEntarBtn().setVisible(true);
+		
+		appventawebbd.Producto p = item.getProducto();
+		
+		this.getComEntarBtn().setVisible(false);
+		this.getDescripProducLbl().setText(p.getDescripcion());
+		this.getNombreProductoLbl().setText(p.getNombre());
+		this.getPrecioUnidadLbl().setText("Precio unidad: " + p.getPrecio() + " €");
+		this.getPrecioEurosLbl().setText(p.getPrecio() * item.getCantidad() + " €");
+		this.getImgProducto().setSrc(p.getFotos());
+		this.getValoracionLbl().setText("Valoración media: " +p.getValoracionMedia() + "/5");
+		this.getPrecioEurosLbl().setText("Precio total: " + p.getPrecio() * item.getCantidad() + " €");
+		this.getImgProducto().setHeight("200px");
+	}
 }

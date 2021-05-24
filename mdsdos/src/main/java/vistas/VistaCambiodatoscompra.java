@@ -27,6 +27,22 @@ public class VistaCambiodatoscompra extends PolymerTemplate<VistaCambiodatoscomp
 	@Id("cancelarBtn")
 	private Button cancelarBtn;
 
+	public TextField getDatosPagoInput() {
+		return datosPagoInput;
+	}
+
+	public TextField getDireccionInput() {
+		return direccionInput;
+	}
+
+	public Button getAceptarBtn() {
+		return aceptarBtn;
+	}
+
+	public Button getCancelarBtn() {
+		return cancelarBtn;
+	}
+
 	/**
      * Creates a new VistaCambiodatoscompra.
      */
