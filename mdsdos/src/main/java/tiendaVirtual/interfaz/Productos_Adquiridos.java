@@ -15,7 +15,9 @@ public class Productos_Adquiridos extends VistaDetallecompra {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		for (appventawebbd.Item item : pedido.items.toArray()) {
-			vl.add(new Producto_Adquirido(item));
+			Producto_Adquirido pa = new Producto_Adquirido(item);
+			_productoAdquirido.add(pa);
+			vl.add(pa);
 		}
 		
 		this.getTotal().setValue(pedido.getTotal() + " €");

@@ -197,6 +197,53 @@ public class Cibernauta_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
+				
+				for(Compra c : _cabecera._perfil._compras._compra) {
+					c.getVerProductosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+						@Override
+						public void onComponentEvent(ClickEvent<Button> event) {
+							layout.removeAll();
+							layout.add(_cabecera);
+							layout.add(c._productosAdquiridos);
+						}
+					});
+					c.getCancelarPedidoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+						@Override
+						public void onComponentEvent(ClickEvent<Button> event) {
+							layout.removeAll();
+							layout.add(_cabecera);
+							layout.add( _cabecera._perfil._compras);
+							
+							// TODO: Borrar de la lista la compra y de la BD.
+						}
+					});
+					for(Producto_Adquirido pp : c._productosAdquiridos._productoAdquirido) {
+						pp.getComEntarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								layout.add(pp._comentar);
+							}
+						});
+						pp._comentar.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								layout.add( _cabecera._perfil._compras);
+							}
+						});
+						pp._comentar.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								layout.add(c._productosAdquiridos);
+							}
+						});
+					}
+				}
 				layout.add(_cabecera._perfil._compras);
 			}
 		});
