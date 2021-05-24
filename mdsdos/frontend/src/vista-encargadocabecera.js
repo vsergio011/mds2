@@ -10,10 +10,11 @@ class VistaEncargadocabecera extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width: 100%
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; justify-content: space-between;border:solid">
- <img style="margin: var(--lumo-space-m);" src="https://image.freepik.com/free-vector/online-shopping-logo-design-template_130382-9.jpg">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 10%; justify-content: space-between; border:solid;">
+ <img style="margin: var(--lumo-space-m); width: 70px; height: 70px;" src="https://image.freepik.com/free-vector/online-shopping-logo-design-template_130382-9.jpg">
  <vaadin-horizontal-layout theme="spacing" style="margin: var(--lumo-space-xs); padding: var(--lumo-space-m);">
   <vaadin-button theme="primary" id="btnMensajes">
     Mensajes 

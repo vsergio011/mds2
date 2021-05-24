@@ -2,7 +2,11 @@ package vistas;
 
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 
 /**
@@ -15,6 +19,13 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @JsModule("./src/vista-encargado.js")
 public class VistaEncargado extends PolymerTemplate<VistaEncargado.VistaEncargadoModel> {
 
+	@Id("mainContainer")
+	private VerticalLayout mainContainer;
+	
+	public VerticalLayout getmainContainer() {
+		return mainContainer;
+	}
+	
     /**
      * Creates a new VistaEncargado.
      */
