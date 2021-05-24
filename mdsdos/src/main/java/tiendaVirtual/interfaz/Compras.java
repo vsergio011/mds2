@@ -18,7 +18,9 @@ public class Compras extends VistaListacomprasanteriores {
 	public Compras(appventawebbd.Cibernauta ciber) {
 		VerticalLayout vl = this.getlPedidos().as(VerticalLayout.class);
 		for (appventawebbd.Pedido pedido : ciber.pedidos.toArray()) {
-			vl.add(new Compra(pedido));
+			Compra c = new Compra(pedido);
+			_compra.add(c);
+			vl.add(c);
 		}
 	}
 }

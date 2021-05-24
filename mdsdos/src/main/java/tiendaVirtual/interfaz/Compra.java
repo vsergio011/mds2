@@ -27,4 +27,8 @@ public class Compra extends VistaCompra {
 		// this.getEstadoLbl().setText();
 		this.getPrecioLbl().setText(pedido.getTotal() + " €");
 	}
+	
+	public appventawebbd.Pedido GetPedido() {
+		return pedido;
+	}
 }

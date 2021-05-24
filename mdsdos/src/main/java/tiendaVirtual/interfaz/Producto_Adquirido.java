@@ -12,13 +12,14 @@ public class Producto_Adquirido extends Producto_Pedido {
 	}
 	
 	public Producto_Adquirido(appventawebbd.Item item) {
+		_comentar = new Comentar_Producto(item.getProducto());
+		
 		this.getVaadinComboBox().setVisible(false);
 		this.getDeleteBtn().setVisible(false);
 		this.getComEntarBtn().setVisible(true);
 		
 		appventawebbd.Producto p = item.getProducto();
 		
-		this.getComEntarBtn().setVisible(false);
 		this.getDescripProducLbl().setText(p.getDescripcion());
 		this.getNombreProductoLbl().setText(p.getNombre());
 		this.getPrecioUnidadLbl().setText("Precio unidad: " + p.getPrecio() + " €");
