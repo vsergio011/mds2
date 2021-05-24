@@ -9,7 +9,7 @@ import basededatos.iCibernauta_Registrado;
 public class Lista_Recibidos extends Notificaciones {
 	public Mensajeria _mensajeria;
 	
-	public Lista_Recibidos(appventawebbd.Cibernauta ciber) {
+	public Lista_Recibidos(appventawebbd.Usuario ciber) {
 		super(ciber.mensajesRecibidos.toArray());
 	}
 }

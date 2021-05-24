@@ -21,14 +21,14 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 	private Object _enviarB;
 	public Mensajeria _mensajeria;
 
-	private appventawebbd.Cibernauta ciber = null;
+	private appventawebbd.Usuario ciber = null;
 	public void Enviar_Notificacion() {
 		iCibernauta c = new BDPrincipal();
 		appventawebbd.Usuario destinatario = c.getUsuarioEmail(this.getDestinatarioInput().getValue());
 		c.nuevaNotificacion(ciber, destinatario, this.getAsuntoInput().getValue(), this.getMensajeInput().getValue());
 	}
 	
-	public Nueva_Notificacion(appventawebbd.Cibernauta ciber) {
+	public Nueva_Notificacion(appventawebbd.Usuario ciber) {
 		clearAll();
 		this.getRemitenteInput().setEnabled(false);
 		this.getDestinatarioInput().setEnabled(true);

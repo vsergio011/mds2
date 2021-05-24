@@ -1,6 +1,9 @@
 package tiendaVirtual.interfaz;
 
-public class Detalles_Pedido {
+import vistas.VistaEncargadodetallemensaje;
+import vistas.VistaEncargadodetallesdepedido;
+
+public class Detalles_Pedido extends VistaEncargadodetallesdepedido {
 	private Object _tituloL;
 	private Object _idL;
 	private Object _compradorL;

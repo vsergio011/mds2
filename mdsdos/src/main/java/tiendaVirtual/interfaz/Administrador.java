@@ -16,7 +16,7 @@ public class Administrador extends VistaCibernauta {
 	public Lista_de_PmV _listaPmV;
 	public Cabecera_Administrador _cabecera;
 	
-	public Administrador(appventawebbd.Cibernauta ciber) {
+	public Administrador(appventawebbd.Administrador admin) {
 		VerticalLayout layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		_ofertas = new Lista_Ofertas();
@@ -51,7 +51,7 @@ public class Administrador extends VistaCibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				layout.add(new Perfil(ciber));
+				layout.add(new Perfil(admin));
 			}
 		});
 		

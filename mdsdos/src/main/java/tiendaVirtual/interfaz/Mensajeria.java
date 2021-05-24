@@ -23,7 +23,7 @@ public class Mensajeria extends VistaMensajeria {
 	public Lista_Recibidos _recibidos;
 	
 	private boolean enviados = false;
-	public Mensajeria(appventawebbd.Cibernauta ciber) {
+	public Mensajeria(appventawebbd.Usuario ciber) {
 		this.getResponderBtn().setVisible(false);
 		this.getNombreBtn().setText("Mensajes de " + ciber.getNombre());
 		
@@ -51,7 +51,7 @@ public class Mensajeria extends VistaMensajeria {
 		});
 	}
 	
-	private void load(appventawebbd.Cibernauta ciber) {
+	private void load(appventawebbd.Usuario ciber) {
 		_recibidos = new Lista_Recibidos(ciber);
 		_enviados = new Lista_Enviados(ciber);
 		

@@ -9,4 +9,8 @@ public class Cabecera_Encargado  extends VistaEncargadocabecera{
 	private Object _cerrarSesionB;
 	public Encargado _encargado;
 	public Mensajeria _mensajeria;
+	
+	public Cabecera_Encargado(appventawebbd.Encargado encargado) {
+		_mensajeria = new Mensajeria(encargado);
+	}
 }

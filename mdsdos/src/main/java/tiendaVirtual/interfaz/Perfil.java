@@ -25,7 +25,14 @@ public class Perfil extends VistaPerfil{
 		mg.fillData(ciber);
 		layoutPerfil.removeAll();
 		layoutPerfil.add(mg);
-		
+	}
+	
+	public Perfil(appventawebbd.Administrador admin) {
+		VerticalLayout layoutPerfil = this.getPerfilLayout();
+		Modificar_general mg = new Modificar_general();
+		mg.fillData(admin);
+		layoutPerfil.removeAll();
+		layoutPerfil.add(mg);
 	}
 	
 	public void Cambiar_Imagen_de_Perfil() {

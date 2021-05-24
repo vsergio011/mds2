@@ -10,11 +10,11 @@ import vistas.VistaTransportista;
 
 // import basededatos.iTransportista;
 
-public class Transportista extends VistaTransportista{
+public class Transportista extends VistaTransportista {
 	// public iTransportista _iTransportista;
 	public Listado_de_Compras__Transportista_ _compras;
 	public VerticalLayout containerPrincipal;
-	public Transportista (appventawebbd.Cibernauta ciber) {
+	public Transportista (appventawebbd.Transportista transportista) {
 	Listado_de_Compras__Transportista_ _Listado_de_Compras__Transportista_ = new Listado_de_Compras__Transportista_();
 	containerPrincipal = this.getcontainerPrincipal();
 	containerPrincipal.add(_Listado_de_Compras__Transportista_);

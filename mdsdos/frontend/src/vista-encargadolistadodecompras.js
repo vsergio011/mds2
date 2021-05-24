@@ -1,8 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-date-picker/src/vaadin-date-picker.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@polymer/iron-icon/iron-icon.js';
 
@@ -38,9 +38,14 @@ class VistaEncargadolistadodecompras extends PolymerElement {
   <vaadin-date-picker id="inputdate"></vaadin-date-picker>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-xl);">
-  <vaadin-text-field placeholder="Search" style="width: 80%;" id="inputSearch">
-   <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
-  </vaadin-text-field>
+  <vaadin-horizontal-layout style="width: 100%;">
+   <vaadin-text-field placeholder="Search" style="width: 70%;" id="inputSearch">
+    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
+   </vaadin-text-field>
+   <vaadin-button id="filtrarBtn" style="width: 30%;">
+    Filtrar
+   </vaadin-button>
+  </vaadin-horizontal-layout>
   <vaadin-vertical-layout theme="spacing" id="contenedorPedidos" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>

@@ -24,7 +24,26 @@ public class VistaEncargadocabecera extends PolymerTemplate<VistaEncargadocabece
 	
 	@Id("btnMensajes")
 	private Button btnMensajes;
+
+
+	@Id("principalBtn")
+	private Button principalBtn;
 	
+	public Button getBtnCerraSesion() {
+		return btnCerraSesion;
+	}
+
+
+	public Button getBtnMensajes() {
+		return btnMensajes;
+	}
+
+
+	public Button getPrincipalBtn() {
+		return principalBtn;
+	}
+
+
 	public Button getbtnMensajes() {
 		return btnMensajes;
 	}

@@ -39,6 +39,19 @@ public class BD_Enviado {
 		}
 		return pedidos;
 	}
+	
+	public List<Enviado> listadoComprasEnviadas() throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		List<Enviado> pedidos = null;
+		try {
+			pedidos = EnviadoDAO.queryEnviado(null, "Fecha");
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return pedidos;
+	}
 
 	public boolean isPedidoEnviado(int aId) throws PersistentException {
 		return this.getPedidoEnviado(aId) != null;

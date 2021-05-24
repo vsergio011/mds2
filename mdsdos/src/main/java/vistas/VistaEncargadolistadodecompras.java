@@ -40,6 +40,34 @@ public class VistaEncargadolistadodecompras extends PolymerTemplate<VistaEncarga
 	
 	@Id("contenedorPedidos")
 	private VerticalLayout contenedorPedidos;
+
+	public Button getBtnNuevo() {
+		return btnNuevo;
+	}
+	public Button getBtnEnviado() {
+		return btnEnviado;
+	}
+	public Button getBtnRecibido() {
+		return btnRecibido;
+	}
+	public Button getBtnFecha() {
+		return btnFecha;
+	}
+	public DatePicker getInputdate() {
+		return inputdate;
+	}
+	public TextField getInputSearch() {
+		return inputSearch;
+	}
+	public VerticalLayout getContenedorPedidos() {
+		return contenedorPedidos;
+	}
+	public Button getFiltrarBtn() {
+		return filtrarBtn;
+	}
+
+	@Id("filtrarBtn")
+	private Button filtrarBtn;
 	
 	public Button getbtnNuevo() {
 		return btnNuevo;

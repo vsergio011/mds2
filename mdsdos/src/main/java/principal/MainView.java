@@ -87,19 +87,20 @@ public class MainView extends VerticalLayout {
 				
 				switch (user) {
 				case "cibernauta":
-					Cibernauta_Registrado cr = new Cibernauta_Registrado((Cibernauta) bd.getUsuarioEmail("foo@example.com"));
+					Cibernauta_Registrado cr = new Cibernauta_Registrado((Cibernauta) bd.getUsuarioEmail("foo1@example.com"));
 					add(cr);
+					appventawebbd.Usuario usu;
 					break;
 				case "admin":
-					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador((Cibernauta) bd.getUsuarioEmail("foo@example.com"));
+					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador((appventawebbd.Administrador) bd.getUsuarioEmail("foo2@example.com"));
 					add(admin);
 					break;
 				case "encargado":
-					tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado((Cibernauta) bd.getUsuarioEmail("foo@example.com"));
+					tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado((appventawebbd.Encargado) bd.getUsuarioEmail("foo3@example.com"));
 					add(encargado);
 					break;
 				case "transportista":
-					tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista((Cibernauta) bd.getUsuarioEmail("foo@example.com"));
+					tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista((appventawebbd.Transportista) bd.getUsuarioEmail("foo4@example.com"));
 					add(transportista);
 					break;
 				}				

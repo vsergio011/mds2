@@ -436,4 +436,34 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			e.printStackTrace();
 		}
 	}
+
+	public List<Pendiente> listadoComprasPendientes() {
+		try {
+			return _bd_pend.listadoComprasPendientes();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public List<Entregado> listadoComprasEntregadas() {
+		try {
+			return _bd_entr.listadoComprasEntregadas();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public List<Enviado> listadoComprasEnviadas() {
+		try {
+			return _bd_env.listadoComprasEnviadas();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

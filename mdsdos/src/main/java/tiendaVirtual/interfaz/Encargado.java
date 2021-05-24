@@ -9,40 +9,95 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import vistas.VistaEncargado;
 // import basededatos.iEncargado;
 
-public class Encargado extends  VistaEncargado{
+public class Encargado extends VistaEncargado {
 	// public iEncargado _iEncargado;
 	public Cabecera_Encargado _cabecera;
 	//public Seleccion_de_Compras _seleccionDeCompras;
 	public Listado_de_Compras__Encargado_ _listadoCompras;
-	public VerticalLayout containerPrincipal;
+	VerticalLayout containerPrincipal;
 	
-	public Encargado(appventawebbd.Cibernauta ciber) {
-		Cabecera_Encargado _Cabecera_Encargado = new Cabecera_Encargado();
-		Listado_de_Compras__Encargado_ _Listado_de_Compras__Encargado_ = new Listado_de_Compras__Encargado_();
+	public Encargado(appventawebbd.Encargado encargado) {
+		_cabecera = new Cabecera_Encargado(encargado);
+		_listadoCompras = new Listado_de_Compras__Encargado_();
 		containerPrincipal = this.getmainContainer();
 		
-		containerPrincipal.add(_Cabecera_Encargado);
-		containerPrincipal.add(_Listado_de_Compras__Encargado_);
+		containerPrincipal.add(_cabecera);
+		containerPrincipal.add(_listadoCompras);
+		AddListenerButtons();
 		
-		_Cabecera_Encargado.getbtnCerraSesion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
+		_cabecera.getbtnCerraSesion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				UI.getCurrent().getPage().reload();
-				
 			}
 		});
-		
-		_Cabecera_Encargado.getbtnMensajes().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
+		_cabecera.getPrincipalBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				Mensajeria _Mensajeria = new Mensajeria(ciber);
 				containerPrincipal.removeAll();
-				containerPrincipal.add(_Cabecera_Encargado);
-				containerPrincipal.add(_Mensajeria);
+				containerPrincipal.add(_cabecera);
+				containerPrincipal.add(_listadoCompras);
+				AddListenerButtons();
 			}
 		});
-		
+		_cabecera.getbtnMensajes().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				containerPrincipal.removeAll();
+				containerPrincipal.add(_cabecera);
+				containerPrincipal.add(_cabecera._mensajeria);
+			}
+		});
+		_listadoCompras.getbtnNuevo().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_listadoCompras._elementoPedido.clear();
+				_listadoCompras.filterPendientes();
+				_listadoCompras.resetView();
+				AddListenerButtons();
+			}
+		});
+		_listadoCompras.getbtnEnviado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_listadoCompras._elementoPedido.clear();
+				_listadoCompras.filterEnviados();
+				_listadoCompras.resetView();
+				AddListenerButtons();
+			}
+		});
+		_listadoCompras.getbtnRecibido().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_listadoCompras._elementoPedido.clear();
+				_listadoCompras.filterEntregados();
+				_listadoCompras.resetView();
+				AddListenerButtons();
+			}
+		});
+		_listadoCompras.getFiltrarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				if (!_listadoCompras.getInputSearch().getValue().isEmpty()) {
+					_listadoCompras._elementoPedido.clear();
+					_listadoCompras.filterText();
+					_listadoCompras.resetView();
+					AddListenerButtons();
+				}
+			}
+		});
+	}
+	
+	private void AddListenerButtons() {
+		for (Elemento_Pedido__Encargado_ elemento : _listadoCompras._elementoPedido) {
+			elemento.getPedidoBtnn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					containerPrincipal.removeAll();
+					containerPrincipal.add(_cabecera);
+					containerPrincipal.add(elemento._detalles);
+				}
+			});
+		}
 	}
 }

@@ -76,6 +76,19 @@ public class BD_Pendiente {
 		}
 		return pedidos;
 	}
+	
+	public List<Pendiente> listadoComprasPendientes() throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		List<Pendiente> pedidos = null;
+		try {
+			pedidos = PendienteDAO.queryPendiente(null, "Fecha");
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return pedidos;
+	}
 
 	public void operation(int aIdCiber) {
 		throw new UnsupportedOperationException();
