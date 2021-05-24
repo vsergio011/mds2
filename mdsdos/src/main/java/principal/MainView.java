@@ -98,6 +98,10 @@ public class MainView extends VerticalLayout {
 					tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado((Cibernauta) bd.getUsuarioEmail("foo@example.com"));
 					add(encargado);
 					break;
+				case "transportista":
+					tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista((Cibernauta) bd.getUsuarioEmail("foo@example.com"));
+					add(transportista);
+					break;
 				}				
 			}
 		});

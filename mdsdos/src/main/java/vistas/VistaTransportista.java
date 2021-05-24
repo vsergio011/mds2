@@ -3,6 +3,8 @@ package vistas;
 import com.vaadin.flow.templatemodel.TemplateModel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 
 /**
@@ -14,6 +16,13 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @Tag("vista-transportista")
 @JsModule("./src/vista-transportista.js")
 public class VistaTransportista extends PolymerTemplate<VistaTransportista.VistaTransportistaModel> {
+	
+	@Id("containerPrincipal")
+	private VerticalLayout containerPrincipal;
+	
+	public VerticalLayout getcontainerPrincipal() {
+		return containerPrincipal;
+	}
 
     /**
      * Creates a new VistaTransportista.
