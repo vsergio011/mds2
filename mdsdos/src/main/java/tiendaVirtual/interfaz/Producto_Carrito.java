@@ -28,9 +28,10 @@ public class Producto_Carrito extends Producto_Pedido {
 		this.getDescripProducLbl().setText(p.getDescripcion());
 		this.getNombreProductoLbl().setText(p.getNombre());
 		this.getPrecioUnidadLbl().setText("Precio unidad: " + p.getPrecio() + " €");
+		this.getPrecioEurosLbl().setText(p.getPrecio() * cantidad + " €");
 		this.getImgProducto().setSrc(p.getFotos());
 		this.getValoracionLbl().setText("Valoración media: " +p.getValoracionMedia() + "/5");
-		this.getPrecioEurosLbl().setText((p.getPrecio()  * cantidad) + " €");
+		this.getPrecioEurosLbl().setText("Precio total: " + p.getPrecio() * cantidad + " €");
 		this.getImgProducto().setHeight("200px");
 		
 		this.getUnidadesLbl().setText("Cantidad: " + cantidad);
@@ -38,10 +39,8 @@ public class Producto_Carrito extends Producto_Pedido {
 			int cant = Integer.parseInt(this.getVaadinComboBox().getValue());
 			item.setCantidad(cant);
 			this.getUnidadesLbl().setText("Cantidad: " + cant);
-		});
-		
-		// TODO: Ajustar dependiendo de la cantidad que haya seleccionado.
-		this.getPrecioEurosLbl().setText("");
+			this.getPrecioEurosLbl().setText("Precio total: " + p.getPrecio() * cant + " €");
+		});		
 	}
 	
 	public appventawebbd.Item GetItem() {

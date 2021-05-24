@@ -16,8 +16,7 @@ public class Carrito_de_la_compra {
 	public Vector<Cabecera_Carrito> _list_Cabecera_Carrito = new Vector<Cabecera_Carrito>();
 	public Vector<Producto_Carrito> _producto = new Vector<Producto_Carrito>();
 	
-	public Carrito_de_la_compra(Producto_Carrito...productos) {
-		this.AddProductoCarrito(productos);
+	public Carrito_de_la_compra() {		
 	}
 	
 	public void AddProductoCarrito(Producto_Carrito...productos)

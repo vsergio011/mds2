@@ -21,9 +21,8 @@ public class Carrito extends VistaCarrito {
 		this.getPriceLbl().setText(new DecimalFormat("#.##").format(precio) + " €");
 	}
 	
-	public Carrito(Producto_Carrito...productos) {
-		_productos = new Carrito_de_la_compra(productos);
-		updateProducts();
+	public Carrito() {
+		_productos = new Carrito_de_la_compra();
 	}
 	
 	public void AddProductoCarrito(Producto_Carrito...productos)
@@ -37,6 +36,16 @@ public class Carrito extends VistaCarrito {
 					DeleteProductoCarrito(pc);
 				}
 			});
+			pc.getVaadinComboBox().addValueChangeListener(e -> {
+				appventawebbd.Item item = pc.GetItem();
+				
+				int cant = Integer.parseInt(pc.getVaadinComboBox().getValue());
+				item.setCantidad(cant);
+				pc.getUnidadesLbl().setText("Cantidad: " + cant);
+				pc.getPrecioEurosLbl().setText("Precio total: " + item.getProducto().getPrecio() * cant + " €");
+				
+				Actualizar_total();
+			});	
 		}
 	}
 	
