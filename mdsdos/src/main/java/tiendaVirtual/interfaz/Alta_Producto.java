@@ -66,6 +66,7 @@ public class Alta_Producto extends VistaAltaproducto{
 			int index = cats.indexOf(event.getValue());
 			selected = categorias.get(index);
 		});
+		
 		multiFileMemoryBuffer = new MultiFileMemoryBuffer();
 		Upload upload = new Upload(multiFileMemoryBuffer);
 		upload.addFinishedListener(e -> {
@@ -75,14 +76,11 @@ public class Alta_Producto extends VistaAltaproducto{
 				InputStream inputStream = multiFileMemoryBuffer.getInputStream(a);
 				// read the contents of the buffered memory
 				// from inputStream
-			}
-			
-			
-		   
-		    
-		    
+			}   
 		    
 		});
+		
+		
 		this.gethorizontalLYUpImg().add(upload);
 		
 		this.getAddImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
