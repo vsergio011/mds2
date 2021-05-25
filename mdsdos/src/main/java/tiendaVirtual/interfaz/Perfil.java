@@ -42,9 +42,12 @@ public class Perfil extends VistaPerfil{
 	public Perfil(appventawebbd.Administrador admin) {
 		VerticalLayout layoutPerfil = this.getPerfilLayout();
 		Modificar_general mg = new Modificar_general();
-		mg.fillData(admin);
+		//mg.fillData(admin); descomentar
 		layoutPerfil.removeAll();
 		layoutPerfil.add(mg);
+		this.getComprasRealizadasBtn().setVisible(false);
+		this.getContactoBtn().setVisible(false);
+		this.getBorrarCuentaBtn().setVisible(false);
 		this.getCambiarImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 
 			@Override
@@ -73,6 +76,14 @@ public class Perfil extends VistaPerfil{
 				layoutPerfil.add(upload);
 				layoutPerfil.add(imgUpBtn);
 				
+			}
+		});
+		this.getModificarDatosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layoutPerfil.removeAll();
+				layoutPerfil.add(mg);
 			}
 		});
 		this.getCambiarPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
