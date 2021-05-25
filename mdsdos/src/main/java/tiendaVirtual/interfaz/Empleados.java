@@ -33,6 +33,12 @@ public class Empleados extends VistaListadoempleados{
 		
 	private appventawebbd.Empleado selected = null;
 	public Empleados() {
+		FillEmpleados();
+	}
+	
+	public void FillEmpleados() {
+		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.removeAll();
 		verButtonVisible();
 		
 		iAdministrador admin = new BDPrincipal();
@@ -62,7 +68,6 @@ public class Empleados extends VistaListadoempleados{
 			}
 	    });
 		
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		lb.setHeight("100%");
 		lb.setWidth("100%");
 		
@@ -81,6 +86,5 @@ public class Empleados extends VistaListadoempleados{
 	public void clearView() {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		vl.removeAll();
-		
 	}
 }

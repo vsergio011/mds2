@@ -118,6 +118,7 @@ public class Administrador extends VistaCibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
+				_cabecera._funcionesAdmin._modificarEmpleado._empleados.FillEmpleados();
 				layout.add(_cabecera._funcionesAdmin._modificarEmpleado._empleados);
 			}
 		});
