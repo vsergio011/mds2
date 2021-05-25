@@ -115,12 +115,6 @@ public class Encargado extends VistaEncargado {
 				}
 			}
 		});
-		_listadoCompras.getBtnEnviado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				_listadoCompras.
-			}
-		});
 	}
 	
 	private void AddListenerButtons() {
@@ -131,6 +125,12 @@ public class Encargado extends VistaEncargado {
 					containerPrincipal.removeAll();
 					containerPrincipal.add(_cabecera);
 					containerPrincipal.add(elemento._detalles);
+				}
+			});
+			elemento._detalles.getAprobarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					elemento._detalles.Enviado();
 				}
 			});
 		}
