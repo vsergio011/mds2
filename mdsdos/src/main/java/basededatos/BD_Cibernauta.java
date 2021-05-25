@@ -11,6 +11,8 @@ import org.orm.PersistentTransaction;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Cibernauta;
 import appventawebbd.CibernautaDAO;
+import appventawebbd.Transportista;
+import appventawebbd.TransportistaDAO;
 import appventawebbd.Usuario;
 import appventawebbd.UsuarioDAO;
 
@@ -18,30 +20,18 @@ public class BD_Cibernauta {
 	public BDPrincipal _bd_prin_ciber;
 	public Vector<Cibernauta> _contiene_cibernautas = new Vector<Cibernauta>();
 
-	public Cibernauta Login(String aUsuario, String aPassword) throws PersistentException {
+	public Usuario Login(String aUsuario) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		Cibernauta ciber = null;
-		List<Cibernauta> result = null;
+		Usuario u = null;
 		try {
-			result = CibernautaDAO.queryCibernauta("Cibernauta.Usuario='" + aUsuario + "'", null);
-			if (result.size() == 0) {
-				System.out.println("USUARIO NO ENCONTRADO");
-				return null;
-			}
-			
-			ciber = result.get(0);
-			if (!ciber.getPassword().equals(aPassword)) {
-				System.out.println("Password INVALIDA");
-				return null;
-			}
-			
-	        t.commit();
+			System.out.println("Logeando al usuario : " + aUsuario);
+			u = UsuarioDAO.loadUsuarioByQuery("Usuario='"+aUsuario.trim().toLowerCase()+"'", null);
+			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
-		
-		return ciber;      
+		return u; 
 	}
 
 	public Cibernauta Registrar(

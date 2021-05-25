@@ -9,11 +9,13 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import appventawebbd.Administrador;
+import appventawebbd.AdministradorDAO;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Empleado;
 import appventawebbd.EmpleadoDAO;
 import appventawebbd.Producto;
 import appventawebbd.ProductoDAO;
+import appventawebbd.Usuario;
 
 public class BD_Administrador {
 	public BDPrincipal _bd_prin_admin;

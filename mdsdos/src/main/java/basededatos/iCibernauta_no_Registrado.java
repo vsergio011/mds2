@@ -20,7 +20,7 @@ public interface iCibernauta_no_Registrado extends iCibernauta {
 
 	public boolean existeUsuario(String aEmail);
 
-	public Cibernauta getUsuarioLogin(String aUser, String aPassword);
+	public Usuario getUsuarioLogin(String aUser);
 
 	public void registro(Usuario aUser);
 }
