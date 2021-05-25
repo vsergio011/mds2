@@ -30,7 +30,7 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public void cambiarImagen(int aIdCiber, String aImagen);
 
-	public void comentarProducto(int aIdProduct, Comentario aComentario);
+	public void comentarProducto(Producto aIdProduct, Comentario aComentario);
 
 	public List<Pendiente> listadoComprasPendientes(int aIdCiber);
 

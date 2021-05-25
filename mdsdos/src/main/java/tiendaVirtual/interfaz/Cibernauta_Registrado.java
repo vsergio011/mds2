@@ -242,6 +242,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 							public void onComponentEvent(ClickEvent<Button> event) {
 								layout.removeAll();
 								layout.add(_cabecera);
+								pp._comentar.ComentarProducto(ciber);
 								layout.add(c._productosAdquiridos);
 							}
 						});

@@ -253,8 +253,13 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public void comentarProducto(int aIdProduct, Comentario aComentario) {
-		throw new UnsupportedOperationException();
+	public void comentarProducto(Producto aIdProduct, Comentario aComentario) {
+		try {
+			_bd_com.comentarProducto(aIdProduct, aComentario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public boolean isPedidoEnviado(int aId) {
