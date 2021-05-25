@@ -25,6 +25,7 @@ public class Modificar_Datos extends VistaModificargeneral {
 	public Perfil _perfil;
 	public VerticalLayout containerInfo;
 	MemoryBuffer memoryBuffer;
+	
 	public Modificar_Datos() {
 	}
 	

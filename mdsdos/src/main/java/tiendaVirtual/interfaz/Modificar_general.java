@@ -22,7 +22,7 @@ public class Modificar_general extends VistaModificardatos {
 	private Object _datosPagoTF;
 	
 	public Modificar_general() {
-		System.out.println("YEAHHHHHHHHHHHHH");
+		
 	}
 	
 	public void fillData(appventawebbd.Usuario ciber) {
@@ -32,15 +32,6 @@ public class Modificar_general extends VistaModificardatos {
 		this.getDireccionInput().setValue(ciber.getDireccionCompleta());
 		this.getEmailInput().setValue(ciber.getCorreoElectronico());
 		this.getNombreUsuarioInput().setValue(ciber.getUsuario());
-	}
-	
-	public void fillData(appventawebbd.Administrador admin) {
-		this.getNomreInput().setValue(admin.getNombre());
-		this.getApellidosInput().setValue(admin.getApellidos());
-		this.getDatosPagoInput().setValue(admin.getFormaPago());
-		this.getDireccionInput().setValue(admin.getDireccionCompleta());
-		this.getEmailInput().setValue(admin.getCorreoElectronico());
-		this.getNombreUsuarioInput().setValue(admin.getUsuario());
 	}
 
 

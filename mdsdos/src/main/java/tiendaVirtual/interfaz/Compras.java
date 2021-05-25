@@ -1,5 +1,6 @@
 package tiendaVirtual.interfaz;
 
+import java.util.List;
 import java.util.Vector;
 // import interfaz.Cabecera_Lista_Compras;
 // import interfaz.Compra;
@@ -28,26 +29,37 @@ public class Compras extends VistaListacomprasanteriores {
 		
 		iCibernauta_Registrado cibernauta = new BDPrincipal();
 		
-		for (appventawebbd.Pedido pedido : cibernauta.listadoComprasPendientes(ciber.getId())) {
-			Compra c = new Compra(pedido);
-			c.getEstadoLbl().setText("Pendiente");
-			c.getCancelarPedidoBtn().setVisible(true);
-			_compra.add(c);
-			vl.add(c);
+		List<appventawebbd.Pendiente> pendientes =  cibernauta.listadoComprasPendientes(ciber.getId());
+		if (pendientes.size() > 0) {
+			for (appventawebbd.Pedido pedido : pendientes) {
+				Compra c = new Compra(pedido);
+				c.getEstadoLbl().setText("Pendiente");
+				c.getCancelarPedidoBtn().setVisible(true);
+				_compra.add(c);
+				vl.add(c);
+			}
 		}
-		for (appventawebbd.Pedido pedido : cibernauta.listadoComprasEntregadas(ciber.getId())) {
-			Compra c = new Compra(pedido);
-			c.getEstadoLbl().setText("Entregado");
-			c.getCancelarPedidoBtn().setVisible(false);
-			_compra.add(c);
-			vl.add(c);
+		
+		List<appventawebbd.Entregado> entregadas =  cibernauta.listadoComprasEntregadas(ciber.getId());
+		if (entregadas.size() > 0) {
+			for (appventawebbd.Pedido pedido : cibernauta.listadoComprasEntregadas(ciber.getId())) {
+				Compra c = new Compra(pedido);
+				c.getEstadoLbl().setText("Entregado");
+				c.getCancelarPedidoBtn().setVisible(false);
+				_compra.add(c);
+				vl.add(c);
+			}
 		}
-		for (appventawebbd.Pedido pedido : cibernauta.listadoComprasEnviadas(ciber.getId())) {
-			Compra c = new Compra(pedido);
-			c.getEstadoLbl().setText("Enviado");
-			c.getCancelarPedidoBtn().setVisible(false);
-			_compra.add(c);
-			vl.add(c);
-		}
+		
+		List<appventawebbd.Enviado> enviadas =  cibernauta.listadoComprasEnviadas(ciber.getId());
+		if (enviadas.size() > 0) {
+			for (appventawebbd.Pedido pedido : cibernauta.listadoComprasEnviadas(ciber.getId())) {
+				Compra c = new Compra(pedido);
+				c.getEstadoLbl().setText("Enviado");
+				c.getCancelarPedidoBtn().setVisible(false);
+				_compra.add(c);
+				vl.add(c);
+			}
+		}		
 	}
 }

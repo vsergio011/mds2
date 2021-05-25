@@ -23,6 +23,7 @@ public class Perfil_Cibernauta extends Perfil {
 	public Perfil_Cibernauta(appventawebbd.Cibernauta ciber) {
 		this.ciber = ciber;
 		
+		this.getCambiarImgBtn().setVisible(false);
 		_cambiarContrasena = new Cambiar_Contrasena();
 		_mensajeria = new Mensajeria(ciber);
 		_modificar = new Modificar_Datos(ciber);

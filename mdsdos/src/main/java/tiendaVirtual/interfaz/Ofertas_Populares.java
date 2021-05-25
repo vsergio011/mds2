@@ -24,7 +24,6 @@ public class Ofertas_Populares extends VistaOfertaspopulares {
 		hl = this.getVaadinHorizontalLayout().as(HorizontalLayout.class);
 		
 		iCibernauta ciber = new BDPrincipal();
-		System.out.println("FillOfertasPopulares.");
 		for(Oferta offer : ciber.getOfertasPopulares()) {
 			Producto p= new Producto();
 
