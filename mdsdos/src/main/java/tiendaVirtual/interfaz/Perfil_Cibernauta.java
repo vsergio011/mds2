@@ -14,11 +14,15 @@ public class Perfil_Cibernauta extends Perfil {
 	public Compras _compras;
 	public Mensajeria _mensajeria;
 
+	private appventawebbd.Cibernauta ciber = null;
 	public void Borrar_cuenta() {
-		throw new UnsupportedOperationException();
+		iCibernauta_Registrado cibernauta = new BDPrincipal();
+		cibernauta.borrarCuenta(ciber.getId());
 	}
 	
 	public Perfil_Cibernauta(appventawebbd.Cibernauta ciber) {
+		this.ciber = ciber;
+		
 		_cambiarContrasena = new Cambiar_Contrasena();
 		_mensajeria = new Mensajeria(ciber);
 		_modificar = new Modificar_Datos(ciber);

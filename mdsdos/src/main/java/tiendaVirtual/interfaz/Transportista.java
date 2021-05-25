@@ -15,17 +15,34 @@ public class Transportista extends VistaTransportista {
 	public Listado_de_Compras__Transportista_ _compras;
 	public VerticalLayout containerPrincipal;
 	public Transportista (appventawebbd.Transportista transportista) {
-	Listado_de_Compras__Transportista_ _Listado_de_Compras__Transportista_ = new Listado_de_Compras__Transportista_();
+	_compras = new Listado_de_Compras__Transportista_(transportista);
 	containerPrincipal = this.getcontainerPrincipal();
-	containerPrincipal.add(_Listado_de_Compras__Transportista_);
+	containerPrincipal.add(_compras);
 		
-	_Listado_de_Compras__Transportista_.getbtnExit().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
+		this.getCerrarSesionBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				UI.getCurrent().getPage().reload();
-				
 			}
 		});
+		
+		for(Elemento_Pedido__Transportista_ pedido : _compras._pedido) {
+			pedido.getPedidoBtnn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					containerPrincipal.removeAll();
+					containerPrincipal.add(pedido._detalles);
+					
+					pedido._detalles.getRecibidoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+						@Override
+						public void onComponentEvent(ClickEvent<Button> event) {
+							containerPrincipal.removeAll();
+							pedido._detalles.Recibido();
+							containerPrincipal.add(_compras);
+						}
+					});
+				}
+			});
+		}
 	}
 }

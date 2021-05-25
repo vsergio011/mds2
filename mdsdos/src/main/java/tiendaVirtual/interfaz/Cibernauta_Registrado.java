@@ -2,6 +2,7 @@ package tiendaVirtual.interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -153,6 +154,19 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera);
 				_cabecera._perfil._modificar.showLess();
 				layout.add(_cabecera._perfil._modificar);
+			}
+		});
+		_cabecera._perfil.getBorrarCuentaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_cabecera._perfil.Borrar_cuenta();
+				UI.getCurrent().getPage().reload();
+			}
+		});
+		_cabecera._perfil.getDesconectarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				UI.getCurrent().getPage().reload();
 			}
 		});
 		_cabecera._perfil._modificar.getAceptarCambiosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

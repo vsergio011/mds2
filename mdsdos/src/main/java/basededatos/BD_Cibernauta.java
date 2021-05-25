@@ -103,8 +103,16 @@ public class BD_Cibernauta {
 		return ciber;
 	}
 
-	public void borrarCuenta(int aIdCiber) {
-		throw new UnsupportedOperationException();
+	public void borrarCuenta(int aIdCiber) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Cibernauta ciber = this.getCibernauta(aIdCiber);
+		try {
+			CibernautaDAO.delete(ciber);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
 	public void cambiarImagen(int aIdCiber, String aImagen) {

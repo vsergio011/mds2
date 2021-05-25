@@ -246,7 +246,12 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public void borrarCuenta(int aIdCiber) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_ciber.borrarCuenta(aIdCiber);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void cambiarImagen(int aIdCiber, String aImagen) {

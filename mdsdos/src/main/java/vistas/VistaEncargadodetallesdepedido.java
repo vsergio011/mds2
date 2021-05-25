@@ -40,6 +40,12 @@ public class VistaEncargadodetallesdepedido extends PolymerTemplate<VistaEncarga
 	private Button aprobarBtn;
 	@Id("identificadorLbl")
 	private Label identificadorLbl;
+	@Id("recibidoBtn")
+	private Button recibidoBtn;
+
+	public Button getRecibidoBtn() {
+		return recibidoBtn;
+	}
 
 	public Label getIdentificadorLbl() {
 		return identificadorLbl;

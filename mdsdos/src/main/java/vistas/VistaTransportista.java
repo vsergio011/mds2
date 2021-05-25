@@ -6,6 +6,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-transportista template.
@@ -19,7 +20,17 @@ public class VistaTransportista extends PolymerTemplate<VistaTransportista.Vista
 	
 	@Id("containerPrincipal")
 	private VerticalLayout containerPrincipal;
+	@Id("cerrarSesionBtn")
+	private Button cerrarSesionBtn;
 	
+	public VerticalLayout getContainerPrincipal() {
+		return containerPrincipal;
+	}
+
+	public Button getCerrarSesionBtn() {
+		return cerrarSesionBtn;
+	}
+
 	public VerticalLayout getcontainerPrincipal() {
 		return containerPrincipal;
 	}

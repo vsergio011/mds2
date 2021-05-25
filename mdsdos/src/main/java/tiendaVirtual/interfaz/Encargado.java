@@ -48,6 +48,35 @@ public class Encargado extends VistaEncargado {
 				containerPrincipal.add(_cabecera._mensajeria);
 			}
 		});
+		_cabecera._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				containerPrincipal.removeAll();
+				containerPrincipal.add(_cabecera);
+				appventawebbd.Mensaje msg = _cabecera._mensajeria.GetSelected();
+				_cabecera._mensajeria._nueva_Notificacion.fillNotificacion(msg);
+				containerPrincipal.add(_cabecera._mensajeria._nueva_Notificacion);
+			}
+		});
+		_cabecera._mensajeria.getNuevoMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				containerPrincipal.removeAll();
+				containerPrincipal.add(_cabecera);
+				_cabecera._mensajeria._nueva_Notificacion.clearAll();
+				containerPrincipal.add(_cabecera._mensajeria._nueva_Notificacion);
+			}
+		});
+		_cabecera._mensajeria._nueva_Notificacion.getEnviarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				containerPrincipal.removeAll();
+				containerPrincipal.add(_cabecera);
+				containerPrincipal.add(_cabecera._mensajeria);
+				
+				_cabecera._mensajeria._nueva_Notificacion.Enviar_Notificacion();
+			}
+		});
 		_listadoCompras.getbtnNuevo().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {

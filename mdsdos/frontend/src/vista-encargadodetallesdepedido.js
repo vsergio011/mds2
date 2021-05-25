@@ -38,6 +38,9 @@ class VistaEncargadodetallesdepedido extends PolymerElement {
    </vaadin-checkbox>
   </vaadin-horizontal-layout>
   <vaadin-button id="aprobarBtn" style="align-self: center;"></vaadin-button>
+  <vaadin-button id="recibidoBtn" style="align-self: center;">
+   Recibido
+  </vaadin-button>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-xl);">
   <vaadin-text-field label="Total" value="1000" id="textTotal" style="align-self: flex-end;" has-value>

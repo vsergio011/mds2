@@ -20,16 +20,10 @@ import com.vaadin.flow.component.textfield.TextField;
 @JsModule("./src/vista-transportistalistadopedidos.js")
 public class VistaTransportistalistadopedidos extends PolymerTemplate<VistaTransportistalistadopedidos.VistaTransportistalistadopedidosModel> {
 
-	@Id("btnExit")
-	private Button btnExit;
 	@Id("inputBusqueda")
 	private TextField inputBusqueda;
 	@Id("containerPedido")
 	private VerticalLayout containerPedido;
-	
-	public Button getbtnExit() {
-		return btnExit;
-	}
 	
 	public TextField getinputBusqueda() {
 		return inputBusqueda;

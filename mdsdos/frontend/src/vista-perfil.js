@@ -41,9 +41,9 @@ class VistaPerfil extends PolymerElement {
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing-l" style="width: 100%;" id="perfilLayout">
-  <label style="font-size: 30px; font-weight: bold; padding: var(--lumo-space-m);" id="nombreApellidosLbl">Nombre y apellidos del usuario</label>
-  <label id="emailLbl" style="padding: var(--lumo-space-m);">Correo Electrónico: usuario@correo.com</label>
-  <label id="direccionLbl" style="padding: var(--lumo-space-l);">Direccion Postal:</label>
+  <label style="font-size: 30px; font-weight: bold; padding: var(--lumo-space-m);" id="nombreApellidosLbl"></label>
+  <label id="emailLbl" style="padding: var(--lumo-space-m);"></label>
+  <label id="direccionLbl" style="padding: var(--lumo-space-l);"></label>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;
