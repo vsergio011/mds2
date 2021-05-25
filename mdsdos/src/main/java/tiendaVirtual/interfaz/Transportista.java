@@ -19,12 +19,12 @@ public class Transportista extends VistaTransportista {
 	containerPrincipal = this.getcontainerPrincipal();
 	containerPrincipal.add(_compras);
 		
-		/*this.getCerrarSesionBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		this.getCerrarSesionBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				UI.getCurrent().getPage().reload();
 			}
-		});*/
+		});
 		
 		for(Elemento_Pedido__Transportista_ pedido : _compras._pedido) {
 			pedido.getPedidoBtnn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

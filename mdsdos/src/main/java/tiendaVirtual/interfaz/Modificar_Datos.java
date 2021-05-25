@@ -67,8 +67,8 @@ public class Modificar_Datos extends VistaModificargeneral {
 					}
 				});
 				
-				//Cambiar_Contrasena _Cambiar_Contrasena = new Cambiar_Contrasena();
 				containerInfo.add(upload);
+				containerInfo.add(imgUpBtn);
 				
 			}
 		});
@@ -144,9 +144,8 @@ public class Modificar_Datos extends VistaModificargeneral {
 	
 	public void Cambiar_Imagen() {
 	
-	
-
 			InputStream is = memoryBuffer.getInputStream();
+			String UrlImagen = "img/"+memoryBuffer.getFileName();
 			
 			try {
 	            
@@ -164,7 +163,7 @@ public class Modificar_Datos extends VistaModificargeneral {
 	            this.getImg().setMaxWidth("300px");
 	            
 	           
-	            this.getImg().setSrc("img/"+memoryBuffer.getFileName());
+	            this.getImg().setSrc(UrlImagen);
 	            
 	            
 	        } catch (IOException e) {

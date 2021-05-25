@@ -21,7 +21,7 @@ class VistaRegistro extends PolymerElement {
   <vaadin-button style="align-self: center;" id="editImgBtn">
     Editar foto de perfil 
   </vaadin-button>
-  <vaadin-horizontal-layout style="height: 10%; width: 100%;"></vaadin-horizontal-layout>
+  <vaadin-horizontal-layout style="height: 10%; width: 100%;" id="horizontallySubir"></vaadin-horizontal-layout>
   <vaadin-button style="align-self: center;" id="createAccountBtn">
     Crear cuenta 
   </vaadin-button>

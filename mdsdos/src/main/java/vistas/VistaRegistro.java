@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.html.Image;
@@ -43,6 +44,11 @@ public class VistaRegistro extends PolymerTemplate<VistaRegistro.VistaRegistroMo
 	private TextField direccionLbl;
 	@Id("img")
 	private Image img;
+	
+	@Id("horizontallySubir")
+	private HorizontalLayout horizontallySubir;
+	
+	
 
 	/**
      * Creates a new VistaRegistro.
@@ -53,6 +59,10 @@ public class VistaRegistro extends PolymerTemplate<VistaRegistro.VistaRegistroMo
 
     public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
+	}
+    
+    public HorizontalLayout gethorizontallySubir() {
+		return horizontallySubir;
 	}
 
 	public TextField getUserLbl() {
