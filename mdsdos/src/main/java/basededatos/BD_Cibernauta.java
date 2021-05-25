@@ -72,12 +72,28 @@ public class BD_Cibernauta {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cambiar_contrasena(String aEmail, String aNuevaContrasena) {
-		throw new UnsupportedOperationException();
+	public void cambiar_contrasena(String aEmail, String aNuevaContrasena) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Cibernauta ciber = (Cibernauta) this.getUsuarioEmail(aEmail);
+		try {
+			ciber.setPassword(aNuevaContrasena);
+			CibernautaDAO.save(ciber);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
-	public void modificarDatos(Cibernauta aCiber) {
-		throw new UnsupportedOperationException();
+	public void modificarDatos(Cibernauta aCiber) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			CibernautaDAO.save(aCiber);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
 	public Cibernauta getCibernauta(int aId) throws PersistentException {

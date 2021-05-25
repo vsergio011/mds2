@@ -8,6 +8,6 @@ public class Lista_de_PmV extends Productos_mas_vendidos {
 	public Vector<Producto_Admin> _producto = new Vector<Producto_Admin>();
 	
 	public Lista_de_PmV() {
-		
+		super();
 	}
 }

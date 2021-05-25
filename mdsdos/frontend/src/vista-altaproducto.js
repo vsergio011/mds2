@@ -27,9 +27,9 @@ class VistaAltaproducto extends PolymerElement {
      <input type="text" id="inputTitulo">
     </vaadin-horizontal-layout>
    </vaadin-vertical-layout>
-   <vaadin-horizontal-layout style="flex-shrink: 0; width: 100%; align-self: flex-start;">
-    <vaadin-vertical-layout theme="spacing" id="vlImages"></vaadin-vertical-layout>
-    <img style="border: solid; height: 70%; width: 95%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+   <vaadin-horizontal-layout style="flex-shrink: 0; width: 50%; align-self: flex-start;">
+    <vaadin-vertical-layout id="vlImages"></vaadin-vertical-layout>
+    <img style="border: solid; align-self: center; width: 70%;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">
     <vaadin-button id="deleteImgBtn">
@@ -58,7 +58,7 @@ class VistaAltaproducto extends PolymerElement {
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
     <vaadin-combo-box id="productoCategorias" item-label-path="Categorias"></vaadin-combo-box>
     <vaadin-button id="cancelBtn">
-      cancelar 
+     Cancelar
     </vaadin-button>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
@@ -69,7 +69,7 @@ class VistaAltaproducto extends PolymerElement {
      <label>Label</label>
     </vaadin-text-field>
     <vaadin-button style="width: 50%;" id="addBtn">
-      añadir producto 
+     Añadir
     </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>

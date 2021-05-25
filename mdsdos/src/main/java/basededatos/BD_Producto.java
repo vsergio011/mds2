@@ -52,10 +52,24 @@ public class BD_Producto {
 		return pro;
 	}
 
-	public Producto modificarProducto(Producto aProducto) throws PersistentException {
+	public Producto modificarProducto(Producto aProducto, List<String> fotos) throws PersistentException {
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
+		Producto producto = this.getProducto(aProducto.getId());
+		producto.setCategoria(aProducto.getCategoria());
+		producto.setDescripcion(aProducto.getDescripcion());
+		producto.setDetalles(aProducto.getDetalles());
+		producto.setFotos(aProducto.getFotos());
+		producto.setNombre(null);
 		try {
+			for (String f : fotos) {
+				Foto foto = FotoDAO.createFoto();
+				foto.setProductoFoto(aProducto);
+				foto.setRuta(f);
+				
+				aProducto.fotosProducto.add(foto);
+			}
+			
 			ProductoDAO.save(aProducto);
 			t2.commit();
 		} catch (Exception e) {

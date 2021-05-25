@@ -44,7 +44,12 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	public BD_Items _bd_items = new BD_Items();
 
 	public void cambiar_contrasena(String aEmail, String aNewContrasen) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_ciber.cambiar_contrasena(aEmail, aNewContrasen);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List<Categoria> listCategorias() {
@@ -131,9 +136,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public appventawebbd.Producto modificarProducto(Producto aProducto) {
+	public appventawebbd.Producto modificarProducto(Producto aProducto, List<String> fotos) {
 		try {
-			return _bd_prod.modificarProducto(aProducto);
+			return _bd_prod.modificarProducto(aProducto, fotos);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -193,11 +198,21 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public void anadirAOferta(int aIdProducto, Oferta aOferta) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_oferta.anadirAOferta(aIdProducto, aOferta);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void quitarProductoOferta(int aIdProducto) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_oferta.quitarProductoOferta(aIdProducto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public appventawebbd.Categoria addCategoria(Categoria aCategoria) {
@@ -228,7 +243,12 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public void modificarDatos(appventawebbd.Cibernauta aCiber) {
-		throw new UnsupportedOperationException();
+		try {
+			_bd_ciber.modificarDatos(aCiber);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Mensaje[] getMensajes(int aId) {
@@ -470,6 +490,16 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	public List<Enviado> listadoComprasEnviadas() {
 		try {
 			return _bd_env.listadoComprasEnviadas();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public Oferta estaEnOferta(int idProducto) {
+		try {
+			return _bd_oferta.estaEnOferta(idProducto);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

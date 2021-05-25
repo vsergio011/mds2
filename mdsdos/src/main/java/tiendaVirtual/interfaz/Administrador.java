@@ -136,6 +136,7 @@ public class Administrador extends VistaCibernauta {
 		});
 		
 		// Botones dentro del listado de empleados.	
+		fillCategories();
 	}
 	
 	private void fillCategories() {
@@ -145,6 +146,87 @@ public class Administrador extends VistaCibernauta {
 			vl.add(ldp);
 			for (Producto_Ciber pc: ldp._producto)
 			{
+				pc.getAddOffertaBtn().setVisible(false);
+				pc.getQuitarOfertaBtn().setVisible(false);
+				
+				Detalle_Producto_Admin detalle = new Detalle_Producto_Admin(pc.GetProducto());
+				pc._detalleProducto.getUpdateBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						
+						layout.add(detalle._modificar);						
+					}
+				});
+				pc._detalleProducto.getAddOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(detalle._agregarOferta);						
+					}
+				});
+				detalle._agregarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(pc._detalleProducto);
+						
+						detalle._agregarOferta.AgregarOferta(pc.GetProducto());
+					}
+				});
+				detalle._agregarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(pc._detalleProducto);
+					}
+				});
+				detalle._quitarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(pc._detalleProducto);
+					}
+				});
+				detalle._quitarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(pc._detalleProducto);
+												
+						detalle._quitarOferta.QuitarOferta();
+					}
+				});
+				pc.getQuitarOfertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(detalle._quitarOferta);	
+					}
+				});
+				pc.getAddOffertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(detalle._agregarOferta);		
+					}
+				});
+				pc._detalleProducto.getDeleteBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(detalle._quitarOferta);						
+					}
+				});
 				pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
@@ -153,9 +235,10 @@ public class Administrador extends VistaCibernauta {
 						
 						layout.add(pc._detalleProducto);
 						
-						pc._detalleProducto.getDeleteBtn().setVisible(false);
-						pc._detalleProducto.getAddOfferBtn().setVisible(false);
-						pc._detalleProducto.getUpdateBtn().setVisible(false);
+						pc._detalleProducto.getDeleteBtn().setVisible(true);
+						pc._detalleProducto.getAddOfferBtn().setVisible(true);
+						pc._detalleProducto.getUpdateBtn().setVisible(true);
+						pc._detalleProducto.getAnadirACarritoBtn().setVisible(false);
 						
 						pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override
@@ -188,8 +271,12 @@ public class Administrador extends VistaCibernauta {
 				});
 				
 				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
+				pc.getAddOffertaBtn().setVisible(true);
+				pc.getQuitarOfertaBtn().setVisible(true);
+				pc.getAddCarritoBtn().setVisible(false);
 				hl.add(pc);
 			}
 		}
 	}
+
 }

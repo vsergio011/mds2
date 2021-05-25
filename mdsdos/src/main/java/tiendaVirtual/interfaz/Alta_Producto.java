@@ -44,7 +44,7 @@ public class Alta_Producto extends VistaAltaproducto{
 	private Object _imagen;
 	private java.util.Vector<Object> _miniaturas;
 	public Funciones_Admin _funcionesAdmin;
-	List <String> imagenesUrl;
+	List<String> imagenesUrl = new ArrayList<String>();
 	iAdministrador ciberAdm;
 	Upload upload ;
 	MultiFileMemoryBuffer multiFileMemoryBuffer;
@@ -52,7 +52,6 @@ public class Alta_Producto extends VistaAltaproducto{
 	
 	appventawebbd.Categoria selected = null;
 	public Alta_Producto() {
-		
 		iCibernauta ciber = new BDPrincipal();
 		
 		List<appventawebbd.Categoria> categorias = ciber.listCategorias();
@@ -74,13 +73,8 @@ public class Alta_Producto extends VistaAltaproducto{
 			for(String a : multiFileMemoryBuffer.getFiles()) {
 				System.out.println(a);
 				InputStream inputStream = multiFileMemoryBuffer.getInputStream(a);
-				// read the contents of the buffered memory
-				// from inputStream
 			}   
-		    
 		});
-		
-		
 		this.gethorizontalLYUpImg().add(upload);
 		
 		this.getAddImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -88,33 +82,26 @@ public class Alta_Producto extends VistaAltaproducto{
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Agregar_Imagen();
-				
 			}
 		});
 		
 		this.getModificarImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Agregar_Imagen();
-				
 			}
 		});
-			
-		
 	}
 
 	public void Agregar_Imagen() {
-	
-		imagenesUrl = new ArrayList<String>();//aqui seria traerlo con las imagenes ya cargadas para que se añada a la lista
-		this.getvlImages().removeAll();
+		// imagenesUrl = new ArrayList<String>();
+		// this.getvlImages().removeAll();
 		 
 		for(String a : multiFileMemoryBuffer.getFiles()) {
 			FileData fd = multiFileMemoryBuffer.getFileData(a);
 			InputStream is = multiFileMemoryBuffer.getInputStream(fd.getFileName());
 			
 			try {
-	            
 	            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+a);
 	            byte[] buffer = new byte[1024];
 	            int bytesRead;
@@ -179,9 +166,7 @@ public class Alta_Producto extends VistaAltaproducto{
 	}
 
 	public void Borrar_Imagen() {
-		
-		//Delete de la bd
-		throw new UnsupportedOperationException();
+		this.getImg().setSrc("");
 	}
 	
 	public void SaveProducto() {
@@ -195,7 +180,6 @@ public class Alta_Producto extends VistaAltaproducto{
 		pro.setFotos(this.getImg().getSrc());
 		
 		iAdministrador admin = new BDPrincipal();
-		Producto id = admin.altaProducto(pro);	
-		
+		Producto id = admin.altaProducto(pro);
 	}
 }

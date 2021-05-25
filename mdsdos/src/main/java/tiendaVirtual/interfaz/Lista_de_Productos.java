@@ -15,11 +15,6 @@ public class Lista_de_Productos extends VistaListadeproductos {
 	public Vector<Producto_Ciber> _producto = new Vector<Producto_Ciber>();
 	public Categorias _categorias;
 	
-	public Lista_de_Productos()
-	{
-		// TODO: Rellenar este constructor con todos los productos?
-	}
-	
 	public Lista_de_Productos(Categoria cat) {
 		for(appventawebbd.Producto p: cat.productos.toArray()) {
 			Producto_Ciber pc = new Producto_Ciber(p);

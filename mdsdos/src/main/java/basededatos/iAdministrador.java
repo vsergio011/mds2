@@ -26,7 +26,7 @@ public interface iAdministrador {
 
 	public void transferirAdministrador(int aIdOrigen, int aIdDestino);
 
-	public Producto modificarProducto(Producto aProducto);
+	public Producto modificarProducto(Producto aProducto, List<String> fotos);
 
 	public void borrarProducto(Producto aProducto);
 
@@ -51,4 +51,6 @@ public interface iAdministrador {
 	public Categoria addCategoria(Categoria aCategoria);
 
 	public void anadirFoto(int aIdProducto, String aImage);
+	
+	public Oferta estaEnOferta(int idProducto);
 }
