@@ -34,6 +34,7 @@ public class CreateAppventawebData {
             ciber.setFoto("https://img1.freepng.es/20180319/row/kisspng-computer-icons-google-account-user-profile-iconfin-png-icons-download-profile-5ab0301d8907a6.3404305715214960935613.jpg");
             ciber.setDireccionCompleta("calle falsa 123");
             ciber.setFormaPago("TARJETA");
+            ciber.setTipo(0);
             CibernautaDAO.save(ciber);
             
             Transportista transportista = TransportistaDAO.createTransportista();
@@ -46,6 +47,7 @@ public class CreateAppventawebData {
             transportista.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
             transportista.setDireccionCompleta("calle falsa 123");
             transportista.setFormaPago("TARJETA");
+            transportista.setTipo(3);
             TransportistaDAO.save(transportista);
             
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -136,6 +138,7 @@ public class CreateAppventawebData {
 			admin.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
 			admin.setDireccionCompleta("calle falsa 123");
 			admin.setFormaPago("TARJETA");
+			admin.setTipo(1);
 			AdministradorDAO.save(admin);
 			
 			Encargado encar = EncargadoDAO.createEncargado();
@@ -148,6 +151,7 @@ public class CreateAppventawebData {
 			encar.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
 			encar.setDireccionCompleta("calle falsa 123");
 			encar.setFormaPago("TARJETA");
+			encar.setTipo(2);
 			EncargadoDAO.save(encar);
 			
 			for (int i = 0; i < 5; i++) {

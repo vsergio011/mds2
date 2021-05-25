@@ -14,6 +14,7 @@ import com.vaadin.flow.server.PWA;
 
 import appventawebbd.*;
 import basededatos.BDPrincipal;
+import basededatos.iCibernauta_no_Registrado;
 import tiendaVirtual.interfaz.Cibernauta_Registrado;
 import tiendaVirtual.interfaz.Cibernauta_no_Registrado;
 
@@ -77,7 +78,7 @@ public class MainView extends VerticalLayout {
 			}
 		});*/
     	
-    	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+    	/*cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				removeAll();	
@@ -104,6 +105,63 @@ public class MainView extends VerticalLayout {
 					add(transportista);
 					break;
 				}				
+			}
+		});*/
+    	
+    	
+    	
+    	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				removeAll();
+				
+				String username = cnr._cabecera._login.getUsernameLbl().getValue();
+				String password = cnr._cabecera._login.getPasswordLbl().getValue();
+				
+				iCibernauta_no_Registrado bd = new BDPrincipal();
+				
+				appventawebbd.Usuario user = bd.getUsuarioLogin(username);
+				if (user == null) {
+					user = bd.getUsuarioEmail(username);
+				}
+				if (user == null) {
+					System.out.println("USER NOT FOUND: " + username);
+					Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
+			    	add(cnr);
+					return;
+				}
+				if (!user.getPassword().equals(password)) {
+					System.out.println("BAD PASSWORD: " + password);
+					Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
+			    	add(cnr);
+					return;
+				}
+				
+				switch(user.getTipo()) {
+				// Ciber
+				case 0:
+					Cibernauta_Registrado cr = new Cibernauta_Registrado((Cibernauta) user);
+					add(cr);
+					break;
+					
+				// Admin
+				case 1:
+					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador((appventawebbd.Administrador) user);
+					add(admin);
+					break;
+					
+				// Encargado
+				case 2:
+					tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado((appventawebbd.Encargado) user);
+					add(encargado);
+					break;
+					
+				// Transportista
+				case 3:
+					tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista((appventawebbd.Transportista) user);
+					add(transportista);
+					break;
+				}
 			}
 		});
     }
