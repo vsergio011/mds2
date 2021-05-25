@@ -3,14 +3,20 @@ package tiendaVirtual.interfaz;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iEncargado;
+
 public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 	// private event _enviado;
 	private Object _enviadoCHK;
 	private Object _recibidoCHK;
 	public Elemento_Pedido__Encargado_ _elementoPedido;
+	
+	private appventawebbd.Pedido pedido = null;
 
 	public void Enviado() {
-		throw new UnsupportedOperationException();
+		iEncargado encargado = new BDPrincipal();
+		encargado.AddPedidoEnviado(pedido, null);
 	}
 
 	public void Comprobar_enviado() {
@@ -18,6 +24,8 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 	}
 	
 	public Detalles_Pedido__Encargado_(appventawebbd.Pendiente pedido) {
+		this.pedido = pedido;
+		
 		this.getCheckEnviado().setValue(false);
 		this.getCheckRecibido().setValue(false);
 		this.getAprobarBtn().setVisible(true);
@@ -25,6 +33,8 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 	}
 	
 	public Detalles_Pedido__Encargado_(appventawebbd.Enviado pedido) {
+		this.pedido = pedido;
+		
 		this.getCheckEnviado().setValue(true);
 		this.getCheckRecibido().setValue(false);
 		this.getAprobarBtn().setVisible(false);
@@ -32,6 +42,8 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 	}
 
 	public Detalles_Pedido__Encargado_(appventawebbd.Entregado pedido) {
+		this.pedido = pedido;
+		
 		this.getCheckEnviado().setValue(false);
 		this.getCheckRecibido().setValue(true);
 		this.getAprobarBtn().setVisible(false);

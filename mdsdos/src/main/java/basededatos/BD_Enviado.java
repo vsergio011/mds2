@@ -18,6 +18,7 @@ import appventawebbd.Pedido;
 import appventawebbd.Pendiente;
 import appventawebbd.PendienteDAO;
 import appventawebbd.Transportista;
+import appventawebbd.TransportistaDAO;
 
 public class BD_Enviado {
 	public BDPrincipal _bd_prin_env;
@@ -73,6 +74,8 @@ public class BD_Enviado {
 	public void AddPedidoEnviado(Pedido pedido, Transportista transportista) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
+		Transportista trans = getTransportista();
+		
 		try {
 			Enviado enviado = EnviadoDAO.createEnviado();
 			enviado.setCibernauta(pedido.getCibernauta());
@@ -84,12 +87,26 @@ public class BD_Enviado {
 			
 			enviado.setFechaPedido(pedido.getFechaPedido());
 			enviado.setTotal(pedido.getTotal());
-			enviado.setTransportistaEnvio(transportista);
+			enviado.setTransportistaEnvio(trans);
 			EnviadoDAO.save(enviado);
 			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
+	}
+	private Transportista getTransportista()  throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+				
+		try {
+			List<Transportista> trans = TransportistaDAO.queryTransportista(null, null);
+			if (trans.size() > 0 ) {
+				return trans.get(0);
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return null;
 	}
 }

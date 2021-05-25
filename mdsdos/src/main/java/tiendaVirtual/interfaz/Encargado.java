@@ -115,6 +115,12 @@ public class Encargado extends VistaEncargado {
 				}
 			}
 		});
+		_listadoCompras.getBtnEnviado().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				_listadoCompras.
+			}
+		});
 	}
 	
 	private void AddListenerButtons() {
