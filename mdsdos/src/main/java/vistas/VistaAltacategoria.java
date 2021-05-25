@@ -6,6 +6,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.html.Input;
 import com.vaadin.flow.component.polymertemplate.Id;
+import com.vaadin.flow.component.button.Button;
 
 /**
  * A Designer generated component for the vista-altacategoria template.
@@ -19,6 +20,18 @@ public class VistaAltacategoria extends PolymerTemplate<VistaAltacategoria.Vista
 
     @Id("categoriaNameLbl")
 	private Input categoriaNameLbl;
+	@Id("aceptarBtn")
+	private Button aceptarBtn;
+	@Id("cancelarBtn")
+	private Button cancelarBtn;
+
+	public Button getAceptarBtn() {
+		return aceptarBtn;
+	}
+
+	public Button getCancelarBtn() {
+		return cancelarBtn;
+	}
 
 	public Input getCategoriaNameLbl() {
 		return categoriaNameLbl;

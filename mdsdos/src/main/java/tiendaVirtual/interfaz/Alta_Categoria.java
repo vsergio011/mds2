@@ -13,6 +13,10 @@ public class Alta_Categoria extends VistaAltacategoria{
 	public Funciones_Admin _funcionesAdmin;
 	
 	public void SaveCategoria() {
+		if (this.getCategoriaNameLbl().getValue().isEmpty()) {
+			return;
+		}
+		
 		Categoria cat = new Categoria();
 		cat.setNombre(this.getCategoriaNameLbl().getValue());
 		

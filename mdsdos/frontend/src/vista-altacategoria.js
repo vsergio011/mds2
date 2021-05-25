@@ -24,10 +24,10 @@ class VistaAltacategoria extends PolymerElement {
     <input type="text" id="categoriaNameLbl" style="width: 100%;">
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; height: 100%; width: 100%; flex-shrink: 1; align-self: center;">
-    <vaadin-button style="align-self: flex-end; width: 100%;">
+    <vaadin-button style="align-self: flex-end; width: 100%;" id="aceptarBtn">
       Aceptar 
     </vaadin-button>
-    <vaadin-button style="align-self: flex-end; width: 100%;">
+    <vaadin-button style="align-self: flex-end; width: 100%;" id="cancelarBtn">
       Cancelar 
     </vaadin-button>
    </vaadin-horizontal-layout>

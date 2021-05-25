@@ -68,6 +68,25 @@ public class Administrador extends VistaCibernauta {
 				_cabecera._funcionesAdmin._altaCategoria.SaveCategoria();
 			}
 		});
+		_cabecera._funcionesAdmin._altaCategoria.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				_cabecera._funcionesAdmin._altaCategoria.SaveCategoria();
+				
+				layout.add(_cabecera._funcionesAdmin);
+			}
+		});
+		_cabecera._funcionesAdmin._altaCategoria.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);				
+				layout.add(_cabecera._funcionesAdmin);
+			}
+		});
 		_cabecera._funcionesAdmin.getAddProductoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
