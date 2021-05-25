@@ -20,7 +20,7 @@ class VistaCarrito extends PolymerElement {
    <label style="font-weight: bold; align-self: flex-start; flex-grow: 0;">Carrito de la compra </label>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout style="width: 50%;">
-   <label style="width: 50%; align-self: flex-end;" id="priceLbl">{Precio} €</label>
+   <label style="width: 50%; align-self: flex-end;" id="priceLbl"></label>
    <vaadin-button id="registerBtn" style="align-self: flex-end; width: 50%;">
      Registrarse 
    </vaadin-button>

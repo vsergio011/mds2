@@ -26,6 +26,7 @@ public class Lista_de_Productos extends VistaListadeproductos {
 			pc.getImgProducto().setHeight("150px");
 			pc.getImgProducto().setWidth("200px");
 			pc.getImgProducto().setSrc(p.getFotos());
+			pc.getLabel().setText(p.getPrecio() + " €");
 			
 			_producto.add(pc);
 		}

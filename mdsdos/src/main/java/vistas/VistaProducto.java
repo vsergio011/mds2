@@ -41,6 +41,30 @@ public class VistaProducto extends PolymerTemplate<VistaProducto.VistaProductoMo
 	private Button moreInfoBtn;
 	@Id("productLbl")
 	private Label productLbl;
+	@Id("addOffertaBtn")
+	private Button addOffertaBtn;
+	@Id("quitarOfertaBtn")
+	private Button quitarOfertaBtn;
+	@Id("label")
+	private Label label;
+	@Id("addCarritoBtn")
+	private Button addCarritoBtn;
+
+	public Button getAddCarritoBtn() {
+		return addCarritoBtn;
+	}
+
+	public Button getAddOffertaBtn() {
+		return addOffertaBtn;
+	}
+
+	public Button getQuitarOfertaBtn() {
+		return quitarOfertaBtn;
+	}
+
+	public Label getLabel() {
+		return label;
+	}
 
 	/**
      * Creates a new VistaProducto.

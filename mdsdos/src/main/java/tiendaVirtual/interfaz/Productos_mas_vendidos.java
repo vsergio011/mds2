@@ -34,7 +34,7 @@ public class Productos_mas_vendidos extends VistaProductosmasvendidos {
 				continue;
 			}
 			Lista_de_Productos ldp = new Lista_de_Productos(cat);
-			ldp.getLabel().setText(cat.getNombre());
+			ldp.getTitle().setText(cat.getNombre());
 			_listaProductos.add(ldp);
 		}
 	}

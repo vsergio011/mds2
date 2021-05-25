@@ -34,7 +34,9 @@ public class Cabecera_Pagina extends VistaCabecerapagina {
 		
 		this.getCategoriesCombo().addValueChangeListener(event -> {
 			int index = cats.indexOf(event.getValue());
-			selected = categorias.get(index);
+			if (index != -1) {
+				selected = categorias.get(index);
+			}			
 		});
 	}
 	

@@ -35,6 +35,11 @@ public class Ofertas_Populares extends VistaOfertaspopulares {
 			p.getMoreInfoBtn().setVisible(false);
 			p.getProductLbl().setVisible(false);
 			
+			p.getAddCarritoBtn().setVisible(false);
+			p.getAddOffertaBtn().setVisible(false);
+			p.getMoreInfoBtn().setVisible(false);
+			p.getQuitarOfertaBtn().setVisible(false);
+			
 			hl.add(p);
 		}
 	}

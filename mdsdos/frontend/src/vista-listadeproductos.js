@@ -12,9 +12,9 @@ class VistaListadeproductos extends PolymerElement {
         			width: 100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <label id="label" style="width: 15%;">category</label>
- <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 85%;"></vaadin-horizontal-layout>
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-m); justify-content: space-between;">
+ <h3 id="title" style="align-self: center;"></h3>
+ <vaadin-horizontal-layout id="vaadinHorizontalLayout"></vaadin-horizontal-layout>
 </vaadin-horizontal-layout>
 `;
     }

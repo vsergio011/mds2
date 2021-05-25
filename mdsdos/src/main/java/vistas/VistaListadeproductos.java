@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.H3;
 
 /**
  * A Designer generated component for the vista-listadeproductos template.
@@ -20,15 +21,15 @@ public class VistaListadeproductos extends PolymerTemplate<VistaListadeproductos
 
     @Id("vaadinHorizontalLayout")
 	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("label")
-	private Label label;
+	@Id("title")
+	private H3 title;
+
+	public H3 getTitle() {
+		return title;
+	}
 
 	public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
-	}
-
-	public Label getLabel() {
-		return label;
 	}
 
 	/**

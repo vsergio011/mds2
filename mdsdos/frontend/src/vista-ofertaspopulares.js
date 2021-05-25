@@ -14,7 +14,7 @@ class VistaOfertaspopulares extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; margin: var(--lumo-space-m);">
- <label style="align-self: center;">Ofertas</label>
+ <h1 style="align-self: center;">Ofertas</h1>
  <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="justify-content: center; align-self: center;"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

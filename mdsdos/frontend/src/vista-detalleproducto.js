@@ -20,7 +20,7 @@ class VistaDetalleproducto extends PolymerElement {
   <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
    <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0; padding: var(--lumo-space-l); height: 15%;">
     <label style="font-weight: bold; align-self: stretch; ">Título del producto</label>
-    <label style="align-self: stretch;" id="rateLabel">Valoración media: {1}/{2}</label>
+    <label style="align-self: stretch;" id="rateLabel"></label>
    </vaadin-vertical-layout>
    <img style="border: solid; height: 70%; width: 95%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
   </vaadin-vertical-layout>
@@ -28,7 +28,7 @@ class VistaDetalleproducto extends PolymerElement {
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 0; flex-shrink: 1;">
   <vaadin-vertical-layout theme="spacing" style="width: 90%; padding: var(--lumo-space-l); flex-shrink: 0; height: 15%; align-self: center;">
    <label style="font-weight: bold; align-self: stretch;">Descripción del producto</label>
-   <label style="align-self: stretch; font-size: 13px; flex-grow: 0;" id="descriptionLabel">Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed eiusmod tempor incidunt ut labore et dolore magna aliqua.usmod tempor incidunt ut labore et dolore magna aliqua.</label>
+   <label style="align-self: stretch; font-size: 13px; flex-grow: 0;" id="descriptionLabel"></label>
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 90%; height: 55%; border:solid; align-self: center; padding: var(--lumo-space-m);">
    <label style="font-weight: bold; align-self: stretch;" id="label">Carácteristicas</label>
@@ -43,11 +43,11 @@ class VistaDetalleproducto extends PolymerElement {
       Ver comentarios 
     </vaadin-button>
     <vaadin-button id="anadirACarritoBtn">
-      añadir a carrito 
+     Añadir a carrito
     </vaadin-button>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
-    <label style="width: 50%; align-self: flex-start;" id="priceLAbel">{Precio} €</label>
+    <label style="width: 50%; align-self: flex-start;" id="priceLAbel"></label>
     <vaadin-button style="margin-top: var(--lumo-space-l); width: 50%; align-self: flex-start;" id="deleteBtn">
       Quitar ofertas 
     </vaadin-button>

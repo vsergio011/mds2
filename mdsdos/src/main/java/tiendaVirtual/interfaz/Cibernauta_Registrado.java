@@ -275,6 +275,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera);
 				layout.add(_ofertasPopulares);
 				layout.add(_productosMasVendidos);
+				_cabecera.getCategoriesCombo().clear();
 				fillCategories();
 			}
 		});
@@ -329,6 +330,12 @@ public class Cibernauta_Registrado extends Cibernauta {
 										layout.add(pc._detalleProducto);
 									}
 								});
+								pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+									@Override
+									public void onComponentEvent(ClickEvent<Button> event) {
+										_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
+									}
+								});
 							}
 						});
 						
@@ -341,8 +348,16 @@ public class Cibernauta_Registrado extends Cibernauta {
 						});
 					}
 				});
+				pc.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
+					}
+				});
 				
 				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
+				pc.getAddOffertaBtn().setVisible(false);
+				pc.getQuitarOfertaBtn().setVisible(false);
 				hl.add(pc);
 			}
 		}
