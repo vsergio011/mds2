@@ -75,8 +75,11 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 		this.getEnviarBtn().setVisible(true);
 		this.getResponderBtn().setVisible(false);
 		this.getMensajeInput().setValue("");
+		this.getMensajeInput().setEnabled(true);
 		this.getDestinatarioInput().setValue("");
+		this.getDestinatarioInput().setEnabled(true);
 		this.getAsuntoInput().setValue("");
+		this.getAsuntoInput().setEnabled(true);
 		this.getRemitenteInput().setValue("");
 		this.getTitleLbl().setText("Enviar mensaje");
 	}

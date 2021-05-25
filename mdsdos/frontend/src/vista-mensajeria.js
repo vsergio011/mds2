@@ -16,9 +16,9 @@ class VistaMensajeria extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
- <label id="nombreBtn">Mensajes de nombre del empleado</label>
+ <label id="nombreBtn"></label>
  <vaadin-vertical-layout theme="spacing" style="width: 80%; margin-top: 2%;">
-  <label style="border:solid" id="tituloLbl">Mensajes recibidos</label>
+  <label style="border:solid; align-self: center;" id="tituloLbl"></label>
   <vaadin-button theme="icon" aria-label="Add new" id="reloadBtn">
    <iron-icon icon="lumo:reload"></iron-icon>
   </vaadin-button>
