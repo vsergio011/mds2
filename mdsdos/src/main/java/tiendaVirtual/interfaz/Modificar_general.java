@@ -33,6 +33,16 @@ public class Modificar_general extends VistaModificardatos {
 		this.getEmailInput().setValue(ciber.getCorreoElectronico());
 		this.getNombreUsuarioInput().setValue(ciber.getUsuario());
 	}
+	
+	public void fillData(appventawebbd.Administrador admin) {
+		this.getNomreInput().setValue(admin.getNombre());
+		this.getApellidosInput().setValue(admin.getApellidos());
+		this.getDatosPagoInput().setValue(admin.getFormaPago());
+		this.getDireccionInput().setValue(admin.getDireccionCompleta());
+		this.getEmailInput().setValue(admin.getCorreoElectronico());
+		this.getNombreUsuarioInput().setValue(admin.getUsuario());
+	}
+
 
 	public void Cambiar_Imagen_de_Perfil() {
 		throw new UnsupportedOperationException();

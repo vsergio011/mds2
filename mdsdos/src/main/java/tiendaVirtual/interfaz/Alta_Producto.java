@@ -91,11 +91,58 @@ public class Alta_Producto extends VistaAltaproducto{
 				
 			}
 		});
+		
+		this.getModificarImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Agregar_Imagen();
+				
+			}
+		});
 			
 		
 	}
 
 	public void Agregar_Imagen() {
+	
+		imagenesUrl = new ArrayList<String>();//aqui seria traerlo con las imagenes ya cargadas para que se añada a la lista
+		this.getvlImages().removeAll();
+		 
+		for(String a : multiFileMemoryBuffer.getFiles()) {
+			FileData fd = multiFileMemoryBuffer.getFileData(a);
+			InputStream is = multiFileMemoryBuffer.getInputStream(fd.getFileName());
+			
+			try {
+	            
+	            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+a);
+	            byte[] buffer = new byte[1024];
+	            int bytesRead;
+	            //read from is to buffer
+	            while((bytesRead = is.read(buffer)) !=-1){
+	                os.write(buffer, 0, bytesRead);
+	            }
+	            is.close();
+	            //flush OutputStream to write any buffered data to file
+	            os.flush();
+	            os.close();
+	            this.getImg().setMaxWidth("300px");
+	            
+	            imagenesUrl.add("img/"+a);
+	            this.getImg().setSrc("img/"+a);
+	            Image image = new Image("img/"+a, "DummyImage");
+	            image.setWidth("50px");
+	            this.getvlImages().add(image);
+	            
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }	
+		}
+		multiFileMemoryBuffer.getFiles().clear();
+	
+	}
+
+	public void Cambiar_Imagen() {
 		imagenesUrl = new ArrayList<String>();
 		this.getvlImages().removeAll();
 		 
@@ -129,15 +176,11 @@ public class Alta_Producto extends VistaAltaproducto{
 	        }	
 		}
 		multiFileMemoryBuffer.getFiles().clear();
-		
-	
-	}
-
-	public void Cambiar_Imagen() {
-		throw new UnsupportedOperationException();
 	}
 
 	public void Borrar_Imagen() {
+		
+		//Delete de la bd
 		throw new UnsupportedOperationException();
 	}
 	
