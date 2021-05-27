@@ -42,8 +42,10 @@ public class Perfil_Cibernauta extends Perfil {
 		ciber.setFoto(_modificar.getImg().getSrc());
 		ciber.setNombre(_modificar.getLbNombre().getValue());
 		ciber.setUsuario(_modificar.getLbNombreUsuario().getValue());
-		
 		cibernauta.modificarDatos(idCiber, ciber);
+		
+		this.fillCibernautaData(ciber);
+		_modificar.fillData(ciber);
 	}
 	
 	private void fillCibernautaData(appventawebbd.Cibernauta ciber) {
