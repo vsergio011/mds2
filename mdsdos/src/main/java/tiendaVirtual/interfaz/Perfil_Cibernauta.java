@@ -48,6 +48,12 @@ public class Perfil_Cibernauta extends Perfil {
 		_modificar.fillData(ciber);
 	}
 	
+	public void UpdatePasswordCibernauta(int idCiber) {
+		iCibernauta_Registrado cibernauta = new BDPrincipal();
+		
+		cibernauta.cambiar_contrasena(idCiber, _cambiarContrasena._nuevaContrasena.GetNewPassword());
+	}
+	
 	private void fillCibernautaData(appventawebbd.Cibernauta ciber) {
 		// Vista de perfil inicial
 		this.getImg().setSrc(ciber.getFoto());

@@ -29,6 +29,12 @@ public class VistaCambiocontrasena extends PolymerTemplate<VistaCambiocontrasena
 	private PasswordField inputNewPassword;
 	@Id("inputRepeatNewPassword")
 	private PasswordField inputRepeatNewPassword;
+	@Id("errLayout")
+	private Element errLayout;
+
+	public Element getErrLayout() {
+		return errLayout;
+	}
 
 	public Button getContinueBtn() {
 		return continueBtn;

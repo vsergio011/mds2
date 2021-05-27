@@ -132,9 +132,15 @@ public class Cibernauta_Registrado extends Cibernauta {
 		_cabecera._perfil._cambiarContrasena._nuevaContrasena.getContinueBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				if (!_cabecera._perfil._cambiarContrasena._nuevaContrasena.Validar_contrasena()) {
+					return;
+				}
+				_cabecera._perfil.UpdatePasswordCibernauta(ciber.getId());
+				
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil);
+				
 			}
 		});
 		_cabecera._perfil._cambiarContrasena._nuevaContrasena.getCancelBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -150,7 +156,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				_cabecera._perfil._modificar.showLess();
+				// _cabecera._perfil._modificar.showLess();
 				layout.add(_cabecera._perfil._modificar);
 			}
 		});

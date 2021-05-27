@@ -20,6 +20,9 @@ class VistaCambiocontrasena extends PolymerElement {
   <label style="font-weight: bold; align-self: center; margin: var(--lumo-space-s);">Cambio de contraseña</label>
   <vaadin-password-field label="Nueva contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value id="inputNewPassword"></vaadin-password-field>
   <vaadin-password-field label="Repetir contraseña" placeholder="Enter password" value="secret1" style="align-self: center;" has-value id="inputRepeatNewPassword"></vaadin-password-field>
+  <vaadin-vertical-layout id="errLayout" style="width: 100%;">
+   <label style="align-self: center; color:red">Las contrasenas no coinciden</label>
+  </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="" style="width: 80%; align-self: center; justify-content: space-between;">
    <vaadin-button id="continueBtn">
      Continuar 

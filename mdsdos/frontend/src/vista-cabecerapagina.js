@@ -24,7 +24,10 @@ class VistaCabecerapagina extends PolymerElement {
     Categorias 
   </vaadin-button>
   <vaadin-button id="limpiarBtn">
-   Inicio
+    Inicio 
+  </vaadin-button>
+  <vaadin-button id="offertasButton">
+   Ofertas
   </vaadin-button>
   <vaadin-text-field placeholder="Search" style="width: 45%;" id="searchInput">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>

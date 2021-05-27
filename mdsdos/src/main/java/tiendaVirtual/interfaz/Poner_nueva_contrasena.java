@@ -12,10 +12,27 @@ public class Poner_nueva_contrasena extends VistaCambiocontrasena {
 	public Cambiar_Contrasena _cambiarContrasena;
 	public Perfil_empleado _perfilEmpleado;
 
-	public void Validar_contrasena() {
-		throw new UnsupportedOperationException();
+	public boolean Validar_contrasena() {
+		if (!this.getInputNewPassword().getValue().equals(this.getInputRepeatNewPassword().getValue())) {
+			this.getErrLayout().setVisible(true);
+			return false;
+		}
+		this.getErrLayout().setVisible(false);
+		
+		
+		return true;
+	}
+	
+	public String GetNewPassword() {
+		String password = this.getInputNewPassword().getValue();
+		
+		this.getInputNewPassword().setValue("");
+		this.getInputRepeatNewPassword().setValue("");
+		
+		return password;
 	}
 	
 	public Poner_nueva_contrasena() {
+		this.getErrLayout().setVisible(false);
 	}
 }

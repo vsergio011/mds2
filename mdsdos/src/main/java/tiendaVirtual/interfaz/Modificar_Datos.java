@@ -28,8 +28,8 @@ public class Modificar_Datos extends Modificar_general {
 		super(ciber);
 	}
 	
-	public void showLess() {
+	/*public void showLess() {
 		this.getBorrarCuentaBtn().setVisible(false);
 		this.getCambiarPasswordBtn().setVisible(false);
-	}
+	}*/
 }

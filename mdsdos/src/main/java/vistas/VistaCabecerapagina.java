@@ -22,7 +22,11 @@ import com.vaadin.flow.component.combobox.ComboBox;
 @JsModule("./src/vista-cabecerapagina.js")
 public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.VistaCabecerapaginaModel> {
 
-    @Id("btnLogin")
+    public Button getOffertasButton() {
+		return offertasButton;
+	}
+
+	@Id("btnLogin")
 	private Button btnLogin;
 
 	public ComboBox<String> getCategoriesCombo() {
@@ -65,6 +69,8 @@ public class VistaCabecerapagina extends PolymerTemplate<VistaCabecerapagina.Vis
 	private Button adminBtn;
 	@Id("limpiarBtn")
 	private Button limpiarBtn;
+	@Id("offertasButton")
+	private Button offertasButton;
 	public Button getBtnLogin() {
 		return btnLogin;
 	}

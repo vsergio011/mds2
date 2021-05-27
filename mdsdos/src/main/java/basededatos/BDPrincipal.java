@@ -43,9 +43,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	public BD_Fotos _bd_fotos = new BD_Fotos();
 	public BD_Items _bd_items = new BD_Items();
 
-	public void cambiar_contrasena(String aEmail, String aNewContrasen) {
+	public void cambiar_contrasena(int idCiber, String aNewContrasen) {
 		try {
-			_bd_ciber.cambiar_contrasena(aEmail, aNewContrasen);
+			_bd_ciber.cambiar_contrasena(idCiber, aNewContrasen);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

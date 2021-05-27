@@ -12,7 +12,7 @@ import appventawebbd.Foto;
 
 public interface iCibernauta {
 
-	public void cambiar_contrasena(String aEmail, String aNewContrasen);
+	public void cambiar_contrasena(int idCiber, String aNewContrasen);
 
 	public List<Categoria> listCategorias();
 
