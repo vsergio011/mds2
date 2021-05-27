@@ -20,7 +20,7 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public void nuevaNotificacion(int aOrigen, int aDestino, Mensaje aMensaje);
 
-	public void modificarDatos(Cibernauta aCiber);
+	public void modificarDatos(int idCiber, Cibernauta aCiber);
 
 	public Mensaje[] getMensajes(int aId);
 

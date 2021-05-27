@@ -21,6 +21,7 @@ import appventawebbd.PedidoDAO;
 import appventawebbd.Transportista;
 import appventawebbd.TransportistaDAO;
 import appventawebbd.Usuario;
+import appventawebbd.UsuarioCriteria;
 import appventawebbd.UsuarioDAO;
 
 public class BD_Cibernauta {
@@ -32,13 +33,16 @@ public class BD_Cibernauta {
 		
 		Usuario u = null;
 		try {
-			System.out.println("Logeando al usuario : " + aUsuario);
-			u = UsuarioDAO.loadUsuarioByQuery("Usuario='"+aUsuario.trim().toLowerCase()+"'", null);
+			UsuarioCriteria criteria = new UsuarioCriteria();
+			criteria.usuario.like(aUsuario);
+			criteria.operativo.eq(true);
+			u = UsuarioDAO.loadUsuarioByCriteria(criteria);
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
-		return u; 
+		return u;
 	}
 
 	public Cibernauta Registrar(
@@ -92,11 +96,21 @@ public class BD_Cibernauta {
 		}
 	}
 
-	public void modificarDatos(Cibernauta aCiber) throws PersistentException {
+	public void modificarDatos(int idCiber, Cibernauta aCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			CibernautaDAO.save(aCiber);
+			Cibernauta ciber = CibernautaDAO.loadCibernautaByORMID(idCiber);
+			ciber.setApellidos(aCiber.getApellidos());
+			ciber.setCorreoElectronico(aCiber.getCorreoElectronico());
+			ciber.setDireccionCompleta(aCiber.getDireccionCompleta());
+			ciber.setFormaPago(aCiber.getFormaPago());
+			ciber.setFoto(aCiber.getFoto());
+			ciber.setNombre(aCiber.getNombre());
+			ciber.setTipo(0);
+			ciber.setOperativo(true);
+			ciber.setUsuario(aCiber.getUsuario());			
+			CibernautaDAO.save(ciber);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -133,27 +147,9 @@ public class BD_Cibernauta {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			List<Mensaje> mensajes = MensajeDAO.queryMensaje("UsuarioId2='"+aIdCiber+"' OR UsuarioId='"+aIdCiber+"'", null);
-			System.out.println("Borrando mensajes" + mensajes.size());
-			for (Mensaje m : mensajes) {
-				MensajeDAO.deleteAndDissociate(m);
-			}
-						
-			List<Comentario> comentarios = ComentarioDAO.queryComentario("CibernautaUsuarioId='"+aIdCiber+"'", null);
-			System.out.println("Borrando comentarios" + comentarios.size());
-			for(Comentario c : comentarios) {
-				ComentarioDAO.deleteAndDissociate(c);
-			}
-			
-			List<Pedido> pedidos = PedidoDAO.queryPedido("CibernautaUsuarioId='"+aIdCiber+"'", null);
-			System.out.println("Borrando pedidos" + pedidos.size());
-			for (Pedido p : pedidos) {
-				PedidoDAO.deleteAndDissociate(p);
-			}
-			
-			Cibernauta ciber = CibernautaDAO.loadCibernautaByORMID(aIdCiber);
-			System.out.println("Borrando cibernauta" + ciber == null);
-			CibernautaDAO.deleteAndDissociate(ciber);
+			Cibernauta ciber = CibernautaDAO.getCibernautaByORMID(aIdCiber);
+			ciber.setOperativo(false);
+			CibernautaDAO.save(ciber);
 			
 			t.commit();
 		} catch (Exception e) {
@@ -174,8 +170,12 @@ public class BD_Cibernauta {
 		
 		Usuario u = null;
 		try {
-			System.out.println("CORREO : " + email);
-			u = UsuarioDAO.loadUsuarioByQuery("CorreoElectronico='"+email+"'", null);
+			UsuarioCriteria criteria = new UsuarioCriteria();
+			criteria.correoElectronico.eq(email);
+			criteria.operativo.eq(true);
+			
+			u = UsuarioDAO.loadUsuarioByCriteria(criteria);
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

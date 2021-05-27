@@ -7,6 +7,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta_Registrado;
+
 // import basededatos.iCibernauta_Registrado;
 
 public class Cibernauta_Registrado extends Cibernauta {
@@ -170,8 +173,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil);
-				
-				// TODO: llamar para actualizar los datos del usuario.
+				_cabecera._perfil.UpdateCibernauta(ciber.getId());				
 			}
 		});
 		_cabecera._perfil._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

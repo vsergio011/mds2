@@ -242,9 +242,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificarDatos(appventawebbd.Cibernauta aCiber) {
+	public void modificarDatos(int idCiber, appventawebbd.Cibernauta aCiber) {
 		try {
-			_bd_ciber.modificarDatos(aCiber);
+			_bd_ciber.modificarDatos(idCiber, aCiber);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
