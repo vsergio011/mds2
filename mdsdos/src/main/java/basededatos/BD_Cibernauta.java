@@ -8,9 +8,16 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import appventawebbd.AdministradorDAO;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Cibernauta;
 import appventawebbd.CibernautaDAO;
+import appventawebbd.Comentario;
+import appventawebbd.ComentarioDAO;
+import appventawebbd.Mensaje;
+import appventawebbd.MensajeDAO;
+import appventawebbd.Pedido;
+import appventawebbd.PedidoDAO;
 import appventawebbd.Transportista;
 import appventawebbd.TransportistaDAO;
 import appventawebbd.Usuario;
@@ -125,11 +132,29 @@ public class BD_Cibernauta {
 	public void borrarCuenta(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		Usuario ciber = this.getUsuario(aIdCiber);
-		
 		try {
-			CibernautaDAO.deleteAndDissociate((Cibernauta) ciber);
-			UsuarioDAO.deleteAndDissociate(ciber);
+			List<Mensaje> mensajes = MensajeDAO.queryMensaje("UsuarioId2='"+aIdCiber+"' OR UsuarioId='"+aIdCiber+"'", null);
+			System.out.println("Borrando mensajes" + mensajes.size());
+			for (Mensaje m : mensajes) {
+				MensajeDAO.deleteAndDissociate(m);
+			}
+						
+			List<Comentario> comentarios = ComentarioDAO.queryComentario("CibernautaUsuarioId='"+aIdCiber+"'", null);
+			System.out.println("Borrando comentarios" + comentarios.size());
+			for(Comentario c : comentarios) {
+				ComentarioDAO.deleteAndDissociate(c);
+			}
+			
+			List<Pedido> pedidos = PedidoDAO.queryPedido("CibernautaUsuarioId='"+aIdCiber+"'", null);
+			System.out.println("Borrando pedidos" + pedidos.size());
+			for (Pedido p : pedidos) {
+				PedidoDAO.deleteAndDissociate(p);
+			}
+			
+			Cibernauta ciber = CibernautaDAO.loadCibernautaByORMID(aIdCiber);
+			System.out.println("Borrando cibernauta" + ciber == null);
+			CibernautaDAO.deleteAndDissociate(ciber);
+			
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
