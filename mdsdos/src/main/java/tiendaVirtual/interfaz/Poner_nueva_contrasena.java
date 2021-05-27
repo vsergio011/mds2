@@ -17,6 +17,5 @@ public class Poner_nueva_contrasena extends VistaCambiocontrasena {
 	}
 	
 	public Poner_nueva_contrasena() {
-		
 	}
 }

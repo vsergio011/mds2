@@ -17,6 +17,7 @@ public class Detalle_Producto_Admin extends Detalle_Producto {
 	
 	public Detalle_Producto_Admin(appventawebbd.Producto producto) {
 		_modificar = new Modificar_Producto(producto);
+		_agregarOferta = new Agregar_Oferta(producto);
 		
 		iAdministrador admin = new BDPrincipal();
 		appventawebbd.Oferta oferta = admin.estaEnOferta(producto.getId());
@@ -25,7 +26,8 @@ public class Detalle_Producto_Admin extends Detalle_Producto {
 		if (oferta != null) {
 			_quitarOferta = new Quitar_Oferta(oferta);
 		} else {
-			_quitarOferta = new Quitar_Oferta();
+			// TODO: No se deberia mostrar el boton.
+			// _quitarOferta = new Quitar_Oferta();
 		}
 	}
 	

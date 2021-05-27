@@ -1,6 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/vaadin-upload/src/vaadin-upload.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaModificargeneral extends PolymerElement {
@@ -16,28 +17,22 @@ class VistaModificargeneral extends PolymerElement {
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" style="width: 60%; align-items: center;">
   <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" style="align-self: center; width: 40%; height: 40;" id="img">
-  <vaadin-vertical-layout theme="spacing" style="align-items: center;">
-   <vaadin-button id="cambiarImagenBtn">
-     Cambiar imagen de perfil 
-   </vaadin-button>
+  <vaadin-vertical-layout theme="" style="align-items: center; justify-content: center;">
    <vaadin-button style="width: 100%;" id="cambiarPasswordBtn">
      Cambiar contraseña 
-   </vaadin-button>
-   <vaadin-button style="width: 100%;" id="comprasBtn">
-     Compras realizadas 
-   </vaadin-button>
-   <vaadin-button style="width: 100%;" id="contactoBTn">
-     Contacto 
    </vaadin-button>
    <vaadin-button style="width: 100%;" id="borrarCuentaBtn">
      Borrar cuenta 
    </vaadin-button>
-   <vaadin-button style="width: 100%;" id="desconectarBtn">
-     Desconectar 
+   <vaadin-button id="aceptarCambiosBtn" style="width: 100%;">
+     Aceptar Cambios 
    </vaadin-button>
-   <vaadin-button id="aceptarCambiosBtn">
-    Aceptar Cambios
-   </vaadin-button>
+   <vaadin-horizontal-layout style="width: 100%;">
+    <vaadin-upload id="imgUpload" style="width: 75%;"></vaadin-upload>
+    <vaadin-button id="addImgBtn" style="width: 25%; align-self: center;">
+      + 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; padding: var(--lumo-space-xl);" id="containerLayout">

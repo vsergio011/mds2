@@ -101,14 +101,6 @@ public class Cibernauta_Registrado extends Cibernauta {
 				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems());
 			}
 		});
-		_cabecera._perfil.getCambiarPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil._cambiarContrasena);
-			}
-		});
 		_cabecera._perfil._cambiarContrasena.getSendBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -125,6 +117,15 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera._perfil._mensajeria);
 			}
 		});
+
+		_cabecera._perfil._modificar.getCambiarPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._cambiarContrasena);
+			}
+		});
 		_cabecera._perfil._cambiarContrasena._nuevaContrasena.getContinueBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -139,12 +140,6 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil);
-			}
-		});
-		_cabecera._perfil.getCambiarImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO: Implementar selector de imagen de alguna manera. Con url string.
 			}
 		});
 		_cabecera._perfil.getModificarDatosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

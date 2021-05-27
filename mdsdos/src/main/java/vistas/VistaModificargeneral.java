@@ -10,6 +10,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.component.upload.Upload;
 
 /**
  * A Designer generated component for the vista-modificargeneral template.
@@ -43,23 +44,27 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 	private TextField lbDatosDePago;
 	@Id("img")
 	private Image img;
-	@Id("desconectarBtn")
-	private Button desconectarBtn;
 	@Id("borrarCuentaBtn")
 	private Button borrarCuentaBtn;
-	@Id("contactoBTn")
-	private Button contactoBTn;
-	@Id("comprasBtn")
-	private Button comprasBtn;
 	@Id("cambiarPasswordBtn")
 	private Button cambiarPasswordBtn;
-	@Id("cambiarImagenBtn")
-	private Button cambiarImagenBtn;
 	@Id("containerLayout")
 	private VerticalLayout containerLayout;
 	@Id("aceptarCambiosBtn")
 	private Button aceptarCambiosBtn;
+	@Id("imgUpload")
+	private Upload imgUpload;
+	@Id("addImgBtn")
+	private Button addImgBtn;
 	
+	public Button getAddImgBtn() {
+		return addImgBtn;
+	}
+
+	public Upload getImgUpload() {
+		return imgUpload;
+	}
+
 	public TextField getLbNombreUsuario() {
 		return lbNombreUsuario;
 	}
@@ -88,28 +93,12 @@ public class VistaModificargeneral extends PolymerTemplate<VistaModificargeneral
 		return img;
 	}
 
-	public Button getDesconectarBtn() {
-		return desconectarBtn;
-	}
-
 	public Button getBorrarCuentaBtn() {
 		return borrarCuentaBtn;
 	}
 
-	public Button getContactoBTn() {
-		return contactoBTn;
-	}
-
-	public Button getComprasBtn() {
-		return comprasBtn;
-	}
-
 	public Button getCambiarPasswordBtn() {
 		return cambiarPasswordBtn;
-	}
-
-	public Button getCambiarImagenBtn() {
-		return cambiarImagenBtn;
 	}
 
 	/**

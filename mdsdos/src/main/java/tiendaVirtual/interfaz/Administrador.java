@@ -23,13 +23,12 @@ public class Administrador extends VistaCibernauta {
 		
 		_ofertas = new Lista_Ofertas();
 		_listaPmV = new Lista_de_PmV();
-		_cabecera = new Cabecera_Administrador();
+		_cabecera = new Cabecera_Administrador(admin);
 		
 		layout.add(_cabecera);
 		layout.add(_ofertas);
 		layout.add(_listaPmV);
 		
-		// Vista de admin
 		_cabecera.getAdminBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -53,7 +52,55 @@ public class Administrador extends VistaCibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				layout.add(_cabecera);
-				layout.add(new Perfil(admin));
+				layout.add(_cabecera._perfil);
+			}
+		});
+		_cabecera._perfil.getModificarDatosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._modificar);
+			}
+		});
+		_cabecera._perfil._modificar.getCambiarPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._cambiarContrasena);
+			}
+		});
+		_cabecera._perfil._cambiarContrasena.getSendBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._cambiarContrasena._nuevaContrasena);
+			}
+		});
+		_cabecera._perfil._cambiarContrasena._nuevaContrasena.getContinueBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._modificar);
+			}
+		});
+		_cabecera._perfil._cambiarContrasena._nuevaContrasena.getCancelBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil._modificar);
+			}
+		});
+		_cabecera._perfil._modificar.getAceptarCambiosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._perfil);
 			}
 		});
 		
@@ -129,13 +176,55 @@ public class Administrador extends VistaCibernauta {
 				_cabecera._funcionesAdmin._modificarEmpleado._empleados.clearView();
 				Perfil_empleado _perfilEmpleado = new Perfil_empleado(selected);
 				
+				_perfilEmpleado.getCambiarPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(_perfilEmpleado._nuevaContrasena);
+					}
+				});
+				_perfilEmpleado._nuevaContrasena.getCancelBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(_perfilEmpleado);
+					}
+				});
+				_perfilEmpleado.getAceptarCambiosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(_perfilEmpleado);
+					}
+				});
+				_perfilEmpleado.getBorrarCuentaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						_cabecera._funcionesAdmin._modificarEmpleado._empleados.FillEmpleados();
+						layout.add(_cabecera._funcionesAdmin._modificarEmpleado._empleados);
+					}
+				});
+				_perfilEmpleado.getAceptarCambiosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						_cabecera._funcionesAdmin._modificarEmpleado._empleados.FillEmpleados();
+						layout.add(_cabecera._funcionesAdmin._modificarEmpleado._empleados);
+					}
+				});
+				
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_perfilEmpleado);				
 			}
 		});
-		
-		// Botones dentro del listado de empleados.	
+			
 		fillCategories();
 	}
 	

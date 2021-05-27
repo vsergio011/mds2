@@ -10,9 +10,9 @@ public class Cabecera_Administrador extends Cabecera_Pagina {
 	public Perfil _perfil;
 	public Producto_Admin _producto;
 	
-	public Cabecera_Administrador() {
+	public Cabecera_Administrador(appventawebbd.Administrador admin) {
 		_funcionesAdmin = new Funciones_Admin();
-		_perfil = new Perfil();
+		_perfil = new Perfil(admin);
 		
 		this.getAdminBtn().setVisible(true);
 		this.getBtnCarrito().setVisible(false);

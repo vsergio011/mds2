@@ -11,6 +11,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.upload.Upload;
 
 /**
  * A Designer generated component for the vista-perfil template.
@@ -24,10 +25,6 @@ public class VistaPerfil extends PolymerTemplate<VistaPerfil.VistaPerfilModel> {
 
     @Id("img")
 	private Image img;
-	@Id("cambiarImgBtn")
-	private Button cambiarImgBtn;
-	@Id("cambiarPasswordBtn")
-	private Button cambiarPasswordBtn;
 	@Id("ModificarDatosBtn")
 	private Button modificarDatosBtn;
 	@Id("comprasRealizadasBtn")
@@ -60,14 +57,6 @@ public class VistaPerfil extends PolymerTemplate<VistaPerfil.VistaPerfilModel> {
 
 	public Image getImg() {
 		return img;
-	}
-
-	public Button getCambiarImgBtn() {
-		return cambiarImgBtn;
-	}
-
-	public Button getCambiarPasswordBtn() {
-		return cambiarPasswordBtn;
 	}
 
 	public Button getModificarDatosBtn() {

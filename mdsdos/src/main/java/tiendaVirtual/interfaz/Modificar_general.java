@@ -1,9 +1,20 @@
 package tiendaVirtual.interfaz;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+
 import vistas.VistaModificardatos;
 import vistas.VistaModificargeneral;
 
-public class Modificar_general extends VistaModificardatos {
+public class Modificar_general extends VistaModificargeneral {
 	// private event _cambiar_Imagen_de_Perfil;
 	private Object _imagen;
 	private Object _aceptarB;
@@ -21,21 +32,57 @@ public class Modificar_general extends VistaModificardatos {
 	private Object _datosPagoL;
 	private Object _datosPagoTF;
 	
-	public Modificar_general() {
+	MemoryBuffer memoryBuffer;
+	
+	public Modificar_general(appventawebbd.Usuario ciber) {
+		if (ciber == null) {
+			return;
+		}
+		this.fillData(ciber);
 		
+		memoryBuffer = new MemoryBuffer();
+		Upload upload = this.getImgUpload();
+		upload.setReceiver(memoryBuffer);
+		this.getAddImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				Cambiar_Imagen();
+			}
+		});
+	}
+		
+	public void fillData(appventawebbd.Usuario ciber) {
+		this.getLbNombre().setValue(ciber.getNombre());
+		this.getLbApellidos().setValue(ciber.getApellidos());
+		this.getLbDatosDePago().setValue(ciber.getFormaPago());
+		this.getLbDireccion().setValue(ciber.getDireccionCompleta());
+		this.getLbEmail().setValue(ciber.getCorreoElectronico());
+		this.getLbNombreUsuario().setValue(ciber.getUsuario());
+		this.getImg().setSrc(ciber.getFoto());
 	}
 	
-	public void fillData(appventawebbd.Usuario ciber) {
-		this.getNomreInput().setValue(ciber.getNombre());
-		this.getApellidosInput().setValue(ciber.getApellidos());
-		this.getDatosPagoInput().setValue(ciber.getFormaPago());
-		this.getDireccionInput().setValue(ciber.getDireccionCompleta());
-		this.getEmailInput().setValue(ciber.getCorreoElectronico());
-		this.getNombreUsuarioInput().setValue(ciber.getUsuario());
+	public void Cambiar_Imagen() {
+		InputStream is = memoryBuffer.getInputStream();
+		String UrlImagen = "img/"+memoryBuffer.getFileName();
+		
+		try {
+            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+memoryBuffer.getFileName());
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            
+            while((bytesRead = is.read(buffer)) !=-1){
+                os.write(buffer, 0, bytesRead);
+            }
+            is.close();
+            
+            os.flush();
+            os.close();
+            this.getImg().setMaxWidth("300px");
+            
+            this.getImg().setSrc(UrlImagen);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
-
-	public void Cambiar_Imagen_de_Perfil() {
-		throw new UnsupportedOperationException();
-	}
 }

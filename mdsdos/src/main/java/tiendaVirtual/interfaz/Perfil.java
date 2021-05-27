@@ -15,7 +15,7 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
 import vistas.VistaPerfil;
 
-public class Perfil extends VistaPerfil{
+public class Perfil extends VistaPerfil {
 	private Object _imagen;
 	private Object _cambiarPasswordB;
 	private Object _modificarDatosB;
@@ -28,113 +28,26 @@ public class Perfil extends VistaPerfil{
 	public Cambiar_Contrasena _cambiarContrasena;
 	public Modificar_Datos _modificar;
 	MemoryBuffer memoryBuffer;
-	public Perfil() {
-		
-	}
+	
 	public Perfil(appventawebbd.Cibernauta ciber) {
-		VerticalLayout layoutPerfil = this.getPerfilLayout();
-		Modificar_general mg = new Modificar_general();
-		mg.fillData(ciber);
-		layoutPerfil.removeAll();
-		layoutPerfil.add(mg);
+		if (ciber == null) {
+			return;
+		}
+		_cambiarContrasena = new Cambiar_Contrasena();
+		_modificar = new Modificar_Datos(ciber);
+		_modificar.fillData(ciber);
 	}
 	
 	public Perfil(appventawebbd.Administrador admin) {
-		VerticalLayout layoutPerfil = this.getPerfilLayout();
-		Modificar_general mg = new Modificar_general();
-		//mg.fillData(admin); descomentar
-		layoutPerfil.removeAll();
-		layoutPerfil.add(mg);
+		if (admin == null) {
+			return;
+		}
+		_cambiarContrasena = new Cambiar_Contrasena();
+		_modificar = new Modificar_Datos(admin);
+		_modificar.fillData(admin);
+		
 		this.getComprasRealizadasBtn().setVisible(false);
 		this.getContactoBtn().setVisible(false);
 		this.getBorrarCuentaBtn().setVisible(false);
-		this.getCambiarImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				layoutPerfil.removeAll();
-				
-				memoryBuffer = new MemoryBuffer();
-
-				Upload upload = new Upload(memoryBuffer);
-				upload.addFinishedListener(e -> {
-				    InputStream inputStream = memoryBuffer.getInputStream();
-				    // read the contents of the buffered memory
-				    // from inputStream
-				});
-				Button imgUpBtn = new Button();
-				imgUpBtn.setText("Subir");
-				imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						Cambiar_Imagen_de_Perfil();
-						
-					}
-				});
-				
-				layoutPerfil.add(upload);
-				layoutPerfil.add(imgUpBtn);
-				
-			}
-		});
-		this.getModificarDatosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				layoutPerfil.removeAll();
-				layoutPerfil.add(mg);
-			}
-		});
-		this.getCambiarPasswordBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				
-				layoutPerfil.removeAll();
-				Cambiar_Contrasena _Cambiar_Contrasena = new Cambiar_Contrasena();
-				layoutPerfil.add(_Cambiar_Contrasena);
-			}
-		});
-		
-		this.getDesconectarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				UI.getCurrent().getPage().reload();
-				/*Cambiar_Contrasena _Cambiar_Contrasena = new Cambiar_Contrasena();
-				containerInfo.add(_Cambiar_Contrasena);*/
-				
-			}
-		});
-	}
-
-	
-	public void Cambiar_Imagen_de_Perfil() {
-		InputStream is = memoryBuffer.getInputStream();
-		String UrlImagen = "img/"+memoryBuffer.getFileName();
-		
-		try {
-            
-            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+memoryBuffer.getFileName());
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            //read from is to buffer
-            while((bytesRead = is.read(buffer)) !=-1){
-                os.write(buffer, 0, bytesRead);
-            }
-            is.close();
-            //flush OutputStream to write any buffered data to file
-            os.flush();
-            os.close();
-            this.getImg().setMaxWidth("300px");
-            
-           
-            this.getImg().setSrc(UrlImagen);
-            
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }	
 	}
 }
