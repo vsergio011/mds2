@@ -56,6 +56,7 @@ public class Administrador extends VistaCibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
+				_listaPmV = new Lista_de_PmV();
 				layout.add(_cabecera);
 				layout.add(_ofertas);
 				layout.add(_listaPmV);
