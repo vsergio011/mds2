@@ -108,13 +108,28 @@ public class BD_Cibernauta {
 		}
 		return ciber;
 	}
+	
+	public Usuario getUsuario(int aId) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Usuario usuario = null;
+		try {
+			usuario = CibernautaDAO.getCibernautaByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return usuario;
+	}
 
 	public void borrarCuenta(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		Cibernauta ciber = this.getCibernauta(aIdCiber);
+		Usuario ciber = this.getUsuario(aIdCiber);
+		
 		try {
-			CibernautaDAO.delete(ciber);
+			CibernautaDAO.deleteAndDissociate((Cibernauta) ciber);
+			UsuarioDAO.deleteAndDissociate(ciber);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

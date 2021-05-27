@@ -44,6 +44,7 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera);
 				layout.add(_ofertas);
 				layout.add(_listaPmV);
+				_cabecera.LoadCategories();
 			}
 		});
 		

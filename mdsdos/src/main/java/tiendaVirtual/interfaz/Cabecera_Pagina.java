@@ -23,6 +23,10 @@ public class Cabecera_Pagina extends VistaCabecerapagina {
 	
 	private appventawebbd.Categoria selected = null;
 	public Cabecera_Pagina() {
+		LoadCategories();
+	}
+	
+	public void LoadCategories() {
 		iCibernauta ciber = new BDPrincipal();
 		
 		List<appventawebbd.Categoria> categorias = ciber.listCategorias();
