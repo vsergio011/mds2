@@ -40,11 +40,16 @@ public class Administrador extends VistaCibernauta {
 		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				appventawebbd.Categoria c = _cabecera.GetSelectedCategory();
+				if (c == null) {
+					return;
+				}
+				_listaPmV = new Lista_de_PmV(c);
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_ofertas);
 				layout.add(_listaPmV);
-				_cabecera.LoadCategories();
+				fillCategories();
 			}
 		});
 		_cabecera.getLimpiarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -54,10 +59,11 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera);
 				layout.add(_ofertas);
 				layout.add(_listaPmV);
+				_cabecera.getCategoriesCombo().clear();
+				_cabecera.LoadCategories();
 				fillCategories();
 			}
-		});
-		
+		});		
 		
 		_cabecera.getPerfilBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
@@ -265,7 +271,7 @@ public class Administrador extends VistaCibernauta {
 					public void onComponentEvent(ClickEvent<Button> event) {
 						layout.removeAll();
 						layout.add(_cabecera);
-						layout.add(detalle._agregarOferta);						
+						layout.add(detalle._agregarOferta);
 					}
 				});
 				detalle._agregarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

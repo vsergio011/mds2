@@ -52,14 +52,13 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		_cabecera.getOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				layout.removeAll();
-				
 				appventawebbd.Categoria c = _cabecera.GetSelectedCategory();
-				if (c != null) {
-					_productosMasVendidos = new Productos_mas_vendidos(c);
-				}else {
-					_productosMasVendidos = new Productos_mas_vendidos();
+				if (c == null) {
+					return;
 				}
+				_productosMasVendidos = new Productos_mas_vendidos(c);
+				
+				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_ofertasPopulares);
 				layout.add(_productosMasVendidos);
