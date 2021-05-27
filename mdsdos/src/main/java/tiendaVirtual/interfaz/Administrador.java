@@ -45,9 +45,19 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_ofertas);
 				layout.add(_listaPmV);
 				_cabecera.LoadCategories();
+			}
+		});
+		_cabecera.getLimpiarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_ofertas);
+				layout.add(_listaPmV);
 				fillCategories();
 			}
 		});
+		
 		
 		_cabecera.getPerfilBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
