@@ -56,9 +56,9 @@ class VistaAltaproducto extends PolymerElement {
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l); height: 25%;">
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
-    <vaadin-combo-box id="productoCategorias" item-label-path="Categorias"></vaadin-combo-box>
+    <vaadin-combo-box id="productoCategorias" allow-custom-value></vaadin-combo-box>
     <vaadin-button id="cancelBtn">
-     Cancelar
+      Cancelar 
     </vaadin-button>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
@@ -69,7 +69,7 @@ class VistaAltaproducto extends PolymerElement {
      <label>Label</label>
     </vaadin-text-field>
     <vaadin-button style="width: 50%;" id="addBtn">
-     Añadir
+      Añadir 
     </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>

@@ -52,19 +52,7 @@ public class Alta_Producto extends VistaAltaproducto{
 	
 	appventawebbd.Categoria selected = null;
 	public Alta_Producto() {
-		iCibernauta ciber = new BDPrincipal();
-		
-		List<appventawebbd.Categoria> categorias = ciber.listCategorias();
-		List<String> cats = new ArrayList<String>();
-		for (appventawebbd.Categoria cat : categorias) {
-			cats.add(cat.getNombre());
-		}
-		this.getProductoCategorias().setItems(cats);
-		
-		this.getProductoCategorias().addValueChangeListener(event -> {
-			int index = cats.indexOf(event.getValue());
-			selected = categorias.get(index);
-		});
+		LoadCategories();
 		
 		multiFileMemoryBuffer = new MultiFileMemoryBuffer();
 		Upload upload = new Upload(multiFileMemoryBuffer);
@@ -90,6 +78,24 @@ public class Alta_Producto extends VistaAltaproducto{
 			public void onComponentEvent(ClickEvent<Button> event) {
 				Agregar_Imagen();
 			}
+		});
+	}
+	
+	public void LoadCategories() {
+		iCibernauta ciber = new BDPrincipal();
+		
+		List<appventawebbd.Categoria> categorias = ciber.listCategorias();
+		List<String> cats = new ArrayList<String>();
+		for (appventawebbd.Categoria cat : categorias) {
+			cats.add(cat.getNombre());
+		}
+		this.getProductoCategorias().setItems(cats);
+		
+		this.getProductoCategorias().addValueChangeListener(event -> {
+			int index = cats.indexOf(event.getValue());
+			if (index != -1) {
+				selected = categorias.get(index);
+			}			
 		});
 	}
 
