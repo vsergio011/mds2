@@ -136,9 +136,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public appventawebbd.Producto modificarProducto(Producto aProducto, List<String> fotos) {
+	public appventawebbd.Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos) {
 		try {
-			return _bd_prod.modificarProducto(aProducto, fotos);
+			return _bd_prod.modificarProducto(idProducto, aProducto, fotos);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

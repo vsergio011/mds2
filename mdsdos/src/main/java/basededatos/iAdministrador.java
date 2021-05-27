@@ -26,7 +26,7 @@ public interface iAdministrador {
 
 	public void transferirAdministrador(int aIdOrigen, int aIdDestino);
 
-	public Producto modificarProducto(Producto aProducto, List<String> fotos);
+	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos);
 
 	public void borrarProducto(Producto aProducto);
 

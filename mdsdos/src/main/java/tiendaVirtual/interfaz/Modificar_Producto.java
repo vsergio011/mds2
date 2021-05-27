@@ -29,7 +29,7 @@ public class Modificar_Producto extends Alta_Producto {
 		
 		
 		iAdministrador admin = new BDPrincipal();
-		admin.modificarProducto(producto, imagenesUrl);
+		admin.modificarProducto(producto.getId(),producto, imagenesUrl);
 	}
 	
 	public Modificar_Producto(appventawebbd.Producto producto) {

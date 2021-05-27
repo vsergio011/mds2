@@ -16,7 +16,7 @@ public interface iCibernauta_no_Registrado extends iCibernauta {
 			String usuario, 
 			String aPassword);
 
-	public void cambiar_contrasena(String aNueva_contrasena, String aUsuario);
+	public void cambiar_contrasena(int aNueva_contrasena, String aUsuario);
 
 	public boolean existeUsuario(String aEmail);
 

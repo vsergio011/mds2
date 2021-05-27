@@ -16,6 +16,7 @@ import appventawebbd.FotoDAO;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
 import appventawebbd.Producto;
+import appventawebbd.ProductoCriteria;
 import appventawebbd.ProductoDAO;
 
 public class BD_Producto {
@@ -52,22 +53,25 @@ public class BD_Producto {
 		return pro;
 	}
 
-	public Producto modificarProducto(Producto aProducto, List<String> fotos) throws PersistentException {
+	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos) throws PersistentException {
+		AppventawebPersistentManager.instance().getSession().clear();
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		Producto producto = this.getProducto(aProducto.getId());
-		producto.setCategoria(aProducto.getCategoria());
-		producto.setDescripcion(aProducto.getDescripcion());
-		producto.setDetalles(aProducto.getDetalles());
-		producto.setFotos(aProducto.getFotos());
-		producto.setNombre(null);
+		Producto pro = null;
 		try {
+			pro = ProductoDAO.loadProductoByORMID(idProducto);
+			pro.setCategoria(aProducto.getCategoria());
+			pro.setDescripcion(aProducto.getDescripcion());
+			pro.setDetalles(aProducto.getDetalles());
+			pro.setFotos(aProducto.getFotos());
+			pro.setNombre(aProducto.getNombre());
+			
 			for (String f : fotos) {
 				Foto foto = FotoDAO.createFoto();
 				foto.setProductoFoto(aProducto);
 				foto.setRuta(f);
 				
-				aProducto.fotosProducto.add(foto);
+				pro.fotosProducto.add(foto);
 			}
 			
 			ProductoDAO.save(aProducto);
@@ -89,26 +93,13 @@ public class BD_Producto {
 		}
 	}
 
-	public Producto getProducto(int aId) throws PersistentException {
-		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
-		
-		Producto pro = null;
-		try {
-			pro = ProductoDAO.getProductoByORMID(aId);
-			t2.commit();
-		} catch (Exception e) {
-			t2.rollback();
-		}
-		return pro;
-	}
-
 	public List<Producto> getProductosMasVendidos() throws PersistentException {
 		// TODO: Filtrar mas vendidos.
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		List<Producto> productos = null;
 		try {
-			productos = ProductoDAO.queryProducto(null, "Nombre");
+			productos = ProductoDAO.queryProducto(null, null);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -135,7 +126,7 @@ public class BD_Producto {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			Producto pro = this.getProducto(aIdProducto);
+			Producto pro = ProductoDAO.loadProductoByORMID(aIdProducto);
 			Foto f = FotoDAO.createFoto();
 			f.setRuta(aImage);
 			FotoDAO.save(f);
