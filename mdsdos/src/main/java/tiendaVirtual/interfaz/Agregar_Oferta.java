@@ -11,6 +11,8 @@ public class Agregar_Oferta extends Quitar_Oferta {
 	public Detalle_Producto_Admin _detalle;
 	
 	public Agregar_Oferta(appventawebbd.Producto producto) {
+		super(producto);
+		
 		this.getIdProductoLbl().setText("ID: " + producto.getId());
 		this.getPrecioOriginalInput().setValue(producto.getPrecio() + "");
 		this.getPrecioOriginalInput().setEnabled(false);

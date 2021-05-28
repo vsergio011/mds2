@@ -17,7 +17,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 	public Cibernauta_no_Registrado() {
 		layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		_ofertasPopulares = new Ofertas_Populares();
+		_ofertasPopulares = new Ofertas_Populares(false);
 		_productosMasVendidos = new Productos_mas_vendidos();
 		_cabecera = new Cabecera_Cibernauta();
 		

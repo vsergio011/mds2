@@ -12,4 +12,15 @@ public class Producto_Admin extends Producto {
 	public void Esta_en_oferta() {
 		throw new UnsupportedOperationException();
 	}
+	
+	private appventawebbd.Producto p = null;
+	public Producto_Admin(appventawebbd.Producto p) {
+		this.p = p;
+		
+		this.getProductLbl().setText(p.getNombre());
+	}
+	
+	public appventawebbd.Producto GetProducto() {
+		return this.p;
+	}
 }

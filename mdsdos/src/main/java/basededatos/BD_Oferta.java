@@ -11,6 +11,8 @@ import org.orm.PersistentTransaction;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
+import appventawebbd.Producto;
+import appventawebbd.ProductoDAO;
 
 public class BD_Oferta {
 	public BDPrincipal _bd_prin_ofer;
@@ -20,8 +22,9 @@ public class BD_Oferta {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
+			Producto producto = ProductoDAO.loadProductoByORMID(aIdProduc);
 			Oferta oferta = OfertaDAO.createOferta();
-			// oferta.setProducto(aIdProduc);
+			oferta.setORM_Producto(producto);
 			oferta.setFechaFin(aOferta.getFechaFin());
 			oferta.setPrecio(aOferta.getPrecio());
 			OfertaDAO.save(oferta);
@@ -34,9 +37,11 @@ public class BD_Oferta {
 	public void quitarProductoOferta(int aIdProducto) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		Oferta oferta = this.estaEnOferta(aIdProducto);
-		try {
-			OfertaDAO.delete(oferta);
+		try {	
+			Oferta[] ofertas = OfertaDAO.listOfertaByQuery("ProductoId='"+aIdProducto+"'", null);
+			for (Oferta o : ofertas) {
+				OfertaDAO.delete(o);
+			}
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

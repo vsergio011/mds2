@@ -23,11 +23,7 @@ public class Detalle_Producto_Admin extends Detalle_Producto {
 		appventawebbd.Oferta oferta = admin.estaEnOferta(producto.getId());
 		this.getDeleteBtn().setVisible(oferta != null);
 		
-		// TODO: No se deberia mostrar el boton.
-		 _quitarOferta = new Quitar_Oferta();
-		if (oferta != null) {
-			_quitarOferta = new Quitar_Oferta(oferta);
-		}
+		_quitarOferta = new Quitar_Oferta(producto);
 		
 		this.fillImgs(producto);
 	}

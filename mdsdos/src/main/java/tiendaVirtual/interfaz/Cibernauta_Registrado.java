@@ -20,7 +20,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 	public Cibernauta_Registrado(appventawebbd.Cibernauta ciber) {
 		layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		_ofertasPopulares = new Ofertas_Populares();
+		_ofertasPopulares = new Ofertas_Populares(false);
 		_productosMasVendidos = new Productos_mas_vendidos();
 		_cabecera = new Cabecera_Registrado(ciber);
 		

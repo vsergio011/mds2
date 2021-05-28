@@ -21,7 +21,7 @@ public class Administrador extends VistaCibernauta {
 	public Administrador(appventawebbd.Administrador admin) {
 		layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
-		_ofertas = new Lista_Ofertas();
+		_ofertas = new Lista_Ofertas(true);
 		_listaPmV = new Lista_de_PmV();
 		_cabecera = new Cabecera_Administrador(admin);
 		
@@ -248,6 +248,44 @@ public class Administrador extends VistaCibernauta {
 	}
 	
 	private void fillCategories() {
+		_ofertas.fillOfertasPopularesAdmin();
+		for (Producto_Admin pc : _ofertas._producto) {
+			
+			Detalle_Producto_Admin detalle = new Detalle_Producto_Admin(pc.GetProducto());
+			pc.getQuitarOfertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					layout.removeAll();
+					layout.add(_cabecera);
+					layout.add(detalle._modificar._detalle._quitarOferta);
+				}
+			});
+			detalle._quitarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					layout.removeAll();
+					layout.add(_cabecera);
+					layout.add(_ofertas);
+					layout.add(_listaPmV);
+				}
+			});
+			detalle._quitarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				@Override
+				public void onComponentEvent(ClickEvent<Button> event) {
+					layout.add(_cabecera);
+					layout.add(_ofertas);
+					layout.add(_listaPmV);
+											
+					detalle._quitarOferta.QuitarOferta();
+				}
+			});
+			
+			pc.getMoreInfoBtn().setVisible(false);
+			pc.getQuitarOfertaBtn().setVisible(true);
+		}
+		
+		// ....
+		
 		for (Lista_de_Productos ldp: _listaPmV._listaProductos)
 		{
 			VerticalLayout vl = _listaPmV.getVaadinVerticalLayout().as(VerticalLayout.class);
@@ -353,7 +391,7 @@ public class Administrador extends VistaCibernauta {
 						
 						layout.add(pc._detalleProducto);
 						
-						pc._detalleProducto.getDeleteBtn().setVisible(true);
+						pc._detalleProducto.getDeleteBtn().setVisible(pc.GetProducto().ofertas.size() != 0);
 						pc._detalleProducto.getAddOfferBtn().setVisible(true);
 						pc._detalleProducto.getUpdateBtn().setVisible(true);
 						pc._detalleProducto.getAnadirACarritoBtn().setVisible(false);
@@ -374,7 +412,6 @@ public class Administrador extends VistaCibernauta {
 										
 									}
 								});
-								
 								pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 									@Override
 									public void onComponentEvent(ClickEvent<Button> event) {
@@ -389,8 +426,8 @@ public class Administrador extends VistaCibernauta {
 				});
 				
 				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
-				pc.getAddOffertaBtn().setVisible(true);
-				pc.getQuitarOfertaBtn().setVisible(true);
+				pc.getAddOffertaBtn().setVisible(false);
+				pc.getQuitarOfertaBtn().setVisible(false);
 				pc.getAddCarritoBtn().setVisible(false);
 				hl.add(pc);
 			}

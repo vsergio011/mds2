@@ -15,17 +15,22 @@ public class Ofertas_Populares extends VistaOfertaspopulares {
 	public Ofertas _ofertas;
 	public HorizontalLayout hl;
 	
-	public Ofertas_Populares() {
+	public Ofertas_Populares(boolean isAdmin) {
 		// TODO: Creo que hay que tener aquí una vista de listado de productos.
-		fillOfertasPopulares();
+		if (isAdmin) {
+			fillOfertasPopularesAdmin();
+		} else {
+			fillOfertasPopulares();
+		}
 	}
 	
-	private void fillOfertasPopulares() {
+	public void fillOfertasPopulares() {
 		hl = this.getVaadinHorizontalLayout().as(HorizontalLayout.class);
+		hl.removeAll();
 		
 		iCibernauta ciber = new BDPrincipal();
 		for(Oferta offer : ciber.getOfertasPopulares()) {
-			Producto p= new Producto();
+			Producto_Ciber p = new Producto_Ciber(offer.getProducto());
 
 			p.getImgProducto().setSrc(offer.getProducto().getFotos());
 			p.getImgProducto().setHeight("150px");
@@ -40,6 +45,33 @@ public class Ofertas_Populares extends VistaOfertaspopulares {
 			p.getQuitarOfertaBtn().setVisible(false);
 			
 			hl.add(p);
+			
+			_producto.add(p);
+		}
+	}
+	
+	public void fillOfertasPopularesAdmin() {
+		hl = this.getVaadinHorizontalLayout().as(HorizontalLayout.class);
+		hl.removeAll();
+		
+		iCibernauta ciber = new BDPrincipal();
+		for(Oferta offer : ciber.getOfertasPopulares()) {
+			Producto_Ciber p = new Producto_Ciber(offer.getProducto());
+			
+			p.getImgProducto().setSrc(offer.getProducto().getFotos());
+			p.getImgProducto().setHeight("150px");
+			p.getImgProducto().setWidth("150px");
+
+			p.getMoreInfoBtn().setVisible(false);
+			p.getProductLbl().setVisible(false);
+			
+			p.getAddCarritoBtn().setVisible(false);
+			p.getAddOffertaBtn().setVisible(false);
+			p.getMoreInfoBtn().setVisible(false);
+			p.getQuitarOfertaBtn().setVisible(true);
+			
+			hl.add(p);
+			_producto.add(p);
 		}
 	}
 }
