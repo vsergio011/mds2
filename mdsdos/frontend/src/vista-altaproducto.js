@@ -20,7 +20,7 @@ class VistaAltaproducto extends PolymerElement {
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" style="width: 80%;">
   <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0; padding: var(--lumo-space-l); height: 15%;">
+   <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0; padding: var(--lumo-space-l);">
     <label style="font-weight: bold; align-self: stretch; " id="titleLbl">Alta producto</label>
     <vaadin-horizontal-layout theme="spacing">
      <label>Título </label>
@@ -29,7 +29,7 @@ class VistaAltaproducto extends PolymerElement {
    </vaadin-vertical-layout>
    <vaadin-horizontal-layout style="flex-shrink: 0; width: 50%; align-self: flex-start;">
     <vaadin-vertical-layout id="vlImages"></vaadin-vertical-layout>
-    <img style="border: solid; align-self: center; width: 70%;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+    <img style=" align-self: center; width: 70%;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="width: 100%; justify-content: space-around;">
     <vaadin-button id="deleteImgBtn">
@@ -50,11 +50,11 @@ class VistaAltaproducto extends PolymerElement {
    <label style="font-weight: bold; align-self: stretch;">Descripción del producto</label>
    <vaadin-text-area placeholder="Add detailed explanation" style="width: 80%;" id="descripcionInput"></vaadin-text-area>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 90%; height: 55%; border:solid; align-self: center; padding: var(--lumo-space-m);">
+  <vaadin-vertical-layout theme="spacing" style="width: 90%; height: 55%;  align-self: center; padding: var(--lumo-space-m);">
    <label style="font-weight: bold; align-self: stretch;" id="label">Caracteristicas</label>
-   <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;" id="vaadinTextArea"></vaadin-text-area>
+   <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;    background-color: hsl(0deg 0% 86% / 40%);" id="vaadinTextArea"></vaadin-text-area>
   </vaadin-vertical-layout>
-  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l); height: 25%;">
+  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l);border:solid;border-width:1px">
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
     <vaadin-combo-box id="productoCategorias" allow-custom-value></vaadin-combo-box>
     <vaadin-button id="cancelBtn">

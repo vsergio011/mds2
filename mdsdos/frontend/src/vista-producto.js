@@ -24,7 +24,7 @@ class VistaProducto extends PolymerElement {
  <vaadin-vertical-layout style="width: 100%; justify-content: center;">
   <label id="productLbl" style="align-self: center;"></label>
   <img src="https://www.mundofino.com/site/assets/files/1729/no_foto.600x600nw.jpg" id="imgProducto" style="align-self: center;">
-  <vaadin-horizontal-layout style="align-self: center; justify-content: flex-start; width: 100%; background-color: #374453;">
+  <vaadin-horizontal-layout style="align-self: center; justify-content: flex-start; background-color: #374453;">
    <vaadin-button id="moreInfoBtn" style="align-self: flex-start; margin: var(--lumo-space-xs);" class="btnFooter">
      ... 
    </vaadin-button>

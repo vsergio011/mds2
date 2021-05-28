@@ -2,8 +2,8 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@polymer/iron-icon/iron-icon.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-combo-box/src/vaadin-combo-box.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaCabecerapagina extends PolymerElement {
 
@@ -46,10 +46,10 @@ class VistaCabecerapagina extends PolymerElement {
   <vaadin-button id="perfilBtn" class="btnheader">
     Perfil 
   </vaadin-button>
+  <vaadin-button id="adminBtn" style="flex-grow: 0;" class="btnheader">
+    Admin 
+  </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-button id="adminBtn" style="flex-grow: 0;" class="btnheader">
-   Admin 
- </vaadin-button>
 </vaadin-horizontal-layout>
 `;
     }
