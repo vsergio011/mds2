@@ -53,7 +53,7 @@ public class CreateAppventawebData {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = new Date(System.currentTimeMillis());
             
-            Pendiente pedido = PendienteDAO.createPendiente();
+            /*Pendiente pedido = PendienteDAO.createPendiente();
             pedido.setCibernauta(ciber);
             pedido.setDireccion(ciber.getDireccionCompleta());
             pedido.setFechaPedido(formatter.format(date));
@@ -70,9 +70,9 @@ public class CreateAppventawebData {
             enviado.setFormaPago(ciber.getFormaPago());
             enviado.setTotal(150.5);
             enviado.setTransportistaEnvio(transportista);
-            EnviadoDAO.save(enviado);
+            EnviadoDAO.save(enviado);*/
             
-            Entregado entregado = EntregadoDAO.createEntregado();
+            /*Entregado entregado = EntregadoDAO.createEntregado();
             entregado.setCibernauta(ciber);
             entregado.setDireccion(ciber.getDireccionCompleta());
             entregado.setFechaPedido(formatter.format(date));
@@ -126,7 +126,7 @@ public class CreateAppventawebData {
 		            	OfertaDAO.save(offer);
 		            }
 				}
-			}
+			}*/
 			
 			Administrador admin = AdministradorDAO.createAdministrador();
 			admin.setNombre("Morenito");
@@ -154,7 +154,7 @@ public class CreateAppventawebData {
 			encar.setTipo(2);
 			EncargadoDAO.save(encar);
 			
-			for (int i = 0; i < 5; i++) {
+			/*for (int i = 0; i < 5; i++) {
             	appventawebbd.Mensaje msg= MensajeDAO.createMensaje();
             	msg.setAsunto("Asunto msg " + i);
             	msg.setCuerpo("cuerpo " + i);
@@ -169,7 +169,7 @@ public class CreateAppventawebData {
             	msg.setRemitente(ciber);
             	msg.setDestinatario(admin);
             	MensajeDAO.save(msg);
-            }
+            }*/
 			
             /* Cibernauta ciber = CibernautaDAO.createCibernauta();
             ciber.setNombre("PEPITO");
