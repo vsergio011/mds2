@@ -267,6 +267,16 @@ public class Administrador extends VistaCibernauta {
 						layout.add(detalle._modificar);						
 					}
 				});
+				detalle._modificar.getAddBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						
+						layout.add(pc._detalleProducto);	
+						detalle._modificar.GuardarProducto(pc.GetProducto());
+					}
+				});
 				pc._detalleProducto.getAddOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {

@@ -57,7 +57,6 @@ public class Alta_Producto extends VistaAltaproducto{
 		multiFileMemoryBuffer = new MultiFileMemoryBuffer();
 		Upload upload = new Upload(multiFileMemoryBuffer);
 		upload.addFinishedListener(e -> {
-			
 			for(String a : multiFileMemoryBuffer.getFiles()) {
 				System.out.println(a);
 				InputStream inputStream = multiFileMemoryBuffer.getInputStream(a);
@@ -69,7 +68,7 @@ public class Alta_Producto extends VistaAltaproducto{
 
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				Agregar_Imagen();
+				AppendImagen();
 			}
 		});
 		
@@ -100,42 +99,9 @@ public class Alta_Producto extends VistaAltaproducto{
 	}
 
 	public void Agregar_Imagen() {
-		// imagenesUrl = new ArrayList<String>();
-		// this.getvlImages().removeAll();
-		 
-		for(String a : multiFileMemoryBuffer.getFiles()) {
-			FileData fd = multiFileMemoryBuffer.getFileData(a);
-			InputStream is = multiFileMemoryBuffer.getInputStream(fd.getFileName());
-			
-			try {
-	            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+a);
-	            byte[] buffer = new byte[1024];
-	            int bytesRead;
-	            //read from is to buffer
-	            while((bytesRead = is.read(buffer)) !=-1){
-	                os.write(buffer, 0, bytesRead);
-	            }
-	            is.close();
-	            //flush OutputStream to write any buffered data to file
-	            os.flush();
-	            os.close();
-	            this.getImg().setMaxWidth("300px");
-	            
-	            imagenesUrl.add("img/"+a);
-	            this.getImg().setSrc("img/"+a);
-	            Image image = new Image("img/"+a, "DummyImage");
-	            image.setWidth("50px");
-	            this.getvlImages().add(image);
-	            
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }	
+		if (multiFileMemoryBuffer.getFiles().size() == 0) {
+			return;
 		}
-		multiFileMemoryBuffer.getFiles().clear();
-	
-	}
-
-	public void Cambiar_Imagen() {
 		imagenesUrl = new ArrayList<String>();
 		this.getvlImages().removeAll();
 		 
@@ -144,7 +110,6 @@ public class Alta_Producto extends VistaAltaproducto{
 			InputStream is = multiFileMemoryBuffer.getInputStream(fd.getFileName());
 			
 			try {
-	            
 	            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+a);
 	            byte[] buffer = new byte[1024];
 	            int bytesRead;
@@ -169,6 +134,50 @@ public class Alta_Producto extends VistaAltaproducto{
 	        }	
 		}
 		multiFileMemoryBuffer.getFiles().clear();
+	}
+	
+	public void AppendImagen() {		 
+		for(String a : multiFileMemoryBuffer.getFiles()) {
+			FileData fd = multiFileMemoryBuffer.getFileData(a);
+			InputStream is = multiFileMemoryBuffer.getInputStream(fd.getFileName());
+			
+			try {
+	            OutputStream os = new FileOutputStream("./src/main/webapp/img/"+a);
+	            byte[] buffer = new byte[1024];
+	            int bytesRead;
+	            //read from is to buffer
+	            while((bytesRead = is.read(buffer)) !=-1){
+	                os.write(buffer, 0, bytesRead);
+	            }
+	            is.close();
+	            //flush OutputStream to write any buffered data to file
+	            os.flush();
+	            os.close();
+	            this.getImg().setMaxWidth("300px");
+	            
+	            imagenesUrl.add("img/"+a);
+	            
+	            if (this.getImg().getSrc().isEmpty() || this.getImg().getSrc().equals("https://www.mundofino.com/site/assets/files/1729/no_foto.600x600nw.jpg")) {
+	            	this.getImg().setSrc("img/"+a);
+	            }	            
+	            Image image = new Image("img/"+a, "DummyImage");
+	            image.setWidth("50px");
+	            this.getvlImages().add(image);
+	            
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }	
+		}
+		multiFileMemoryBuffer.getFiles().clear();
+	}
+	
+	public void fillImgs() {
+		this.getvlImages().removeAll();
+		for (String img : imagenesUrl) {
+			Image image = new Image(img, "DummyImage");
+            image.setWidth("50px");
+            this.getvlImages().add(image);
+		}
 	}
 
 	public void Borrar_Imagen() {
