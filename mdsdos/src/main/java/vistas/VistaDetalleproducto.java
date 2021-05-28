@@ -9,6 +9,7 @@ import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-detalleproducto template.
@@ -86,6 +87,12 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 	private Button anadirACarritoBtn;
 	@Id("vaadinTextArea")
 	private TextArea vaadinTextArea;
+	@Id("lyimagenesLateral")
+	private Element lyimagenesLateral;
+
+	public Element getLyimagenesLateral() {
+		return lyimagenesLateral;
+	}
 
 	/**
      * Creates a new VistaDetalleproducto.

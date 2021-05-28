@@ -28,5 +28,7 @@ public class Detalle_Producto_Admin extends Detalle_Producto {
 		if (oferta != null) {
 			_quitarOferta = new Quitar_Oferta(oferta);
 		}
+		
+		this.fillImgs(producto);
 	}
 }

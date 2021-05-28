@@ -67,6 +67,7 @@ public class BD_Producto {
 			pro.setFotos(aProducto.getFotos());
 			pro.setNombre(aProducto.getNombre());
 			
+			pro.fotosProducto.clear();
 			for (String f : fotos) {
 				Foto foto = FotoDAO.createFoto();
 				foto.setProductoFoto(aProducto);
