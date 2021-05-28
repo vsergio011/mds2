@@ -16,13 +16,13 @@ class VistaCambiodatoscompra extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; justify-content: center;">
- <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 40%; align-self: center; padding: var(--lumo-space-l); justify-content: center;">
+ <vaadin-vertical-layout theme="spacing" style="width: 50%; height: 40%; align-self: center; padding: var(--lumo-space-l); justify-content: center; align-items: center;">
   <label style="font-weight: bold; align-self: center; margin: var(--lumo-space-s);">Cambios datos de compra</label>
-  <vaadin-vertical-layout style="width: 100%; justify-content: center; align-self: center;">
-   <vaadin-text-field label="Direccion completa" placeholder="Placeholder" id="direccionInput" style="width: 100%;"></vaadin-text-field>
-   <vaadin-text-field label="DAtos de pago" placeholder="Placeholder" id="datosPagoInput" style="width: 100%;"></vaadin-text-field>
+  <vaadin-vertical-layout style="justify-content: center; align-self: center; align-items: center;">
+   <vaadin-text-field label="Direccion completa" id="direccionInput" style="width: 100%;"></vaadin-text-field>
+   <vaadin-text-field label="Datos de pago" id="datosPagoInput" style="width: 100%;"></vaadin-text-field>
   </vaadin-vertical-layout>
-  <vaadin-horizontal-layout style="width: 100%; justify-content: space-between;">
+  <vaadin-horizontal-layout style="justify-content: space-between;">
    <vaadin-button id="aceptarBtn">
      Aceptar 
    </vaadin-button>

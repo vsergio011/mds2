@@ -13,7 +13,7 @@ class VistaListadeproductos extends PolymerElement {
                 }
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-m); justify-content: flex-start;">
- <h3 id="title" style="align-self: center; margin-right: var(--lumo-space-l);">aaaaaaa</h3>
+ <h3 id="title" style="align-self: center; margin-right: var(--lumo-space-l);"></h3>
  <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="background-color: #3b434c36; align-items: center; margin-left: var(--lumo-space-m); padding-bottom: var(--lumo-space-m); padding-top: var(--lumo-space-m); align-self: center; padding-left: var(--lumo-space-l); padding: var(--lumo-space-m); justify-content: flex-start;"></vaadin-horizontal-layout>
 </vaadin-horizontal-layout>
 `;

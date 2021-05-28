@@ -15,20 +15,24 @@ class VistaProcesodecompra extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
- <label>Resumen de la compra</label>
- <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+ <label style="font-weight:bold; margin: var(--lumo-space-s); padding: var(--lumo-space-m);">Resumen de la compra</label>
+ <vaadin-horizontal-layout style="width: 40%;border: solid;
+    border-width: 1px;">
   <label style="width: 70%;">Total Productos</label>
   <label id="nProductos" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+ <vaadin-horizontal-layout theme="spacing;" style="width: 40%;border: solid;
+    border-width: 1px;">
   <label style="width: 70%;">Precio</label>
   <label id="Precio" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 40%;border: solid;
+    border-width: 1px;">
   <label style="width: 70%;">Precio gastos de envio</label>
   <label id="PrecioGastosEnvio" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="width: 40%;">
+ <vaadin-horizontal-layout theme="spacing" style="width: 40%;border: solid;
+    border-width: 1px;">
   <label style="width: 70%;">Total</label>
   <label id="total" style="width: 30%">Label</label>
  </vaadin-horizontal-layout>

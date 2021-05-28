@@ -13,9 +13,10 @@ class VistaRegistro extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width:100%;
                 }
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;" id="vaadinHorizontalLayout">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-m);" id="vaadinHorizontalLayout">
  <vaadin-vertical-layout theme="" style="width: 25%;">
   <img style="width: 80%; height: 25%; flex-grow: 0; align-self: center;" id="img">
   <vaadin-button style="align-self: center;" id="editImgBtn">
@@ -31,7 +32,7 @@ class VistaRegistro extends PolymerElement {
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 75%; padding: var(--lumo-space-l);">
   <vaadin-horizontal-layout theme="spacing" style="height: 75%; width: 100%;">
-   <vaadin-vertical-layout theme="spacing" style="height: 100%; width: 50%; padding: var(--lumo-space-l);">
+   <vaadin-vertical-layout theme="spacing" style="height: 100%; padding: var(--lumo-space-l);">
     <label style="font-weight: bold; align-self: stretch; font-size:30px; ">Datos personales:</label>
     <vaadin-text-field label="Usuario" placeholder="Placeholder" id="userLbl"></vaadin-text-field>
     <vaadin-text-field label="Nombre" placeholder="Placeholder" id="nombreLbl"></vaadin-text-field>
@@ -39,7 +40,7 @@ class VistaRegistro extends PolymerElement {
     <vaadin-text-field label="Email" placeholder="Placeholder" id="emailLbl"></vaadin-text-field>
     <vaadin-password-field label="Password" placeholder="Enter password" value="secret1" id="password" has-value></vaadin-password-field>
    </vaadin-vertical-layout>
-   <vaadin-vertical-layout theme="spacing" style="height: 100%; width: 50%; padding: var(--lumo-space-l);">
+   <vaadin-vertical-layout theme="spacing" style="height: 100%; padding: var(--lumo-space-l);">
     <label style="font-weight: bold; align-self: stretch; font-size:30px; ">Direccion de envios</label>
     <vaadin-text-field label="Dirección" placeholder="Placeholder" id="direccionLbl"></vaadin-text-field>
    </vaadin-vertical-layout>

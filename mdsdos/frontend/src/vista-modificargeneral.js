@@ -3,6 +3,7 @@ import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-upload/src/vaadin-upload.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaModificargeneral extends PolymerElement {
 
@@ -12,11 +13,14 @@ class VistaModificargeneral extends PolymerElement {
                 :host {
                     display: block;
                     height: 100%;
+        			width:100%;
                 }
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" style="width: 60%; align-items: center;">
-  <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" style="align-self: center; width: 40%; height: 40;" id="img">
+  <vaadin-vertical-layout theme="spacing">
+   <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" style="align-self: center; width: 40%;" id="img">
+  </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="" style="align-items: center; justify-content: center;">
    <vaadin-button style="width: 100%;" id="cambiarPasswordBtn">
      Cambiar contraseña 
@@ -29,13 +33,14 @@ class VistaModificargeneral extends PolymerElement {
    </vaadin-button>
    <vaadin-horizontal-layout style="width: 100%;">
     <vaadin-upload id="imgUpload" style="width: 75%;"></vaadin-upload>
-    <vaadin-button id="addImgBtn" style="width: 25%; align-self: center;">
+    <vaadin-button id="addImgBtn" style="width: 25%; align-self: center;background-color :#374453;border-radius:50px">
       + 
     </vaadin-button>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; padding: var(--lumo-space-xl);" id="containerLayout">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; padding: var(--lumo-space-xl);border-left: solid;
+    border-width: 0.1px;" id="containerLayout">
   <vaadin-text-field label="Nombre de usuario" placeholder="Placeholder" id="lbNombreUsuario" style="width: 90%;"></vaadin-text-field>
   <vaadin-text-field label="Nombre" placeholder="Placeholder" style="width: 90%;" id="lbNombre"></vaadin-text-field>
   <vaadin-text-field label="Apellidos" placeholder="Placeholder" style="width: 90%;" id="lbApellidos"></vaadin-text-field>

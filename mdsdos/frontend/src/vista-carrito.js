@@ -15,18 +15,18 @@ class VistaCarrito extends PolymerElement {
                 }
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vaadin-horizontal-layout style="height: 20%; width: 100%;">
-  <vaadin-vertical-layout theme="spacing-l" style="width: 50%; justify-content: flex-start; padding: var(--lumo-space-l);">
+ <vaadin-horizontal-layout style="height: 20%; width: 100%; justify-content: space-between;">
+  <vaadin-vertical-layout theme="spacing-l" style="justify-content: flex-start; padding: var(--lumo-space-l);">
    <label style="font-weight: bold; align-self: flex-start; flex-grow: 0;">Carrito de la compra </label>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout style="width: 50%;">
-   <label style="width: 50%; align-self: flex-end;" id="priceLbl"></label>
-   <vaadin-button id="registerBtn" style="align-self: flex-end; width: 50%;">
+  <vaadin-vertical-layout style="margin: var(--lumo-space-l);">
+   <vaadin-button id="registerBtn" style="align-self: flex-end;">
      Registrarse 
    </vaadin-button>
-   <vaadin-button id="comprarBtn" style="align-self: flex-end; width: 50%;">
+   <vaadin-button id="comprarBtn" style="align-self: flex-end;">
      Comprar 
    </vaadin-button>
+   <label style="align-self: flex-end;" id="priceLbl">aaaa </label>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout id="productosLayout" style="width: 100%; height: 100%;"></vaadin-vertical-layout>
