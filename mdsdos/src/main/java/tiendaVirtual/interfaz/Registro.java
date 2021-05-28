@@ -64,21 +64,22 @@ public class Registro extends VistaRegistro {
 		 // return Pattern.compile(regex).matcher(this.getPassword().getValue()).matches();
 		 return true;
 	}
-	// (String aNombre, String apellidos, String email, String foto, String direccion, 
-	// String formaPago, String usuario, String aPassword)
+	
 	public appventawebbd.Cibernauta CrearUsuario() {
 		iCibernauta_no_Registrado ciber = new BDPrincipal();
 		
-		// TODO: Cambiar por el selector de imagen
 		String img = "https://image.flaticon.com/icons/png/512/53/53159.png";
+		if (!this.getImg().getSrc().isEmpty()) {
+			img = this.getImg().getSrc();
+		}
+		
 		return ciber.Registrar(
 				this.getNombreLbl().getValue(), 
 				this.getApellidosLbl().getValue(), 
 				this.getEmailLbl().getValue(), 
 				img, 
 				this.getDireccionLbl().getValue(),
-				// TODO: Datos de pago.
-				"",
+				this.getDatosPagolbl().getValue(),
 				this.getUserLbl().getValue(), 
 				this.getPassword().getValue());
 	}
@@ -87,12 +88,9 @@ public class Registro extends VistaRegistro {
 		subirHoriz = this.gethorizontallySubir();
 		
 		this.getEditImgBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				
 				subirHoriz.removeAll();
-				
 				
 				memoryBuffer = new MemoryBuffer();
 
@@ -108,21 +106,14 @@ public class Registro extends VistaRegistro {
 				subirHoriz.add(imgUpBtn);
 
 				imgUpBtn.addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
 						Cambiar_Imagen();
-						
 					}
 				});
-				
-				
 			}
-		});
-		
-		
+		});	
 	}
-	
 	
 	public void Cambiar_Imagen() {
 		
@@ -143,16 +134,9 @@ public class Registro extends VistaRegistro {
             os.flush();
             os.close();
             this.getImg().setMaxWidth("300px");
-            
-           
             this.getImg().setSrc(UrlImagen);
-            
-            
         } catch (IOException e) {
             e.printStackTrace();
         }	
-
-}
-	
-	
+	}
 }

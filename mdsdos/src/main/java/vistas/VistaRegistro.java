@@ -47,8 +47,18 @@ public class VistaRegistro extends PolymerTemplate<VistaRegistro.VistaRegistroMo
 	
 	@Id("horizontallySubir")
 	private HorizontalLayout horizontallySubir;
+	@Id("datosPagolbl")
+	private TextField datosPagolbl;
 	
 	
+
+	public HorizontalLayout getHorizontallySubir() {
+		return horizontallySubir;
+	}
+
+	public TextField getDatosPagolbl() {
+		return datosPagolbl;
+	}
 
 	/**
      * Creates a new VistaRegistro.
