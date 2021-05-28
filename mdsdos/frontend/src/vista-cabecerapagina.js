@@ -15,34 +15,39 @@ class VistaCabecerapagina extends PolymerElement {
                     height: 100%;
         			width: 100%
                 }
+
+        .btnheader{
+        	background-color :#374453
+        }
+
             </style>
-<vaadin-horizontal-layout class="content" style="width: 100%; height: 10%; padding: var(--lumo-space-m); justify-content: flex-start;" theme="spacing" id="vaadinHorizontalLayout">
+<vaadin-horizontal-layout class="content" style="width: 100%; height: 10%; padding: var(--lumo-space-m); justify-content: flex-start;background-color:#6d7c8e" theme="spacing" id="vaadinHorizontalLayout">
  <img src="https://image.freepik.com/free-vector/online-shopping-logo-design-template_130382-9.jpg" style="width: 70px; height: 70px; flex-grow: 0; flex-shrink: 0; align-self: center;">
  <vaadin-horizontal-layout theme="spacing" style="justify-content: center; width: 100%;">
   <vaadin-combo-box id="categoriesCombo" allow-custom-value></vaadin-combo-box>
-  <vaadin-button id="offerBtn">
+  <vaadin-button id="offerBtn" class="btnheader">
     Categorias 
   </vaadin-button>
-  <vaadin-button id="limpiarBtn">
+  <vaadin-button id="limpiarBtn" class="btnheader">
     Inicio 
   </vaadin-button>
-  <vaadin-button id="offertasButton">
-   Ofertas
+  <vaadin-button id="offertasButton" class="btnheader">
+    Ofertas 
   </vaadin-button>
   <vaadin-text-field placeholder="Search" style="width: 45%;" id="searchInput">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
   </vaadin-text-field>
-  <vaadin-button id="btnLogin">
+  <vaadin-button id="btnLogin" class="btnheader">
     Login 
   </vaadin-button>
-  <vaadin-button id="btnCarrito">
+  <vaadin-button id="btnCarrito" class="btnheader">
     Carrito 
   </vaadin-button>
-  <vaadin-button id="perfilBtn">
+  <vaadin-button id="perfilBtn" class="btnheader">
     Perfil 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-button id="adminBtn">
+ <vaadin-button id="adminBtn" style="flex-grow: 0;" class="btnheader">
    Admin 
  </vaadin-button>
 </vaadin-horizontal-layout>

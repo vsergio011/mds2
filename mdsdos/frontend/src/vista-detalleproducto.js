@@ -1,8 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 class VistaDetalleproducto extends PolymerElement {
 
@@ -18,11 +18,16 @@ class VistaDetalleproducto extends PolymerElement {
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" style="width: 80%;">
   <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
-   <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0; padding: var(--lumo-space-l); height: 15%;">
+   <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0; height: 15%;">
     <label style="font-weight: bold; align-self: stretch; ">Título del producto</label>
     <label style="align-self: stretch;" id="rateLabel"></label>
    </vaadin-vertical-layout>
-   <img style="border: solid; height: 70%; width: 95%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+   <vaadin-horizontal-layout theme="spacing" style="height: 85%; width: 95;">
+    <vaadin-vertical-layout theme="spacing" style="width: 20%;">
+     <img style="align-self: center; width: 100%;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+    </vaadin-vertical-layout>
+    <img style="height: 70%; width: 80%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+   </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 0; flex-shrink: 1;">
@@ -30,12 +35,12 @@ class VistaDetalleproducto extends PolymerElement {
    <label style="font-weight: bold; align-self: stretch;">Descripción del producto</label>
    <label style="align-self: stretch; font-size: 13px; flex-grow: 0;" id="descriptionLabel"></label>
   </vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 90%; height: 55%; border:solid; align-self: center; padding: var(--lumo-space-m);">
+  <vaadin-vertical-layout theme="spacing" style="width: 90%; height: 55%; align-self: center; padding: var(--lumo-space-m);">
    <label style="font-weight: bold; align-self: stretch;" id="label">Carácteristicas</label>
-   <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;" id="vaadinTextArea"></vaadin-text-area>
+   <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;    background-color: hsl(0deg 0% 86% / 40%);" id="vaadinTextArea"></vaadin-text-area>
   </vaadin-vertical-layout>
-  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l); height: 25%;">
-   <vaadin-vertical-layout theme="spacing" style="width: 100%;">
+  <vaadin-horizontal-layout theme="spacing" style="width: 90%; padding: var(--lumo-space-l); height: 25%; border: solid; border-width: 1px; align-self: center; justify-content: space-between;">
+   <vaadin-vertical-layout style="width: 100%; flex-grow: 1; flex-shrink: 1;">
     <vaadin-button style="width: 50%; align-self: flex-start;" id="updateBtn">
       Modificar 
     </vaadin-button>
@@ -43,7 +48,7 @@ class VistaDetalleproducto extends PolymerElement {
       Ver comentarios 
     </vaadin-button>
     <vaadin-button id="anadirACarritoBtn">
-     Añadir a carrito
+      Añadir a carrito 
     </vaadin-button>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
