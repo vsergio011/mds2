@@ -23,10 +23,10 @@ class VistaDetalleproducto extends PolymerElement {
     <label style="align-self: stretch;" id="rateLabel"></label>
    </vaadin-vertical-layout>
    <vaadin-horizontal-layout theme="spacing" style="height: 85%; width: 95;">
-    <vaadin-vertical-layout theme="spacing" style="width: 20%;">
+    <vaadin-vertical-layout theme="spacing" id="lyimagenesLateral" style="width: 20%; height: 70%;">
      <img style="align-self: center; width: 100%;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
     </vaadin-vertical-layout>
-    <img style="height: 70%; width: 80%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
+    <img style="border: solid; height: 70%; width: 80%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
@@ -52,7 +52,7 @@ class VistaDetalleproducto extends PolymerElement {
     </vaadin-button>
    </vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
-    <label style="width: 50%; align-self: flex-start;" id="priceLAbel"></label>
+    <label style="width: 50%; align-self: flex-start;background-color:#dbdee2" id="priceLAbel"></label>
     <vaadin-button style="margin-top: var(--lumo-space-l); width: 50%; align-self: flex-start;" id="deleteBtn">
       Quitar ofertas 
     </vaadin-button>
