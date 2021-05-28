@@ -16,8 +16,9 @@ public class Modificar_Producto extends Alta_Producto {
 	private Object _idProductoL;
 	public Detalle_Producto_Admin _detalle;
 
-	public void Borrar_Producto() {
-		throw new UnsupportedOperationException();
+	public void Borrar_Producto(appventawebbd.Producto producto) {
+		iAdministrador admin = new BDPrincipal();
+		admin.borrarProducto(producto);
 	}
 	
 	public void GuardarProducto(appventawebbd.Producto producto) {		
