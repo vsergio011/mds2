@@ -195,6 +195,6 @@ public class Alta_Producto extends VistaAltaproducto{
 		pro.setFotos(this.getImg().getSrc());
 		
 		iAdministrador admin = new BDPrincipal();
-		Producto id = admin.altaProducto(pro);
+		Producto id = admin.altaProducto(pro, this.imagenesUrl);
 	}
 }
