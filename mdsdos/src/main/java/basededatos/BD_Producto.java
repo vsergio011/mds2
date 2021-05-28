@@ -50,11 +50,12 @@ public class BD_Producto {
 		} catch (Exception e) {
 			t2.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return pro;
 	}
 
 	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos) throws PersistentException {
-		AppventawebPersistentManager.instance().getSession().clear();
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		Producto pro = null;
@@ -70,15 +71,18 @@ public class BD_Producto {
 				Foto foto = FotoDAO.createFoto();
 				foto.setProductoFoto(aProducto);
 				foto.setRuta(f);
+				// FotoDAO.save(foto);
 				
 				pro.fotosProducto.add(foto);
 			}
+			ProductoDAO.save(pro);
 			
-			ProductoDAO.save(aProducto);
 			t2.commit();
 		} catch (Exception e) {
 			t2.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return aProducto;
 	}
 
@@ -91,6 +95,7 @@ public class BD_Producto {
 		} catch (Exception e) {
 			t2.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
 	public List<Producto> getProductosMasVendidos() throws PersistentException {
@@ -104,6 +109,7 @@ public class BD_Producto {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return productos;
 	}
@@ -118,6 +124,7 @@ public class BD_Producto {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return productos;
 	}
@@ -138,6 +145,7 @@ public class BD_Producto {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Producto[] getProductos(int[] aIdItems) {

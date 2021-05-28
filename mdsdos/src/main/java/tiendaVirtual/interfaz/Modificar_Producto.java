@@ -1,5 +1,8 @@
 package tiendaVirtual.interfaz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -13,20 +16,18 @@ public class Modificar_Producto extends Alta_Producto {
 	private Object _idProductoL;
 	public Detalle_Producto_Admin _detalle;
 
-	public void Borrar_Producto() {
-		throw new UnsupportedOperationException();
+	public void Borrar_Producto(appventawebbd.Producto producto) {
+		iAdministrador admin = new BDPrincipal();
+		admin.borrarProducto(producto);
 	}
 	
-	public void GuardarProducto(appventawebbd.Producto producto) {
-		appventawebbd.Producto pro = new appventawebbd.Producto();
-		pro.setCategoria(this.selected);
-		
+	public void GuardarProducto(appventawebbd.Producto producto) {		
+		producto.setCategoria(this.selected);
 		producto.setDescripcion(this.getDescripcionInput().getValue());
 		producto.setNombre(this.getInputTitulo().getValue());
-		producto.setPrecio(Integer.parseInt(this.getProductoPrecio().getValue()));
+		producto.setPrecio(Double.parseDouble(this.getProductoPrecio().getValue()));
 		producto.setDetalles(this.getVaadinTextArea().getValue());
 		producto.setFotos(this.getImg().getSrc());
-		
 		
 		iAdministrador admin = new BDPrincipal();
 		admin.modificarProducto(producto.getId(),producto, imagenesUrl);
@@ -41,11 +42,11 @@ public class Modificar_Producto extends Alta_Producto {
 		this.getCancelBtn().setVisible(false);
 		this.getAddBtn().setText("Guardar");
 		
-		this.getAddBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				GuardarProducto(producto);
-			}
-		});
+		for (appventawebbd.Foto img : producto.fotosProducto.toArray()) {
+			imagenesUrl.add(img.getRuta());
+		}
+		this.fillImgs();
+		
+		this.getProductoCategorias().setValue(producto.getCategoria().getNombre());
 	}
 }
