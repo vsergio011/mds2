@@ -14,12 +14,23 @@ class VistaProductopedido extends PolymerElement {
                     height: 100%;
         			width: 100%;
                 }
+
+		    #lateral :nth-child(1n) {
+			  width: 100%;
+			}
+#lateral :nth-child(2n) {
+			  width: 100%;
+			}
+#lateral :nth-child(3n) {
+			  width: 100%;
+			}
+#lateral :nth-child(4n) {
+			  width: 100%;
+			}
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; border:solid; border-width:1px; padding: var(--lumo-space-xl); justify-content: flex-start;" theme="spacing">
- <vaadin-horizontal-layout style="width: 25%; margin: var(--lumo-space-m); justify-content: center;">
-  <vaadin-vertical-layout style="width: 15%;">
-   <img id="imgProducto" style="align-self: center; flex-grow: 0; flex-shrink: 1; margin: var(--lumo-space-l); width: 100%;" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
-  </vaadin-vertical-layout>
+ <vaadin-horizontal-layout style="margin: var(--lumo-space-m); justify-content: center;">
+  <vaadin-vertical-layout style="width: 15%; flex-grow: 0; flex-shrink: 1;" id="lateral"></vaadin-vertical-layout>
   <img id="imgProducto" style="align-self: center; flex-grow: 0; flex-shrink: 1; margin: var(--lumo-space-m);" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout style="height: 100%; align-self: center; justify-content: center; align-items: flex-start; margin-right: var(--lumo-space-m);">

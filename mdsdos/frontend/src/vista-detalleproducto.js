@@ -23,9 +23,7 @@ class VistaDetalleproducto extends PolymerElement {
     <label style="align-self: stretch;" id="rateLabel"></label>
    </vaadin-vertical-layout>
    <vaadin-horizontal-layout theme="spacing" style="height: 85%; width: 95;">
-    <vaadin-vertical-layout theme="spacing" id="lyimagenesLateral" style="width: 20%; height: 70%;">
-     <img style="align-self: center; width: 100%;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
-    </vaadin-vertical-layout>
+    <vaadin-vertical-layout theme="spacing" id="lyimagenesLateral" style="width: 20%; height: 70%;"></vaadin-vertical-layout>
     <img style="border: solid; height: 70%; width: 80%; align-self: center;" id="img" img="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
