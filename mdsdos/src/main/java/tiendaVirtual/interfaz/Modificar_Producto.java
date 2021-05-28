@@ -31,9 +31,15 @@ public class Modificar_Producto extends Alta_Producto {
 		
 		iAdministrador admin = new BDPrincipal();
 		admin.modificarProducto(producto.getId(),producto, imagenesUrl);
+		
+		fillProducto(producto);
 	}
 	
 	public Modificar_Producto(appventawebbd.Producto producto) {
+		fillProducto(producto);
+	}
+	
+	public void fillProducto(appventawebbd.Producto producto) {
 		this.getInputTitulo().setValue(producto.getNombre());
 		this.getImg().setSrc(producto.getFotos());
 		this.getDescripcionInput().setValue(producto.getDescripcion());
