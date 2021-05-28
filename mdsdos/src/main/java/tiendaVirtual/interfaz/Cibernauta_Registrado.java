@@ -194,7 +194,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil);
-				_cabecera._perfil.UpdateCibernauta(ciber.getId());		
+				_cabecera._perfil.UpdateCibernauta(ciber.getId(), ciber.getTipo());		
 			}
 		});
 		_cabecera._perfil._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

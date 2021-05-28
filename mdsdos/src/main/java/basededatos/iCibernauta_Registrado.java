@@ -1,6 +1,7 @@
 package basededatos;
 
 import appventawebbd.Producto;
+import appventawebbd.Usuario;
 import appventawebbd.Mensaje;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public void nuevaNotificacion(int aOrigen, int aDestino, Mensaje aMensaje);
 
-	public void modificarDatos(int idCiber, Cibernauta aCiber);
+	public void modificarDatos(int idCiber, Usuario aCiber);
 
 	public Mensaje[] getMensajes(int aId);
 

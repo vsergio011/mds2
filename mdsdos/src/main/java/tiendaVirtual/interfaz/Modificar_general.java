@@ -11,6 +11,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta_Registrado;
 import vistas.VistaModificardatos;
 import vistas.VistaModificargeneral;
 
@@ -84,5 +86,19 @@ public class Modificar_general extends VistaModificargeneral {
             e.printStackTrace();
         }
 	}
-
+	
+	public void UpdateUsuario(int id, int tipo) {
+		iCibernauta_Registrado cibernauta = new BDPrincipal();
+		
+		appventawebbd.Usuario ciber = new appventawebbd.Usuario();
+		ciber.setApellidos(this.getLbApellidos().getValue());
+		ciber.setTipo(tipo);
+		ciber.setCorreoElectronico(this.getLbEmail().getValue());
+		ciber.setDireccionCompleta(this.getLbDireccion().getValue());
+		ciber.setFormaPago(this.getLbDatosDePago().getValue());
+		ciber.setFoto(this.getImg().getSrc());
+		ciber.setNombre(this.getLbNombre().getValue());
+		ciber.setUsuario(this.getLbNombreUsuario().getValue());
+		cibernauta.modificarDatos(id, ciber);
+	}
 }

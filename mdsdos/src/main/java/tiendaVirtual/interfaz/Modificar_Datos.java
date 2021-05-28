@@ -15,6 +15,8 @@ import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.FileData;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta_Registrado;
 import vistas.VistaModificargeneral;
 
 public class Modificar_Datos extends Modificar_general {
