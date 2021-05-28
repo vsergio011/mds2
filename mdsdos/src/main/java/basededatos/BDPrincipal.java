@@ -439,9 +439,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber) {
+	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber, double precio) {
 		try {
-			return _bd_pend.RealizaCompra(aItems, aCiber);
+			return _bd_pend.RealizaCompra(aItems, aCiber, precio);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

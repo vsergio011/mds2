@@ -14,7 +14,7 @@ import appventawebbd.Item;
 
 public interface iCibernauta_Registrado extends iCibernauta {
 
-	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber);
+	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber, double precio);
 
 	public Mensaje detalleMensaje(int aId);
 

@@ -26,7 +26,7 @@ public class BD_Pendiente {
 	public BDPrincipal _bd_prin_pend;
 	public Vector<Pendiente> _contiene_pedidos = new Vector<Pendiente>();
 
-	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber) throws PersistentException {
+	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber, double precio) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
@@ -46,6 +46,9 @@ public class BD_Pendiente {
 				pedido.items.add(item);
 				
 				total += item.getCantidad() * item.getProducto().getPrecio();
+			}
+			if (precio != 0) {
+				total = precio;
 			}
 			pedido.setTotal(total);
 			PendienteDAO.save(pedido);

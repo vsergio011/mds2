@@ -21,6 +21,25 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 	}
 	
 	public Producto_Carrito GetProductocarrito() {		
-		return new Producto_Carrito(producto);
+		return new Producto_Carrito(producto, 0);
+	}
+	
+	private appventawebbd.Oferta oferta = null;
+	public Detalle_Producto_Ciber(appventawebbd.Oferta oferta) {
+		this.oferta = oferta;
+		_verComentarios = new Ver_Comentarios_Ciber(oferta.getProducto());
+		
+		appventawebbd.Producto pro = oferta.getProducto();
+		this.getImg().setSrc(pro.getFotos());
+		this.getRateLabel().setText(String.format("Valoración media: %f/5", pro.getValoracionMedia()));
+		this.getDescriptionLabel().setText(pro.getDescripcion());
+		this.getPriceLAbel().setText(String.format("%f €", oferta.getPrecio()));
+		this.getVaadinTextArea().setValue(pro.getDetalles() == null ? "" : pro.getDetalles());
+		
+		this.fillImgs(pro);
+	}
+	
+	public Producto_Carrito GetProductocarritoOferta() {		
+		return new Producto_Carrito(oferta.getProducto(), oferta.getPrecio());
 	}
 }

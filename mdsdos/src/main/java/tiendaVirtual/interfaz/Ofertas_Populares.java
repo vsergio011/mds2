@@ -20,26 +20,38 @@ public class Ofertas_Populares extends VistaOfertaspopulares {
 		fillOfertasPopulares();
 	}
 	
-	private void fillOfertasPopulares() {
+	public void showLess() {
+		for(Producto_Ciber p : _producto) {
+			p.getMoreInfoBtn().setVisible(false);
+			p.getProductLbl().setVisible(true);
+			p.getAddCarritoBtn().setVisible(false);
+		}
+	}
+	
+	public void fillOfertasPopulares() {
 		hl = this.getVaadinHorizontalLayout().as(HorizontalLayout.class);
+		hl.removeAll();
+		_producto.clear();
 		
 		iCibernauta ciber = new BDPrincipal();
 		for(Oferta offer : ciber.getOfertasPopulares()) {
-			Producto p= new Producto();
+			Producto_Ciber p= new Producto_Ciber(offer);
 
 			p.getImgProducto().setSrc(offer.getProducto().getFotos());
 			p.getImgProducto().setHeight("150px");
 			p.getImgProducto().setWidth("150px");
 
-			p.getMoreInfoBtn().setVisible(false);
-			p.getProductLbl().setVisible(false);
-			
-			p.getAddCarritoBtn().setVisible(false);
+			p.getMoreInfoBtn().setVisible(true);
+			p.getProductLbl().setVisible(true);
+			p.getAddCarritoBtn().setVisible(true);
 			p.getAddOffertaBtn().setVisible(false);
-			p.getMoreInfoBtn().setVisible(false);
 			p.getQuitarOfertaBtn().setVisible(false);
+			p.getLabel().setVisible(true);
+			p.getLabel().setText(offer.getPrecio() + "€");
 			
 			hl.add(p);
+			
+			_producto.add(p);
 		}
 	}
 }
