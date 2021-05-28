@@ -196,6 +196,44 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera._funcionesAdmin._modificarEmpleado._empleados);
 			}
 		});
+		_cabecera._funcionesAdmin.getContactoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._funcionesAdmin._mensajeria);
+			}
+		});		 
+		_cabecera._funcionesAdmin._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				appventawebbd.Mensaje msg = _cabecera._funcionesAdmin._mensajeria.GetSelected();
+				_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.fillNotificacion(msg);
+				layout.add(_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion);
+			}
+		});
+		_cabecera._funcionesAdmin._mensajeria.getNuevoMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.clearAll();
+				layout.add(_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion);
+			}
+		});
+		_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.getEnviarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._funcionesAdmin._mensajeria);
+				
+				_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.Enviar_Notificacion();
+			}
+		});
+		
 		_cabecera._funcionesAdmin._modificarEmpleado._empleados.getVerEmpleadoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {

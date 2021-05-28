@@ -23,6 +23,12 @@ public class VistaFuncionesadmin extends PolymerTemplate<VistaFuncionesadmin.Vis
 	private Button addProductoBtn;
 	@Id("modificarEmpleadoBtn")
 	private Button modificarEmpleadoBtn;
+	@Id("contactoBtn")
+	private Button contactoBtn;
+
+	public Button getContactoBtn() {
+		return contactoBtn;
+	}
 
 	public Button getAddCategoriaBtn() {
 		return addCategoriaBtn;
