@@ -8,5 +8,6 @@ public class Producto extends VistaProducto{
 	public Info_Producto _info;
 	
 	public Producto() {
+		_info = new Info_Producto();
 	}
 }

@@ -34,8 +34,8 @@ public class BD_Oferta {
 	public void quitarProductoOferta(int aIdProducto) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		Oferta oferta = this.estaEnOferta(aIdProducto);
 		try {
+			Oferta oferta = OfertaDAO.getOfertaByORMID(aIdProducto);
 			OfertaDAO.delete(oferta);
 			t.commit();
 		} catch (Exception e) {

@@ -30,7 +30,7 @@ public class Compras extends VistaListacomprasanteriores {
 		iCibernauta_Registrado cibernauta = new BDPrincipal();
 		
 		List<appventawebbd.Pendiente> pendientes =  cibernauta.listadoComprasPendientes(ciber.getId());
-		if (pendientes.size() > 0) {
+		if (pendientes != null && pendientes.size() > 0) {
 			for (appventawebbd.Pedido pedido : pendientes) {
 				Compra c = new Compra(pedido);
 				c.getEstadoLbl().setText("Pendiente");
@@ -41,7 +41,7 @@ public class Compras extends VistaListacomprasanteriores {
 		}
 		
 		List<appventawebbd.Entregado> entregadas =  cibernauta.listadoComprasEntregadas(ciber.getId());
-		if (entregadas.size() > 0) {
+		if (entregadas != null && entregadas.size() > 0) {
 			for (appventawebbd.Pedido pedido : cibernauta.listadoComprasEntregadas(ciber.getId())) {
 				Compra c = new Compra(pedido);
 				c.getEstadoLbl().setText("Entregado");
@@ -52,7 +52,7 @@ public class Compras extends VistaListacomprasanteriores {
 		}
 		
 		List<appventawebbd.Enviado> enviadas =  cibernauta.listadoComprasEnviadas(ciber.getId());
-		if (enviadas.size() > 0) {
+		if (enviadas != null && enviadas.size() > 0) {
 			for (appventawebbd.Pedido pedido : cibernauta.listadoComprasEnviadas(ciber.getId())) {
 				Compra c = new Compra(pedido);
 				c.getEstadoLbl().setText("Enviado");

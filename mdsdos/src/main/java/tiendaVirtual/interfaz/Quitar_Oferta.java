@@ -28,9 +28,10 @@ public class Quitar_Oferta extends VistaQuitarproductooferta {
 		this.oferta = oferta;
 		
 		this.getIdProductoLbl().setText("ID; " + oferta.getProducto().getId());
-		this.getPrecioOriginalInput().setValue(oferta.getProducto().getPrecio() + "");
+		this.getPrecioOriginalInput().setValue(oferta.getProducto().getPrecio() + " €");
 		this.getPrecioOriginalInput().setEnabled(false);
-		this.getPrecioFinalInput().setValue(oferta.getPrecio() + "");
+		this.getPrecioFinalInput().setValue(oferta.getPrecio() + " €");
+		this.getFechaFinLbl().setValue(oferta.getFechaFin());
 	}
 	
 	public void QuitarOferta() {
