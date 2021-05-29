@@ -28,5 +28,6 @@ public class Comentar_Producto extends VistaComentarproducto{
 		
 		iCibernauta_Registrado cibernauta = new BDPrincipal();
 		cibernauta.comentarProducto(producto, comentario);
+		cibernauta.ActualizarValoracionMedia(producto.getId());
 	}
 }

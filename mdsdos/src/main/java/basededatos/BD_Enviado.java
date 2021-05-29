@@ -3,6 +3,7 @@ package basededatos;
 import basededatos.BDPrincipal;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
@@ -12,6 +13,7 @@ import org.orm.PersistentTransaction;
 
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Cibernauta;
+import appventawebbd.Entregado;
 import appventawebbd.Enviado;
 import appventawebbd.EnviadoDAO;
 import appventawebbd.Pedido;
@@ -31,7 +33,7 @@ public class BD_Enviado {
 	public List<Enviado> listadoComprasEnviadas(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Enviado> pedidos = null;
+		List<Enviado> pedidos =  new ArrayList<Enviado>();
 		try {
 			pedidos = EnviadoDAO.queryEnviado("Cibernauta='"+aIdCiber+"'", "Fecha");
 			t.commit();
@@ -44,7 +46,7 @@ public class BD_Enviado {
 	public List<Enviado> listadoComprasEnviadas() throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Enviado> pedidos = null;
+		List<Enviado> pedidos = new ArrayList<Enviado>();
 		try {
 			pedidos = EnviadoDAO.queryEnviado(null, "Fecha");
 			t.commit();

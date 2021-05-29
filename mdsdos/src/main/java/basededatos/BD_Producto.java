@@ -2,6 +2,7 @@ package basededatos;
 
 import basededatos.BDPrincipal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -11,10 +12,12 @@ import org.orm.PersistentTransaction;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Categoria;
 import appventawebbd.CategoriaDAO;
+import appventawebbd.Comentario;
 import appventawebbd.Foto;
 import appventawebbd.FotoDAO;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
+import appventawebbd.Pendiente;
 import appventawebbd.Producto;
 import appventawebbd.ProductoCriteria;
 import appventawebbd.ProductoDAO;
@@ -23,6 +26,28 @@ public class BD_Producto {
 	public BDPrincipal _bd_prin_prod;
 	public Vector<Producto> _contiene_productos = new Vector<Producto>();
 
+	public void ActualizarValoracionMedia(int idProducto) throws PersistentException {
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Producto producto = ProductoDAO.loadProductoByORMID(idProducto);
+			double valoracionMedia = 0;
+			
+			if ( producto.comentarios != null &&  producto.comentarios.size() > 0) {
+				for(Comentario c : producto.comentarios.toArray()) {
+					valoracionMedia += c.getValoracion();
+				}
+				valoracionMedia = valoracionMedia / producto.comentarios.size();
+			}
+			producto.setValoracionMedia(valoracionMedia);
+			
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+	}
+	
 	public Producto altaProducto(Producto aProducto, List<String> images) throws PersistentException {
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
@@ -112,7 +137,7 @@ public class BD_Producto {
 		// TODO: Filtrar mas vendidos.
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Producto> productos = null;
+		List<Producto> productos = new ArrayList<Producto>();
 		try {
 			productos = ProductoDAO.queryProducto(null, null);
 			t.commit();
@@ -127,7 +152,7 @@ public class BD_Producto {
 	public List<Producto> listProductos() throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Producto> productos = null;
+		List<Producto> productos =new ArrayList<Producto>();
 		try {
 			productos = ProductoDAO.queryProducto(null, "Nombre");
 			t.commit();

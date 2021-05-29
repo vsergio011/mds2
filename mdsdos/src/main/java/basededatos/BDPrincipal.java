@@ -18,6 +18,7 @@ import appventawebbd.Mensaje;
 // import appventawebbd.Cibernauta;
 import appventawebbd.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.orm.PersistentException;
@@ -59,7 +60,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Categoria>();
 	}
 
 	public Comentario[] listComentarios(int aIdProducto) {
@@ -73,7 +74,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Oferta>();
 	}
 
 	public List<Producto> getProductosMasVendidos() {
@@ -83,7 +84,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Producto>();
 	}
 
 	public List<Producto> listProductos() {
@@ -93,7 +94,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Producto>();
 	}
 
 	public Producto getProducto(int aIdProducto) {
@@ -121,7 +122,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Empleado>();
 	}
 
 	public void modificarEmpleado(appventawebbd.Encargado aEmpleado) {
@@ -174,7 +175,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Pendiente>();
 	}
 
 	public List<Entregado> listadoComprasEntregadas(int aIdCiber) {
@@ -474,7 +475,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Pendiente>();
 	}
 
 	public List<Entregado> listadoComprasEntregadas() {
@@ -484,7 +485,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Entregado>();
 	}
 
 	public List<Enviado> listadoComprasEnviadas() {
@@ -494,7 +495,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return new ArrayList<Enviado>();
 	}
 
 	public Oferta estaEnOferta(int idProducto) {
@@ -505,5 +506,14 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void ActualizarValoracionMedia(int idProducto) {
+		try {
+			_bd_prod.ActualizarValoracionMedia(idProducto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

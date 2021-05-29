@@ -21,7 +21,6 @@ public class BD_Comentario {
 		
 		try {
 			Comentario comentario = ComentarioDAO.createComentario();
-			
 			comentario.setCibernauta(aComentario.getCibernauta());
 			comentario.setProducto(aIdProducto);
 			comentario.setTexto(aComentario.getTexto());

@@ -2,6 +2,7 @@ package basededatos;
 
 import basededatos.BDPrincipal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -9,6 +10,7 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import appventawebbd.AppventawebPersistentManager;
+import appventawebbd.Enviado;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
 import appventawebbd.Producto;
@@ -63,7 +65,7 @@ public class BD_Oferta {
 	public List<Oferta> listOfertas() throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Oferta> ofertas = null;
+		List<Oferta> ofertas = new ArrayList<Oferta>();
 		try {
 			ofertas = OfertaDAO.queryOferta(null, null);
 			t.commit();

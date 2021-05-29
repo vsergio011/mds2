@@ -54,4 +54,6 @@ public interface iCibernauta_Registrado extends iCibernauta {
 	public Producto[] getProductos(int[] aIdItems);
 
 	public void cancelarCompra(Pendiente pedido);
+	
+	public void ActualizarValoracionMedia(int idProducto);
 }
