@@ -11,6 +11,8 @@ import org.orm.PersistentTransaction;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
+import appventawebbd.Producto;
+import appventawebbd.ProductoDAO;
 
 public class BD_Oferta {
 	public BDPrincipal _bd_prin_ofer;
@@ -20,8 +22,9 @@ public class BD_Oferta {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
+			Producto pro = ProductoDAO.loadProductoByORMID(aIdProduc);
 			Oferta oferta = OfertaDAO.createOferta();
-			// oferta.setProducto(aIdProduc);
+			oferta.setORM_Producto(pro);
 			oferta.setFechaFin(aOferta.getFechaFin());
 			oferta.setPrecio(aOferta.getPrecio());
 			OfertaDAO.save(oferta);

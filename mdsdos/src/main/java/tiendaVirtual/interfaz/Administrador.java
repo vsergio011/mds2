@@ -378,14 +378,6 @@ public class Administrador extends VistaCibernauta {
 						// TODO: Hacer mejor lo de los comentarios.
 						layout.add(detalle._comentarios);
 						
-						// TODO: Funcionalidad de añadir a carrito.
-						/*pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-							@Override
-							public void onComponentEvent(ClickEvent<Button> event) {
-								
-							}
-						});*/
-						
 						detalle._comentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
@@ -410,9 +402,6 @@ public class Administrador extends VistaCibernauta {
 				addFuncionalidadProductoCiber(pc);
 				
 				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
-				pc.getAddOffertaBtn().setVisible(true);
-				pc.getQuitarOfertaBtn().setVisible(true);
-				pc.getAddCarritoBtn().setVisible(false);
 				hl.add(pc);
 			}
 		}
@@ -421,6 +410,7 @@ public class Administrador extends VistaCibernauta {
 	private void addFuncionalidadProductoCiber(Producto_Ciber pc) {
 		pc.getAddOffertaBtn().setVisible(false);
 		pc.getQuitarOfertaBtn().setVisible(false);
+		pc.getAddCarritoBtn().setVisible(false);
 		
 		Detalle_Producto_Admin detalle = new Detalle_Producto_Admin(pc.GetProducto());
 		pc._detalleProducto.getUpdateBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -518,7 +508,7 @@ public class Administrador extends VistaCibernauta {
 				
 				layout.add(pc._detalleProducto);
 				
-				pc._detalleProducto.getDeleteBtn().setVisible(true);
+				pc._detalleProducto.getDeleteBtn().setVisible(false);
 				pc._detalleProducto.getAddOfferBtn().setVisible(true);
 				pc._detalleProducto.getUpdateBtn().setVisible(true);
 				pc._detalleProducto.getAnadirACarritoBtn().setVisible(false);
