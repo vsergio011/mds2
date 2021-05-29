@@ -57,6 +57,9 @@ class VistaDetalleproducto extends PolymerElement {
     <vaadin-button style="width: 50%;" id="addOfferBtn">
       Añadir a Ofertas 
     </vaadin-button>
+    <vaadin-button id="btnDeleteProduct">
+     Eliminar
+    </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
