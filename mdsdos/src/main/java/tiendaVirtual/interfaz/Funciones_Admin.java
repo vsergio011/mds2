@@ -15,9 +15,10 @@ public class Funciones_Admin extends VistaFuncionesadmin{
 	public Alta_Producto _altaProducto;
 	public Modificar_Empleado _modificarEmpleado;
 	
-	public Funciones_Admin() {
+	public Funciones_Admin(appventawebbd.Administrador admin) {
 		_altaCategoria = new Alta_Categoria();
 		_altaProducto = new Alta_Producto();
 		_modificarEmpleado = new Modificar_Empleado();
+		_mensajeria = new Mensajeria(admin);
 	}
 }

@@ -26,9 +26,23 @@ public class Cibernauta_Registrado extends Cibernauta {
 		
 		layout.add(_cabecera);
 		layout.add(_ofertasPopulares);
+		_ofertasPopulares.showLess();
 		layout.add(_productosMasVendidos);
 		
-		// TODO: Mirar qué clases son las que deberíamos tener aquí.		
+		_cabecera.getOffertasButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {				
+				layout.removeAll();
+				layout.add(_cabecera);
+				_ofertasPopulares.fillOfertasPopulares();
+				layout.add(_ofertasPopulares);
+				
+				for (Producto_Ciber pc : _ofertasPopulares._producto) {
+					pc.getAddCarritoBtn().setVisible(true);
+					addFuncionalidadProductoCiber(pc, true);					
+				}
+			}
+		});
 		_cabecera.getPerfilBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -52,7 +66,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera);
 				layout.add(_cabecera._carrito._comprar);
 				
-				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems());
+				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems(), _cabecera._carrito.precio);
 			}
 		});
 		_cabecera._carrito._comprar.getBtnCambiarDatosCompra().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -69,9 +83,10 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_ofertasPopulares);
+				_ofertasPopulares.showLess();
 				layout.add(_productosMasVendidos);
 				
-				_cabecera._carrito._comprar.Realizar_Compra(_cabecera._carrito.GetItems(), ciber);
+				_cabecera._carrito._comprar.Realizar_Compra(_cabecera._carrito.GetItems(), ciber, _cabecera._carrito._comprar.precio);
 				_cabecera._carrito.ClearCarrito();
 				_cabecera._perfil._compras.UpdateCompras(ciber);
 			}
@@ -91,7 +106,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera);
 				layout.add(_cabecera._carrito._comprar);
 				
-				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems());
+				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems(), _cabecera._carrito.precio);
 			}
 		});
 		_cabecera._carrito._comprar._cambiarDatosCompra.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -101,7 +116,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.add(_cabecera);
 				layout.add(_cabecera._carrito._comprar);
 				
-				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems());
+				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems(), _cabecera._carrito.precio);
 			}
 		});
 		_cabecera._perfil._cambiarContrasena.getSendBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -179,7 +194,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil);
-				_cabecera._perfil.UpdateCibernauta(ciber.getId());		
+				_cabecera._perfil.UpdateCibernauta(ciber.getId(), ciber.getTipo());		
 			}
 		});
 		_cabecera._perfil._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -280,6 +295,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_ofertasPopulares);
+				_ofertasPopulares.showLess();
 				layout.add(_productosMasVendidos);
 				fillCategories();
 			}
@@ -291,6 +307,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				_productosMasVendidos = new Productos_mas_vendidos();
 				layout.add(_cabecera);
 				layout.add(_ofertasPopulares);
+				_ofertasPopulares.showLess();
 				layout.add(_productosMasVendidos);
 				_cabecera.getCategoriesCombo().clear();
 				fillCategories();
@@ -310,73 +327,90 @@ public class Cibernauta_Registrado extends Cibernauta {
 			vl.add(ldp);
 			for (Producto_Ciber pc: ldp._producto)
 			{
-				pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+				addFuncionalidadProductoCiber(pc, false);
+				
+				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
+				hl.add(pc);
+			}
+		}
+	}
+	
+	private void addFuncionalidadProductoCiber(Producto_Ciber pc, boolean isOferta) {
+		pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				layout.add(pc._detalleProducto);
+				
+				pc._detalleProducto.getDeleteBtn().setVisible(false);
+				pc._detalleProducto.getAddOfferBtn().setVisible(false);
+				pc._detalleProducto.getUpdateBtn().setVisible(false);
+				
+				pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
 						layout.removeAll();
 						layout.add(_cabecera);
 						
-						layout.add(pc._detalleProducto);
+						// TODO: Hacer mejor lo de los comentarios.
+						layout.add(pc._detalleProducto._verComentarios);
 						
-						pc._detalleProducto.getDeleteBtn().setVisible(false);
-						pc._detalleProducto.getAddOfferBtn().setVisible(false);
-						pc._detalleProducto.getUpdateBtn().setVisible(false);
-						
-						pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-							@Override
-							public void onComponentEvent(ClickEvent<Button> event) {
-								layout.removeAll();
-								layout.add(_cabecera);
-								
-								// TODO: Hacer mejor lo de los comentarios.
-								layout.add(pc._detalleProducto._verComentarios);
-								
-								// TODO: Funcionalidad de añadir a carrito.
-								pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										
-									}
-								});
-								
-								pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										layout.removeAll();
-										layout.add(_cabecera);
-										layout.add(pc._detalleProducto);
-									}
-								});
-								pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
-									}
-								});
-							}
-						});
-						
-						// Añadir a carrito.
-						pc._detalleProducto.getAnadirACarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+						// TODO: Funcionalidad de añadir a carrito.
+						pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
 							}
 						});
-					}
-				});
-				pc.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
+						
+						pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								layout.add(pc._detalleProducto);
+							}
+						});
+						pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								if (isOferta) {
+									_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarritoOferta());
+								} else {
+									_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
+								}
+							}
+						});
 					}
 				});
 				
-				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
-				pc.getAddOffertaBtn().setVisible(false);
-				pc.getQuitarOfertaBtn().setVisible(false);
-				hl.add(pc);
+				// Añadir a carrito.
+				pc._detalleProducto.getAnadirACarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						if (isOferta) {
+							_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarritoOferta());
+						} else {
+							_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
+						}
+					}
+				});
 			}
-		}
+		});
+		pc.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				if (isOferta) {
+					_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarritoOferta());
+				} else {
+					_cabecera._carrito.AddProductoCarrito(pc._detalleProducto.GetProductocarrito());
+				}
+			}
+		});
+		
+		pc.getAddOffertaBtn().setVisible(false);
+		pc.getQuitarOfertaBtn().setVisible(false);
 	}
 }

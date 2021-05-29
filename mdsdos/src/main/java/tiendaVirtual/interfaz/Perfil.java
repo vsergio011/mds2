@@ -49,5 +49,7 @@ public class Perfil extends VistaPerfil {
 		this.getComprasRealizadasBtn().setVisible(false);
 		this.getContactoBtn().setVisible(false);
 		this.getBorrarCuentaBtn().setVisible(false);
+		
+		this.getImg().setSrc(admin.getFoto());
 	}
 }

@@ -2,6 +2,7 @@ package tiendaVirtual.interfaz;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -64,8 +65,7 @@ public class Administrador extends VistaCibernauta {
 				_cabecera.LoadCategories();
 				fillCategories();
 			}
-		});		
-		
+		});
 		_cabecera.getPerfilBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -88,6 +88,12 @@ public class Administrador extends VistaCibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil._cambiarContrasena);
+			}
+		});
+		_cabecera._perfil.getDesconectarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				UI.getCurrent().getPage().reload();
 			}
 		});
 		_cabecera._perfil._cambiarContrasena.getSendBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -120,6 +126,8 @@ public class Administrador extends VistaCibernauta {
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._perfil);
+				
+				_cabecera._perfil._modificar.UpdateUsuario(admin.getId(), admin.getTipo());
 			}
 		});
 		
@@ -188,6 +196,44 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera._funcionesAdmin._modificarEmpleado._empleados);
 			}
 		});
+		_cabecera._funcionesAdmin.getContactoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._funcionesAdmin._mensajeria);
+			}
+		});		 
+		_cabecera._funcionesAdmin._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				appventawebbd.Mensaje msg = _cabecera._funcionesAdmin._mensajeria.GetSelected();
+				_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.fillNotificacion(msg);
+				layout.add(_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion);
+			}
+		});
+		_cabecera._funcionesAdmin._mensajeria.getNuevoMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.clearAll();
+				layout.add(_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion);
+			}
+		});
+		_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.getEnviarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(_cabecera._funcionesAdmin._mensajeria);
+				
+				_cabecera._funcionesAdmin._mensajeria._nueva_Notificacion.Enviar_Notificacion();
+			}
+		});
+		
 		_cabecera._funcionesAdmin._modificarEmpleado._empleados.getVerEmpleadoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -211,14 +257,6 @@ public class Administrador extends VistaCibernauta {
 						layout.add(_perfilEmpleado);
 					}
 				});
-				_perfilEmpleado.getAceptarCambiosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(_perfilEmpleado);
-					}
-				});
 				_perfilEmpleado.getBorrarCuentaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
@@ -235,12 +273,13 @@ public class Administrador extends VistaCibernauta {
 						layout.add(_cabecera);
 						_cabecera._funcionesAdmin._modificarEmpleado._empleados.FillEmpleados();
 						layout.add(_cabecera._funcionesAdmin._modificarEmpleado._empleados);
+						_perfilEmpleado.UpdateUsuario(selected.getId(), selected.getTipo());
 					}
 				});
 				
 				layout.removeAll();
 				layout.add(_cabecera);
-				layout.add(_perfilEmpleado);				
+				layout.add(_perfilEmpleado);		
 			}
 		});
 			

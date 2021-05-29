@@ -95,12 +95,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 				layout.add(_cabecera._login._registro);
 			}
 		});
-		_cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				// TODO: ¿A donde debería llevar este botón?
-			}
-		});
 		
 		/**************************************************************************/
 		/******************* Botones de la vista de registro **********************/
@@ -123,10 +117,6 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 					layout.add(_cabecera);
 					layout.add(_cabecera._login);
 				}
-				
-				
-				// TODO: Descomentar cuando teng funcionalidad el método.
-				// _cabecera._login._registro.Validar_contrasena();
 			}
 		});
 		

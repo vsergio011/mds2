@@ -31,18 +31,8 @@ public class Perfil_Cibernauta extends Perfil {
 		fillCibernautaData(ciber);
 	}
 	
-	public void UpdateCibernauta(int idCiber) {
-		iCibernauta_Registrado cibernauta = new BDPrincipal();
-		
-		appventawebbd.Cibernauta ciber = new appventawebbd.Cibernauta();
-		ciber.setApellidos(_modificar.getLbApellidos().getValue());
-		ciber.setCorreoElectronico(_modificar.getLbEmail().getValue());
-		ciber.setDireccionCompleta(_modificar.getLbDireccion().getValue());
-		ciber.setFormaPago(_modificar.getLbDatosDePago().getValue());
-		ciber.setFoto(_modificar.getImg().getSrc());
-		ciber.setNombre(_modificar.getLbNombre().getValue());
-		ciber.setUsuario(_modificar.getLbNombreUsuario().getValue());
-		cibernauta.modificarDatos(idCiber, ciber);
+	public void UpdateCibernauta(int idCiber, int tipo) {
+		_modificar.UpdateUsuario(idCiber, tipo);
 		
 		this.fillCibernautaData(ciber);
 		_modificar.fillData(ciber);

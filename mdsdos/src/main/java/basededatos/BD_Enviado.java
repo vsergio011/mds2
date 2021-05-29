@@ -74,9 +74,8 @@ public class BD_Enviado {
 	public void AddPedidoEnviado(Pedido pedido, Transportista transportista) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		Transportista trans = getTransportista();
-		
-		try {
+		try {			
+			Transportista trans = TransportistaDAO.loadTransportistaByORMID(2);
 			Enviado enviado = EnviadoDAO.createEnviado();
 			enviado.setCibernauta(pedido.getCibernauta());
 			enviado.setDireccion(pedido.getCibernauta().getDireccionCompleta());
@@ -94,19 +93,5 @@ public class BD_Enviado {
 		} catch (Exception e) {
 			t.rollback();
 		}
-	}
-	private Transportista getTransportista()  throws PersistentException {
-		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
-				
-		try {
-			List<Transportista> trans = TransportistaDAO.queryTransportista(null, null);
-			if (trans.size() > 0 ) {
-				return trans.get(0);
-			}
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		}
-		return null;
 	}
 }

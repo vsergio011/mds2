@@ -27,6 +27,9 @@ class VistaFuncionesadmin extends PolymerElement {
   <vaadin-button id="modificarEmpleadoBtn" class="btnmenu" style="width: 100%;">
     Modificar empleado 
   </vaadin-button>
+  <vaadin-button id="contactoBtn" class="btnmenu" style="width: 100%;">
+   Contacto
+  </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

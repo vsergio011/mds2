@@ -96,21 +96,21 @@ public class BD_Cibernauta {
 		}
 	}
 
-	public void modificarDatos(int idCiber, Cibernauta aCiber) throws PersistentException {
+	public void modificarDatos(int idCiber, Usuario aCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			Cibernauta ciber = CibernautaDAO.loadCibernautaByORMID(idCiber);
+			Usuario ciber = UsuarioDAO.loadUsuarioByORMID(idCiber);
 			ciber.setApellidos(aCiber.getApellidos());
 			ciber.setCorreoElectronico(aCiber.getCorreoElectronico());
 			ciber.setDireccionCompleta(aCiber.getDireccionCompleta());
 			ciber.setFormaPago(aCiber.getFormaPago());
 			ciber.setFoto(aCiber.getFoto());
-			ciber.setNombre(aCiber.getNombre());
-			ciber.setTipo(0);
+			ciber.setNombre(aCiber.getNombre());			
+			ciber.setTipo(aCiber.getTipo());
 			ciber.setOperativo(true);
 			ciber.setUsuario(aCiber.getUsuario());			
-			CibernautaDAO.save(ciber);
+			UsuarioDAO.save(ciber);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

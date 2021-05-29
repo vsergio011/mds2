@@ -104,9 +104,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public appventawebbd.Producto altaProducto(Producto aProducto) {
+	public appventawebbd.Producto altaProducto(Producto aProducto, List<String> images) {
 		try {
-			return _bd_prod.altaProducto(aProducto);
+			return _bd_prod.altaProducto(aProducto, images);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -242,7 +242,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificarDatos(int idCiber, appventawebbd.Cibernauta aCiber) {
+	public void modificarDatos(int idCiber, appventawebbd.Usuario aCiber) {
 		try {
 			_bd_ciber.modificarDatos(idCiber, aCiber);
 		} catch (PersistentException e) {
@@ -439,9 +439,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber) {
+	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber, double precio) {
 		try {
-			return _bd_pend.RealizaCompra(aItems, aCiber);
+			return _bd_pend.RealizaCompra(aItems, aCiber, precio);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -23,7 +23,7 @@ public class BD_Producto {
 	public BDPrincipal _bd_prin_prod;
 	public Vector<Producto> _contiene_productos = new Vector<Producto>();
 
-	public Producto altaProducto(Producto aProducto) throws PersistentException {
+	public Producto altaProducto(Producto aProducto, List<String> images) throws PersistentException {
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		Producto pro = null;
@@ -40,6 +40,15 @@ public class BD_Producto {
 				foto = incomingFoto;
 			}
 			pro.setFotos(foto);
+			
+			for (String f : images) {
+				Foto image = FotoDAO.createFoto();
+				image.setProductoFoto(aProducto);
+				image.setRuta(f);
+				// FotoDAO.save(foto);
+				
+				pro.fotosProducto.add(image);
+			}
 			
 			pro.setNombre(aProducto.getNombre());
 			pro.setPrecio(aProducto.getPrecio());

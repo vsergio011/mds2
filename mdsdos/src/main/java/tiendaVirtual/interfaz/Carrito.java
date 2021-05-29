@@ -13,11 +13,17 @@ public class Carrito extends VistaCarrito {
 	private Object _precioL;
 	public Carrito_de_la_compra _productos;
 
+	public double precio = 0;
 	public void Actualizar_total() {
 		double precio = 0;		
-		for (appventawebbd.Item item : _productos.GetItems()) {
+		/*for (appventawebbd.Item item : _productos.GetItems()) {
 			precio += item.getProducto().getPrecio() * item.getCantidad();
+		}*/
+		for (Producto_Carrito pc : _productos._producto) {
+			double price = pc.precioOferta != 0 ? pc.precioOferta : pc.GetItem().getProducto().getPrecio();
+			precio += price * pc.GetItem().getCantidad();
 		}
+		this.precio = precio;
 		this.getPriceLbl().setText(new DecimalFormat("#.##").format(precio) + " €");
 	}
 	
