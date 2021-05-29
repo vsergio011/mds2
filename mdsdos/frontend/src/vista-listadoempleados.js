@@ -16,7 +16,7 @@ class VistaListadoempleados extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-l);">
  <label style="font-weight: bold; align-self: center;">Listado de empleados </label>
  <vaadin-vertical-layout theme="spacing" style="align-self: center; height: 20%;"></vaadin-vertical-layout>
- <vaadin-text-field placeholder="Buscar empleado.." style="width: 50%; align-self: center;" id="vaadinTextField">
+ <vaadin-text-field placeholder="Buscar empleado.." style="width: 50%; align-self: center;visibility:hidden" id="vaadinTextField">
   <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
  </vaadin-text-field>
  <vaadin-vertical-layout theme="spacing" style="align-self: center; height: 10%;"></vaadin-vertical-layout>
