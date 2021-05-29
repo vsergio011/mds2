@@ -7,6 +7,7 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.html.Input;
+import com.vaadin.flow.dom.Element;
 
 /**
  * A Designer generated component for the vista-recuperarcontrasena template.
@@ -30,6 +31,12 @@ public class VistaRecuperarcontrasena extends PolymerTemplate<VistaRecuperarcont
 	private Button continueBtn;
 	@Id("emailInput")
 	private Input emailInput;
+	@Id("layoutEmailNoValido")
+	private Element layoutEmailNoValido;
+
+	public Element getLayoutEmailNoValido() {
+		return layoutEmailNoValido;
+	}
 
 	/**
      * Creates a new VistaRecuperarcontrasena.

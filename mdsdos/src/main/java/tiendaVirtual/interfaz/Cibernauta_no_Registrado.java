@@ -123,9 +123,12 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		/**************************************************************************/
 		/************** Botones de la vista de recuperar password *****************/
 		/**************************************************************************/
-		_cabecera._login._recuperarContrasena.getSendBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		_cabecera._login._recuperarContrasena.getContinueBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				if (!_cabecera._login._recuperarContrasena.ValidarEmail()) {
+					return;
+				}
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._login._recuperarContrasena._nuevaContrasena);
@@ -137,6 +140,11 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 		_cabecera._login._recuperarContrasena._nuevaContrasena.getContinueBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				if (!_cabecera._login._recuperarContrasena._nuevaContrasena.Validar_contrasena()) {
+					return;
+				}
+				_cabecera._login._recuperarContrasena.UpdatePassword(_cabecera._login._recuperarContrasena.GetEmail());
+				
 				layout.removeAll();
 				layout.add(_cabecera);
 				layout.add(_cabecera._login);
