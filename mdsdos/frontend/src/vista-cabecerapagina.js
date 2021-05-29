@@ -34,7 +34,7 @@ class VistaCabecerapagina extends PolymerElement {
   <vaadin-button id="offertasButton" class="btnheader">
     Ofertas 
   </vaadin-button>
-  <vaadin-text-field placeholder="Search" style="width: 45%;" id="searchInput">
+  <vaadin-text-field placeholder="Search" style="width: 45%;visibility:hidden" id="searchInput">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
   </vaadin-text-field>
   <vaadin-button id="btnLogin" class="btnheader">
