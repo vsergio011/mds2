@@ -356,6 +356,15 @@ public class Administrador extends VistaCibernauta {
 				layout.add(detalle._quitarOferta);						
 			}
 		});
+		detalle.getBtnBorradoProducto().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+										
+				detalle.BorrarProducto(pc.GetOferta().getProducto());
+			}
+		});
 		pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -420,6 +429,16 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera);
 				
 				layout.add(detalle._modificar);						
+			}
+		});
+		detalle.getBtnBorradoProducto().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+										
+				System.out.println("ENTROO");
+				detalle.BorrarProducto(pc.GetProducto());
 			}
 		});
 		detalle._modificar.getAddBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

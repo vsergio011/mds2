@@ -1,8 +1,8 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/vaadin-button/src/vaadin-button.js';
 
 class VistaDetalleproducto extends PolymerElement {
 
@@ -49,16 +49,16 @@ class VistaDetalleproducto extends PolymerElement {
       Añadir a carrito 
     </vaadin-button>
    </vaadin-vertical-layout>
-   <vaadin-vertical-layout theme="spacing" style="width: 100%;">
+   <vaadin-vertical-layout style="width: 100%; justify-content: center;">
     <label style="width: 50%; align-self: flex-start;background-color:#dbdee2" id="priceLAbel"></label>
+    <vaadin-button id="btnBorradoProducto">
+     Borrar producto
+    </vaadin-button>
     <vaadin-button style="margin-top: var(--lumo-space-l); width: 50%; align-self: flex-start;" id="deleteBtn">
       Quitar ofertas 
     </vaadin-button>
     <vaadin-button style="width: 50%;" id="addOfferBtn">
       Añadir a Ofertas 
-    </vaadin-button>
-    <vaadin-button id="btnDeleteProduct">
-     Eliminar
     </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>

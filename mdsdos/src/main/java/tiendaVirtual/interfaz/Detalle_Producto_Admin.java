@@ -40,4 +40,9 @@ public class Detalle_Producto_Admin extends Detalle_Producto {
 		
 		this.fillImgs(producto.getProducto());
 	}
+	
+	public void BorrarProducto(appventawebbd.Producto producto) {
+		iAdministrador bd = new BDPrincipal();
+		bd.borrarProducto(producto);
+	}
 }

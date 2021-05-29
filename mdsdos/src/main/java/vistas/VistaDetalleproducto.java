@@ -89,17 +89,17 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 	private TextArea vaadinTextArea;
 	@Id("lyimagenesLateral")
 	private Element lyimagenesLateral;
-	@Id("btnDeleteProduct")
-	private Button btnDeleteProduct;
+	@Id("btnBorradoProducto")
+	private Button btnBorradoProducto;
+
+	public Button getBtnBorradoProducto() {
+		return btnBorradoProducto;
+	}
 
 	public Element getLyimagenesLateral() {
 		return lyimagenesLateral;
 	}
 	
-	public Button getbtnDeleteProduct() {
-		return btnDeleteProduct;
-	}
-
 	/**
      * Creates a new VistaDetalleproducto.
      */

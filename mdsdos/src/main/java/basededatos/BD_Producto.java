@@ -15,6 +15,7 @@ import appventawebbd.CategoriaDAO;
 import appventawebbd.Comentario;
 import appventawebbd.Foto;
 import appventawebbd.FotoDAO;
+import appventawebbd.Item;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
 import appventawebbd.Pendiente;
@@ -125,7 +126,19 @@ public class BD_Producto {
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			ProductoDAO.delete(aProducto);
+			List<Foto> fotos = FotoDAO.queryFoto("ProductoId='"+aProducto.getId()+"'", null);
+			for (Foto f : fotos) {
+				FotoDAO.delete(f);
+			}
+			
+			List<Oferta> ofertas = OfertaDAO.queryOferta("ProductoId='"+aProducto.getId()+"'", null);
+			for (Oferta o : ofertas) {
+				OfertaDAO.delete(o);
+			}
+			
+			Producto pro = ProductoDAO.getProductoByORMID(aProducto.getId());
+			
+			ProductoDAO.delete(pro);
 			t2.commit();
 		} catch (Exception e) {
 			t2.rollback();
