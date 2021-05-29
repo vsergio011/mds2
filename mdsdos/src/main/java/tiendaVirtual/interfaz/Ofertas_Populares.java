@@ -20,6 +20,10 @@ public class Ofertas_Populares extends VistaOfertaspopulares {
 		fillOfertasPopulares();
 	}
 	
+	public Ofertas_Populares(int id) {
+		
+	}
+	
 	public void showLess() {
 		for(Producto_Ciber p : _producto) {
 			p.getMoreInfoBtn().setVisible(false);

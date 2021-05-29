@@ -12,4 +12,15 @@ public class Producto_Admin extends Producto {
 	public void Esta_en_oferta() {
 		throw new UnsupportedOperationException();
 	}
+	
+	private appventawebbd.Oferta oferta = null;
+	public Producto_Admin(appventawebbd.Oferta oferta) {
+		this.oferta = oferta;
+		
+		_quitarOferta = new Quitar_Oferta(oferta);
+	}
+	
+	public appventawebbd.Oferta GetOferta() { 
+		return this.oferta;
+	}
 }

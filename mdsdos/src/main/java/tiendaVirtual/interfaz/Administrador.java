@@ -30,6 +30,19 @@ public class Administrador extends VistaCibernauta {
 		layout.add(_ofertas);
 		layout.add(_listaPmV);
 		
+		_cabecera.getOffertasButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {				
+				layout.removeAll();
+				layout.add(_cabecera);
+				_ofertas.fillOfertasPopulares();
+				layout.add(_ofertas);
+				
+				for (Producto_Admin pc : _ofertas._producto) {
+					addFuncionalidadProductoAdmin(pc);				
+				}
+			}
+		});
 		_cabecera.getAdminBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
@@ -286,6 +299,107 @@ public class Administrador extends VistaCibernauta {
 		fillCategories();
 	}
 	
+	private void addFuncionalidadProductoAdmin(Producto_Admin pc) {
+		pc.getAddOffertaBtn().setVisible(false);
+		
+		Detalle_Producto_Admin detalle = new Detalle_Producto_Admin(pc.GetOferta());
+		detalle.getUpdateBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				layout.add(detalle._modificar);						
+			}
+		});
+		detalle._modificar.getAddBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				layout.add(detalle);	
+				detalle._modificar.GuardarProducto(pc.GetOferta().getProducto());
+			}
+		});
+		detalle._quitarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle);
+			}
+		});
+		detalle._quitarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle);
+										
+				detalle._quitarOferta.QuitarOferta();
+			}
+		});
+		pc.getQuitarOfertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle._quitarOferta);	
+			}
+		});
+		detalle.getDeleteBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle._quitarOferta);						
+			}
+		});
+		pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				layout.add(detalle);
+				
+				detalle.getDeleteBtn().setVisible(true);
+				detalle.getAddOfferBtn().setVisible(false);
+				detalle.getUpdateBtn().setVisible(true);
+				detalle.getAnadirACarritoBtn().setVisible(false);
+				
+				detalle.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						
+						// TODO: Hacer mejor lo de los comentarios.
+						layout.add(detalle._comentarios);
+						
+						// TODO: Funcionalidad de añadir a carrito.
+						/*pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								
+							}
+						});*/
+						
+						detalle._comentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								layout.add(detalle);
+							}
+						});
+					}
+				});
+			}
+		});
+	}
+	
 	private void fillCategories() {
 		for (Lista_de_Productos ldp: _listaPmV._listaProductos)
 		{
@@ -293,139 +407,7 @@ public class Administrador extends VistaCibernauta {
 			vl.add(ldp);
 			for (Producto_Ciber pc: ldp._producto)
 			{
-				pc.getAddOffertaBtn().setVisible(false);
-				pc.getQuitarOfertaBtn().setVisible(false);
-				
-				Detalle_Producto_Admin detalle = new Detalle_Producto_Admin(pc.GetProducto());
-				pc._detalleProducto.getUpdateBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						
-						layout.add(detalle._modificar);						
-					}
-				});
-				detalle._modificar.getAddBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						
-						layout.add(pc._detalleProducto);	
-						detalle._modificar.GuardarProducto(pc.GetProducto());
-					}
-				});
-				pc._detalleProducto.getAddOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(detalle._agregarOferta);
-					}
-				});
-				detalle._agregarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(pc._detalleProducto);
-						
-						detalle._agregarOferta.AgregarOferta(pc.GetProducto());
-					}
-				});
-				detalle._agregarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(pc._detalleProducto);
-					}
-				});
-				detalle._quitarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(pc._detalleProducto);
-					}
-				});
-				detalle._quitarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(pc._detalleProducto);
-												
-						detalle._quitarOferta.QuitarOferta();
-					}
-				});
-				pc.getQuitarOfertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(detalle._quitarOferta);	
-					}
-				});
-				pc.getAddOffertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(detalle._agregarOferta);		
-					}
-				});
-				pc._detalleProducto.getDeleteBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						layout.add(detalle._quitarOferta);						
-					}
-				});
-				pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-					@Override
-					public void onComponentEvent(ClickEvent<Button> event) {
-						layout.removeAll();
-						layout.add(_cabecera);
-						
-						layout.add(pc._detalleProducto);
-						
-						pc._detalleProducto.getDeleteBtn().setVisible(true);
-						pc._detalleProducto.getAddOfferBtn().setVisible(true);
-						pc._detalleProducto.getUpdateBtn().setVisible(true);
-						pc._detalleProducto.getAnadirACarritoBtn().setVisible(false);
-						
-						pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-							@Override
-							public void onComponentEvent(ClickEvent<Button> event) {
-								layout.removeAll();
-								layout.add(_cabecera);
-								
-								// TODO: Hacer mejor lo de los comentarios.
-								layout.add(pc._detalleProducto._verComentarios);
-								
-								// TODO: Funcionalidad de añadir a carrito.
-								pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										
-									}
-								});
-								
-								pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-									@Override
-									public void onComponentEvent(ClickEvent<Button> event) {
-										layout.removeAll();
-										layout.add(_cabecera);
-										layout.add(pc._detalleProducto);
-									}
-								});
-							}
-						});
-					}
-				});
+				addFuncionalidadProductoCiber(pc);
 				
 				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
 				pc.getAddOffertaBtn().setVisible(true);
@@ -435,5 +417,130 @@ public class Administrador extends VistaCibernauta {
 			}
 		}
 	}
-
+	
+	private void addFuncionalidadProductoCiber(Producto_Ciber pc) {
+		pc.getAddOffertaBtn().setVisible(false);
+		pc.getQuitarOfertaBtn().setVisible(false);
+		
+		Detalle_Producto_Admin detalle = new Detalle_Producto_Admin(pc.GetProducto());
+		pc._detalleProducto.getUpdateBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				layout.add(detalle._modificar);						
+			}
+		});
+		detalle._modificar.getAddBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				layout.add(pc._detalleProducto);	
+				detalle._modificar.GuardarProducto(pc.GetProducto());
+			}
+		});
+		pc._detalleProducto.getAddOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle._agregarOferta);
+			}
+		});
+		detalle._agregarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(pc._detalleProducto);
+				
+				detalle._agregarOferta.AgregarOferta(pc.GetProducto());
+			}
+		});
+		detalle._agregarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(pc._detalleProducto);
+			}
+		});
+		detalle._quitarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(pc._detalleProducto);
+			}
+		});
+		detalle._quitarOferta.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(pc._detalleProducto);
+										
+				detalle._quitarOferta.QuitarOferta();
+			}
+		});
+		pc.getQuitarOfertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle._quitarOferta);	
+			}
+		});
+		pc.getAddOffertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle._agregarOferta);		
+			}
+		});
+		pc._detalleProducto.getDeleteBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				layout.add(detalle._quitarOferta);						
+			}
+		});
+		pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+			@Override
+			public void onComponentEvent(ClickEvent<Button> event) {
+				layout.removeAll();
+				layout.add(_cabecera);
+				
+				layout.add(pc._detalleProducto);
+				
+				pc._detalleProducto.getDeleteBtn().setVisible(true);
+				pc._detalleProducto.getAddOfferBtn().setVisible(true);
+				pc._detalleProducto.getUpdateBtn().setVisible(true);
+				pc._detalleProducto.getAnadirACarritoBtn().setVisible(false);
+				
+				pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+					@Override
+					public void onComponentEvent(ClickEvent<Button> event) {
+						layout.removeAll();
+						layout.add(_cabecera);
+						layout.add(pc._detalleProducto._verComentarios);
+						
+						pc._detalleProducto._verComentarios.getBackProductBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+							@Override
+							public void onComponentEvent(ClickEvent<Button> event) {
+								layout.removeAll();
+								layout.add(_cabecera);
+								layout.add(pc._detalleProducto);
+							}
+						});
+					}
+				});
+			}
+		});
+	}
 }
