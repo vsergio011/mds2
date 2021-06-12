@@ -135,7 +135,7 @@ public class BD_Cibernauta {
 		
 		Usuario usuario = null;
 		try {
-			usuario = CibernautaDAO.getCibernautaByORMID(aId);
+			usuario = UsuarioDAO.getUsuarioByORMID(aId);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();

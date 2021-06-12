@@ -392,6 +392,16 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 		return null;
 	}
+	
+	public appventawebbd.Usuario getUsuario(int aUser) {
+		try {
+			return _bd_ciber.getUsuario(aUser);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public void registro(Usuario aUser) {
 		throw new UnsupportedOperationException();

@@ -7,6 +7,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import Helpers.Cookies;
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta_Registrado;
 
@@ -185,6 +186,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 		_cabecera._perfil.getDesconectarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				Cookies.ClearCookies();
 				UI.getCurrent().getPage().reload();
 			}
 		});
@@ -351,6 +353,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				pc._detalleProducto.getViewComentsBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
+						pc._detalleProducto.getBtnBorradoProducto().setVisible(false);
 						layout.removeAll();
 						layout.add(_cabecera);
 						

@@ -12,6 +12,8 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
+import Helpers.Cookies;
+import Helpers.Cookies.TipoUsuario;
 import appventawebbd.*;
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta_no_Registrado;
@@ -45,6 +47,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
 public class MainView extends VerticalLayout {
 
+	private Cookies cookies = null;
     /**
      * Construct a new Vaadin view.
      * <p>
@@ -53,62 +56,51 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
+    	cookies = new Cookies();
+    	
+    	boolean exists = false;
+    	switch (cookies.getTipoUsuario()) {
+		case ADMINISTRADOR:
+			Administrador admin = cookies.getAdministrador();
+			tiendaVirtual.interfaz.Administrador administrador = new tiendaVirtual.interfaz.Administrador(admin);
+			cookies.AddCookies(admin.getId(), TipoUsuario.ADMINISTRADOR);
+			add(administrador);
+			exists = true;
+			
+			break;
+		case CIBERNAUTA:
+			Cibernauta ciber = cookies.getCibernauta();
+			Cibernauta_Registrado cr = new Cibernauta_Registrado(ciber);
+			cookies.AddCookies(ciber.getId(), TipoUsuario.CIBERNAUTA);
+			add(cr);
+			exists = true;
+			
+			break;
+			
+		case ENCARGADOCOMPRAS:
+			Encargado encar = cookies.getEncargadoCompras();
+			tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado(encar);
+			cookies.AddCookies(encar.getId(), TipoUsuario.ENCARGADOCOMPRAS);
+			add(encargado);
+			exists = true;
+			
+			break;
+			
+		case TRANSPORTISTA:
+			Transportista transpor = cookies.getTransportista();
+			tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista(transpor);
+			cookies.AddCookies(transpor.getId(), TipoUsuario.TRANSPORTISTA);
+			add(transportista);
+			exists = true;
+			
+			break;
+		}
+    	if (exists) {
+    		return;
+    	}
+    	
     	Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
     	add(cnr);
-    	
-    	/*tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador();
-		add(admin);*/
-		
-		/*Cibernauta_Registrado cr = new Cibernauta_Registrado(1);
-		add(cr);*/
-    	
-    	/*cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				BDPrincipal bd = new BDPrincipal();
-				String user = cnr._cabecera._login.getUsernameLbl().getValue();
-				String password = cnr._cabecera._login.getPasswordLbl().getValue();
-				
-				Cibernauta ci = bd.getUsuarioLogin(user, password);
-				if (ci != null) {
-					Cibernauta_Registrado cr = new Cibernauta_Registrado(ci.getId());
-					add(cr);
-				}
-				
-			}
-		});*/
-    	
-    	/*cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
-			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				removeAll();	
-				BDPrincipal bd = new BDPrincipal();
-				String user = cnr._cabecera._login.getUsernameLbl().getValue();
-				String password = cnr._cabecera._login.getPasswordLbl().getValue();
-				
-				switch (user) {
-				case "cibernauta":
-					Cibernauta_Registrado cr = new Cibernauta_Registrado((Cibernauta) bd.getUsuarioEmail("foo1@example.com"));
-					add(cr);
-					appventawebbd.Usuario usu;
-					break;
-				case "admin":
-					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador((appventawebbd.Administrador) bd.getUsuarioEmail("foo2@example.com"));
-					add(admin);
-					break;
-				case "encargado":
-					tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado((appventawebbd.Encargado) bd.getUsuarioEmail("foo3@example.com"));
-					add(encargado);
-					break;
-				case "transportista":
-					tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista((appventawebbd.Transportista) bd.getUsuarioEmail("foo4@example.com"));
-					add(transportista);
-					break;
-				}				
-			}
-		});*/
-    	
-    	
     	
     	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
@@ -141,6 +133,7 @@ public class MainView extends VerticalLayout {
 				// Ciber
 				case 0:
 					Cibernauta_Registrado cr = new Cibernauta_Registrado((Cibernauta) user);
+					cookies.AddCookies(user.getId(), TipoUsuario.CIBERNAUTA);
 					add(cr);
 					break;
 					
@@ -148,18 +141,21 @@ public class MainView extends VerticalLayout {
 				case 1:
 					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador((appventawebbd.Administrador) user);
 					add(admin);
+					cookies.AddCookies(user.getId(), TipoUsuario.ADMINISTRADOR);
 					break;
 					
 				// Encargado
 				case 2:
 					tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado((appventawebbd.Encargado) user);
 					add(encargado);
+					cookies.AddCookies(user.getId(), TipoUsuario.ENCARGADOCOMPRAS);
 					break;
 					
 				// Transportista
 				case 3:
 					tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista((appventawebbd.Transportista) user);
 					add(transportista);
+					cookies.AddCookies(user.getId(), TipoUsuario.TRANSPORTISTA);
 					break;
 				}
 			}

@@ -25,27 +25,27 @@ public class CreateAppventawebData {
 		// PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		try {
 			Cibernauta ciber = CibernautaDAO.createCibernauta();
-            ciber.setNombre("PEPITO");
+            ciber.setNombre("UAL");
             ciber.setPassword("1234");
-            ciber.setApellidos("VERA FERNANDEZ");
+            ciber.setApellidos("MDS2 ASIGNATURA");
             ciber.setOperativo(true);
             ciber.setCorreoElectronico("foo1@example.com");
             ciber.setUsuario("user");
             ciber.setFoto("https://img1.freepng.es/20180319/row/kisspng-computer-icons-google-account-user-profile-iconfin-png-icons-download-profile-5ab0301d8907a6.3404305715214960935613.jpg");
-            ciber.setDireccionCompleta("calle falsa 123");
+            ciber.setDireccionCompleta("Direccion falsa 123");
             ciber.setFormaPago("TARJETA");
             ciber.setTipo(0);
             CibernautaDAO.save(ciber);
             
             Transportista transportista = TransportistaDAO.createTransportista();
-            transportista.setNombre("Transportistilla");
-            transportista.setPassword("65");
-            transportista.setApellidos("BAZ BAR FOO");
+            transportista.setNombre("Transportista Alvaro");
+            transportista.setPassword("1234");
+            transportista.setApellidos("Fernandez Alvarez");
             transportista.setOperativo(true);
             transportista.setCorreoElectronico("foo4@example.com");
-            transportista.setUsuario("transpor");
+            transportista.setUsuario("transportista");
             transportista.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
-            transportista.setDireccionCompleta("calle falsa 123");
+            transportista.setDireccionCompleta("Direccion falsa 321");
             transportista.setFormaPago("TARJETA");
             transportista.setTipo(3);
             TransportistaDAO.save(transportista);
@@ -129,27 +129,27 @@ public class CreateAppventawebData {
 			}*/
 			
 			Administrador admin = AdministradorDAO.createAdministrador();
-			admin.setNombre("Morenito");
-			admin.setPassword("65");
-			admin.setApellidos("FOO BAR BAZ");
+			admin.setNombre("Administrador Paco");
+			admin.setPassword("1234");
+			admin.setApellidos("Vera Perez");
 			admin.setOperativo(true);
 			admin.setCorreoElectronico("foo2@example.com");
 			admin.setUsuario("admin");
 			admin.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
-			admin.setDireccionCompleta("calle falsa 123");
+			admin.setDireccionCompleta("Direccion admin 123");
 			admin.setFormaPago("TARJETA");
 			admin.setTipo(1);
 			AdministradorDAO.save(admin);
 			
 			Encargado encar = EncargadoDAO.createEncargado();
-			encar.setNombre("Encargadito");
-			encar.setPassword("65");
-			encar.setApellidos("BAZ BAR FOO");
+			encar.setNombre("Encargada Tamara");
+			encar.setPassword("1234");
+			encar.setApellidos("Jimenez Montoya");
 			encar.setOperativo(true);
 			encar.setCorreoElectronico("foo3@example.com");
-			encar.setUsuario("encar");
+			encar.setUsuario("encargado");
 			encar.setFoto("https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg");
-			encar.setDireccionCompleta("calle falsa 123");
+			encar.setDireccionCompleta("Direccion encargada 123");
 			encar.setFormaPago("TARJETA");
 			encar.setTipo(2);
 			EncargadoDAO.save(encar);

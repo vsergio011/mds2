@@ -182,6 +182,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 			vl.add(ldp);
 			for (Producto_Ciber pc: ldp._producto)
 			{
+				pc._detalleProducto.getBtnBorradoProducto().setVisible(false);
 				pc.getMoreInfoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
