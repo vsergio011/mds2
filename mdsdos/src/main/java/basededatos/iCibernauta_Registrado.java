@@ -35,11 +35,11 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public void comentarProducto(Producto aIdProduct, Comentario aComentario);
 
-	public List<Pendiente> listadoComprasPendientes(int aIdCiber);
+	public Pendiente[] listadoComprasPendientes(int aIdCiber);
 
-	public List<Entregado> listadoComprasEntregadas(int aIdCiber);
+	public Entregado[] listadoComprasEntregadas(int aIdCiber);
 
-	public List<Enviado> listadoComprasEnviadas(int aIdCiber);
+	public Enviado[] listadoComprasEnviadas(int aIdCiber);
 
 	public boolean isPedidoEnviado(int aId);
 

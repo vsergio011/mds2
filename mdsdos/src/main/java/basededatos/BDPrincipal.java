@@ -182,34 +182,37 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Pendiente> listadoComprasPendientes(int aIdCiber) {
+	public Pendiente[] listadoComprasPendientes(int aIdCiber) {
+		Pendiente[] pedidos = {};
 		try {
-			return _bd_pend.listadoComprasPendientes(aIdCiber);
+			pedidos =  _bd_pend.listadoComprasPendientes(aIdCiber);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ArrayList<Pendiente>();
+		return pedidos;
 	}
 
-	public List<Entregado> listadoComprasEntregadas(int aIdCiber) {
+	public Entregado[] listadoComprasEntregadas(int aIdCiber) {
+		Entregado[] pedidos = {};
 		try {
-			return _bd_entr.listadoComprasEntregadas(aIdCiber);
+			pedidos = _bd_entr.listadoComprasEntregadas(aIdCiber);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return pedidos;
 	}
 
-	public List<appventawebbd.Enviado> listadoComprasEnviadas(int aIdCiber) {
+	public Enviado[] listadoComprasEnviadas(int aIdCiber) {
+		Enviado[] pedidos = {};
 		try {
-			return _bd_env.listadoComprasEnviadas(aIdCiber);
+			pedidos = _bd_env.listadoComprasEnviadas(aIdCiber);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return pedidos;
 	}
 
 	public void anadirAOferta(int aIdProducto, Oferta aOferta) {
@@ -524,34 +527,37 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public List<Pendiente> listadoComprasPendientes() {
+	public Pendiente[] listadoComprasPendientes() {
+		Pendiente[] pedidos = {};
 		try {
-			return _bd_pend.listadoComprasPendientes();
+			pedidos = _bd_pend.listadoComprasPendientes();
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ArrayList<Pendiente>();
+		return pedidos;
 	}
 
-	public List<Entregado> listadoComprasEntregadas() {
+	public Entregado[] listadoComprasEntregadas() {
+		Entregado[] pedidos = {};
 		try {
-			return _bd_entr.listadoComprasEntregadas();
+			pedidos = _bd_entr.listadoComprasEntregadas();
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ArrayList<Entregado>();
+		return pedidos;
 	}
 
-	public List<Enviado> listadoComprasEnviadas() {
+	public Enviado[] listadoComprasEnviadas() {
+		Enviado[] pedidos = {};
 		try {
-			return _bd_env.listadoComprasEnviadas();
+			pedidos = _bd_env.listadoComprasEnviadas();
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ArrayList<Enviado>();
+		return pedidos;
 	}
 
 	public Oferta estaEnOferta(int idProducto) {

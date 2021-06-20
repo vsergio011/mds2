@@ -12,11 +12,11 @@ import appventawebbd.Transportista;
 public interface iEncargado {
 	void AddPedidoEnviado(Pedido pedido, Transportista transportista);
 	
-	public List<Pendiente> listadoComprasPendientes();
+	public Pendiente[] listadoComprasPendientes();
 
-	public List<Entregado> listadoComprasEntregadas();
+	public Entregado[] listadoComprasEntregadas();
 
-	public List<Enviado> listadoComprasEnviadas();
+	public Enviado[] listadoComprasEnviadas();
 	
 	public Mensaje[] getMensajesRecibidos(int aId);
 	

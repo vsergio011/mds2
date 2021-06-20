@@ -23,7 +23,10 @@ public class Producto_Carrito extends Producto_Pedido {
 		this.getVaadinComboBox().setItems("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
 		
 		item = new appventawebbd.Item();
-		item.setProducto(p);
+		System.out.println("ID PRODUCTO : " + p.getId());
+		
+		
+		item.setORM_Producto(p);
 		
 		int cantidad = this.getVaadinComboBox().getValue() == null ? 1 :Integer.parseInt(this.getVaadinComboBox().getValue());
 		item.setCantidad(cantidad);

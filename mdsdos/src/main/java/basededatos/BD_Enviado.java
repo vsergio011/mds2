@@ -14,7 +14,10 @@ import org.orm.PersistentTransaction;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Cibernauta;
 import appventawebbd.Entregado;
+import appventawebbd.EntregadoCriteria;
+import appventawebbd.EntregadoDAO;
 import appventawebbd.Enviado;
+import appventawebbd.EnviadoCriteria;
 import appventawebbd.EnviadoDAO;
 import appventawebbd.Pedido;
 import appventawebbd.Pendiente;
@@ -30,14 +33,15 @@ public class BD_Enviado {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Enviado> listadoComprasEnviadas(int aIdCiber) throws PersistentException {
+	public Enviado[] listadoComprasEnviadas(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Enviado> pedidos =  new ArrayList<Enviado>();
+		Enviado[] pedidos = {};
 		try {
-			pedidos = EnviadoDAO.queryEnviado("Cibernauta='"+aIdCiber+"'", "Fecha");
+			pedidos = EnviadoDAO.listEnviadoByQuery("CibernautaUsuarioId='"+aIdCiber+"'", "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -45,14 +49,15 @@ public class BD_Enviado {
 		return pedidos;
 	}
 	
-	public List<Enviado> listadoComprasEnviadas() throws PersistentException {
+	public Enviado[] listadoComprasEnviadas() throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Enviado> pedidos = new ArrayList<Enviado>();
+		Enviado[] pedidos = {};
 		try {
-			pedidos = EnviadoDAO.queryEnviado(null, "Fecha");
+			pedidos = EnviadoDAO.listEnviadoByQuery(null, "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -72,6 +77,7 @@ public class BD_Enviado {
 			pedido = EnviadoDAO.loadEnviadoByORMID(aId);
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -99,6 +105,7 @@ public class BD_Enviado {
 			
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

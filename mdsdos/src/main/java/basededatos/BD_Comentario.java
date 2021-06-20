@@ -30,6 +30,7 @@ public class BD_Comentario {
 			ComentarioDAO.save(comentario);
 			t2.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -46,6 +47,7 @@ public class BD_Comentario {
 			comentarios = ComentarioDAO.listComentarioByCriteria(criteria);
 			t2.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

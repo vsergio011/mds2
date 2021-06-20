@@ -35,6 +35,7 @@ public class BD__Mensaje {
 			
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -52,6 +53,7 @@ public class BD__Mensaje {
 			
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -71,6 +73,7 @@ public class BD__Mensaje {
 			
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

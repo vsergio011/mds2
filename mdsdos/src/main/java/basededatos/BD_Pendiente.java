@@ -22,6 +22,7 @@ import appventawebbd.Oferta;
 import appventawebbd.Pedido;
 import appventawebbd.PedidoDAO;
 import appventawebbd.Pendiente;
+import appventawebbd.PendienteCriteria;
 import appventawebbd.PendienteDAO;
 
 public class BD_Pendiente {
@@ -33,7 +34,7 @@ public class BD_Pendiente {
 		
 		try {
 			Pendiente pedido = PendienteDAO.createPendiente();
-			pedido.setCibernauta(aCiber);
+			pedido.setORM_Cibernauta(aCiber);
 			pedido.setDireccion(aCiber.getDireccionCompleta());
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,7 +60,7 @@ public class BD_Pendiente {
 			
 			return pedido;
 		} catch (Exception e) {
-			System.out.println("EXCETION::::");
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -71,14 +72,15 @@ public class BD_Pendiente {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Pendiente> listadoComprasPendientes(int aIdCiber) throws PersistentException {
+	public Pendiente[] listadoComprasPendientes(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Pendiente> pedidos = new ArrayList<Pendiente>();
-		try {
-			pedidos = PendienteDAO.queryPendiente("Cibernauta='"+aIdCiber+"'", "Fecha");
+		Pendiente[] pedidos = {};
+		try {			
+			pedidos = PendienteDAO.listPendienteByQuery("CibernautaUsuarioId='"+aIdCiber+"'", "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -86,14 +88,15 @@ public class BD_Pendiente {
 		return pedidos;
 	}
 	
-	public List<Pendiente> listadoComprasPendientes() throws PersistentException {
+	public Pendiente[] listadoComprasPendientes() throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Pendiente> pedidos =new ArrayList<Pendiente>();
+		Pendiente[] pedidos = {};
 		try {
-			pedidos = PendienteDAO.queryPendiente(null, "Fecha");
+			pedidos = PendienteDAO.listPendienteByQuery(null, "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -117,6 +120,7 @@ public class BD_Pendiente {
 			pedido = PendienteDAO.loadPendienteByQuery("PedidoId='"+aId+"'", null);
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -134,6 +138,7 @@ public class BD_Pendiente {
 			PendienteDAO.delete(pedido);
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

@@ -44,6 +44,7 @@ public class BD_Producto {
 			
 			t2.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -83,6 +84,7 @@ public class BD_Producto {
 			ProductoDAO.save(pro);
 			t2.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -115,6 +117,7 @@ public class BD_Producto {
 			
 			t2.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -141,6 +144,7 @@ public class BD_Producto {
 			ProductoDAO.delete(pro);
 			t2.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -155,6 +159,7 @@ public class BD_Producto {
 			productos = ProductoDAO.queryProducto(null, null);
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -170,6 +175,7 @@ public class BD_Producto {
 			productos = ProductoDAO.queryProducto(null, "Nombre");
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -191,6 +197,7 @@ public class BD_Producto {
 			
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -207,6 +214,7 @@ public class BD_Producto {
 			productos = ProductoDAO.listProductoByCriteria(criteria);
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

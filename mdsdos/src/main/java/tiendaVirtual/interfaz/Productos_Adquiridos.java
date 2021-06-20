@@ -16,6 +16,8 @@ public class Productos_Adquiridos extends VistaDetallecompra {
 	
 	public Productos_Adquiridos(appventawebbd.Pedido pedido) {
 		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
+		vl.removeAll();
+		_productoAdquirido.clear();
 		
 		iCibernauta_Registrado bd = new BDPrincipal();
 		for (appventawebbd.Item item : bd.getItemsPedido(pedido.getId())) {
@@ -25,10 +27,8 @@ public class Productos_Adquiridos extends VistaDetallecompra {
 		}
 		
 		this.getTotal().setValue(pedido.getTotal() + " €");
-		
-		// TODO: Esto debe ser con una condicion de si se ha enviado o no.
 		this.getCancelarCompraBtn().setEnabled(false);
 		this.getLabel().setText(pedido.getFechaPedido());
 		this.getIdPedido().setText("ID: " + pedido.getId());
-	}
+	}	
 }

@@ -29,6 +29,7 @@ public class BD_Fotos {
 			fotos = FotoDAO.listFotoByCriteria(criteria);
 			t2.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

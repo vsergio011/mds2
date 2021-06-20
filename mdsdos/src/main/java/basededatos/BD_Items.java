@@ -30,10 +30,13 @@ public class BD_Items {
 		Item[] items = {};
 		try {
 			ItemCriteria criteria = new ItemCriteria();
+			criteria.pedidoId.eq(aIdPedido);
 			
 			items = ItemDAO.listItemByCriteria(criteria);
+
 			t.commit();
 		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
