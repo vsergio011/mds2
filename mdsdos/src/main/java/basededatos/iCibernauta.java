@@ -31,4 +31,6 @@ public interface iCibernauta {
 	public Usuario getUsuarioEmail(String email);
 	
 	public void nuevaNotificacion(Usuario remitente, Usuario destinatario, String asunto, String cuerpo);
+	
+	public Producto[] getProductos(int idCategoria);
 }

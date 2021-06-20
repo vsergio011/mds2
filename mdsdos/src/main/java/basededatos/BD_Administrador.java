@@ -31,6 +31,7 @@ public class BD_Administrador {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return empleados;
 	}

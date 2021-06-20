@@ -26,6 +26,7 @@ public class BD_Categoria {
 		} catch (Exception e) {
 			t2.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return categorias;
 	}
@@ -42,6 +43,8 @@ public class BD_Categoria {
 		} catch (Exception e) {
 			t2.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return cat;
 	}
 }

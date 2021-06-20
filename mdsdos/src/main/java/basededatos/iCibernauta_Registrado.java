@@ -23,7 +23,9 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public void modificarDatos(int idCiber, Usuario aCiber);
 
-	public Mensaje[] getMensajes(int aId);
+	public Mensaje[] getMensajesRecibidos(int aId);
+	
+	public Mensaje[] getMensajesEnviados(int aId);
 
 	public Cibernauta getCibernauta(int aId);
 
@@ -50,8 +52,6 @@ public interface iCibernauta_Registrado extends iCibernauta {
 	public Entregado getPedidoEntregado(int aId);
 
 	public Item[] getItemsPedido(int aIdPedido);
-
-	public Producto[] getProductos(int[] aIdItems);
 
 	public void cancelarCompra(Pendiente pedido);
 	

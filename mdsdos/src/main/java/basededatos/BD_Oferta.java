@@ -34,6 +34,7 @@ public class BD_Oferta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
 	public void quitarProductoOferta(int aIdProducto) throws PersistentException {
@@ -46,6 +47,7 @@ public class BD_Oferta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 	
 	public Oferta estaEnOferta(int idProducto) throws PersistentException {
@@ -58,6 +60,7 @@ public class BD_Oferta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return oferta;
 	}
@@ -72,6 +75,7 @@ public class BD_Oferta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return ofertas;
 	}

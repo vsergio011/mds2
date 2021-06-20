@@ -64,7 +64,14 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public Comentario[] listComentarios(int aIdProducto) {
-		throw new UnsupportedOperationException();
+		Comentario[] coment = {};
+		try {
+			coment = _bd_com.listComentarios(aIdProducto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return coment;
 	}
 
 	public List<Oferta> getOfertasPopulares() {
@@ -102,7 +109,14 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public Foto[] getFotosProducto(int aIdProducto) {
-		throw new UnsupportedOperationException();
+		Foto[] fotos = {};
+		try {
+			fotos = _bd_fotos.getFotosProducto(aIdProducto);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return fotos;
 	}
 
 	public appventawebbd.Producto altaProducto(Producto aProducto, List<String> images) {
@@ -252,8 +266,26 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public Mensaje[] getMensajes(int aId) {
-		throw new UnsupportedOperationException();
+	public Mensaje[] getMensajesEnviados(int idUsuario) {
+		Mensaje[] mensajes = {};
+		try {
+			mensajes =  _bd__mens.getMensajesEnviados(idUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mensajes;
+	}
+	
+	public Mensaje[] getMensajesRecibidos(int idUsuario) {
+		Mensaje[] mensajes = {};
+		try {
+			mensajes =  _bd__mens.getMensajesRecibidos(idUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mensajes;
 	}
 
 	public appventawebbd.Cibernauta getCibernauta(int aId) {
@@ -333,11 +365,25 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 	}
 
 	public Item[] getItemsPedido(int aIdPedido) {
-		throw new UnsupportedOperationException();
+		Item[] items = {};
+		try {
+			items = _bd_items.getItemsPedido(aIdPedido);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return items;
 	}
 
-	public Producto[] getProductos(int[] aIdItems) {
-		throw new UnsupportedOperationException();
+	public Producto[] getProductos(int idCategoria) {
+		Producto[] productos = {};
+		try {
+			productos = _bd_prod.getProductos(idCategoria);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return productos;
 	}
 
 	public void cancelarCompra(Pendiente pedido) {

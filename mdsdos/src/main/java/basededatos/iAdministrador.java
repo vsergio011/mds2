@@ -5,6 +5,7 @@ import appventawebbd.Empleado;
 import appventawebbd.Encargado;
 import appventawebbd.Pedido;
 import appventawebbd.Item;
+import appventawebbd.Mensaje;
 import appventawebbd.Pendiente;
 import appventawebbd.Entregado;
 import appventawebbd.Enviado;
@@ -53,4 +54,8 @@ public interface iAdministrador {
 	public void anadirFoto(int aIdProducto, String aImage);
 	
 	public Oferta estaEnOferta(int idProducto);
+	
+	public Mensaje[] getMensajesRecibidos(int aId);
+	
+	public Mensaje[] getMensajesEnviados(int aId);
 }

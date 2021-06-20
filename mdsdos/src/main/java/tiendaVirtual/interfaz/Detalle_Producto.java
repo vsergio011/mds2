@@ -3,6 +3,8 @@ package tiendaVirtual.interfaz;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import basededatos.BDPrincipal;
+import basededatos.iCibernauta;
 import vistas.VistaDetalleproducto;
 
 public class Detalle_Producto  extends VistaDetalleproducto {
@@ -25,7 +27,10 @@ public class Detalle_Producto  extends VistaDetalleproducto {
 	public void fillImgs(appventawebbd.Producto producto) {
 		VerticalLayout vl = this.getLyimagenesLateral().as(VerticalLayout.class);		
 		vl.removeAll();
-		for (appventawebbd.Foto img : producto.fotosProducto.toArray()) {
+		
+		iCibernauta bd = new BDPrincipal();
+		
+		for (appventawebbd.Foto img : bd.getFotosProducto(producto.getId())) {
 			Image image = new Image(img.getRuta(), "DummyImage");
             image.setWidth("50px");
 			vl.add(image);

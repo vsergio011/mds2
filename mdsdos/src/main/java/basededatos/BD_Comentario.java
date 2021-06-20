@@ -8,6 +8,7 @@ import org.orm.PersistentTransaction;
 
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Comentario;
+import appventawebbd.ComentarioCriteria;
 import appventawebbd.ComentarioDAO;
 import appventawebbd.Producto;
 import appventawebbd.ProductoDAO;
@@ -31,9 +32,24 @@ public class BD_Comentario {
 		} catch (Exception e) {
 			t2.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
-	public Comentario[] listComentarios(int aIdProducto) {
-		throw new UnsupportedOperationException();
+	public Comentario[] listComentarios(int aIdProducto) throws PersistentException {
+		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Comentario[] comentarios = {};
+		try {
+			ComentarioCriteria criteria = new ComentarioCriteria();
+			criteria.productoId.eq(aIdProducto);
+			
+			comentarios = ComentarioDAO.listComentarioByCriteria(criteria);
+			t2.commit();
+		} catch (Exception e) {
+			t2.rollback();
+		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
+		return comentarios;
 	}
 }

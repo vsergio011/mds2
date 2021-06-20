@@ -16,7 +16,9 @@ public class Lista_de_Productos extends VistaListadeproductos {
 	public Categorias _categorias;
 	
 	public Lista_de_Productos(Categoria cat) {
-		for(appventawebbd.Producto p: cat.productos.toArray()) {
+		iCibernauta bd = new BDPrincipal();
+		
+		for(appventawebbd.Producto p: bd.getProductos(cat.getId())) {
 			Producto_Ciber pc = new Producto_Ciber(p);
 			pc.getImgProducto().setHeight("150px");
 			pc.getImgProducto().setWidth("200px");

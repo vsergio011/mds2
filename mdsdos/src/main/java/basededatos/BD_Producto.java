@@ -196,7 +196,21 @@ public class BD_Producto {
 		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
-	public Producto[] getProductos(int[] aIdItems) {
-		throw new UnsupportedOperationException();
+	public Producto[] getProductos(int idCategoria) throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Producto[] productos = {};
+		try {
+			ProductoCriteria criteria = new ProductoCriteria();
+			criteria.categoriaId.eq(idCategoria);
+			
+			productos = ProductoDAO.listProductoByCriteria(criteria);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
+		return productos;
 	}
 }

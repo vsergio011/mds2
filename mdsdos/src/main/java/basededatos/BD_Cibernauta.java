@@ -42,6 +42,7 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		return u;
 	}
 
@@ -75,6 +76,7 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return ciber;        
 	}
@@ -94,6 +96,7 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
 	public void modificarDatos(int idCiber, Usuario aCiber) throws PersistentException {
@@ -115,6 +118,7 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
 	public Cibernauta getCibernauta(int aId) throws PersistentException {
@@ -127,6 +131,8 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return ciber;
 	}
 	
@@ -140,6 +146,8 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return usuario;
 	}
 
@@ -155,6 +163,7 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
 	public void cambiarImagen(int aIdCiber, String aImagen) {
@@ -180,6 +189,8 @@ public class BD_Cibernauta {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return u;
 	}
 

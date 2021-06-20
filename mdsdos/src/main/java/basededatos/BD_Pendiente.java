@@ -62,6 +62,8 @@ public class BD_Pendiente {
 			System.out.println("EXCETION::::");
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return null;
 	}
 
@@ -79,6 +81,8 @@ public class BD_Pendiente {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return pedidos;
 	}
 	
@@ -92,6 +96,8 @@ public class BD_Pendiente {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return pedidos;
 	}
 
@@ -113,6 +119,8 @@ public class BD_Pendiente {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return pedido;
 	}
 
@@ -128,5 +136,6 @@ public class BD_Pendiente {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 }

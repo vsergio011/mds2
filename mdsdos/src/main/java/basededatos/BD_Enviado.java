@@ -40,6 +40,8 @@ public class BD_Enviado {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return pedidos;
 	}
 	
@@ -53,6 +55,8 @@ public class BD_Enviado {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return pedidos;
 	}
 
@@ -70,6 +74,8 @@ public class BD_Enviado {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		
 		return pedido;
 	}
 	
@@ -95,5 +101,6 @@ public class BD_Enviado {
 		} catch (Exception e) {
 			t.rollback();
 		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 }
