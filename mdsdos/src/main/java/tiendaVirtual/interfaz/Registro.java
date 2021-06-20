@@ -11,11 +11,14 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
+import Helpers.Notifications;
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta_no_Registrado;
 import vistas.VistaRegistro;
@@ -49,14 +52,16 @@ public class Registro extends VistaRegistro {
 	public Carrito_no_Registrado _carrito;
 	public HorizontalLayout subirHoriz;
 	MemoryBuffer memoryBuffer;
+	
 	public boolean Validar_contrasena() {
-		 String regex = "^(?=.*[0-9])"
+		 /* String regex = "^(?=.*[0-9])"
                  + "(?=.*[a-z])(?=.*[A-Z])"
                  + "(?=.*[@#$%^&+=])"
                  + "(?=\\S+$).{8,20}$";
+                 */
 		 
 		 if (this.getPassword().getValue().isEmpty()) {
-			 System.out.println("Empty Password");
+			 Helpers.Notifications.ShowAlert("La contraseña no puede estar vacía.", Notifications.NotificationType.ERROR);
 			 return false;
 		 }	
 		 
@@ -73,7 +78,7 @@ public class Registro extends VistaRegistro {
 			img = this.getImg().getSrc();
 		}
 		
-		return ciber.Registrar(
+		appventawebbd.Cibernauta c = ciber.Registrar(
 				this.getNombreLbl().getValue(), 
 				this.getApellidosLbl().getValue(), 
 				this.getEmailLbl().getValue(), 
@@ -82,6 +87,12 @@ public class Registro extends VistaRegistro {
 				this.getDatosPagolbl().getValue(),
 				this.getUserLbl().getValue(), 
 				this.getPassword().getValue());
+		if (c == null) {
+			Helpers.Notifications.ShowAlert("Error al crear usuario. Intentelo de nuevo.", Notifications.NotificationType.ERROR);
+		} else {
+			Helpers.Notifications.ShowAlert("Usuario creado correctamente.", Notifications.NotificationType.INFORMATION);
+		}
+		return c;
 	}
 	
 	public Registro() {

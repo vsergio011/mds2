@@ -13,6 +13,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
 import Helpers.Cookies;
+import Helpers.Notifications;
 import Helpers.Cookies.TipoUsuario;
 import appventawebbd.*;
 import basededatos.BDPrincipal;
@@ -104,9 +105,7 @@ public class MainView extends VerticalLayout {
     	
     	cnr._cabecera._login.getLoginBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
-			public void onComponentEvent(ClickEvent<Button> event) {
-				removeAll();
-				
+			public void onComponentEvent(ClickEvent<Button> event) {				
 				String username = cnr._cabecera._login.getUsernameLbl().getValue();
 				String password = cnr._cabecera._login.getPasswordLbl().getValue();
 				
@@ -117,30 +116,33 @@ public class MainView extends VerticalLayout {
 					user = bd.getUsuarioEmail(username);
 				}
 				if (user == null) {
-					System.out.println("USER NOT FOUND: " + username);
-					Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
-			    	add(cnr);
+					Helpers.Notifications.ShowAlert("Usuario no encontrado: " + username, Notifications.NotificationType.ERROR);
+					/*Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
+			    	add(cnr);*/
 					return;
 				}
 				if (!user.getPassword().equals(password)) {
-					System.out.println("BAD PASSWORD: " + password);
-					Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
-			    	add(cnr);
+					Helpers.Notifications.ShowAlert("Contraseña erronea.", Notifications.NotificationType.ERROR);
+					/*Cibernauta_no_Registrado cnr = new Cibernauta_no_Registrado();
+			    	add(cnr);*/
 					return;
 				}
 				
+				removeAll();
 				switch(user.getTipo()) {
 				// Ciber
 				case 0:
 					Cibernauta_Registrado cr = new Cibernauta_Registrado((Cibernauta) user);
 					cookies.AddCookies(user.getId(), TipoUsuario.CIBERNAUTA);
 					add(cr);
+					Helpers.Notifications.ShowAlert("Bienvenido Cibernauta!", Notifications.NotificationType.INFORMATION);
 					break;
 					
 				// Admin
 				case 1:
 					tiendaVirtual.interfaz.Administrador admin = new tiendaVirtual.interfaz.Administrador((appventawebbd.Administrador) user);
 					add(admin);
+					Helpers.Notifications.ShowAlert("Bienvenido Admin!", Notifications.NotificationType.INFORMATION);
 					cookies.AddCookies(user.getId(), TipoUsuario.ADMINISTRADOR);
 					break;
 					
@@ -148,6 +150,7 @@ public class MainView extends VerticalLayout {
 				case 2:
 					tiendaVirtual.interfaz.Encargado encargado = new tiendaVirtual.interfaz.Encargado((appventawebbd.Encargado) user);
 					add(encargado);
+					Helpers.Notifications.ShowAlert("Bienvenido Encargado!", Notifications.NotificationType.INFORMATION);
 					cookies.AddCookies(user.getId(), TipoUsuario.ENCARGADOCOMPRAS);
 					break;
 					
@@ -155,6 +158,7 @@ public class MainView extends VerticalLayout {
 				case 3:
 					tiendaVirtual.interfaz.Transportista transportista = new tiendaVirtual.interfaz.Transportista((appventawebbd.Transportista) user);
 					add(transportista);
+					Helpers.Notifications.ShowAlert("Bienvenido Transportista!", Notifications.NotificationType.INFORMATION);
 					cookies.AddCookies(user.getId(), TipoUsuario.TRANSPORTISTA);
 					break;
 				}

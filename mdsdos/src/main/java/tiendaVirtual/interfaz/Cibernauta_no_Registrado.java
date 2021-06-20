@@ -7,6 +7,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import Helpers.Notifications;
+
 // import basededatos.iCibernauta_no_Registrado;
 
 public class Cibernauta_no_Registrado extends Cibernauta {
@@ -103,8 +105,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._login);
+				layout.add(_cabecera, _cabecera._login);
 			}
 		});
 		_cabecera._login._registro.getCreateAccountBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -114,8 +115,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 					_cabecera._login._registro.CrearUsuario();
 					
 					layout.removeAll();
-					layout.add(_cabecera);
-					layout.add(_cabecera._login);
+					layout.add(_cabecera, _cabecera._login);
 				}
 			}
 		});
@@ -130,8 +130,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 					return;
 				}
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._login._recuperarContrasena._nuevaContrasena);
+				layout.add(_cabecera, _cabecera._login._recuperarContrasena._nuevaContrasena);
 				
 				// TODO: Descomentar cuando teng funcionalidad el método.
 				// _cabecera._login._recuperarContrasena.Enviar_Link();
@@ -146,8 +145,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 				_cabecera._login._recuperarContrasena.UpdatePassword(_cabecera._login._recuperarContrasena.GetEmail());
 				
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._login);
+				layout.add(_cabecera, _cabecera._login);
 				
 				// TODO: Descomentar cuando teng funcionalidad el método.
 				//_cabecera._login._recuperarContrasena._nuevaContrasena.Validar_contrasena();
@@ -157,8 +155,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._login);
+				layout.add(_cabecera, _cabecera._login);
 			}
 		});
 		
@@ -169,8 +166,7 @@ public class Cibernauta_no_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._login);
+				layout.add(_cabecera, _cabecera._login);
 			}
 		});
 	}

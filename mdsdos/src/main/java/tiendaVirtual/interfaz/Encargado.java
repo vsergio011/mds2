@@ -6,6 +6,7 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import Helpers.Cookies;
 import vistas.VistaEncargado;
 // import basededatos.iEncargado;
 
@@ -21,13 +22,13 @@ public class Encargado extends VistaEncargado {
 		_listadoCompras = new Listado_de_Compras__Encargado_();
 		containerPrincipal = this.getmainContainer();
 		
-		containerPrincipal.add(_cabecera);
-		containerPrincipal.add(_listadoCompras);
+		containerPrincipal.add(_cabecera, _listadoCompras);
 		AddListenerButtons();
 		
 		_cabecera.getbtnCerraSesion().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				Cookies.ClearCookies();
 				UI.getCurrent().getPage().reload();
 			}
 		});
@@ -35,8 +36,7 @@ public class Encargado extends VistaEncargado {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				containerPrincipal.removeAll();
-				containerPrincipal.add(_cabecera);
-				containerPrincipal.add(_listadoCompras);
+				containerPrincipal.add(_cabecera, _listadoCompras);
 				AddListenerButtons();
 			}
 		});
@@ -44,35 +44,31 @@ public class Encargado extends VistaEncargado {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				containerPrincipal.removeAll();
-				containerPrincipal.add(_cabecera);
-				containerPrincipal.add(_cabecera._mensajeria);
+				containerPrincipal.add(_cabecera, _cabecera._mensajeria);
 			}
 		});
 		_cabecera._mensajeria.getVerMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				containerPrincipal.removeAll();
-				containerPrincipal.add(_cabecera);
 				appventawebbd.Mensaje msg = _cabecera._mensajeria.GetSelected();
 				_cabecera._mensajeria._nueva_Notificacion.fillNotificacion(msg);
-				containerPrincipal.add(_cabecera._mensajeria._nueva_Notificacion);
+				containerPrincipal.add(_cabecera, _cabecera._mensajeria._nueva_Notificacion);
 			}
 		});
 		_cabecera._mensajeria.getNuevoMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				containerPrincipal.removeAll();
-				containerPrincipal.add(_cabecera);
 				_cabecera._mensajeria._nueva_Notificacion.clearAll();
-				containerPrincipal.add(_cabecera._mensajeria._nueva_Notificacion);
+				containerPrincipal.add(_cabecera, _cabecera._mensajeria._nueva_Notificacion);
 			}
 		});
 		_cabecera._mensajeria._nueva_Notificacion.getEnviarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				containerPrincipal.removeAll();
-				containerPrincipal.add(_cabecera);
-				containerPrincipal.add(_cabecera._mensajeria);
+				containerPrincipal.add(_cabecera, _cabecera._mensajeria);
 				
 				_cabecera._mensajeria._nueva_Notificacion.Enviar_Notificacion();
 			}
@@ -123,8 +119,7 @@ public class Encargado extends VistaEncargado {
 				@Override
 				public void onComponentEvent(ClickEvent<Button> event) {
 					containerPrincipal.removeAll();
-					containerPrincipal.add(_cabecera);
-					containerPrincipal.add(elemento._detalles);
+					containerPrincipal.add(_cabecera, elemento._detalles);
 				}
 			});
 			elemento._detalles.getAprobarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

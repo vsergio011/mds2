@@ -25,10 +25,8 @@ public class Cibernauta_Registrado extends Cibernauta {
 		_productosMasVendidos = new Productos_mas_vendidos();
 		_cabecera = new Cabecera_Registrado(ciber);
 		
-		layout.add(_cabecera);
-		layout.add(_ofertasPopulares);
+		layout.add(_cabecera, _ofertasPopulares, _productosMasVendidos);
 		_ofertasPopulares.showLess();
-		layout.add(_productosMasVendidos);
 		
 		_cabecera.getOffertasButton().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
@@ -48,24 +46,21 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil);
+				layout.add(_cabecera, _cabecera._perfil);
 			}
 		});
 		_cabecera.getBtnCarrito().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._carrito);
+				layout.add(_cabecera, _cabecera._carrito);
 			}
 		});
 		_cabecera._carrito.getComprarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._carrito._comprar);
+				layout.add(_cabecera, _cabecera._carrito._comprar);
 				
 				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems(), _cabecera._carrito.precio);
 			}
@@ -74,16 +69,14 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._carrito._comprar._cambiarDatosCompra);
+				layout.add(_cabecera, _cabecera._carrito._comprar._cambiarDatosCompra);
 			}
 		});
 		_cabecera._carrito._comprar.getBtnRealizarCompra().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_ofertasPopulares);
+				layout.add(_cabecera, _ofertasPopulares);
 				_ofertasPopulares.showLess();
 				layout.add(_productosMasVendidos);
 				
@@ -96,16 +89,14 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._carrito);
+				layout.add(_cabecera, _cabecera._carrito);
 			}
 		});
 		_cabecera._carrito._comprar._cambiarDatosCompra.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._carrito._comprar);
+				layout.add(_cabecera, _cabecera._carrito._comprar);
 				
 				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems(), _cabecera._carrito.precio);
 			}
@@ -114,8 +105,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._carrito._comprar);
+				layout.add(_cabecera, _cabecera._carrito._comprar);
 				
 				_cabecera._carrito._comprar.ShowDatosCompra(_cabecera._carrito.GetItems(), _cabecera._carrito.precio);
 			}
@@ -124,16 +114,14 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil._cambiarContrasena._nuevaContrasena);
+				layout.add(_cabecera, _cabecera._perfil._cambiarContrasena._nuevaContrasena);
 			}
 		});
 		_cabecera._perfil.getContactoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil._mensajeria);
+				layout.add(_cabecera, _cabecera._perfil._mensajeria);
 			}
 		});
 
@@ -141,8 +129,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil._cambiarContrasena);
+				layout.add(_cabecera, _cabecera._perfil._cambiarContrasena);
 			}
 		});
 		_cabecera._perfil._cambiarContrasena._nuevaContrasena.getContinueBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -154,8 +141,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				_cabecera._perfil.UpdatePasswordCibernauta(ciber.getId());
 				
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil);
+				layout.add(_cabecera, _cabecera._perfil);
 				
 			}
 		});
@@ -163,23 +149,22 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil);
+				layout.add(_cabecera, _cabecera._perfil);
 			}
 		});
 		_cabecera._perfil.getModificarDatosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
 				// _cabecera._perfil._modificar.showLess();
-				layout.add(_cabecera._perfil._modificar);
+				layout.add(_cabecera, _cabecera._perfil._modificar);
 			}
 		});
 		_cabecera._perfil.getBorrarCuentaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				_cabecera._perfil.Borrar_cuenta();
+				Cookies.ClearCookies();
 				UI.getCurrent().getPage().reload();
 			}
 		});
@@ -194,8 +179,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil);
+				layout.add(_cabecera, _cabecera._perfil);
 				_cabecera._perfil.UpdateCibernauta(ciber.getId(), ciber.getTipo());		
 			}
 		});
@@ -203,27 +187,24 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
 				appventawebbd.Mensaje msg = _cabecera._perfil._mensajeria.GetSelected();
 				_cabecera._perfil._mensajeria._nueva_Notificacion.fillNotificacion(msg);
-				layout.add(_cabecera._perfil._mensajeria._nueva_Notificacion);
+				layout.add(_cabecera, _cabecera._perfil._mensajeria._nueva_Notificacion);
 			}
 		});
 		_cabecera._perfil._mensajeria.getNuevoMensajeBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
 				_cabecera._perfil._mensajeria._nueva_Notificacion.clearAll();
-				layout.add(_cabecera._perfil._mensajeria._nueva_Notificacion);
+				layout.add(_cabecera, _cabecera._perfil._mensajeria._nueva_Notificacion);
 			}
 		});
 		_cabecera._perfil._mensajeria._nueva_Notificacion.getEnviarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_cabecera._perfil._mensajeria);
+				layout.add(_cabecera, _cabecera._perfil._mensajeria);
 				
 				_cabecera._perfil._mensajeria._nueva_Notificacion.Enviar_Notificacion();
 			}
@@ -239,16 +220,14 @@ public class Cibernauta_Registrado extends Cibernauta {
 						@Override
 						public void onComponentEvent(ClickEvent<Button> event) {
 							layout.removeAll();
-							layout.add(_cabecera);
-							layout.add(c._productosAdquiridos);
+							layout.add(_cabecera, c._productosAdquiridos);
 						}
 					});
 					c.getCancelarPedidoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 						@Override
 						public void onComponentEvent(ClickEvent<Button> event) {
 							layout.removeAll();
-							layout.add(_cabecera);
-							layout.add( _cabecera._perfil._compras);
+							layout.add(_cabecera, _cabecera._perfil._compras);
 							
 							c.Cancelar_Pedido();
 							_cabecera._perfil._compras.UpdateCompras(ciber);
@@ -259,25 +238,22 @@ public class Cibernauta_Registrado extends Cibernauta {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								layout.removeAll();
-								layout.add(_cabecera);
-								layout.add(pp._comentar);
+								layout.add(_cabecera, pp._comentar);
 							}
 						});
 						pp._comentar.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								layout.removeAll();
-								layout.add(_cabecera);
-								layout.add( _cabecera._perfil._compras);
+								layout.add(_cabecera, _cabecera._perfil._compras);
 							}
 						});
 						pp._comentar.getAceptarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								layout.removeAll();
-								layout.add(_cabecera);
 								pp._comentar.ComentarProducto(ciber);
-								layout.add(c._productosAdquiridos);
+								layout.add(_cabecera, c._productosAdquiridos);
 							}
 						});
 					}
@@ -295,8 +271,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 				_productosMasVendidos = new Productos_mas_vendidos(c);
 				
 				layout.removeAll();
-				layout.add(_cabecera);
-				layout.add(_ofertasPopulares);
+				layout.add(_cabecera, _ofertasPopulares);
 				_ofertasPopulares.showLess();
 				layout.add(_productosMasVendidos);
 				fillCategories();
@@ -307,8 +282,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
 				_productosMasVendidos = new Productos_mas_vendidos();
-				layout.add(_cabecera);
-				layout.add(_ofertasPopulares);
+				layout.add(_cabecera, _ofertasPopulares);
 				_ofertasPopulares.showLess();
 				layout.add(_productosMasVendidos);
 				_cabecera.getCategoriesCombo().clear();
@@ -342,9 +316,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera);
-				
-				layout.add(pc._detalleProducto);
+				layout.add(_cabecera, pc._detalleProducto);
 				
 				pc._detalleProducto.getDeleteBtn().setVisible(false);
 				pc._detalleProducto.getAddOfferBtn().setVisible(false);
@@ -355,12 +327,8 @@ public class Cibernauta_Registrado extends Cibernauta {
 					public void onComponentEvent(ClickEvent<Button> event) {
 						pc._detalleProducto.getBtnBorradoProducto().setVisible(false);
 						layout.removeAll();
-						layout.add(_cabecera);
+						layout.add(_cabecera, pc._detalleProducto._verComentarios);
 						
-						// TODO: Hacer mejor lo de los comentarios.
-						layout.add(pc._detalleProducto._verComentarios);
-						
-						// TODO: Funcionalidad de añadir a carrito.
 						pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
@@ -372,8 +340,7 @@ public class Cibernauta_Registrado extends Cibernauta {
 							@Override
 							public void onComponentEvent(ClickEvent<Button> event) {
 								layout.removeAll();
-								layout.add(_cabecera);
-								layout.add(pc._detalleProducto);
+								layout.add(_cabecera, pc._detalleProducto);
 							}
 						});
 						pc._detalleProducto._verComentarios.getAddCarritoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

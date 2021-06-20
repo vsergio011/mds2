@@ -6,6 +6,7 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import Helpers.Cookies;
 import vistas.VistaTransportista;
 
 // import basededatos.iTransportista;
@@ -22,6 +23,7 @@ public class Transportista extends VistaTransportista {
 		this.getCerrarSesionBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
+				Cookies.ClearCookies();
 				UI.getCurrent().getPage().reload();
 			}
 		});
