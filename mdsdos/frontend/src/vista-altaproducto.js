@@ -45,7 +45,7 @@ class VistaAltaproducto extends PolymerElement {
    <vaadin-horizontal-layout theme="spacing" style="align-self: center;" id="horizontalLYUpImg"></vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 0; flex-shrink: 1;">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 0; flex-shrink: 1;background-color:#f5f5f5">
   <vaadin-vertical-layout theme="spacing" style="width: 90%; padding: var(--lumo-space-l); flex-shrink: 0; height: 15%; align-self: center;">
    <label style="font-weight: bold; align-self: stretch;">Descripción del producto</label>
    <vaadin-text-area placeholder="Add detailed explanation" style="width: 80%;" id="descripcionInput"></vaadin-text-area>
@@ -54,7 +54,7 @@ class VistaAltaproducto extends PolymerElement {
    <label style="font-weight: bold; align-self: stretch;" id="label">Caracteristicas</label>
    <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;    background-color: hsl(0deg 0% 86% / 40%);" id="vaadinTextArea"></vaadin-text-area>
   </vaadin-vertical-layout>
-  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l);border:solid;border-width:1px">
+  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l);background-color:#b0c4de;border-radius: 20px 20px 20px 20px;">
    <vaadin-vertical-layout theme="spacing" style="width: 100%;">
     <vaadin-combo-box id="productoCategorias" allow-custom-value></vaadin-combo-box>
     <vaadin-button id="cancelBtn">

@@ -17,17 +17,16 @@ class VistaAltacategoria extends PolymerElement {
  <vaadin-horizontal-layout class="header" style="width: 100%; flex-basis: var(--lumo-size-l); flex-shrink: 0; background-color: var(--lumo-contrast-10pct);"></vaadin-horizontal-layout>
  <vaadin-vertical-layout class="content" style="width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: auto;">
   <vaadin-vertical-layout theme="spacing" style="width: 50%; flex-grow: 0; flex-shrink: 0; align-self: center; padding: var(--lumo-space-xl); height: 25%;"></vaadin-vertical-layout>
-  <vaadin-vertical-layout theme="spacing" style="width: 50%; flex-grow: 0; flex-shrink: 0; align-self: center; padding: var(--lumo-space-l); height: 50%; border: solid;">
+  <vaadin-vertical-layout theme="spacing" style="width: 50%; padding: var(--lumo-space-l); background-color:#b0c4de; border-radius: 20px 20px 20px 20px; height: 50; align-self: center;">
    <label style="font-weight: bold; flex-grow: 0; align-self: stretch;">Introduzca el nombre de la nueva categoría:</label>
-   <span style="width: 70%; align-self: center; height: 20%;">.</span>
    <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; height: 100%; width: 100%;">
     <input type="text" id="categoriaNameLbl" style="width: 100%;">
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; height: 100%; width: 100%; flex-shrink: 1; align-self: center;">
-    <vaadin-button style="align-self: flex-end; width: 100%;" id="aceptarBtn">
+   <vaadin-horizontal-layout style="align-self: center; width: 100%; justify-content: space-between;">
+    <vaadin-button style="background-color: #006400; color:white; padding: var(--lumo-space-s);border-radius: 40px 40px 40px 10px;" id="aceptarBtn">
       Aceptar 
     </vaadin-button>
-    <vaadin-button style="align-self: flex-end; width: 100%;" id="cancelarBtn">
+    <vaadin-button style="border-radius: 40px 40px 10px 40px; padding: var(--lumo-space-xs);color:white;background-color:#e03c31" id="cancelarBtn">
       Cancelar 
     </vaadin-button>
    </vaadin-horizontal-layout>
