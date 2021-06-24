@@ -17,16 +17,16 @@ class VistaRegistro extends PolymerElement {
                 }
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%; margin: var(--lumo-space-m);" id="vaadinHorizontalLayout">
- <vaadin-vertical-layout theme="" style="align-items: center; background-color :#374453; width: 30%;">
+ <vaadin-vertical-layout theme="" style="background-color :#232f3e; width: 20%; align-items: stretch;">
   <img style="align-self: center; width: 40%; border-radius: 40px 40px 40px 10px; margin: var(--lumo-space-xl);" id="img" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-  <vaadin-button style="align-self: center;" id="editImgBtn">
+  <vaadin-button style="background-color:#374453; color:white;" id="editImgBtn">
     Editar foto de perfil 
   </vaadin-button>
   <vaadin-horizontal-layout style="height: 10%; width: 100%; margin: var(--lumo-space-s);" id="horizontallySubir"></vaadin-horizontal-layout>
-  <vaadin-button style="align-self: center;" id="createAccountBtn">
+  <vaadin-button style="background-color:#374453; color:white;" id="createAccountBtn">
     Crear cuenta 
   </vaadin-button>
-  <vaadin-button style="align-self: center;" id="cancelBtn">
+  <vaadin-button style="background-color:#374453; color:white; flex-grow: 0; flex-shrink: 0;" id="cancelBtn">
     Cancelar 
   </vaadin-button>
  </vaadin-vertical-layout>
