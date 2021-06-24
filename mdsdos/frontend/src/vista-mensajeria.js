@@ -17,9 +17,9 @@ class VistaMensajeria extends PolymerElement {
             </style>
 <vaadin-vertical-layout style="width: 100%; height: 100%; align-items: center;">
  <label id="nombreBtn"></label>
- <vaadin-vertical-layout theme="spacing" style="width: 80%; margin-top: 2%;">
-  <label style="border:solid; align-self: center;" id="tituloLbl"></label>
-  <vaadin-button theme="icon" aria-label="Add new" id="reloadBtn" style="background-color: #006400; border-radius: 40px 40px 40px 40px;">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; margin-top: 2%;background-color :#374453">
+  <label style="border:solid; align-self: center;color:white" id="tituloLbl"></label>
+  <vaadin-button theme="icon" aria-label="Add new" id="reloadBtn" style="background-color: #006400; border-radius: 40px 40px 40px 40px; margin: var(--lumo-space-s);">
    <iron-icon icon="lumo:reload"></iron-icon>
   </vaadin-button>
  </vaadin-vertical-layout>

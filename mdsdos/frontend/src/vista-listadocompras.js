@@ -2,10 +2,10 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
-import '@vaadin/vaadin-date-picker/src/vaadin-date-picker.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
+import '@vaadin/vaadin-date-picker/src/vaadin-date-picker.js';
 
 class VistaListadocompras extends PolymerElement {
 
@@ -18,23 +18,25 @@ class VistaListadocompras extends PolymerElement {
                 }
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="width: 50%; height: 100%; padding: var(--lumo-space-l);">
-  <label style="font-weight: bold; align-self: stretch; ">Funciones de {usuario/admin}</label>
+ <vaadin-vertical-layout theme="spacing" id="vaadinVerticalLayout" style="height: 100%; padding: var(--lumo-space-l); background-color :#374453; align-items: center;">
+  <label style="font-weight: bold; align-self: center; color:white;">Funciones de {usuario/admin}</label>
   <vaadin-button>
-   Alta categoria 
+    Alta categoria 
   </vaadin-button>
   <vaadin-button>
-   Alta producto
+    Alta producto 
   </vaadin-button>
   <vaadin-button>
-   Modificar empleados 
+    Modificar empleados 
   </vaadin-button>
   <vaadin-button>
-   Mensajes
+    Mensajes 
   </vaadin-button>
-  <vaadin-date-picker></vaadin-date-picker>
+  <vaadin-horizontal-layout theme="spacing" style="background-color:white">
+   <vaadin-date-picker style="backgroun-color:white"></vaadin-date-picker>
+  </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="height: 100%; width: 50%; padding: var(--lumo-space-l);">
+ <vaadin-vertical-layout theme="spacing" style="height: 100%; width: 100%; padding: var(--lumo-space-l);">
   <vaadin-text-field placeholder="Search" style="width: 100%;">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
   </vaadin-text-field>
