@@ -19,19 +19,19 @@ class VistaEncargadolistadodecompras extends PolymerElement {
                 }
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <vaadin-vertical-layout theme="spacing-s" style="width: 20%; background-color:#232f3e; align-self: flex-start; align-items: center; padding: var(--lumo-space-s); margin: var(--lumo-space-xl);">
+ <vaadin-vertical-layout theme="spacing-s" style="background-color:#232f3e; align-self: flex-start; align-items: center; padding: var(--lumo-space-s); margin: var(--lumo-space-xl); width: 20%; margin-right: 0;">
   <label style="color:white">Seleccionar compras por:</label>
-  <vaadin-vertical-layout theme="spacing">
-   <vaadin-button id="btnNuevo" style="border:solid; width: 100%;">
+  <vaadin-vertical-layout theme="spacing" style="flex-shrink: 1;">
+   <vaadin-button id="btnNuevo" style="color:white; background-color:#374453; width: 100%;">
      Nuevo 
    </vaadin-button>
-   <vaadin-button id="btnEnviado" style="border:solid; width: 100%;">
+   <vaadin-button id="btnEnviado" style="color:white; background-color:#374453; width: 100%;">
      Enviado 
    </vaadin-button>
-   <vaadin-button id="btnRecibido" style="width: 100%;border:solid">
+   <vaadin-button id="btnRecibido" style="color:white; background-color:#374453; width: 100%;">
      Recibido 
    </vaadin-button>
-   <vaadin-button id="btnFecha" style="width: 100%;border:solid">
+   <vaadin-button id="btnFecha" style="color:white; background-color:#374453; width: 100%;">
      Fecha 
    </vaadin-button>
   </vaadin-vertical-layout>
@@ -39,9 +39,9 @@ class VistaEncargadolistadodecompras extends PolymerElement {
    <vaadin-date-picker id="inputdate"></vaadin-date-picker>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-xl);">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-xl); background-color:#f5f5f5; margin-left: 0; padding: var(--lumo-space-m);">
   <vaadin-horizontal-layout style="width: 100%;">
-   <vaadin-text-field placeholder="Search" style="width: 70%;" id="inputSearch">
+   <vaadin-text-field placeholder="Search" style="width: 70%; margin-right: var(--lumo-space-l);" id="inputSearch">
     <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
    </vaadin-text-field>
    <vaadin-button id="filtrarBtn" style="width: 30%;background-color: #006400; color:white; padding: var(--lumo-space-s);border-radius: 40px 40px 40px 10px;">
