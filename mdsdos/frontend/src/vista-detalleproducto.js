@@ -28,7 +28,7 @@ class VistaDetalleproducto extends PolymerElement {
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 0; flex-shrink: 1;">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; flex-grow: 0; flex-shrink: 1;background-color:#f5f5f5">
   <vaadin-vertical-layout theme="spacing" style="width: 90%; padding: var(--lumo-space-l); flex-shrink: 0; height: 15%; align-self: center;">
    <label style="font-weight: bold; align-self: stretch;">Descripción del producto</label>
    <label style="align-self: stretch; font-size: 13px; flex-grow: 0;" id="descriptionLabel"></label>
@@ -37,7 +37,7 @@ class VistaDetalleproducto extends PolymerElement {
    <label style="font-weight: bold; align-self: stretch;" id="label">Carácteristicas</label>
    <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;    background-color: hsl(0deg 0% 86% / 40%);" id="vaadinTextArea"></vaadin-text-area>
   </vaadin-vertical-layout>
-  <vaadin-horizontal-layout theme="spacing" style="width: 90%; padding: var(--lumo-space-l); height: 25%; border: solid; border-width: 1px; align-self: center; justify-content: space-between;">
+  <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l);background-color:#b0c4de;border-radius: 20px 20px 20px 20px;">
    <vaadin-vertical-layout style="width: 100%; flex-grow: 1; flex-shrink: 1;">
     <vaadin-button style="width: 50%; align-self: flex-start;" id="updateBtn">
       Modificar 
@@ -52,7 +52,7 @@ class VistaDetalleproducto extends PolymerElement {
    <vaadin-vertical-layout style="width: 100%; justify-content: center;">
     <label style="width: 50%; align-self: flex-start;background-color:#dbdee2" id="priceLAbel"></label>
     <vaadin-button id="btnBorradoProducto">
-     Borrar producto
+      Borrar producto 
     </vaadin-button>
     <vaadin-button style="margin-top: var(--lumo-space-l); width: 50%; align-self: flex-start;" id="deleteBtn">
       Quitar ofertas 

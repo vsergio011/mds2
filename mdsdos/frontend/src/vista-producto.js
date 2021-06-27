@@ -25,16 +25,16 @@ class VistaProducto extends PolymerElement {
   <label id="productLbl" style="align-self: center;"></label>
   <img src="https://www.mundofino.com/site/assets/files/1729/no_foto.600x600nw.jpg" id="imgProducto" style="align-self: center;">
   <vaadin-horizontal-layout style="align-self: center; justify-content: flex-start; background-color: #374453;">
-   <vaadin-button id="moreInfoBtn" style="align-self: flex-start; margin: var(--lumo-space-xs);" class="btnFooter">
+   <vaadin-button id="moreInfoBtn" style="align-self: flex-start; margin: var(--lumo-space-xs);color:white" class="btnFooter">
      ... 
    </vaadin-button>
-   <vaadin-button id="addOffertaBtn" class="btnFooter" style="margin: var(--lumo-space-xs);">
+   <vaadin-button id="addOffertaBtn" class="btnFooter" style="margin: var(--lumo-space-xs);color:white">
      Anadir oferta 
    </vaadin-button>
-   <vaadin-button id="quitarOfertaBtn" class="btnFooter" style="margin: var(--lumo-space-xs);">
+   <vaadin-button id="quitarOfertaBtn" class="btnFooter" style="margin: var(--lumo-space-xs);color:white">
      Quitar Oferta 
    </vaadin-button>
-   <vaadin-button id="addCarritoBtn" style="border-radius:25px; margin: var(--lumo-space-xs); background-color: hsl(213deg 13% 41%); flex-grow: 0; flex-shrink: 0;" class="btnFooter">
+   <vaadin-button id="addCarritoBtn" style="border-radius:25px; margin: var(--lumo-space-xs); background-color: hsl(213deg 13% 41%); flex-grow: 0; flex-shrink: 0;color:white" class="btnFooter">
      + 
    </vaadin-button>
    <label id="label" style="align-self: center; color: white;"></label>
