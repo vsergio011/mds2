@@ -186,7 +186,6 @@ public class Alta_Producto extends VistaAltaproducto{
 	
 	public void SaveProducto() {
 		appventawebbd.Producto pro = new appventawebbd.Producto();
-		pro.setCategoria(this.selected);
 		
 		pro.setDescripcion(this.getDescripcionInput().getValue());
 		pro.setNombre(this.getInputTitulo().getValue());
@@ -195,6 +194,6 @@ public class Alta_Producto extends VistaAltaproducto{
 		pro.setFotos(this.getImg().getSrc());
 		
 		iAdministrador admin = new BDPrincipal();
-		Producto id = admin.altaProducto(pro, this.imagenesUrl);
+		Producto id = admin.altaProducto(pro, this.imagenesUrl, this.selected.getId());
 	}
 }

@@ -6,7 +6,7 @@ import appventawebbd.Enviado;
 import appventawebbd.Pedido;
 
 public interface iTransportista {
-	void AddPedidoEntregado(Pedido pedido);
+	void AddPedidoEntregado(int pedido);
 	
 	public Enviado[] listadoComprasEnviadas();
 }

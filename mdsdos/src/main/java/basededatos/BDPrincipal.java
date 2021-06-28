@@ -119,9 +119,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		return fotos;
 	}
 
-	public appventawebbd.Producto altaProducto(Producto aProducto, List<String> images) {
+	public appventawebbd.Producto altaProducto(Producto aProducto, List<String> images, int cat) {
 		try {
-			return _bd_prod.altaProducto(aProducto, images);
+			return _bd_prod.altaProducto(aProducto, images, cat);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -509,16 +509,16 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		return null;
 	}
 
-	public void AddPedidoEnviado(Pedido pedido, Transportista transportista) {
+	public void AddPedidoEnviado(int idPedido) {
 		try {
-			_bd_env.AddPedidoEnviado(pedido, transportista);
+			_bd_env.AddPedidoEnviado(idPedido);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public void AddPedidoEntregado(Pedido pedido) {
+	public void AddPedidoEntregado(int pedido) {
 		try {
 			_bd_entr.AddPedidoEntregado(pedido);
 		} catch (PersistentException e) {

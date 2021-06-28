@@ -16,7 +16,7 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 
 	public void Enviado() {
 		iEncargado encargado = new BDPrincipal();
-		encargado.AddPedidoEnviado(pedido, null);
+		encargado.AddPedidoEnviado(pedido.getId());
 	}
 
 	public void Comprobar_enviado() {
@@ -28,7 +28,13 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		
 		this.getCheckEnviado().setValue(false);
 		this.getCheckRecibido().setValue(false);
+		
+		this.getCheckEnviado().setReadOnly(true);
+		this.getCheckRecibido().setReadOnly(true);
+		
 		this.getAprobarBtn().setVisible(true);
+		this.getRecibidoBtn().setVisible(false);
+		
 		fillData(pedido);
 	}
 	
@@ -36,8 +42,13 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		this.pedido = pedido;
 		
 		this.getCheckEnviado().setValue(true);
+		this.getCheckEnviado().setReadOnly(true);
 		this.getCheckRecibido().setValue(false);
+		this.getCheckRecibido().setReadOnly(true);
+		
 		this.getAprobarBtn().setVisible(false);
+		this.getRecibidoBtn().setVisible(false);
+		
 		fillData(pedido);
 	}
 
@@ -45,8 +56,13 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		this.pedido = pedido;
 		
 		this.getCheckEnviado().setValue(false);
+		this.getCheckEnviado().setReadOnly(true);
 		this.getCheckRecibido().setValue(true);
+		this.getCheckRecibido().setReadOnly(true);
+		
 		this.getAprobarBtn().setVisible(false);
+		this.getRecibidoBtn().setVisible(false);
+		
 		fillData(pedido);
 	}
 	
@@ -59,7 +75,8 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		VerticalLayout vl = this.getContenedorProductos().as(VerticalLayout.class);
 		
 		double precioTotal = 0;
-		for (appventawebbd.Item item : pedido.items.toArray()) {
+		BDPrincipal bd = new BDPrincipal();
+		for (appventawebbd.Item item : bd.getItemsPedido(pedido.getId())) {
 			Label label = new Label();
 			precioTotal += item.getCantidad() * item.getProducto().getPrecio();
 			label.setText("Producto ID: " + item.getProducto().getId() + ", Cantidad: " + item.getCantidad() + ", Precio unidad: " + item.getProducto().getPrecio() + "€");

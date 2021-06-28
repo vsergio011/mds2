@@ -48,7 +48,8 @@ public class Modificar_Producto extends Alta_Producto {
 		this.getCancelBtn().setVisible(false);
 		this.getAddBtn().setText("Guardar");
 		
-		for (appventawebbd.Foto img : producto.fotosProducto.toArray()) {
+		BDPrincipal bd = new BDPrincipal();
+		for (appventawebbd.Foto img : bd.getFotosProducto(producto.getId())) {
 			imagenesUrl.add(img.getRuta());
 		}
 		this.fillImgs();

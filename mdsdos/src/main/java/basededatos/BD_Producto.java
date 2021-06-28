@@ -50,14 +50,15 @@ public class BD_Producto {
 		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 	
-	public Producto altaProducto(Producto aProducto, List<String> images) throws PersistentException {
+	public Producto altaProducto(Producto aProducto, List<String> images, int cat) throws PersistentException {
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		Producto pro = null;
 		try {
 			pro = ProductoDAO.createProducto();
 			
-			pro.setCategoria(aProducto.getCategoria());
+			Categoria categoria = CategoriaDAO.getCategoriaByORMID(cat);
+			pro.setCategoria(categoria);
 			pro.setDescripcion(aProducto.getDescripcion());
 			pro.setDetalles(aProducto.getDetalles());
 			
@@ -84,7 +85,7 @@ public class BD_Producto {
 			ProductoDAO.save(pro);
 			t2.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

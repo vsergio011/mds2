@@ -11,7 +11,7 @@ public class Detalles_Pedido__Transportista_ extends Detalles_Pedido {
 
 	public void Recibido() {
 		iTransportista transportista = new BDPrincipal();
-		transportista.AddPedidoEntregado(pedido);
+		transportista.AddPedidoEntregado(pedido.getId());
 	}
 
 	public void Comprobar_recibido() {

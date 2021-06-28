@@ -17,6 +17,7 @@ import appventawebbd.EntregadoCriteria;
 import appventawebbd.EntregadoDAO;
 import appventawebbd.Enviado;
 import appventawebbd.EnviadoDAO;
+import appventawebbd.Item;
 import appventawebbd.Pedido;
 import appventawebbd.Pendiente;
 import appventawebbd.PendienteCriteria;
@@ -79,13 +80,19 @@ public class BD_Entregado {
 		return pedido;
 	}
 	
-	public void AddPedidoEntregado(Pedido pedido) throws PersistentException {
+	public void AddPedidoEntregado(int pedidoId) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
+			Enviado pedido = EnviadoDAO.getEnviadoByORMID(pedidoId);
+			
 			Entregado entregado = EntregadoDAO.createEntregado();
 			entregado.setCibernauta(pedido.getCibernauta());
 			entregado.setDireccion(pedido.getCibernauta().getDireccionCompleta());
+			
+			for (Item item : pedido.items.toArray()) {
+				entregado.items.add(item);
+			}
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = new Date(System.currentTimeMillis());
@@ -94,6 +101,10 @@ public class BD_Entregado {
 			entregado.setFechaPedido(pedido.getFechaPedido());
 			entregado.setTotal(pedido.getTotal());
 			EntregadoDAO.save(entregado);
+			
+			pedido.items.clear();;
+			pedido.setCibernauta(null);
+			EnviadoDAO.delete(pedido);
 			
 			t.commit();
 		} catch (Exception e) {

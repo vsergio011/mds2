@@ -17,7 +17,7 @@ import appventawebbd.Categoria;
 
 public interface iAdministrador {
 
-	public Producto altaProducto(Producto aProducto, List<String> images);
+	public Producto altaProducto(Producto aProducto, List<String> images, int cat);
 
 	public List<Empleado> listempleados();
 

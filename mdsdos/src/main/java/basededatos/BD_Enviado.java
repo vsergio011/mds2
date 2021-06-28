@@ -13,13 +13,19 @@ import org.orm.PersistentTransaction;
 
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Cibernauta;
+import appventawebbd.CibernautaDAO;
 import appventawebbd.Entregado;
 import appventawebbd.EntregadoCriteria;
 import appventawebbd.EntregadoDAO;
 import appventawebbd.Enviado;
 import appventawebbd.EnviadoCriteria;
 import appventawebbd.EnviadoDAO;
+import appventawebbd.Item;
+import appventawebbd.ItemCriteria;
+import appventawebbd.ItemDAO;
+import appventawebbd.ItemSetCollection;
 import appventawebbd.Pedido;
+import appventawebbd.PedidoDAO;
 import appventawebbd.Pendiente;
 import appventawebbd.PendienteDAO;
 import appventawebbd.Transportista;
@@ -85,27 +91,38 @@ public class BD_Enviado {
 		return pedido;
 	}
 	
-	public void AddPedidoEnviado(Pedido pedido, Transportista transportista) throws PersistentException {
+	public void AddPedidoEnviado(int idPedido) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {			
 			Transportista trans = TransportistaDAO.loadTransportistaByORMID(2);
+			
+			Pendiente pedido = PendienteDAO.getPendienteByORMID(idPedido);
+			
 			Enviado enviado = EnviadoDAO.createEnviado();
+			
 			enviado.setCibernauta(pedido.getCibernauta());
 			enviado.setDireccion(pedido.getCibernauta().getDireccionCompleta());
+			
+			for (Item item : pedido.items.toArray()) {
+				enviado.items.add(item);
+			}
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = new Date(System.currentTimeMillis());
 			enviado.setFecha(formatter.format(date));
-			
 			enviado.setFechaPedido(pedido.getFechaPedido());
 			enviado.setTotal(pedido.getTotal());
 			enviado.setTransportistaEnvio(trans);
 			EnviadoDAO.save(enviado);
 			
+			pedido.items.clear();;
+			pedido.setCibernauta(null);
+			PendienteDAO.delete(pedido);
+						
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			System.out.println(">>>>>>>>ERROR EN BD (AddPedidoEnviado): " + e.getMessage());
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

@@ -10,7 +10,7 @@ import appventawebbd.Pendiente;
 import appventawebbd.Transportista;
 
 public interface iEncargado {
-	void AddPedidoEnviado(Pedido pedido, Transportista transportista);
+	void AddPedidoEnviado(int idPedido);
 	
 	public Pendiente[] listadoComprasPendientes();
 

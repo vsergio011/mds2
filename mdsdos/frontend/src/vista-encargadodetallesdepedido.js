@@ -30,14 +30,16 @@ class VistaEncargadodetallesdepedido extends PolymerElement {
    <label id="lbFechaPedido" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);">Fecha de pedido</label>
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="color:white">
-   <vaadin-checkbox id="checkEnviado">
+   <vaadin-checkbox id="checkEnviado" style="background-color: #d8a626;">
      Enviado 
    </vaadin-checkbox>
-   <vaadin-checkbox id="checkRecibido">
+   <vaadin-checkbox id="checkRecibido" style="background-color: #d8a626;">
      Recibido 
    </vaadin-checkbox>
   </vaadin-horizontal-layout>
-  <vaadin-button id="aprobarBtn" style="align-self: center;color:white;background-color:#374453"></vaadin-button>
+  <vaadin-button id="aprobarBtn" style="align-self: center;color:white;background-color:#374453">
+   Enviado
+  </vaadin-button>
   <vaadin-button id="recibidoBtn" style="align-self: center;color:white;background-color:#374453">
     Recibido 
   </vaadin-button>
