@@ -28,10 +28,6 @@ public class BD_Entregado {
 	public BDPrincipal _bd_prin_entr;
 	public Vector<Entregado> _contiene_entregados = new Vector<Entregado>();
 
-	public Pedido getPedido(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Entregado[] listadoComprasEntregadas(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		

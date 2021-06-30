@@ -24,8 +24,6 @@ public interface iCibernauta {
 
 	public List<Producto> listProductos();
 
-	public Producto getProducto(int aIdProducto);
-
 	public Foto[] getFotosProducto(int aIdProducto);
 	
 	public Usuario getUsuarioEmail(String email);

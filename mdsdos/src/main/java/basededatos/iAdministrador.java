@@ -21,23 +21,11 @@ public interface iAdministrador {
 
 	public List<Empleado> listempleados();
 
-	public void modificarEmpleado(Encargado aEmpleado);
-
-	public void cambiar_Imagen_de_Perfil(String aImagen, int aIdEmpleado);
-
-	public void transferirAdministrador(int aIdOrigen, int aIdDestino);
-
 	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos);
 
 	public void borrarProducto(Producto aProducto);
 
-	public Empleado[] listEmpleados();
-
-	public Pedido getPedido(int aId);
-
 	public Item[] getItemsProducto(int aIdPedido);
-
-	public Producto getProducto(int aId);
 
 	public Pendiente[] listadoComprasPendientes(int aIdCiber);
 

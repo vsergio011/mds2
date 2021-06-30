@@ -35,10 +35,6 @@ public class BD_Enviado {
 	public BDPrincipal _bd_prin_env;
 	public Vector<Enviado> _contiene_enviados = new Vector<Enviado>();
 
-	public Pedido getPedido(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Enviado[] listadoComprasEnviadas(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		

@@ -6,10 +6,6 @@ public class Producto_Adquirido extends Producto_Pedido {
 	private Object _valoracionL;
 	public Productos_Adquiridos _productosAdquiridos;
 	public Comentar_Producto _comentar;
-
-	public void Comprobar_comentario() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public Producto_Adquirido(appventawebbd.Item item) {
 		_comentar = new Comentar_Producto(item.getProducto());

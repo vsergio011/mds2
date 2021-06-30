@@ -20,10 +20,6 @@ public class Compra extends VistaCompra {
 			cibernauta.cancelarCompra(pendiente);
 		}
 	}
-
-	public void Comprobar_envio() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public Compra(appventawebbd.Pedido pedido) {
 		_productosAdquiridos = new Productos_Adquiridos(pedido);

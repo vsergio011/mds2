@@ -13,10 +13,6 @@ public class Detalles_Pedido__Transportista_ extends Detalles_Pedido {
 		iTransportista transportista = new BDPrincipal();
 		transportista.AddPedidoEntregado(pedido.getId());
 	}
-
-	public void Comprobar_recibido() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public Detalles_Pedido__Transportista_(appventawebbd.Pedido pedido) {
 		this.pedido = pedido;

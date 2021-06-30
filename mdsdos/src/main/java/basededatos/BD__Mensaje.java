@@ -18,10 +18,6 @@ public class BD__Mensaje {
 	public BDPrincipal _bd_prin_mens;
 	public Vector<Mensaje> _contiene_mensajes = new Vector<Mensaje>();
 
-	public Mensaje detalleMensaje(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void nuevaNotificacion(Usuario remitente, Usuario destinatario, String asunto, String cuerpo) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		

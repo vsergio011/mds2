@@ -17,10 +17,6 @@ public class Recuperar_Contrasena extends VistaRecuperarcontrasena {
 	private Object _continuarB;
 	public Login_Cibernauta _login;
 	public Poner_nueva_contrasena _nuevaContrasena;
-
-	public void Enviar_Link() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public boolean ValidarEmail() {
 		iCibernauta_no_Registrado bd = new BDPrincipal();

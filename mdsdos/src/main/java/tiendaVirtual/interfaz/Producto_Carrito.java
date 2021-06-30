@@ -9,14 +9,6 @@ public class Producto_Carrito extends Producto_Pedido {
 
 	appventawebbd.Item item = null;
 	
-	public void Quitar_de_Lista() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Cantidad() {
-		throw new UnsupportedOperationException();
-	}
-	
 	public Producto_Carrito(appventawebbd.Producto p, double precio) {
 		this.precioOferta = precio;
 		

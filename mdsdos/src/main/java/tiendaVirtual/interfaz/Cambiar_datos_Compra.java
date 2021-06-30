@@ -10,10 +10,6 @@ public class Cambiar_datos_Compra extends VistaCambiodatoscompra{
 	private Object _datosPagoTF;
 	private Object _cancelarB;
 	public Comprar _comprar;
-
-	public void Actualizar_Datos() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public Cambiar_datos_Compra(appventawebbd.Cibernauta ciber) {
 		

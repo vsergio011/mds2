@@ -18,10 +18,6 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		iEncargado encargado = new BDPrincipal();
 		encargado.AddPedidoEnviado(pedido.getId());
 	}
-
-	public void Comprobar_enviado() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public Detalles_Pedido__Encargado_(appventawebbd.Pendiente pedido) {
 		this.pedido = pedido;

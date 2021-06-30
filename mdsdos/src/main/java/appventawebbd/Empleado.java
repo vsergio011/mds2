@@ -47,26 +47,6 @@ public class Empleado extends appventawebbd.Usuario implements Serializable {
 		return numeroSS;
 	}
 	
-	public appventawebbd.Empleado[] listEmpleados() {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public void modificarEmpleado(appventawebbd.Empleado modificarEmpleado) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public void Cambiar_Imagen_de_Perfil(String imagen, int idEmpleado) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
-	public void transferirAdministrador(int idOrigen, int idDestino) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
 	public String toString() {
 		return super.toString();
 	}

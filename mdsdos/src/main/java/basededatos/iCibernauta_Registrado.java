@@ -17,10 +17,6 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public Pendiente RealizaCompra(List<Item> aItems, Cibernauta aCiber, double precio);
 
-	public Mensaje detalleMensaje(int aId);
-
-	public void nuevaNotificacion(int aOrigen, int aDestino, Mensaje aMensaje);
-
 	public void modificarDatos(int idCiber, Usuario aCiber);
 
 	public Mensaje[] getMensajesRecibidos(int aId);
@@ -31,8 +27,6 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public void borrarCuenta(int aIdCiber);
 
-	public void cambiarImagen(int aIdCiber, String aImagen);
-
 	public void comentarProducto(Producto aIdProduct, Comentario aComentario);
 
 	public Pendiente[] listadoComprasPendientes(int aIdCiber);
@@ -42,8 +36,6 @@ public interface iCibernauta_Registrado extends iCibernauta {
 	public Enviado[] listadoComprasEnviadas(int aIdCiber);
 
 	public boolean isPedidoEnviado(int aId);
-
-	public void cambioDatosCompra(String aDireccion, String aFormapago, int aIdPedido);
 
 	public Pendiente getPedidoPendiente(int aId);
 

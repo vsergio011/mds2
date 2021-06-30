@@ -20,8 +20,4 @@ public class Perfil_empleado extends Modificar_general  {
 		}
 		this.fillData(ciber);
 	}
-
-	public void Transferir_administrador() {
-		throw new UnsupportedOperationException();
-	}
 }

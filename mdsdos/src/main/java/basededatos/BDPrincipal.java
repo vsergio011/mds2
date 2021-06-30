@@ -104,10 +104,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		return new ArrayList<Producto>();
 	}
 
-	public Producto getProducto(int aIdProducto) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Foto[] getFotosProducto(int aIdProducto) {
 		Foto[] fotos = {};
 		try {
@@ -139,18 +135,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		return new ArrayList<Empleado>();
 	}
 
-	public void modificarEmpleado(appventawebbd.Encargado aEmpleado) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void cambiar_Imagen_de_Perfil(String aImagen, int aIdEmpleado) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void transferirAdministrador(int aIdOrigen, int aIdDestino) {
-		throw new UnsupportedOperationException();
-	}
-
 	public appventawebbd.Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos) {
 		try {
 			return _bd_prod.modificarProducto(idProducto, aProducto, fotos);
@@ -168,18 +152,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public Empleado[] listEmpleados() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Pedido getPedido(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Item[] getItemsProducto(int aIdPedido) {
-		throw new UnsupportedOperationException();
 	}
 
 	public Pendiente[] listadoComprasPendientes(int aIdCiber) {
@@ -252,14 +224,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public Mensaje detalleMensaje(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void nuevaNotificacion(int aOrigen, int aDestino, Mensaje aMensaje) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void modificarDatos(int idCiber, appventawebbd.Usuario aCiber) {
 		try {
 			_bd_ciber.modificarDatos(idCiber, aCiber);
@@ -310,10 +274,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public void cambiarImagen(int aIdCiber, String aImagen) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void comentarProducto(Producto aIdProduct, Comentario aComentario) {
 		try {
 			_bd_com.comentarProducto(aIdProduct, aComentario);
@@ -331,10 +291,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			e.printStackTrace();
 		}
 		return false;
-	}
-
-	public void cambioDatosCompra(String aDireccion, String aFormapago, int aIdPedido) {
-		throw new UnsupportedOperationException();
 	}
 
 	public Pendiente getPedidoPendiente(int aId) {
@@ -398,10 +354,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public boolean Login(String aUsuario, String aPassword) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Cibernauta Registrar(
 			String aNombre,
 			String apellidos,
@@ -428,10 +380,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		return null;
 	}
 
-	public boolean existeUsuario(String aEmail) {
-		throw new UnsupportedOperationException();
-	}
-
 	public appventawebbd.Usuario getUsuarioLogin(String aUser) {
 		try {
 			return _bd_ciber.Login(aUser);
@@ -450,34 +398,6 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	public void registro(Usuario aUser) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Cibernauta get_Cibernauta() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Administrador get_Administrador() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Transportista get_Transportista() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Encargado get_Encargado() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Cibernauta get_Cibernauta_Registrado() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Cibernauta get_Cibernauta_no_Registrado() {
-		throw new UnsupportedOperationException();
 	}
 
 	public Usuario getUsuarioEmail(String email) {
@@ -577,5 +497,17 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Item[] getItemsProducto(int aIdPedido) {
+		Item[] items = {};
+		try {
+			items = _bd_items.getItemsPedido(aIdPedido);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return items;
 	}
 }

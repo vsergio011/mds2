@@ -68,10 +68,6 @@ public class BD_Pendiente {
 		return null;
 	}
 
-	public Pedido getPedido(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Pendiente[] listadoComprasPendientes(int aIdCiber) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
@@ -102,14 +98,6 @@ public class BD_Pendiente {
 		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return pedidos;
-	}
-
-	public void operation(int aIdCiber) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void cambioDatosCompra(String aDireccion, String aFormapago, int aIdPedido) {
-		throw new UnsupportedOperationException();
 	}
 
 	public Pendiente getPedidoPendiente(int aId) throws PersistentException {

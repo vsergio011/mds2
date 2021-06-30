@@ -83,10 +83,6 @@ public class BD_Cibernauta {
 		return ciber;        
 	}
 
-	public void anadirPedido(int aIdPedido) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void cambiar_contrasena(int idCiber, String aNuevaContrasena) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
@@ -173,14 +169,6 @@ public class BD_Cibernauta {
 		AppventawebPersistentManager.instance().disposePersistentManager();
 	}
 
-	public void cambiarImagen(int aIdCiber, String aImagen) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean existeUsuario(String aEmail) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Usuario getUsuarioEmail(String email) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
@@ -200,9 +188,5 @@ public class BD_Cibernauta {
 		AppventawebPersistentManager.instance().disposePersistentManager();
 		
 		return u;
-	}
-
-	public void registro(Usuario aUser) {
-		throw new UnsupportedOperationException();
 	}
 }
