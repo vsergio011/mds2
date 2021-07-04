@@ -24,5 +24,6 @@ public class Producto_Adquirido extends Producto_Pedido {
 		this.getValoracionLbl().setText("Valoración media: " +p.getValoracionMedia() + "/5");
 		this.getPrecioEurosLbl().setText("Precio total: " + p.getPrecio() * item.getCantidad() + " €");
 		this.getImgProducto().setHeight("200px");
+		this.getUnidadesLbl().setText("Cantidad:" + item.getCantidad());
 	}
 }

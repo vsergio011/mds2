@@ -1,9 +1,13 @@
 package tiendaVirtual.interfaz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 
+import appventawebbd.Usuario;
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta;
 import vistas.VistaDetallemensaje;
@@ -26,8 +30,10 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 		iCibernauta c = new BDPrincipal();
 		appventawebbd.Usuario destinatario = c.getUsuarioEmail(this.getDestinatarioInput().getValue());
 		c.nuevaNotificacion(ciber, destinatario, this.getAsuntoInput().getValue(), this.getMensajeInput().getValue());
+		clearAll();
 	}
 	
+	private Usuario selected = null;
 	public Nueva_Notificacion(appventawebbd.Usuario ciber) {
 		clearAll();
 		this.getRemitenteInput().setEnabled(false);
@@ -37,6 +43,22 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 		this.ciber = ciber;
 		this.getEnviarBtn().setVisible(true);
 		this.getResponderBtn().setVisible(false);
+		
+		BDPrincipal bd = new BDPrincipal();
+		List<Usuario> usuariosBD = bd.getUsuarios();
+		List<String> usuarios = new ArrayList<String>();
+		for (Usuario usu : usuariosBD) {
+			usuarios.add(usu.getNombre() + " - " + usu.getCorreoElectronico());
+		}
+		this.getUsuariosCombo().setItems(usuarios);
+		
+		this.getUsuariosCombo().addValueChangeListener(event -> {
+			int index = usuarios.indexOf(event.getValue());
+			if (index != -1) {
+				selected = usuariosBD.get(index);
+				this.getDestinatarioInput().setValue(selected.getCorreoElectronico());
+			}			
+		});
 	}
 	
 	public void fillNotificacion(appventawebbd.Mensaje msg) {
@@ -69,6 +91,7 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 		this.getTitleLbl().setText("Enviar mensaje");
 		this.getDestinatarioInput().setEnabled(false);
 		this.getAsuntoInput().setEnabled(false);
+		this.getUsuariosCombo().setVisible(false);
 	}
 	
 	public void clearAll() {
@@ -82,5 +105,7 @@ public class Nueva_Notificacion extends VistaNuevomensaje {
 		this.getAsuntoInput().setEnabled(true);
 		this.getRemitenteInput().setValue("");
 		this.getTitleLbl().setText("Enviar mensaje");
+		this.getUsuariosCombo().setVisible(true);
+		this.getUsuariosCombo().clear();
 	}
 }

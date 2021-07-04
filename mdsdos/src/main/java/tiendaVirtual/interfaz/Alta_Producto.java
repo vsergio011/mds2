@@ -19,6 +19,7 @@ import com.vaadin.flow.component.upload.receivers.FileData;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
 
+import Helpers.Notifications.NotificationType;
 import appventawebbd.Categoria;
 import appventawebbd.Producto;
 import basededatos.BDPrincipal;
@@ -46,7 +47,7 @@ public class Alta_Producto extends VistaAltaproducto{
 	public Funciones_Admin _funcionesAdmin;
 	List<String> imagenesUrl = new ArrayList<String>();
 	iAdministrador ciberAdm;
-	Upload upload ;
+	Upload upload = null;
 	MultiFileMemoryBuffer multiFileMemoryBuffer;
 	File tmpFile;
 	
@@ -55,7 +56,7 @@ public class Alta_Producto extends VistaAltaproducto{
 		LoadCategories();
 		
 		multiFileMemoryBuffer = new MultiFileMemoryBuffer();
-		Upload upload = new Upload(multiFileMemoryBuffer);
+		upload = new Upload(multiFileMemoryBuffer);
 		upload.addFinishedListener(e -> {
 			for(String a : multiFileMemoryBuffer.getFiles()) {
 				System.out.println(a);
@@ -195,5 +196,20 @@ public class Alta_Producto extends VistaAltaproducto{
 		
 		iAdministrador admin = new BDPrincipal();
 		Producto id = admin.altaProducto(pro, this.imagenesUrl, this.selected.getId());
+		
+		Helpers.Notifications.ShowAlert("Producto añadido con exito.", NotificationType.INFORMATION);
+		
+		this.clearView();
+	}
+	
+	private void clearView() {
+		this.getDescripcionInput().clear();
+		this.getInputTitulo().clear();
+		this.getProductoPrecio().clear();
+		this.getVaadinTextArea().clear();
+		this.imagenesUrl.clear();
+		this.selected = null;
+		multiFileMemoryBuffer = new MultiFileMemoryBuffer();
+		upload = new Upload(multiFileMemoryBuffer);
 	}
 }

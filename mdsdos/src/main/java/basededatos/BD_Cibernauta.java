@@ -2,11 +2,13 @@ package basededatos;
 
 import basededatos.BDPrincipal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
+import org.orm.criteria.BooleanExpression;
 
 import appventawebbd.AdministradorDAO;
 import appventawebbd.AppventawebPersistentManager;
@@ -45,6 +47,29 @@ public class BD_Cibernauta {
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
 		return u;
+	}
+	
+	public List<Usuario> getUsuarios() throws PersistentException {
+		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
+		
+		Usuario[] u = {};
+		List<Usuario> users = new ArrayList<Usuario>();
+		try {
+			UsuarioCriteria criteria = new UsuarioCriteria();
+			criteria.operativo.eq(true);
+			u = UsuarioDAO.listUsuarioByCriteria(criteria);
+			
+			for (Usuario usuario : u) {
+				users.add(usuario);
+			}
+			
+			t.commit();
+		} catch (Exception e) {
+			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			t.rollback();
+		}
+		AppventawebPersistentManager.instance().disposePersistentManager();
+		return users;
 	}
 
 	public Cibernauta Registrar(

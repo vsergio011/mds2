@@ -7,6 +7,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import Helpers.Notifications.NotificationType;
 import vistas.VistaCarrito;
 
 public class Carrito extends VistaCarrito {
@@ -53,6 +54,8 @@ public class Carrito extends VistaCarrito {
 				Actualizar_total();
 			});	
 		}
+		
+		Helpers.Notifications.ShowAlert("Producto añadido al carrito con exito.", NotificationType.INFORMATION);
 	}
 	
 	public void ClearCarrito() {

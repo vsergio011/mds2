@@ -4,6 +4,7 @@ import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-area.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
+import '@vaadin/vaadin-combo-box/src/vaadin-combo-box.js';
 
 class VistaNuevomensaje extends PolymerElement {
 
@@ -24,6 +25,7 @@ class VistaNuevomensaje extends PolymerElement {
   <vaadin-text-field label="Remitente" placeholder="Placeholder" id="remitenteInput" style="width: 90%;">
     Remitente 
   </vaadin-text-field>
+  <vaadin-combo-box id="usuariosCombo" style="width: 90%;"></vaadin-combo-box>
   <vaadin-text-field label="Destinatario" placeholder="Placeholder" style="width: 90%;" id="destinatarioInput"></vaadin-text-field>
   <vaadin-text-area label="Mensaje" placeholder="Add detailed explanation" style="width: 90%;" id="mensajeInput"></vaadin-text-area>
  </vaadin-vertical-layout>

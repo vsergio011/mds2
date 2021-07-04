@@ -20,14 +20,16 @@ class VistaEncargadodetallesdepedido extends PolymerElement {
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
  <vaadin-vertical-layout theme="spacing" style="width: 35%; margin: var(--lumo-space-xl); background-color:#232f3e; color:white; margin-right: 0; padding: var(--lumo-space-m); align-items: center;">
   <label style="font-weight:bold;color:white">Detalles Del pedido</label>
-  <label id="identificadorLbl" style="color:white">id: 1212323142134</label>
   <vaadin-vertical-layout theme="spacing" style="width: 80%;color:white">
+   <label style="width: 100%;">ID</label>
+   <label id="identificadorLbl" style="color:white; margin: var(--lumo-space-m);">123456</label>
    <label style="width: 100%;">Comprador</label>
    <label id="lbDatosComprador" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);"> Nombre y apellidos</label>
    <label style="width: 100%;">Direccion</label>
    <label id="lbDireccionComprador" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);">Direccion del comprador</label>
    <label style="width: 100%;">Fecha de pedido</label>
    <label id="lbFechaPedido" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);">Fecha de pedido</label>
+   <label id="formapagoLbl" style="width: 100%;">Forma de pago </label>
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="color:white">
    <vaadin-checkbox id="checkEnviado" style="background-color: #d8a626;">
@@ -38,7 +40,7 @@ class VistaEncargadodetallesdepedido extends PolymerElement {
    </vaadin-checkbox>
   </vaadin-horizontal-layout>
   <vaadin-button id="aprobarBtn" style="align-self: center;color:white;background-color:#374453">
-   Enviado
+    Enviado 
   </vaadin-button>
   <vaadin-button id="recibidoBtn" style="align-self: center;color:white;background-color:#374453">
     Recibido 

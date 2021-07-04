@@ -46,4 +46,6 @@ public interface iAdministrador {
 	public Mensaje[] getMensajesRecibidos(int aId);
 	
 	public Mensaje[] getMensajesEnviados(int aId);
+	
+	public void modificarDatos(int idCiber, appventawebbd.Usuario aCiber);
 }

@@ -510,4 +510,15 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 		return items;
 	}
+	
+	public List<Usuario> getUsuarios() {
+		List<Usuario> items = new ArrayList<Usuario>();
+		try {
+			items = _bd_ciber.getUsuarios();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return items;
+	}
 }

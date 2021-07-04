@@ -9,6 +9,6 @@ public class Elemento_Pedido__Transportista_ extends Elemento_Pedido {
 	public Elemento_Pedido__Transportista_(appventawebbd.Enviado pedido) {
 		_detalles = new Detalles_Pedido__Transportista_(pedido);
 		
-		this.getPedidoBtnn().setText("ID: " + pedido.getId());
+		this.getPedidoBtnn().setText(pedido.getId() + " | " + pedido.getCibernauta().getNombre() +" | " + pedido.getCibernauta().getDireccionCompleta());
 	}
 }

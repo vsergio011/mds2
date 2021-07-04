@@ -18,9 +18,16 @@ public class Detalles_Pedido__Transportista_ extends Detalles_Pedido {
 		this.pedido = pedido;
 		
 		this.getContenedorProductos().setVisible(false);
-		this.getTextTotal().setVisible(false);
+		this.getTextTotal().setVisible(true);
 		this.getCheckEnviado().setVisible(false);
 		this.getCheckRecibido().setVisible(false);
 		this.getAprobarBtn().setVisible(false);
+		
+		this.getLbDatosComprador().setText(pedido.getCibernauta().getNombre() + " " + pedido.getCibernauta().getApellidos());
+		this.getLbDireccionComprador().setText(pedido.getDireccion());
+		this.getLbFechaPedido().setText(pedido.getFechaPedido());
+		this.getIdentificadorLbl().setText(pedido.getId() + "");
+		this.getFormapagoLbl().setText(pedido.getFormaPago());
+		this.getTextTotal().setValue(pedido.getTotal() + "");
 	}
 }

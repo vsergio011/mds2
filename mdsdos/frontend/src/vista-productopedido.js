@@ -41,7 +41,7 @@ class VistaProductopedido extends PolymerElement {
   <label id="precioUnidadLbl" style="color:white">precio</label>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout style="width: 25%; height: 100%; justify-content: center; align-self: center;">
-  <vaadin-button id="com,entarBtn" style="align-self: flex-end;color:white;background-color:#374453">
+  <vaadin-button id="comentarBtn" style="align-self: flex-end;color:white;background-color:#374453">
     Comentar 
   </vaadin-button>
   <vaadin-button id="deleteBtn" style="align-self: flex-end;color:white;background-color:#374453">

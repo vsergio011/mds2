@@ -9,6 +9,7 @@ import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 
 /**
  * A Designer generated component for the vista-nuevomensaje template.
@@ -34,6 +35,12 @@ public class VistaNuevomensaje extends PolymerTemplate<VistaNuevomensaje.VistaNu
 	private Button enviarBtn;
 	@Id("remitenteInput")
 	private TextField remitenteInput;
+	@Id("usuariosCombo")
+	private ComboBox<String> usuariosCombo;
+
+	public ComboBox<String> getUsuariosCombo() {
+		return usuariosCombo;
+	}
 
 	public TextField getRemitenteInput() {
 		return remitenteInput;

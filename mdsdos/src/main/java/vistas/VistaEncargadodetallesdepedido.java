@@ -42,6 +42,12 @@ public class VistaEncargadodetallesdepedido extends PolymerTemplate<VistaEncarga
 	private Label identificadorLbl;
 	@Id("recibidoBtn")
 	private Button recibidoBtn;
+	@Id("formapagoLbl")
+	private Label formapagoLbl;
+
+	public Label getFormapagoLbl() {
+		return formapagoLbl;
+	}
 
 	public Button getRecibidoBtn() {
 		return recibidoBtn;

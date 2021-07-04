@@ -3,6 +3,7 @@ package tiendaVirtual.interfaz;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import Helpers.Notifications.NotificationType;
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta;
 import basededatos.iCibernauta_Registrado;
@@ -28,7 +29,9 @@ public class Comprar extends VistaProcesodecompra {
 	double precio = 0;
 	public void Realizar_Compra(List<appventawebbd.Item> items, appventawebbd.Cibernauta ciber, double precio) {
 		iCibernauta_Registrado c = new BDPrincipal();
-		c.RealizaCompra(items, ciber, precio);		
+		c.RealizaCompra(items, ciber, precio);	
+		
+		Helpers.Notifications.ShowAlert("Compra realizada con éxito.", NotificationType.INFORMATION);
 	}
 	
 	public void ShowDatosCompra(List<appventawebbd.Item> items, double total) {
