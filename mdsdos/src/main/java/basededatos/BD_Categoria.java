@@ -24,7 +24,7 @@ public class BD_Categoria {
 			categorias = CategoriaDAO.queryCategoria(null, null);
 			t2.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -42,7 +42,7 @@ public class BD_Categoria {
 			CategoriaDAO.save(cat);
 			t2.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

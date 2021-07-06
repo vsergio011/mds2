@@ -43,7 +43,7 @@ public class BD_Enviado {
 			pedidos = EnviadoDAO.listEnviadoByQuery("CibernautaUsuarioId='"+aIdCiber+"'", "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -59,7 +59,7 @@ public class BD_Enviado {
 			pedidos = EnviadoDAO.listEnviadoByQuery(null, "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -79,7 +79,7 @@ public class BD_Enviado {
 			pedido = EnviadoDAO.loadEnviadoByORMID(aId);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

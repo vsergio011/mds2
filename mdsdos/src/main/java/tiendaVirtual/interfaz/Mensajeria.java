@@ -28,7 +28,6 @@ public class Mensajeria extends VistaMensajeria {
 		this.getNombreBtn().setText("Mensajes de " + ciber.getNombre());
 		
 		_nueva_Notificacion = new Nueva_Notificacion(ciber);
-		VerticalLayout vl = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		load(ciber);
 		
 		this.getEnviadosBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

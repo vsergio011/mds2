@@ -29,7 +29,7 @@ public class BD_Administrador {
 			empleados = EmpleadoDAO.queryEmpleado(null, null);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

@@ -233,6 +233,16 @@ public class Cibernauta_Registrado extends Cibernauta {
 							_cabecera._perfil._compras.UpdateCompras(ciber);
 						}
 					});
+					c._productosAdquiridos.getCancelarCompraBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+						@Override
+						public void onComponentEvent(ClickEvent<Button> event) {
+							layout.removeAll();
+							layout.add(_cabecera, _cabecera._perfil._compras);
+							
+							c.Cancelar_Pedido();
+							_cabecera._perfil._compras.UpdateCompras(ciber);
+						}
+					});
 					for(Producto_Adquirido pp : c._productosAdquiridos._productoAdquirido) {
 						pp.getComEntarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 							@Override

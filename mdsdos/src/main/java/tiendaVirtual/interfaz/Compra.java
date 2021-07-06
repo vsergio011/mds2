@@ -15,7 +15,9 @@ public class Compra extends VistaCompra {
 	public void Cancelar_Pedido() {
 		iCibernauta_Registrado cibernauta = new BDPrincipal();
 		
+		System.out.println("Lol " + this.pedido.getId());
 		appventawebbd.Pendiente pendiente = cibernauta.getPedidoPendiente(this.pedido.getId());
+		System.out.println("PENDIENTE : " + pendiente.getId());
 		if (pendiente != null) {
 			cibernauta.cancelarCompra(pendiente);
 		}

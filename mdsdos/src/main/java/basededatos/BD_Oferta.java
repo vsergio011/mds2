@@ -32,7 +32,7 @@ public class BD_Oferta {
 			OfertaDAO.save(oferta);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -46,7 +46,7 @@ public class BD_Oferta {
 			OfertaDAO.delete(oferta);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -60,7 +60,7 @@ public class BD_Oferta {
 			oferta = OfertaDAO.loadOfertaByQuery("ProductoId='"+idProducto+"'", null);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -76,7 +76,7 @@ public class BD_Oferta {
 			ofertas = OfertaDAO.queryOferta(null, null);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

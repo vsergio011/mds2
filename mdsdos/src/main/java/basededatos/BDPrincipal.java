@@ -48,7 +48,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_ciber.cambiar_contrasena(idCiber, aNewContrasen);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -57,7 +57,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_cat.listCategorias();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return new ArrayList<Categoria>();
@@ -68,7 +68,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			coment = _bd_com.listComentarios(aIdProducto);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return coment;
@@ -78,7 +78,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_oferta.listOfertas();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return new ArrayList<Oferta>();
@@ -88,7 +88,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_prod.listProductos();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return new ArrayList<Producto>();
@@ -98,7 +98,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_prod.listProductos();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return new ArrayList<Producto>();
@@ -109,7 +109,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			fotos = _bd_fotos.getFotosProducto(aIdProducto);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return fotos;
@@ -119,7 +119,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_prod.altaProducto(aProducto, images, cat);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -129,7 +129,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_admin.listEmpleados();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return new ArrayList<Empleado>();
@@ -139,7 +139,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_prod.modificarProducto(idProducto, aProducto, fotos, cat);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -149,7 +149,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_prod.borrarProducto(aProducto);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -159,7 +159,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			pedidos =  _bd_pend.listadoComprasPendientes(aIdCiber);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return pedidos;
@@ -170,7 +170,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			pedidos = _bd_entr.listadoComprasEntregadas(aIdCiber);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return pedidos;
@@ -181,7 +181,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			pedidos = _bd_env.listadoComprasEnviadas(aIdCiber);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return pedidos;
@@ -191,7 +191,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_oferta.anadirAOferta(aIdProducto, aOferta);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -200,7 +200,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_oferta.quitarProductoOferta(aIdProducto);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -209,7 +209,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_cat.addCategoria(aCategoria);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -219,7 +219,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_prod.anadirFoto(aIdProducto, aImage);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -228,7 +228,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_ciber.modificarDatos(idCiber, aCiber);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -238,7 +238,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			mensajes =  _bd__mens.getMensajesEnviados(idUsuario);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return mensajes;
@@ -249,7 +249,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			mensajes =  _bd__mens.getMensajesRecibidos(idUsuario);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return mensajes;
@@ -259,7 +259,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_ciber.getCibernauta(aId);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -269,7 +269,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_ciber.borrarCuenta(aIdCiber);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -278,7 +278,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_com.comentarProducto(aIdProduct, aComentario, idCiber);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -287,7 +287,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_env.isPedidoEnviado(aId);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return false;
@@ -297,7 +297,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_pend.getPedidoPendiente(aId);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -307,7 +307,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_env.getPedidoEnviado(aId);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -317,7 +317,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_entr.getPedidoEntregado(aId);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -328,7 +328,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			items = _bd_items.getItemsPedido(aIdPedido);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return items;
@@ -339,7 +339,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			productos = _bd_prod.getProductos(idCategoria);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return productos;
@@ -349,7 +349,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_pend.cancelarCompra(pedido);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -374,7 +374,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 					usuario, 
 					aPassword);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -384,7 +384,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_ciber.Login(aUser);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -394,7 +394,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_ciber.getUsuario(aUser);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -404,7 +404,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_ciber.getUsuarioEmail(email);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -414,7 +414,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd__mens.nuevaNotificacion(remitente, destinatario, asunto, cuerpo);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -423,7 +423,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_pend.RealizaCompra(aItems, aCiber, precio);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -433,7 +433,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_env.AddPedidoEnviado(idPedido);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -442,7 +442,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_entr.AddPedidoEntregado(pedido);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -452,7 +452,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			pedidos = _bd_pend.listadoComprasPendientes();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return pedidos;
@@ -463,7 +463,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			pedidos = _bd_entr.listadoComprasEntregadas();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return pedidos;
@@ -474,7 +474,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			pedidos = _bd_env.listadoComprasEnviadas();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return pedidos;
@@ -484,7 +484,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			return _bd_oferta.estaEnOferta(idProducto);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return null;
@@ -494,7 +494,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			_bd_prod.ActualizarValoracionMedia(idProducto);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 	}
@@ -505,7 +505,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			items = _bd_items.getItemsPedido(aIdPedido);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return items;
@@ -516,7 +516,7 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		try {
 			items = _bd_ciber.getUsuarios();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
+			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
 		return items;

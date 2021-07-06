@@ -1,7 +1,5 @@
 package basededatos;
 
-import basededatos.BDPrincipal;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -15,10 +13,8 @@ import appventawebbd.CategoriaDAO;
 import appventawebbd.Comentario;
 import appventawebbd.Foto;
 import appventawebbd.FotoDAO;
-import appventawebbd.Item;
 import appventawebbd.Oferta;
 import appventawebbd.OfertaDAO;
-import appventawebbd.Pendiente;
 import appventawebbd.Producto;
 import appventawebbd.ProductoCriteria;
 import appventawebbd.ProductoDAO;

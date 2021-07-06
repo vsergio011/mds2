@@ -1,6 +1,9 @@
 package basededatos;
 
 import basededatos.BDPrincipal;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import org.orm.PersistentException;
@@ -21,17 +24,22 @@ public class BD__Mensaje {
 	public void nuevaNotificacion(Usuario remitente, Usuario destinatario, String asunto, String cuerpo) throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		try {
+		try {			
 			Mensaje m = MensajeDAO.createMensaje();
 			m.setCuerpo(cuerpo);
 			m.setAsunto(asunto);
-			m.setRemitente(remitente);
-			m.setDestinatario(destinatario);
+			
+			Usuario remi = UsuarioDAO.getUsuarioByORMID(remitente.getId());
+			m.setRemitente(remi);
+			
+			Usuario desti = UsuarioDAO.getUsuarioByORMID(destinatario.getId());
+			m.setDestinatario(desti);
+			
 			MensajeDAO.save(m);
 			
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -42,14 +50,13 @@ public class BD__Mensaje {
 		
 		Mensaje[] mensajes = {};
 		try {
-			MensajeCriteria criteria = new MensajeCriteria();
-			criteria.destinatarioId.eq(idUsuario);
-			
-			mensajes = MensajeDAO.listMensajeByCriteria(criteria);
+			Usuario u = UsuarioDAO.getUsuarioByORMID(idUsuario);
+			System.out.println("MENSAJES Recibidos  " + u.mensajesRecibidos.size());
+			mensajes = u.mensajesRecibidos.toArray();
 			
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -62,14 +69,12 @@ public class BD__Mensaje {
 		
 		Mensaje[] mensajes = {};
 		try {
-			MensajeCriteria criteria = new MensajeCriteria();
-			criteria.remitenteId.eq(idUsuario);
-			
-			mensajes = MensajeDAO.listMensajeByCriteria(criteria);
-			
+			Usuario u = UsuarioDAO.getUsuarioByORMID(idUsuario);
+			mensajes = u.mensajesEnviados.toArray();
+			System.out.println("MENSAJES Recibidos  " + u.mensajesRecibidos.size());
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

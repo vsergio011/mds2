@@ -10,6 +10,7 @@ import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
+import org.springframework.boot.autoconfigure.condition.ConditionMessage.ItemsBuilder;
 
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Cibernauta;
@@ -17,6 +18,7 @@ import appventawebbd.CibernautaDAO;
 import appventawebbd.Entregado;
 import appventawebbd.EntregadoDAO;
 import appventawebbd.Item;
+import appventawebbd.ItemCriteria;
 import appventawebbd.ItemDAO;
 import appventawebbd.Oferta;
 import appventawebbd.Pedido;
@@ -60,7 +62,7 @@ public class BD_Pendiente {
 			
 			return pedido;
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -76,7 +78,7 @@ public class BD_Pendiente {
 			pedidos = PendienteDAO.listPendienteByQuery("CibernautaUsuarioId='"+aIdCiber+"'", "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -92,7 +94,7 @@ public class BD_Pendiente {
 			pedidos = PendienteDAO.listPendienteByQuery(null, "FechaPedido");
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -108,7 +110,7 @@ public class BD_Pendiente {
 			pedido = PendienteDAO.loadPendienteByQuery("PedidoId='"+aId+"'", null);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -120,13 +122,17 @@ public class BD_Pendiente {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		try {
-			for(Item item : pedido.items.toArray()) {
+			ItemCriteria criteria = new ItemCriteria();
+			criteria.pedidoId.eq(pedido.getId());
+			for(Item item : ItemDAO.listItemByCriteria(criteria)) {
 				ItemDAO.delete(item);
 			}
-			PendienteDAO.delete(pedido);
+			
+			Pendiente p = PendienteDAO.getPendienteByORMID(pedido.getId());
+			PendienteDAO.delete(p);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
