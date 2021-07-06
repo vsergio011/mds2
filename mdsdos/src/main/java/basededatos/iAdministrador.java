@@ -21,7 +21,7 @@ public interface iAdministrador {
 
 	public List<Empleado> listempleados();
 
-	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos);
+	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos, int cat);
 
 	public void borrarProducto(Producto aProducto);
 

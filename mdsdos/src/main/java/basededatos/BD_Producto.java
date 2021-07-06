@@ -44,7 +44,7 @@ public class BD_Producto {
 			
 			t2.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -93,22 +93,30 @@ public class BD_Producto {
 		return pro;
 	}
 
-	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos) throws PersistentException {
+	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos, int cat) throws PersistentException {
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
 		Producto pro = null;
 		try {
 			pro = ProductoDAO.loadProductoByORMID(idProducto);
-			pro.setCategoria(aProducto.getCategoria());
+			
+			Categoria categoria = CategoriaDAO.getCategoriaByORMID(cat);
+			pro.setCategoria(categoria);
+			
 			pro.setDescripcion(aProducto.getDescripcion());
 			pro.setDetalles(aProducto.getDetalles());
 			pro.setFotos(aProducto.getFotos());
 			pro.setNombre(aProducto.getNombre());
+			pro.setPrecio(aProducto.getPrecio());
 			
-			pro.fotosProducto.clear();
+			List<String> existing = new ArrayList<String>();
+			for (Foto foto : pro.fotosProducto.toArray()) {
+				existing.add(foto.getRuta());
+			}
+			fotos.removeAll(existing);
+			
 			for (String f : fotos) {
 				Foto foto = FotoDAO.createFoto();
-				foto.setProductoFoto(aProducto);
 				foto.setRuta(f);
 				// FotoDAO.save(foto);
 				
@@ -118,7 +126,7 @@ public class BD_Producto {
 			
 			t2.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -145,7 +153,7 @@ public class BD_Producto {
 			ProductoDAO.delete(pro);
 			t2.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t2.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -160,7 +168,7 @@ public class BD_Producto {
 			productos = ProductoDAO.queryProducto(null, null);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -176,7 +184,7 @@ public class BD_Producto {
 			productos = ProductoDAO.queryProducto(null, "Nombre");
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -198,7 +206,7 @@ public class BD_Producto {
 			
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();
@@ -215,7 +223,7 @@ public class BD_Producto {
 			productos = ProductoDAO.listProductoByCriteria(criteria);
 			t.commit();
 		} catch (Exception e) {
-			System.out.println(">>>>>>>>ERROR EN BD: " + e.getMessage());
+			Helpers.Errors.LogBDError(e);
 			t.rollback();
 		}
 		AppventawebPersistentManager.instance().disposePersistentManager();

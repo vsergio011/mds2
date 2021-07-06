@@ -21,13 +21,11 @@ public class Comentar_Producto extends VistaComentarproducto{
 	
 	public void ComentarProducto(appventawebbd.Cibernauta ciber) {
 		appventawebbd.Comentario comentario = new appventawebbd.Comentario();
-		comentario.setCibernauta(ciber);
-		comentario.setProducto(producto);
 		comentario.setTexto(this.getComentarioTxt().getValue());
 		comentario.setValoracion(Integer.parseInt(this.getValoracionInput().getValue()));
 		
 		iCibernauta_Registrado cibernauta = new BDPrincipal();
-		cibernauta.comentarProducto(producto, comentario);
+		cibernauta.comentarProducto(producto.getId(), comentario, ciber.getId());
 		cibernauta.ActualizarValoracionMedia(producto.getId());
 	}
 }

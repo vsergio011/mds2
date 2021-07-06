@@ -135,9 +135,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		return new ArrayList<Empleado>();
 	}
 
-	public appventawebbd.Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos) {
+	public appventawebbd.Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos, int cat) {
 		try {
-			return _bd_prod.modificarProducto(idProducto, aProducto, fotos);
+			return _bd_prod.modificarProducto(idProducto, aProducto, fotos, cat);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -274,9 +274,9 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		}
 	}
 
-	public void comentarProducto(Producto aIdProduct, Comentario aComentario) {
+	public void comentarProducto(int aIdProduct, Comentario aComentario, int idCiber) {
 		try {
-			_bd_com.comentarProducto(aIdProduct, aComentario);
+			_bd_com.comentarProducto(aIdProduct, aComentario, idCiber);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

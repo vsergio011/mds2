@@ -27,7 +27,7 @@ public interface iCibernauta_Registrado extends iCibernauta {
 
 	public void borrarCuenta(int aIdCiber);
 
-	public void comentarProducto(Producto aIdProduct, Comentario aComentario);
+	public void comentarProducto(int aIdProduct, Comentario aComentario, int idCiber);
 
 	public Pendiente[] listadoComprasPendientes(int aIdCiber);
 

@@ -7,6 +7,8 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import appventawebbd.AppventawebPersistentManager;
+import appventawebbd.Cibernauta;
+import appventawebbd.CibernautaDAO;
 import appventawebbd.Comentario;
 import appventawebbd.ComentarioCriteria;
 import appventawebbd.ComentarioDAO;
@@ -17,13 +19,18 @@ public class BD_Comentario {
 	public BDPrincipal _bd_prin_com;
 	public Vector<Comentario> _contiene_comentarios = new Vector<Comentario>();
 
-	public void comentarProducto(Producto aIdProducto, Comentario aComentario) throws PersistentException {
+	public void comentarProducto(int aIdProducto, Comentario aComentario, int idCiber) throws PersistentException {
 		PersistentTransaction t2 = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		try {
+		try {			
 			Comentario comentario = ComentarioDAO.createComentario();
-			comentario.setCibernauta(aComentario.getCibernauta());
-			comentario.setProducto(aIdProducto);
+			
+			Cibernauta ciber = CibernautaDAO.getCibernautaByORMID(idCiber);
+			comentario.setCibernauta(ciber);
+			
+			Producto producto = ProductoDAO.getProductoByORMID(aIdProducto);
+			comentario.setProducto(producto);
+			
 			comentario.setTexto(aComentario.getTexto());
 			comentario.setValoracion(aComentario.getValoracion());
 			

@@ -7,6 +7,7 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
 
+import Helpers.Notifications.NotificationType;
 import appventawebbd.Producto;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
@@ -19,10 +20,11 @@ public class Modificar_Producto extends Alta_Producto {
 	public void Borrar_Producto(appventawebbd.Producto producto) {
 		iAdministrador admin = new BDPrincipal();
 		admin.borrarProducto(producto);
+		
+		Helpers.Notifications.ShowAlert("Producto borrado con éxito.", NotificationType.INFORMATION);
 	}
 	
-	public void GuardarProducto(appventawebbd.Producto producto) {		
-		producto.setCategoria(this.selected);
+	public void GuardarProducto(appventawebbd.Producto producto) {
 		producto.setDescripcion(this.getDescripcionInput().getValue());
 		producto.setNombre(this.getInputTitulo().getValue());
 		producto.setPrecio(Double.parseDouble(this.getProductoPrecio().getValue()));
@@ -30,9 +32,10 @@ public class Modificar_Producto extends Alta_Producto {
 		producto.setFotos(this.getImg().getSrc());
 		
 		iAdministrador admin = new BDPrincipal();
-		admin.modificarProducto(producto.getId(),producto, imagenesUrl);
+		admin.modificarProducto(producto.getId(),producto, imagenesUrl, this.selected.getId());
 		
 		fillProducto(producto);
+		Helpers.Notifications.ShowAlert("Producto modificado con éxito.", NotificationType.INFORMATION);
 	}
 	
 	public Modificar_Producto(appventawebbd.Producto producto) {
