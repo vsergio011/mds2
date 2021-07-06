@@ -12,6 +12,7 @@ import org.orm.PersistentTransaction;
 import appventawebbd.AppventawebPersistentManager;
 import appventawebbd.Enviado;
 import appventawebbd.Oferta;
+import appventawebbd.OfertaCriteria;
 import appventawebbd.OfertaDAO;
 import appventawebbd.Producto;
 import appventawebbd.ProductoDAO;
@@ -57,7 +58,11 @@ public class BD_Oferta {
 		
 		Oferta oferta = null;
 		try {
-			oferta = OfertaDAO.loadOfertaByQuery("ProductoId='"+idProducto+"'", null);
+			OfertaCriteria criteria = new OfertaCriteria();
+			criteria.productoId.eq(idProducto);
+			
+			oferta = OfertaDAO.loadOfertaByCriteria(criteria);
+
 			t.commit();
 		} catch (Exception e) {
 			Helpers.Errors.LogBDError(e);

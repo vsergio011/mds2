@@ -45,4 +45,11 @@ public class Lista_Ofertas extends Ofertas_Populares {
 			_producto.add(p);
 		}
 	}
+	
+	public void ShowLess() {
+		for (Producto_Admin p : _producto) {
+			p.getMoreInfoBtn().setVisible(false);
+			p.getQuitarOfertaBtn().setVisible(false);
+		}
+	}
 }

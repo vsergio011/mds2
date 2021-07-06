@@ -125,14 +125,15 @@ public class BDPrincipal implements iCibernauta, iAdministrador, iTransportista,
 		return null;
 	}
 
-	public List<Empleado> listempleados() {
+	public Usuario[] listempleados() {
+		Usuario[] usuarios = {};
 		try {
-			return _bd_admin.listEmpleados();
+			usuarios = _bd_admin.listEmpleados();
 		} catch (PersistentException e) {
 			Helpers.Errors.LogBDError(e);
 			e.printStackTrace();
 		}
-		return new ArrayList<Empleado>();
+		return usuarios;
 	}
 
 	public appventawebbd.Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos, int cat) {

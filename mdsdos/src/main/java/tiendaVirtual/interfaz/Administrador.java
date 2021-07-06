@@ -24,6 +24,10 @@ public class Administrador extends VistaCibernauta {
 		layout = this.getVaadinVerticalLayout().as(VerticalLayout.class);
 		
 		_ofertas = new Lista_Ofertas();
+		for (Producto_Admin pc : _ofertas._producto) {
+			addFuncionalidadProductoAdmin(pc);				
+		}
+		
 		_listaPmV = new Lista_de_PmV();
 		_cabecera = new Cabecera_Administrador(admin);
 		
@@ -224,7 +228,7 @@ public class Administrador extends VistaCibernauta {
 		_cabecera._funcionesAdmin._modificarEmpleado._empleados.getVerEmpleadoBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				appventawebbd.Empleado selected = _cabecera._funcionesAdmin._modificarEmpleado._empleados.GetSelectedEmpleado();
+				appventawebbd.Usuario selected = _cabecera._funcionesAdmin._modificarEmpleado._empleados.GetSelectedEmpleado();
 				_cabecera._funcionesAdmin._modificarEmpleado._empleados.clearView();
 				Perfil_empleado _perfilEmpleado = new Perfil_empleado(selected);
 				
@@ -246,6 +250,8 @@ public class Administrador extends VistaCibernauta {
 					@Override
 					public void onComponentEvent(ClickEvent<Button> event) {
 						layout.removeAll();
+						_cabecera._funcionesAdmin._modificarEmpleado._empleados.BorrarSeleccionado();
+						
 						_cabecera._funcionesAdmin._modificarEmpleado._empleados.FillEmpleados();
 						layout.add(_cabecera, _cabecera._funcionesAdmin._modificarEmpleado._empleados);
 					}
@@ -256,7 +262,9 @@ public class Administrador extends VistaCibernauta {
 						layout.removeAll();
 						_cabecera._funcionesAdmin._modificarEmpleado._empleados.FillEmpleados();
 						layout.add(_cabecera, _cabecera._funcionesAdmin._modificarEmpleado._empleados);
+						
 						_perfilEmpleado.UpdateUsuario(selected.getId(), selected.getTipo());
+						_cabecera._funcionesAdmin._modificarEmpleado._empleados.FillEmpleados();
 					}
 				});
 				
@@ -268,8 +276,7 @@ public class Administrador extends VistaCibernauta {
 		fillCategories();
 	}
 	
-	private void addFuncionalidadProductoAdmin(Producto_Admin pc) {
-		pc.getAddOffertaBtn().setVisible(false);
+	private void addFuncionalidadProductoAdmin(Producto_Admin pc) {		
 		
 		Detalle_Producto_Admin detalle = new Detalle_Producto_Admin(pc.GetOferta());
 		detalle.getUpdateBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -301,6 +308,7 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera, detalle);
 										
 				detalle._quitarOferta.QuitarOferta();
+				UI.getCurrent().getPage().reload();
 			}
 		});
 		pc.getQuitarOfertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -363,8 +371,7 @@ public class Administrador extends VistaCibernauta {
 			vl.add(ldp);
 			for (Producto_Ciber pc: ldp._producto)
 			{
-				addFuncionalidadProductoCiber(pc);
-				
+				addFuncionalidadProductoCiber(pc);				
 				HorizontalLayout hl = ldp.getVaadinHorizontalLayout();
 				hl.add(pc);
 			}
@@ -414,6 +421,7 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera, pc._detalleProducto);
 				
 				detalle._agregarOferta.AgregarOferta(pc.GetProducto());
+				UI.getCurrent().getPage().reload();
 			}
 		});
 		detalle._agregarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -437,13 +445,14 @@ public class Administrador extends VistaCibernauta {
 				layout.add(_cabecera, pc._detalleProducto);
 										
 				detalle._quitarOferta.QuitarOferta();
+				UI.getCurrent().getPage().reload();
 			}
 		});
 		pc.getQuitarOfertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
 				layout.removeAll();
-				layout.add(_cabecera, detalle._quitarOferta);	
+				layout.add(_cabecera, detalle._quitarOferta);
 			}
 		});
 		pc.getAddOffertaBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

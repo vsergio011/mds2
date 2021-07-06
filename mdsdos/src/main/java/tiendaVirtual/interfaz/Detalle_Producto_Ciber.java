@@ -1,5 +1,7 @@
 package tiendaVirtual.interfaz;
 
+import basededatos.BDPrincipal;
+
 public class Detalle_Producto_Ciber extends Detalle_Producto {
 	private Object _addCarritoB;
 	public Producto_Ciber _producto;
@@ -14,7 +16,9 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 		this.getImg().setSrc(p.getFotos());
 		this.getRateLabel().setText(String.format("Valoración media: %f/5", p.getValoracionMedia()));
 		this.getDescriptionLabel().setText(p.getDescripcion());
-		this.getPriceLAbel().setText(String.format("%f €", p.getPrecio()));
+		
+		super.FillPrecioProducto(p);
+		
 		this.getVaadinTextArea().setValue(p.getDetalles() == null ? "" : p.getDetalles());
 		
 		this.fillImgs(p);

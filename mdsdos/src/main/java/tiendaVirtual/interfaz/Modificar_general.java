@@ -11,6 +11,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
+import Helpers.Notifications.NotificationType;
 import basededatos.BDPrincipal;
 import basededatos.iCibernauta_Registrado;
 import vistas.VistaModificardatos;
@@ -88,7 +89,7 @@ public class Modificar_general extends VistaModificargeneral {
 	}
 	
 	public void UpdateUsuario(int id, int tipo) {
-		iCibernauta_Registrado cibernauta = new BDPrincipal();
+		BDPrincipal bd = new BDPrincipal();
 		
 		appventawebbd.Usuario ciber = new appventawebbd.Usuario();
 		ciber.setApellidos(this.getLbApellidos().getValue());
@@ -99,6 +100,11 @@ public class Modificar_general extends VistaModificargeneral {
 		ciber.setFoto(this.getImg().getSrc());
 		ciber.setNombre(this.getLbNombre().getValue());
 		ciber.setUsuario(this.getLbNombreUsuario().getValue());
-		cibernauta.modificarDatos(id, ciber);
+		
+		bd.modificarDatos(id, ciber);
+		
+		fillData(bd.getUsuario(id));
+		
+		Helpers.Notifications.ShowAlert("Empleado modificado con exito", NotificationType.INFORMATION);
 	}
 }

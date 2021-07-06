@@ -1,6 +1,7 @@
 package basededatos;
 
 import appventawebbd.Producto;
+import appventawebbd.Usuario;
 import appventawebbd.Empleado;
 import appventawebbd.Encargado;
 import appventawebbd.Pedido;
@@ -19,7 +20,7 @@ public interface iAdministrador {
 
 	public Producto altaProducto(Producto aProducto, List<String> images, int cat);
 
-	public List<Empleado> listempleados();
+	public Usuario[] listempleados();
 
 	public Producto modificarProducto(int idProducto, Producto aProducto, List<String> fotos, int cat);
 

@@ -1,5 +1,9 @@
 package tiendaVirtual.interfaz;
 
+import com.vaadin.flow.component.UI;
+
+import Helpers.Notifications;
+import Helpers.Notifications.NotificationType;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import vistas.VistaOfertaspopulares;
@@ -37,5 +41,7 @@ public class Quitar_Oferta extends VistaQuitarproductooferta {
 	public void QuitarOferta() {
 		iAdministrador admin = new BDPrincipal();
 		admin.quitarProductoOferta(oferta.getId());
+		
+		Notifications.ShowAlert("Producto eliminado de ofertas correctamente.", NotificationType.INFORMATION);
 	}
 }

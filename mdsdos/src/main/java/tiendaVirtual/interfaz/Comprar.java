@@ -29,7 +29,7 @@ public class Comprar extends VistaProcesodecompra {
 	double precio = 0;
 	public void Realizar_Compra(List<appventawebbd.Item> items, appventawebbd.Cibernauta ciber, double precio) {
 		iCibernauta_Registrado c = new BDPrincipal();
-		c.RealizaCompra(items, ciber, precio);	
+		c.RealizaCompra(items, ciber, precio);
 		
 		Helpers.Notifications.ShowAlert("Compra realizada con éxito.", NotificationType.INFORMATION);
 	}

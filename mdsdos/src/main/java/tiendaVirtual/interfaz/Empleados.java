@@ -16,6 +16,7 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.Element;
 
+import Helpers.Notifications.NotificationType;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
 import vistas.VistaListadoempleados;
@@ -31,9 +32,20 @@ public class Empleados extends VistaListadoempleados{
 	public Vector<Buscar_Empleados> _list_Buscar_Empleados = new Vector<Buscar_Empleados>();
 	public Vector<Empleado> _empleado = new Vector<Empleado>();
 		
-	private appventawebbd.Empleado selected = null;
+	private appventawebbd.Usuario selected = null;
 	public Empleados() {
 		FillEmpleados();
+	}
+	
+	public void BorrarSeleccionado() {
+		if (selected == null) {
+			return;
+		}
+		
+		BDPrincipal bd = new BDPrincipal();
+		bd.borrarCuenta(selected.getId());
+		
+		Helpers.Notifications.ShowAlert("Usuario borrado con exito", NotificationType.INFORMATION);
 	}
 	
 	public void FillEmpleados() {
@@ -44,9 +56,26 @@ public class Empleados extends VistaListadoempleados{
 		iAdministrador admin = new BDPrincipal();
 		
 		ArrayList<String> names = new ArrayList<String>();
-		java.util.List<appventawebbd.Empleado> empleados = admin.listempleados();
-		for (appventawebbd.Empleado value : empleados) {
-			names.add(value.getNombre() + " " + value.getApellidos());
+		java.util.List<appventawebbd.Usuario> empleados = new ArrayList<appventawebbd.Usuario>();
+		
+		for (appventawebbd.Usuario usuario :  admin.listempleados()) {
+			empleados.add(usuario);
+		}
+		for (appventawebbd.Usuario value : empleados) {
+			String tipoUsuario = "Cibernauta";
+			switch (value.getTipo()) {
+			case 1:
+				tipoUsuario = "Administrador";
+				break;
+			case 2:
+				tipoUsuario = "Encargado de compras";
+				break;
+			case 3:
+				tipoUsuario = "Transportista";
+				break;
+			}
+			
+			names.add(value.getId() + ". " + tipoUsuario + " | " + value.getNombre() + " " + value.getApellidos());
 		}
 		
 		ListBox<String> lb = new ListBox<String>();
@@ -57,14 +86,6 @@ public class Empleados extends VistaListadoempleados{
 			public void valueChanged(ValueChangeEvent event) {
 				selected = empleados.get(lb.getItemPosition(event.getValue().toString()));
 				verButtonVisible();
-			}
-	    });
-		
-		// TODO: Filtrar.
-		this.getVaadinTextField().addValueChangeListener(new ValueChangeListener() {
-			@Override
-			public void valueChanged(ValueChangeEvent event) {
-				System.out.println("CAMBIO   " + event.getValue().toString());
 			}
 	    });
 		
@@ -79,7 +100,7 @@ public class Empleados extends VistaListadoempleados{
 		this.getVerEmpleadoBtn().setVisible(selected != null);
 	}
 	
-	public appventawebbd.Empleado GetSelectedEmpleado() {
+	public appventawebbd.Usuario GetSelectedEmpleado() {
 		return this.selected;
 	}
 	

@@ -24,6 +24,17 @@ public class Detalle_Producto  extends VistaDetalleproducto {
 		
 	}
 	
+	public void FillPrecioProducto(appventawebbd.Producto producto) {
+		BDPrincipal bd = new BDPrincipal();
+		appventawebbd.Oferta oferta = bd.estaEnOferta(producto.getId());
+		
+		String precio = String.format("%f €", producto.getPrecio());
+		if (oferta != null) {
+			precio = String.format("%f € (OFERTA)", oferta.getPrecio());
+		}
+		this.getPriceLAbel().setText(precio);
+	}
+	
 	public void fillImgs(appventawebbd.Producto producto) {
 		VerticalLayout vl = this.getLyimagenesLateral().as(VerticalLayout.class);		
 		vl.removeAll();

@@ -1,5 +1,9 @@
 package tiendaVirtual.interfaz;
 
+import com.vaadin.flow.component.UI;
+
+import Helpers.Notifications;
+import Helpers.Notifications.NotificationType;
 import appventawebbd.Oferta;
 import basededatos.BDPrincipal;
 import basededatos.iAdministrador;
@@ -17,11 +21,19 @@ public class Agregar_Oferta extends Quitar_Oferta {
 	}
 	
 	public void AgregarOferta(appventawebbd.Producto producto) {
-		iAdministrador admin = new BDPrincipal();
+		BDPrincipal admin = new BDPrincipal();
+		
+		if (admin.estaEnOferta(producto.getId()) != null) {
+			Notifications.ShowAlert("Este producto pertenece ya a una oferta.", NotificationType.ERROR);
+			return;
+		}
+		
 		appventawebbd.Oferta off = new Oferta();
 		off.setFechaFin(this.getFechaFinLbl().getValue());
 		off.setPrecio(Double.parseDouble(this.getPrecioFinalInput().getValue()));
 		
 		admin.anadirAOferta(producto.getId(), off);
+		
+		Notifications.ShowAlert("Producto agregado a ofertas correctamente.", NotificationType.INFORMATION);
 	}
 }

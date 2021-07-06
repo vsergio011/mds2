@@ -31,7 +31,9 @@ public class Detalle_Producto_Admin extends Detalle_Producto {
 		this.getImg().setSrc(pro.getFotos());
 		this.getRateLabel().setText(String.format("Valoración media: %f/5", pro.getValoracionMedia()));
 		this.getDescriptionLabel().setText(pro.getDescripcion());
-		this.getPriceLAbel().setText(String.format("%f €", producto.getPrecio()));
+		
+		this.getPriceLAbel().setText(String.format("%f € (OFERTA)", producto.getPrecio()));
+		
 		this.getVaadinTextArea().setValue(pro.getDetalles() == null ? "" : pro.getDetalles());
 		
 		this.fillImgs(producto.getProducto());

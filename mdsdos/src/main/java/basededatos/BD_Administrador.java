@@ -16,17 +16,22 @@ import appventawebbd.EmpleadoDAO;
 import appventawebbd.Producto;
 import appventawebbd.ProductoDAO;
 import appventawebbd.Usuario;
+import appventawebbd.UsuarioCriteria;
+import appventawebbd.UsuarioDAO;
 
 public class BD_Administrador {
 	public BDPrincipal _bd_prin_admin;
 	public Vector<Administrador> _contiene_administradores = new Vector<Administrador>();
 
-	public List<Empleado> listEmpleados() throws PersistentException {
+	public Usuario[] listEmpleados() throws PersistentException {
 		PersistentTransaction t = AppventawebPersistentManager.instance().getSession().beginTransaction();
 		
-		List<Empleado> empleados = null;
+		Usuario[] empleados = {};
 		try {
-			empleados = EmpleadoDAO.queryEmpleado(null, null);
+			UsuarioCriteria criteria = new UsuarioCriteria();
+			criteria.operativo.eq(true);
+			
+			empleados = UsuarioDAO.listUsuarioByCriteria(criteria);
 			t.commit();
 		} catch (Exception e) {
 			Helpers.Errors.LogBDError(e);
