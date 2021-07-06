@@ -35,7 +35,7 @@ class VistaDetalleproducto extends PolymerElement {
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="width: 90%; height: 55%; align-self: center; padding: var(--lumo-space-m);">
    <label style="font-weight: bold; align-self: stretch;" id="label">Carácteristicas</label>
-   <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;    background-color: hsl(0deg 0% 86% / 40%);" id="vaadinTextArea"></vaadin-text-area>
+   <vaadin-text-area style="align-self: stretch; width: 100%; height: 100%;    background-color: hsl(0deg 0% 86% / 40%);" id="vaadinTextArea" disabled></vaadin-text-area>
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="align-self: center; width: 90%; padding: var(--lumo-space-l);background-color:#b0c4de;border-radius: 20px 20px 20px 20px;">
    <vaadin-vertical-layout style="width: 100%; flex-grow: 1; flex-shrink: 1;">

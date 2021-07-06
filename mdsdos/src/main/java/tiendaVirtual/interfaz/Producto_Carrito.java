@@ -14,10 +14,7 @@ public class Producto_Carrito extends Producto_Pedido {
 		
 		this.getVaadinComboBox().setItems("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
 		
-		item = new appventawebbd.Item();
-		System.out.println("ID PRODUCTO : " + p.getId());
-		
-		
+		item = new appventawebbd.Item();		
 		item.setORM_Producto(p);
 		
 		int cantidad = this.getVaadinComboBox().getValue() == null ? 1 :Integer.parseInt(this.getVaadinComboBox().getValue());
@@ -33,8 +30,6 @@ public class Producto_Carrito extends Producto_Pedido {
 		this.getComEntarBtn().setVisible(false);
 		this.getDescripProducLbl().setText(p.getDescripcion());
 		this.getNombreProductoLbl().setText(p.getNombre());
-		this.getPrecioUnidadLbl().setText("Precio unidad: " + p.getPrecio() + " €");
-		this.getPrecioEurosLbl().setText(p.getPrecio() * cantidad + " €");
 		this.getImgProducto().setSrc(p.getFotos());
 		this.getValoracionLbl().setText("Valoración media: " +p.getValoracionMedia() + "/5");
 		this.getImgProducto().setHeight("200px");

@@ -27,28 +27,28 @@ class VistaCabecerapagina extends PolymerElement {
   <vaadin-horizontal-layout style="background-color:#778ba5">
    <vaadin-combo-box id="categoriesCombo" allow-custom-value></vaadin-combo-box>
   </vaadin-horizontal-layout>
-  <vaadin-button id="offerBtn" class="btnheader" style="color:white">
+  <vaadin-button id="offerBtn" class="btnheader" style="color:white; width: 100%;">
     Categorias 
   </vaadin-button>
-  <vaadin-button id="limpiarBtn" class="btnheader" style="color:white">
+  <vaadin-button id="limpiarBtn" class="btnheader" style="color:white; width: 100%;">
     Inicio 
   </vaadin-button>
-  <vaadin-button id="offertasButton" class="btnheader" style="color:white">
+  <vaadin-button id="offertasButton" class="btnheader" style="color:white; width: 100%;">
     Ofertas 
   </vaadin-button>
   <vaadin-text-field placeholder="Search" style="width: 45%;visibility:hidden" id="searchInput">
    <iron-icon icon="lumo:search" slot="prefix"></iron-icon>
   </vaadin-text-field>
-  <vaadin-button id="btnLogin" class="btnheader" style="color:white">
+  <vaadin-button id="btnLogin" class="btnheader" style="color:white; width: 100%;">
     Login 
   </vaadin-button>
-  <vaadin-button id="btnCarrito" class="btnheader" style="color:white">
+  <vaadin-button id="btnCarrito" class="btnheader" style="color:white; width: 100%;">
     Carrito 
   </vaadin-button>
-  <vaadin-button id="perfilBtn" class="btnheader" style="color:white">
+  <vaadin-button id="perfilBtn" class="btnheader" style="color:white; width: 100%;">
     Perfil 
   </vaadin-button>
-  <vaadin-button id="adminBtn" style="flex-grow: 0;color:white" class="btnheader">
+  <vaadin-button id="adminBtn" style="flex-grow: 0; color:white; width: 100%;" class="btnheader">
     Admin 
   </vaadin-button>
  </vaadin-horizontal-layout>
