@@ -34,11 +34,11 @@ class VistaProductopedido extends PolymerElement {
   <img id="imgProducto" style="align-self: center; flex-grow: 0; flex-shrink: 0; margin: var(--lumo-space-m); height: 90%;" src="https://www.ikea.com/mx/es/images/products/urskog-cojin-leon-gris__0552849_pe659099_s5.jpg?f=xs">
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout style="height: 100%; align-self: center; justify-content: center; align-items: flex-start; margin-right: var(--lumo-space-m);">
-  <label id="nombreProductoLbl" style="width: 100%; align-self: center;font-weight:bold;color:white">producto</label>
-  <label id="descripProducLbl" style="width: 100%; align-self: center;color:white">descripcion </label>
+  <label id="nombreProductoLbl" style="width: 100%; align-self: center;font-weight:bold;color:white"></label>
+  <label id="descripProducLbl" style="width: 100%; align-self: center;color:white"></label>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: center;">
-  <label id="precioUnidadLbl" style="color:white">precio</label>
+  <label id="precioUnidadLbl" style="color:white"></label>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout style="width: 25%; height: 100%; justify-content: center; align-self: center;">
   <vaadin-button id="comentarBtn" style="align-self: flex-end;color:white;background-color:#374453">
@@ -55,7 +55,7 @@ class VistaProductopedido extends PolymerElement {
  </vaadin-vertical-layout>
  <vaadin-vertical-layout style="justify-content: center;">
   <label id="precioEurosLbl" style="width: 100%;color:white"></label>
-  <label id="unidadesLbl" style="width: 100%;color:white">cantidad </label>
+  <label id="unidadesLbl" style="width: 100%;color:white"></label>
   <label id="valoracionLbl" style="width: 100%;color:white"></label>
  </vaadin-vertical-layout>
 </vaadin-horizontal-layout>

@@ -33,6 +33,11 @@ public class Compras extends VistaListacomprasanteriores {
 			Compra c = new Compra(pedido);
 			c.getEstadoLbl().setText("Pendiente");
 			c.getCancelarPedidoBtn().setVisible(true);
+			c._productosAdquiridos.getCancelarCompraBtn().setVisible(true);
+			for (Producto_Adquirido pa : c._productosAdquiridos._productoAdquirido) {
+				pa.getComEntarBtn().setVisible(false);
+			}
+			
 			_compra.add(c);
 			vl.add(c);
 		}
@@ -41,6 +46,7 @@ public class Compras extends VistaListacomprasanteriores {
 			Compra c = new Compra(pedido);
 			c.getEstadoLbl().setText("Entregado");
 			c.getCancelarPedidoBtn().setVisible(false);
+			c._productosAdquiridos.getCancelarCompraBtn().setVisible(false);
 			_compra.add(c);
 			vl.add(c);
 		}
@@ -49,6 +55,12 @@ public class Compras extends VistaListacomprasanteriores {
 			Compra c = new Compra(pedido);
 			c.getEstadoLbl().setText("Enviado");
 			c.getCancelarPedidoBtn().setVisible(false);
+			c._productosAdquiridos.getCancelarCompraBtn().setVisible(true);
+			
+			for (Producto_Adquirido pa : c._productosAdquiridos._productoAdquirido) {
+				pa.getComEntarBtn().setVisible(false);
+			}
+			
 			_compra.add(c);
 			vl.add(c);
 		}	

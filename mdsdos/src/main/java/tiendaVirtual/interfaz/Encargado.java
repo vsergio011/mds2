@@ -100,15 +100,13 @@ public class Encargado extends VistaEncargado {
 				AddListenerButtons();
 			}
 		});
-		_listadoCompras.getFiltrarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
+		_listadoCompras.getBtnAll().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
 			@Override
 			public void onComponentEvent(ClickEvent<Button> event) {
-				if (!_listadoCompras.getInputSearch().getValue().isEmpty()) {
-					_listadoCompras._elementoPedido.clear();
-					_listadoCompras.filterText();
-					_listadoCompras.resetView();
-					AddListenerButtons();
-				}
+				_listadoCompras._elementoPedido.clear();
+				_listadoCompras.clearFilters();
+				_listadoCompras.resetView();
+				AddListenerButtons();
 			}
 		});
 	}

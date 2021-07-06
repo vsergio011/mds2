@@ -32,10 +32,16 @@ public class Listado_de_Compras__Encargado_ extends VistaEncargadolistadodecompr
 		resetView();
 	}
 	
+	public void clearFilters() {
+		filterPendientes();
+		filterEnviados();
+		filterEntregados();
+	}
+	
 	public void filterPendientes() {
 		for (Pendiente pedido : encargado.listadoComprasPendientes()) {
 			Elemento_Pedido__Encargado_ elemento = new Elemento_Pedido__Encargado_(pedido);
-			elemento.getPedidoBtnn().setText(pedido.getId() + " : " + "Pendiente");
+			elemento.getPedidoBtnn().setText(pedido.getId() + " : " + "Pendiente || " + pedido.getCibernauta().getNombre() + " || " + pedido.getTotal() + "€");
 			_elementoPedido.add(elemento);
 		}
 	}
@@ -43,7 +49,7 @@ public class Listado_de_Compras__Encargado_ extends VistaEncargadolistadodecompr
 	public void filterEnviados() {
 		for (appventawebbd.Enviado pedido : encargado.listadoComprasEnviadas()) {
 			Elemento_Pedido__Encargado_ elemento = new Elemento_Pedido__Encargado_(pedido);
-			elemento.getPedidoBtnn().setText(pedido.getId() + " : " + "Enviado");
+			elemento.getPedidoBtnn().setText(pedido.getId() + " : " + "Enviado || " + pedido.getCibernauta().getNombre() + " || " + pedido.getTotal() + "€");
 			_elementoPedido.add(elemento);
 		}
 	}
@@ -51,24 +57,8 @@ public class Listado_de_Compras__Encargado_ extends VistaEncargadolistadodecompr
 	public void filterEntregados() {
 		for (appventawebbd.Entregado pedido : encargado.listadoComprasEntregadas()) {
 			Elemento_Pedido__Encargado_ elemento = new Elemento_Pedido__Encargado_(pedido);
-			elemento.getPedidoBtnn().setText(pedido.getId() + " : " + "Recibido");
+			elemento.getPedidoBtnn().setText(pedido.getId() + " : " + "Entregado || " + pedido.getCibernauta().getNombre() + " || " + pedido.getTotal() + "€");
 			_elementoPedido.add(elemento);
-		}
-	}
-	
-	public void filterText() {
-		String text = this.getInputSearch().getValue();
-		if (text.isEmpty()) {
-			return;
-		}
-		
-		filterPendientes();
-		filterEnviados();
-		filterEntregados();
-		for (Elemento_Pedido__Encargado_ elemento : _elementoPedido) {
-			if (!elemento.getPedidoBtnn().getText().contains(text)) {
-				_elementoPedido.remove(elemento);
-			}
 		}
 	}
 	
@@ -76,7 +66,6 @@ public class Listado_de_Compras__Encargado_ extends VistaEncargadolistadodecompr
 		VerticalLayout vl = this.getcontenedorPedidos();
 		vl.removeAll();
 		for (Elemento_Pedido__Encargado_ elemento : _elementoPedido) {
-			System.out.println("AQKI ANDAMIEO : ");
 			vl.add(elemento);
 		}
 	}

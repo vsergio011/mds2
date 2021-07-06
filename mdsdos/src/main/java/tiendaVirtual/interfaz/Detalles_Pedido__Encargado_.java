@@ -1,8 +1,10 @@
 package tiendaVirtual.interfaz;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import Helpers.Notifications.NotificationType;
 import basededatos.BDPrincipal;
 import basededatos.iEncargado;
 
@@ -17,6 +19,10 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 	public void Enviado() {
 		iEncargado encargado = new BDPrincipal();
 		encargado.AddPedidoEnviado(pedido.getId());
+		this.getCheckEnviado().setValue(true);
+
+		Helpers.Notifications.ShowAlert("Producto enviado con éxito. Se asignará el transportista que mejor convenga para el destino", NotificationType.INFORMATION);
+		UI.getCurrent().getPage().reload();
 	}
 	
 	public Detalles_Pedido__Encargado_(appventawebbd.Pendiente pedido) {
@@ -30,6 +36,9 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		
 		this.getAprobarBtn().setVisible(true);
 		this.getRecibidoBtn().setVisible(false);
+		
+		this.getTitleTransportista().setVisible(false);
+		this.getLabel().setVisible(false);
 		
 		fillData(pedido);
 	}
@@ -45,13 +54,13 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		this.getAprobarBtn().setVisible(false);
 		this.getRecibidoBtn().setVisible(false);
 		
-		fillData(pedido);
+		fillData(pedido, pedido.getTransportistaEnvio());
 	}
 
 	public Detalles_Pedido__Encargado_(appventawebbd.Entregado pedido) {
 		this.pedido = pedido;
 		
-		this.getCheckEnviado().setValue(false);
+		this.getCheckEnviado().setValue(true);
 		this.getCheckEnviado().setReadOnly(true);
 		this.getCheckRecibido().setValue(true);
 		this.getCheckRecibido().setReadOnly(true);
@@ -59,7 +68,15 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		this.getAprobarBtn().setVisible(false);
 		this.getRecibidoBtn().setVisible(false);
 		
+		this.getTitleTransportista().setVisible(false);
+		this.getLabel().setVisible(false);
+		
 		fillData(pedido);
+	}
+	
+	private void fillData(appventawebbd.Pedido pedido, appventawebbd.Transportista transportista) {
+		fillData(pedido);
+		this.getLabel().setText(transportista.getId() + ". " + transportista.getNombre() + " " + transportista.getApellidos());
 	}
 	
 	private void fillData(appventawebbd.Pedido pedido) {
@@ -67,6 +84,7 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		this.getLbDatosComprador().setText(pedido.getCibernauta().getNombre() + " " + pedido.getCibernauta().getApellidos());
 		this.getLbDireccionComprador().setText(pedido.getCibernauta().getDireccionCompleta());
 		this.getLbFechaPedido().setText(pedido.getFechaPedido());
+		this.getFormaPagoValueLbl().setText(pedido.getFormaPago());
 		
 		VerticalLayout vl = this.getContenedorProductos().as(VerticalLayout.class);
 		

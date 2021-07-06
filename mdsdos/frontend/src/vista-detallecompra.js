@@ -18,8 +18,8 @@ class VistaDetallecompra extends PolymerElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;">
  <vaadin-horizontal-layout theme="spacing" style="width: 90%; padding: var(--lumo-space-m); align-self: center;">
   <vaadin-vertical-layout theme="spacing" style="width: 100%;">
-   <label style="font-weight: bold; flex-grow: 0;" id="label">Fecha de Pedido</label>
-   <label id="idPedido" style="flex-grow: 0;">ID:</label>
+   <label style="font-weight: bold; flex-grow: 0;" id="label"></label>
+   <label id="idPedido" style="flex-grow: 0;"></label>
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout style="justify-content: space-between; flex-grow: 0; width: 90%;">
    <vaadin-button id="cancelarCompraBtn">

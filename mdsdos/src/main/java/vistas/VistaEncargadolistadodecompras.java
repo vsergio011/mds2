@@ -29,18 +29,15 @@ public class VistaEncargadolistadodecompras extends PolymerTemplate<VistaEncarga
 	@Id("btnRecibido")
 	private Button btnRecibido;
 	
-	@Id("btnFecha")
-	private Button btnFecha;
-	
-	@Id("inputdate")
-	private DatePicker inputdate;
-	
-	@Id("inputSearch")
-	private TextField inputSearch;
-	
 	@Id("contenedorPedidos")
 	private VerticalLayout contenedorPedidos;
 
+	@Id("btnAll")
+	private Button btnAll;
+
+	public Button getBtnAll() {
+		return btnAll;
+	}
 	public Button getBtnNuevo() {
 		return btnNuevo;
 	}
@@ -50,25 +47,9 @@ public class VistaEncargadolistadodecompras extends PolymerTemplate<VistaEncarga
 	public Button getBtnRecibido() {
 		return btnRecibido;
 	}
-	public Button getBtnFecha() {
-		return btnFecha;
-	}
-	public DatePicker getInputdate() {
-		return inputdate;
-	}
-	public TextField getInputSearch() {
-		return inputSearch;
-	}
 	public VerticalLayout getContenedorPedidos() {
 		return contenedorPedidos;
-	}
-	public Button getFiltrarBtn() {
-		return filtrarBtn;
-	}
-
-	@Id("filtrarBtn")
-	private Button filtrarBtn;
-	
+	}	
 	public Button getbtnNuevo() {
 		return btnNuevo;
 	}
@@ -77,19 +58,7 @@ public class VistaEncargadolistadodecompras extends PolymerTemplate<VistaEncarga
 	}
 	public Button getbtnRecibido() {
 		return btnRecibido;
-	}
-	public Button getbtnFecha() {
-		return btnFecha;
-	}
-	
-	public DatePicker getinputdate() {
-		return inputdate;
-	}
-	
-	public TextField getinputSearch() {
-		return inputSearch;
-	}
-	
+	}	
 	public VerticalLayout getcontenedorPedidos() {
 		return contenedorPedidos;
 	}

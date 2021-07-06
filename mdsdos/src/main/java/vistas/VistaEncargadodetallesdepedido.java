@@ -44,6 +44,24 @@ public class VistaEncargadodetallesdepedido extends PolymerTemplate<VistaEncarga
 	private Button recibidoBtn;
 	@Id("formapagoLbl")
 	private Label formapagoLbl;
+	@Id("label")
+	private Label label;
+	@Id("formaPagoValueLbl")
+	private Label formaPagoValueLbl;
+	@Id("titleTransportista")
+	private Label titleTransportista;
+
+	public Label getTitleTransportista() {
+		return titleTransportista;
+	}
+
+	public Label getLabel() {
+		return label;
+	}
+
+	public Label getFormaPagoValueLbl() {
+		return formaPagoValueLbl;
+	}
 
 	public Label getFormapagoLbl() {
 		return formapagoLbl;

@@ -27,8 +27,7 @@ public class Productos_Adquiridos extends VistaDetallecompra {
 		}
 		
 		this.getTotal().setValue(pedido.getTotal() + " €");
-		this.getCancelarCompraBtn().setEnabled(false);
 		this.getLabel().setText(pedido.getFechaPedido());
 		this.getIdPedido().setText("ID: " + pedido.getId());
-	}	
+	}
 }

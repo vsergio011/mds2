@@ -22,14 +22,17 @@ class VistaEncargadodetallesdepedido extends PolymerElement {
   <label style="font-weight:bold;color:white">Detalles Del pedido</label>
   <vaadin-vertical-layout theme="spacing" style="width: 80%;color:white">
    <label style="width: 100%;">ID</label>
-   <label id="identificadorLbl" style="color:white; margin: var(--lumo-space-m);">123456</label>
+   <label id="identificadorLbl" style="color:white; margin: var(--lumo-space-m);"></label>
    <label style="width: 100%;">Comprador</label>
-   <label id="lbDatosComprador" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);"> Nombre y apellidos</label>
+   <label id="lbDatosComprador" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);"></label>
    <label style="width: 100%;">Direccion</label>
-   <label id="lbDireccionComprador" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);">Direccion del comprador</label>
+   <label id="lbDireccionComprador" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);"></label>
    <label style="width: 100%;">Fecha de pedido</label>
-   <label id="lbFechaPedido" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);">Fecha de pedido</label>
+   <label id="lbFechaPedido" style="width: 100%; flex-grow: 1; margin: var(--lumo-space-m);"></label>
    <label id="formapagoLbl" style="width: 100%;">Forma de pago </label>
+   <label id="formaPagoValueLbl" style="margin: var(--lumo-space-m); width: 100%;"></label>
+   <label style="width: 100%;" id="titleTransportista">Transportista asignado</label>
+   <label id="label" style="width: 100%; margin: var(--lumo-space-m);"></label>
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="color:white">
    <vaadin-checkbox id="checkEnviado" style="background-color: #d8a626;">
@@ -40,10 +43,10 @@ class VistaEncargadodetallesdepedido extends PolymerElement {
    </vaadin-checkbox>
   </vaadin-horizontal-layout>
   <vaadin-button id="aprobarBtn" style="align-self: center;color:white;background-color:#374453">
-    Enviado 
+    Aprobar 
   </vaadin-button>
   <vaadin-button id="recibidoBtn" style="align-self: center;color:white;background-color:#374453">
-    Recibido 
+    Pedido recibido 
   </vaadin-button>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="width: 100%; margin: var(--lumo-space-xl); background-color:#f5f5f5; margin-left: 0;">
