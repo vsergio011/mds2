@@ -88,16 +88,20 @@ public class Detalles_Pedido__Encargado_ extends Detalles_Pedido {
 		
 		VerticalLayout vl = this.getContenedorProductos().as(VerticalLayout.class);
 		
-		double precioTotal = 0;
 		BDPrincipal bd = new BDPrincipal();
 		for (appventawebbd.Item item : bd.getItemsPedido(pedido.getId())) {
 			Label label = new Label();
-			precioTotal += item.getCantidad() * item.getProducto().getPrecio();
-			label.setText("Producto ID: " + item.getProducto().getId() + ", Cantidad: " + item.getCantidad() + ", Precio unidad: " + item.getProducto().getPrecio() + "€");
+			
+			appventawebbd.Oferta oferta = bd.estaEnOferta(item.getProducto().getId());
+			String precioUnidad = ", Precio unidad: " + item.getProducto().getPrecio() + "€";
+			if (oferta != null) {
+				precioUnidad = ", Precio unidad: " + oferta.getPrecio() + "€";
+			}
+			label.setText("Producto ID: " + item.getProducto().getId() + ", Cantidad: " + item.getCantidad() + precioUnidad);
 			label.setWidthFull();
 			vl.add(label);
 		}
 		
-		this.getTextTotal().setValue(precioTotal + " €");
+		this.getTextTotal().setValue(pedido.getTotal() + " €");
 	}
 }

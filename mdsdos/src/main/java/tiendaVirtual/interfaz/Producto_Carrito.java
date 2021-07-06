@@ -1,5 +1,7 @@
 package tiendaVirtual.interfaz;
 
+import basededatos.BDPrincipal;
+
 public class Producto_Carrito extends Producto_Pedido {
 	// private event _quitar_de_Lista;
 	// private event _cantidad;
@@ -22,7 +24,14 @@ public class Producto_Carrito extends Producto_Pedido {
 		
 		this.getPrecioUnidadLbl().setText("Precio unidad: " + p.getPrecio() + " €");
 		this.getPrecioEurosLbl().setText("Precio total: " + p.getPrecio() * cantidad + " €");
-		if (precio > 0) {
+		
+		BDPrincipal bd = new BDPrincipal();
+		
+		appventawebbd.Oferta oferta = bd.estaEnOferta(p.getId());
+		if (oferta != null) {
+			this.precioOferta = oferta.getPrecio();
+		}
+		if (this.precioOferta > 0) {
 			this.getPrecioUnidadLbl().setText("Precio unidad (antes): " + p.getPrecio() + " €" + " - Ahora: " + this.precioOferta + "€");
 			this.getPrecioEurosLbl().setText("Precio total: " + this.precioOferta * cantidad + " €");
 		}
