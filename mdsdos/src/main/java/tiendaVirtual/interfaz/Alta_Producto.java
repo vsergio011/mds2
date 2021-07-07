@@ -12,6 +12,7 @@ import java.util.Vector;
 
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.upload.Upload;
@@ -200,6 +201,7 @@ public class Alta_Producto extends VistaAltaproducto{
 		Helpers.Notifications.ShowAlert("Producto añadido con exito.", NotificationType.INFORMATION);
 		
 		this.clearView();
+		UI.getCurrent().getPage().reload();
 	}
 	
 	private void clearView() {
@@ -209,7 +211,10 @@ public class Alta_Producto extends VistaAltaproducto{
 		this.getVaadinTextArea().clear();
 		this.imagenesUrl.clear();
 		this.selected = null;
+		
 		multiFileMemoryBuffer = new MultiFileMemoryBuffer();
 		upload = new Upload(multiFileMemoryBuffer);
+		
+		this.gethorizontalLYUpImg().add(upload);
 	}
 }
