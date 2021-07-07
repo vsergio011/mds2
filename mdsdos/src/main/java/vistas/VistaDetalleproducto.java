@@ -25,6 +25,10 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 	private Image img;
 	@Id("descriptionLabel")
 	private Label descriptionLabel;
+	public Label getTituloProductoLbl() {
+		return tituloProductoLbl;
+	}
+
 	public Image getImg() {
 		return img;
 	}
@@ -91,6 +95,8 @@ public class VistaDetalleproducto extends PolymerTemplate<VistaDetalleproducto.V
 	private Element lyimagenesLateral;
 	@Id("btnBorradoProducto")
 	private Button btnBorradoProducto;
+	@Id("tituloProductoLbl")
+	private Label tituloProductoLbl;
 
 	public Button getBtnBorradoProducto() {
 		return btnBorradoProducto;

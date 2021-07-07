@@ -43,7 +43,7 @@ public class Modificar_Producto extends Alta_Producto {
 	}
 	
 	public void fillProducto(appventawebbd.Producto producto) {
-		this.getInputTitulo().setValue(producto.getNombre());
+		this.getInputTitulo().setValue(producto.getNombre());		
 		this.getImg().setSrc(producto.getFotos());
 		this.getDescripcionInput().setValue(producto.getDescripcion());
 		this.getVaadinTextArea().setValue(producto.getDetalles());

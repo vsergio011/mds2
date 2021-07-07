@@ -14,9 +14,9 @@ class VistaNotificacion extends PolymerElement {
                 }
             </style>
 <vaadin-horizontal-layout class="content" style="width: 100%; height: 100%;">
- <label id="msgLbl" style="width: 40%;">Label</label>
- <label id="asuntoLbl" style="width: 25%;">Label</label>
- <label id="fechaLbl" style="width: 25%;">Label</label>
+ <label id="msgLbl" style="width: 40%;"></label>
+ <label id="asuntoLbl" style="width: 25%;"></label>
+ <label id="fechaLbl" style="width: 25%;"></label>
  <vaadin-checkbox id="vaadinCheckbox" style="width: 10%;"></vaadin-checkbox>
 </vaadin-horizontal-layout>
 `;

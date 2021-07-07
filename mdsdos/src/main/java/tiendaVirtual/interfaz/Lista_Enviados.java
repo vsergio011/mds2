@@ -9,6 +9,7 @@ public class Lista_Enviados extends Notificaciones {
 	static BDPrincipal bd = new BDPrincipal();
 	
 	public Lista_Enviados(appventawebbd.Usuario ciber) {
-		super(bd.getMensajesRecibidos(ciber.getId()));
+		super();
+		super.FillEnviados(ciber.getId());
 	}
 }

@@ -13,6 +13,7 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 		this.producto = p;
 		_verComentarios = new Ver_Comentarios_Ciber(p);
 		
+		this.getTituloProductoLbl().setText(producto.getNombre());
 		this.getImg().setSrc(p.getFotos());
 		this.getRateLabel().setText(String.format("Valoración media: %f/5", p.getValoracionMedia()));
 		this.getDescriptionLabel().setText(p.getDescripcion());
@@ -34,6 +35,7 @@ public class Detalle_Producto_Ciber extends Detalle_Producto {
 		_verComentarios = new Ver_Comentarios_Ciber(oferta.getProducto());
 		
 		appventawebbd.Producto pro = oferta.getProducto();
+		this.getTituloProductoLbl().setText(producto.getNombre());
 		this.getImg().setSrc(pro.getFotos());
 		this.getRateLabel().setText(String.format("Valoración media: %f/5", pro.getValoracionMedia()));
 		this.getDescriptionLabel().setText(pro.getDescripcion());

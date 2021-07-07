@@ -292,6 +292,7 @@ public class Administrador extends VistaCibernauta {
 				layout.removeAll();				
 				layout.add(_cabecera, detalle);	
 				detalle._modificar.GuardarProducto(pc.GetOferta().getProducto());
+				UI.getCurrent().getPage().reload();
 			}
 		});
 		detalle._quitarOferta.getCancelarBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {
@@ -405,6 +406,7 @@ public class Administrador extends VistaCibernauta {
 				layout.removeAll();
 				layout.add(_cabecera, pc._detalleProducto);	
 				detalle._modificar.GuardarProducto(pc.GetProducto());
+				UI.getCurrent().getPage().reload();
 			}
 		});
 		pc._detalleProducto.getAddOfferBtn().addClickListener(new ComponentEventListener<ClickEvent<Button>>() {

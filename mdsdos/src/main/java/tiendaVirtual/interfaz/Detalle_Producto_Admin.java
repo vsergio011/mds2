@@ -29,6 +29,7 @@ public class Detalle_Producto_Admin extends Detalle_Producto {
 		
 		appventawebbd.Producto pro = producto.getProducto();
 		this.getImg().setSrc(pro.getFotos());
+		this.getTituloProductoLbl().setText(pro.getNombre());
 		this.getRateLabel().setText(String.format("Valoración media: %f/5", pro.getValoracionMedia()));
 		this.getDescriptionLabel().setText(pro.getDescripcion());
 		

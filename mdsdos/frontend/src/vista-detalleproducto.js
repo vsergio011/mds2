@@ -20,6 +20,7 @@ class VistaDetalleproducto extends PolymerElement {
   <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;">
    <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0; height: 15%;">
     <label style="font-weight: bold; align-self: stretch; ">Título del producto</label>
+    <label id="tituloProductoLbl"></label>
     <label style="align-self: stretch;" id="rateLabel"></label>
    </vaadin-vertical-layout>
    <vaadin-horizontal-layout theme="spacing" style="height: 85%; width: 95;">

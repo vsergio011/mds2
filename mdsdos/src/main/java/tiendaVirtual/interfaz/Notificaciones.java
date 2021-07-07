@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import com.vaadin.flow.component.checkbox.Checkbox;
 
+import basededatos.BDPrincipal;
 import vistas.VistaNotificaciones;
 // import interfaz.Notificacion;
 // import interfaz.Titulo_Mensajes;
@@ -13,8 +14,18 @@ public class Notificaciones extends VistaNotificaciones{
 	public Vector<Notificacion> _notificacion = new Vector<Notificacion>();
 	public Vector<Titulo_Mensajes> _list_Titulo_Mensajes = new Vector<Titulo_Mensajes>();
 	
-	public Notificaciones(appventawebbd.Mensaje[] msg) {
-		for (appventawebbd.Mensaje m : msg) {
+	public Notificaciones() {}
+	
+	public void FillRecibidos(int idCibernauta) {
+		BDPrincipal bd = new BDPrincipal();
+		for (appventawebbd.Mensaje m : bd.getMensajesRecibidos(idCibernauta)) {
+			this._notificacion.add(new Notificacion(m));
+		}
+	}
+	
+	public void FillEnviados(int idCibernauta) {
+		BDPrincipal bd = new BDPrincipal();
+		for (appventawebbd.Mensaje m : bd.getMensajesEnviados(idCibernauta)) {
 			this._notificacion.add(new Notificacion(m));
 		}
 	}

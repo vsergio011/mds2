@@ -19,7 +19,7 @@ public class Notificacion extends VistaNotificacion {
 	public Notificacion(appventawebbd.Mensaje msg) {
 		this.msg = msg;
 		
-		this.getAsuntoLbl().setText(msg.getAsunto());
-		this.getMsgLbl().setText(msg.getCuerpo());
+		this.getAsuntoLbl().setText("Asunto: " + msg.getAsunto());
+		this.getMsgLbl().setText("Mensaje: " + msg.getCuerpo());
 	}	
 }
